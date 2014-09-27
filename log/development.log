@@ -4,3 +4,30 @@ Started GET "/" for 127.0.0.1 at 2014-09-27 15:40:19 -0700
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/kevinwu/.rvm/gems/ruby-2.1.2@rails_decal/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
 Completed 200 OK in 17ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-27 15:52:51 -0700
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 743ms (Views: 735.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-27 15:52:52 -0700
