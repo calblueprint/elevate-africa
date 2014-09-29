@@ -1,0 +1,78 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  width: 100%;
+  height: 75px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#banner {
+  width: 100%;
+  height: 650px;
+  float: left;
+  background: url(https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10653634_10152728115048910_5112779513076691130_n.jpg?oh=462ad36b780f6d9d61c9f9602e3d1d7f&oe=54BB0751&__gda__=1421306372_9f026c3723e49980395e8089925d33d1);
+  background-size: cover;
+  background-position: 0 -125px;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  padding: 12px;
+  color: white;
+  background-color: #57c3ca;
+  transition: 1s;
+}
+
+.button:hover {
+  background-color: #218689;
+  cursor: pointer;
+
+}
+
+#donate {
+  width: 100px;
+  float: right;
+}
+
+#header {
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  margin-top: 250px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 650px;
+  background: black;
+  opacity: 0.4;
+}
+
+#header-button {
+  width: 300px;
+  text-align: center;
+  font-size: 48px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
