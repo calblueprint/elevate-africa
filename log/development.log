@@ -2410,3 +2410,63 @@ Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-09-29 13:46:1
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-29 13:46:14 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 21:05:52 -0700
+DEPRECATION WARNING: Passing a string to ActiveRecord::Base.establish_connection for a configuration lookup is deprecated, please pass a symbol (:postgresql) instead. (called from service at /Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138)
+DEPRECATION WARNING: Passing a string to ActiveRecord::Base.establish_connection for a configuration lookup is deprecated, please pass a symbol (:postgresql) instead. (called from service at /Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138)
+DEPRECATION WARNING: Passing a string to ActiveRecord::Base.establish_connection for a configuration lookup is deprecated, please pass a symbol (:postgresql) instead. (called from service at /Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138)
+
+ActiveRecord::AdapterNotSpecified - 'postgresql' database is not configured. Available: ["development", "    adapter", "    database", "    host", "    username", "    pool", "    timeout", "test"]:
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:257:in `resolve_symbol_connection'
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:240:in `resolve_string_connection'
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:226:in `resolve_connection'
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:152:in `resolve'
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:164:in `block in resolve_all'
+  activerecord (4.1.5) lib/active_record/connection_adapters/connection_specification.rb:163:in `resolve_all'
+  activerecord (4.1.5) lib/active_record/connection_handling.rb:69:in `resolve'
+  activerecord (4.1.5) lib/active_record/core.rb:46:in `configurations='
+  activerecord (4.1.5) lib/active_record/railtie.rb:128:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.5) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.5) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.5) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.5) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.5) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/charlesx/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70239124586640/variables" for 127.0.0.1 at 2014-10-05 21:05:52 -0700
