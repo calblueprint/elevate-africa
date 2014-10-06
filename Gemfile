@@ -25,13 +25,17 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Authentication
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 
 # Pagination
 gem 'kaminari'
 
 # Database
-gem 'pg'
+gem 'pg', '~> 0.17.1'
+
+
+# Store ENV variables
+gem 'figaro', '~> 1.0.0'
 
 group :development do
   gem 'better_errors', '~> 1.1.0'
