@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class Post < ActiveRecord::Base
+class Buzz < ActiveRecord::Base
   belongs_to :admin
 
   validates_presence_of :title, :subtitle, :content
