@@ -2446,3 +2446,69 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 20:56:33 -0700
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 217ms (Views: 185.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/home_test.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/general.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:35 -0700
+
+
+Started GET "/about" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 78ms (Views: 77.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/general.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/home_test.css?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:36 -0700
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-10-05 20:56:37 -0700
