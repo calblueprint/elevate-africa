@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore database mixups
-/config/database.yml
+config/database.yml
 
 # Ignore custom rake file
 /lib/database.rake
