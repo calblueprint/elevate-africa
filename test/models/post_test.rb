@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  content    :text
-#  user_id    :integer
+#  admin_id   :integer
 #  video_link :string(255)
 #  title      :string(255)
 #  subtitle   :string(255)

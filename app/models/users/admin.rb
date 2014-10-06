@@ -26,4 +26,6 @@ class Admin < User
   def is_admin?
     true
   end
+
+  has_many :posts
 end
