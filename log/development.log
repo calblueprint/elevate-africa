@@ -2410,3 +2410,39 @@ Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-09-29 13:46:1
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-29 13:46:14 -0700
+  [1m[36m (107.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (29.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (7.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 20:36:50 -0700
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 1615ms (Views: 1583.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/general.css?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/home_test.css?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-05 20:36:52 -0700
