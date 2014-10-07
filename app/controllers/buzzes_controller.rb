@@ -5,6 +5,10 @@ class BuzzesController < ApplicationController
     @buzzes = Buzz.all
   end
 
+  def show
+    @buzz = Buzz.find params[:id]
+  end
+
   def new
     @buzz = Buzz.new
   end
@@ -19,7 +23,7 @@ class BuzzesController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @buzz = Buzz.find params[:id]
   end
 
