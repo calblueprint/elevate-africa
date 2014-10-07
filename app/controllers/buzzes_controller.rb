@@ -23,6 +23,11 @@ class BuzzesController < ApplicationController
     @buzz = Buzz.find params[:id]
   end
 
+  def destroy
+    Buzz.find(params[:id]).destroy
+    flash[:success] = "Sucessfully destroyed buzz post!"
+  end
+
   private
 
   def authenticate_admin!
