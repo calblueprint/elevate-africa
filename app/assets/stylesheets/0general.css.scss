@@ -1,0 +1,126 @@
+@import "variables.css.scss";
+
+/* Resets the shitty beginning margins and makes $black our main color */
+body {
+  margin: 0;
+  padding: 0;
+  color: $black;
+}
+
+/* Resets the shitty beginning settings for various text tags and makes $black the main color */
+h1, h2, h3, h4, h5, h6, p, a, input, button {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: none;
+  color: $black;
+}
+
+/* box-sizing: border-box is the shit. It makes it so that width and height remain constant even if you add padding and border */
+* {
+  box-sizing: border-box;
+}
+
+/* the main header styling */
+h1 {
+  font: $h1;
+  letter-spacing: 4px;
+  line-height: 84px;
+  color: $primary-color;
+}
+
+/* the main subtitle styling */
+h2 {
+  font: $h2;
+  color: $dark-gray;
+}
+
+/* the main body styling */
+p {
+  padding-top: 36px;
+  font: $p;
+  line-height: 32px;
+}
+
+/* various containers */
+.wide-container, .medium-container, .small-container {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+/* use this for banners and screen-wide content */
+.wide-container {
+  width: 100%;
+}
+
+.medium-container {
+  width: 1000px;
+}
+
+/* use this for body text */
+.small-container {
+ width: 600px;
+}
+
+/* use this to add padding to containers */
+.padding {
+  padding: 100px 25px 100px 25px;
+}
+
+/* adds a color top border */
+.border-top {
+  border-top: 5px solid $secondary-color;
+}
+
+/* adds a color bottom border */
+.border-bottom {
+  border-bottom: 5px solid $secondary-color;
+}
+
+/* elements with these classes only show on medium or small screens */
+.show-medium, .show-small {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .medium-container {
+    width: 100%;
+  }
+
+  /* elements with this class hide themselves on medium or smaller screens */
+  .hide-medium {
+    display: none;
+  }
+
+  .show-medium {
+    display: initial;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 84px;
+    line-height: 72px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .small-container {
+    width: 100%;
+  }
+
+  /* elements with this class hide themselves on small screens */
+  .hide-small {
+    display: none;
+  }
+
+  .show-small {
+    display: initial;
+  }
+}

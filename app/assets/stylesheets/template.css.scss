@@ -1,0 +1,17 @@
+/* Import the variables for the general theme */
+@import "variables.css.scss";
+
+#template-banner {
+  background: url(https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10653634_10152728115048910_5112779513076691130_n.jpg?oh=462ad36b780f6d9d61c9f9602e3d1d7f&oe=54BB0751&__gda__=1421306372_9f026c3723e49980395e8089925d33d1);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+@media (max-width: 1000px) {
+  /* Adaptations for medium-sized screens */
+}
+
+@media (max-width: 600px) {
+  /* Adaptations for small-sized screens */
+}

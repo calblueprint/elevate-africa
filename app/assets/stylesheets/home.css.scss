@@ -1,0 +1,38 @@
+@import "variables.css.scss";
+
+#home-banner {
+  background: url(asset_path("elephants.jpg"));
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  margin-top: -49px;
+}
+
+#home-arrow {
+  margin: auto;
+  margin-top: -51px;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-right: 6px solid $secondary-color;
+  border-bottom: 6px solid $secondary-color;
+}
+
+#home-family {
+  position: absolute;
+  top: 210px;
+  right: 150px;
+  width: 200px;
+  height: 200px;
+  background: url(asset_path("family.svg"));
+  background-size: cover;
+}
+
+@media (max-width: 1000px) {
+}
+
+@media (max-width: 600px) {
+}
