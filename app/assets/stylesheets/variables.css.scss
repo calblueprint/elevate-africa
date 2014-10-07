@@ -1,4 +1,12 @@
-$h1: normal 108px ostrichsans-heavy, sans-serif;
+@font-face {
+    font-family: 'Ostrich Sans Heavy';
+    src: url("ostrichsans-heavy-webfont.eot");
+    src: url("ostrichsans-heavy-webfont.woff") format('woff'), url("ostrichsans-heavy-webfont.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$h1: normal 108px Ostrich Sans Heavy, sans-serif;
 $h2: 300 48px Lato, sans-serif;
 $p: normal 16px Bitter, serif;
 $primary-color: #FFC953;
