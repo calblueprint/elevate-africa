@@ -1,0 +1,22 @@
+@import "variables.css.scss";
+
+#home-banner {
+  background: url(asset_path("elephants.jpg"));
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  margin-top: -49px;
+}
+
+#home-arrow {
+  margin: auto;
+  margin-top: -51px;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-right: 6px solid $secondary-color;
+  border-bottom: 6px solid $secondary-color;
+}
