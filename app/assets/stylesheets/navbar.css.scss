@@ -1,0 +1,125 @@
+@import "variables.css.scss";
+
+#navbar {
+  width: 100%;
+  height: 69px;
+  background: #fff;
+  border-bottom: 1px solid $light-gray;
+}
+
+#navbar-container {
+  position: fixed;
+  z-index: 69;
+  top: 0;
+  width: 100%;
+  height: 130px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#navbar-show {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: 75px;
+  z-index: 69;
+  background: url(asset_path("menu.svg"));
+  background-size: cover;
+}
+
+.navbar-spacer {
+  width: 100%;
+  height: 69px;
+}
+
+#navbar-home {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 182px;
+  height: 130px;
+  background: url(asset_path("logo-horizontal.svg"));
+  background-size: cover;
+}
+
+.navbar-tab {
+  float: right;
+  display: block;
+  margin: 10px;
+  padding: 15px 20px 15px 20px;
+  font: $h2;
+  font-size: 16px;
+  font-weight: 700;
+  color: $light-gray;
+}
+
+.navbar-tab:hover {
+  color: $dark-gray;
+}
+
+.navbar-highlight {
+  background: $primary-color;
+  padding: 15px 26px 15px 26px;
+  color: #fff;
+}
+
+.navbar-highlight:hover {
+  background: $secondary-color;
+  color: #fff;
+}
+
+#navbar-menu {
+  position: fixed;
+  z-index: 70;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: #fff;
+  border-left: 1px solid $light-gray;
+}
+
+#navbar-outside {
+  position: fixed;
+  z-index: 69;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+@media (max-width: 1000px) {
+  .navbar-spacer {
+    height: 40px;
+  }
+
+  .navbar-tab {
+    margin: 0;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+  }
+
+  .navbar-tab:hover {
+    color: $light-gray;
+  }
+
+  .navbar-highlight {
+    width: 160px;
+    padding: 20px;
+    margin: 30px 20px 10px 20px;
+    color: #fff;
+  }
+
+  .navbar-highlight:hover {
+    background: $primary-color;
+    color: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+}

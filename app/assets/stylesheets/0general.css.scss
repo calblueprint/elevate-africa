@@ -20,28 +20,6 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
   box-sizing: border-box;
 }
 
-#navbar {
-  width: 100%;
-  height: 69px;
-  background: #fff;
-  border-bottom: 1px solid $light-gray;
-}
-
-#navbar-container {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  width: 100%;
-  height: 130px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.navbar-spacer {
-  width: 100%;
-  height: 69px;
-}
-
 h1 {
   font: $h1;
   letter-spacing: 4px;
@@ -56,42 +34,6 @@ h2 {
 
 p {
   font: $p;
-}
-
-#home {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 182px;
-  height: 130px;
-  background: url(asset_path("logo-horizontal.svg"));
-  background-size: cover;
-}
-
-.tab {
-  float: right;
-  display: block;
-  margin: 10px;
-  padding: 15px 20px 15px 20px;
-  font: $h2;
-  font-size: 16px;
-  font-weight: 700;
-  color: $light-gray;
-}
-
-.tab:hover {
-  color: $dark-gray;
-}
-
-.highlight {
-  background: $primary-color;
-  padding: 15px 26px 15px 26px;
-  color: #fff;
-}
-
-.highlight:hover {
-  background: $secondary-color;
-  color: #fff;
 }
 
 .wide-container, .medium-container, .small-container {
@@ -124,6 +66,10 @@ p {
   border-bottom: 5px solid $secondary-color;
 }
 
+.show-medium, .show-small {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .medium-container {
     width: 100%;
@@ -131,6 +77,10 @@ p {
 
   .hide-medium {
     display: none;
+  }
+
+  .show-medium {
+    display: initial;
   }
 }
 
@@ -151,5 +101,9 @@ p {
 
   .hide-small {
     display: none;
+  }
+
+  .show-small {
+    display: initial;
   }
 }

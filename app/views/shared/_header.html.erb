@@ -1,11 +1,20 @@
 <div id="navbar-container" onmouseover="navReveal()" onmouseout="navHide()">
   <div class="hide-medium" id="navbar">
-    <a id="home" href="#"></a>
-    <a class="tab highlight" href="#"> DONATE </a>
-    <a class="tab" href="#"> CONTACT </a>
-    <a class="tab" href="#"> BUZZ </a>
-    <a class="tab" href="#"> CAMPAIGN </a>
-    <a class="tab" href="#"> ABOUT </a>
+    <a id="navbar-home" href="#"></a>
+    <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
+    <a class="navbar-tab" href="#"> CONTACT </a>
+    <a class="navbar-tab" href="#"> BUZZ </a>
+    <a class="navbar-tab" href="#"> CAMPAIGN </a>
+    <a class="navbar-tab" href="#"> ABOUT </a>
   </div>
 </div>
-<div class="navbar-spacer hide-medium"></div>
+<div class="navbar-spacer"></div>
+<div class="show-medium" id="navbar-show" onclick="navRevealMobile()"></div>
+<div class="show-medium" id="navbar-outside" onclick="navHideMobile()"></div>
+<div class="show-medium" id="navbar-menu">
+  <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
+  <a class="navbar-tab" href="#"> ABOUT </a>
+  <a class="navbar-tab" href="#"> CAMPAIGN </a>
+  <a class="navbar-tab" href="#"> BUZZ </a>
+  <a class="navbar-tab" href="#"> CONTACT </a>
+</div>
