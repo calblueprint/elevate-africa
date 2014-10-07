@@ -2,6 +2,7 @@ class BuzzesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :destroy]
 
   def index
+    @buzzes = Buzz.all
   end
 
   def new
