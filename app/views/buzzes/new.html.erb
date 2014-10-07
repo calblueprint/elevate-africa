@@ -1,8 +1,2 @@
-<%= simple_form_for @buzz do |f| %>
-  <%= f.input :title, label: "Headline" %>
-  <%= f.input :subtitle, label: "Subhead" %>
-  <%= f.input :content %>
-  <%= f.input :video_link, label: "Embed Youtube Video (optional)" %>
-  <!-- Add Image here! -->
-  <%= f.submit "Create Post!" %>
-<% end %>
+<h1>Create a Blog Post!</h1>
+<%= render 'buzzes/blog_form', buzz: @buzz %>
