@@ -17,7 +17,7 @@ class BuzzesController < ApplicationController
     @buzz = Buzz.new buzz_params
     if @buzz.save
       flash[:success] = "You've created a buzz post!"
-      redirect_to buzzes_path
+      redirect_to buzz_path @buzz
     else
       render 'new'
     end
@@ -25,6 +25,16 @@ class BuzzesController < ApplicationController
 
   def edit
     @buzz = Buzz.find params[:id]
+  end
+
+  def update
+    @buzz = Buzz.find params[:id]
+    if @buzz.update_attributes(buzz_params)
+      flash[:success] = "You've updated a buzz post!"
+      redirect_to buzz_path @buzz
+    else
+      render 'edit'
+    end
   end
 
   def destroy
