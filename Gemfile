@@ -33,6 +33,8 @@ gem 'kaminari'
 # Database
 gem 'pg', '~> 0.17.1'
 
+# Form
+gem 'simple_form', '~> 3.0.2'
 
 # Store ENV variables
 gem 'figaro', '~> 1.0.0'
