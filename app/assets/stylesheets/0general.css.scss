@@ -135,6 +135,16 @@ p {
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 84px;
+    line-height: 72px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
   .small-container {
     width: 100%;
   }
