@@ -23,13 +23,14 @@
 #
 
 class User < ActiveRecord::Base
+  EMAIL_PATTERN = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { with: EMAIL_PATTERN }, uniqueness: true, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  EMAIL_PATTERN = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
-  validates_presence_of :first_name, :last_name, :email, :username
-  validates :email, format: { with: EMAIL_PATTERN }, uniqueness: true
 end
