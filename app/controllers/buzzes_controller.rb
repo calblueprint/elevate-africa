@@ -26,6 +26,7 @@ class BuzzesController < ApplicationController
   def destroy
     Buzz.find(params[:id]).destroy
     flash[:success] = "Sucessfully destroyed buzz post!"
+    redirect_to buzzes_path
   end
 
   private
