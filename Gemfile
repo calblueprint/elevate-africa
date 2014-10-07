@@ -39,6 +39,9 @@ gem 'simple_form', '~> 3.0.2'
 # Store ENV variables
 gem 'figaro', '~> 1.0.0'
 
+# Upload pictures
+gem "paperclip", "~> 4.2"
+
 group :development do
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
