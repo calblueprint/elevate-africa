@@ -3,6 +3,7 @@
   <%= f.input :subtitle, label: "Subhead" %>
   <%= f.input :content %>
   <%= f.input :video_link, label: "Embed Youtube Video (optional)" %>
+  <%= f.hidden_field :admin_id, value: current_user.id %>
   <!-- Add Image here! -->
   <%= f.submit "Create Post!" %>
 <% end %>
