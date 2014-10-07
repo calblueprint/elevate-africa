@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get 'about' => 'static_pages#about'
   get 'campaign' => 'static_pages#campaign'
+  get 'template' => 'static_pages#template'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
