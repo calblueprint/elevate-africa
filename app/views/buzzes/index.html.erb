@@ -1,5 +1,7 @@
 <div class="wide-container padding">
-  <%= link_to "Create Blog Post", new_buzz_path %>
+  <% if valid_admin? %>
+    <%= link_to "Create Blog Post", new_buzz_path %>
+  <% end %>
 </div>
 <% @buzzes.each do |buzz| %>
   <%= link_to "#{buzz.headline}", buzz_path(buzz) %>
