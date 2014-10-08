@@ -3,13 +3,14 @@
 # Table name: buzzes
 #
 #  id         :integer          not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
 #  content    :text
 #  admin_id   :integer
 #  video_link :string(255)
 #  headline   :string(255)
 #  subhead    :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  picture    :string(255)
 #
 
 class Buzz < ActiveRecord::Base

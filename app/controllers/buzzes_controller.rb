@@ -47,7 +47,7 @@ class BuzzesController < ApplicationController
 
   def authenticate_admin!
     if current_user.nil? || !current_user.is_admin?
-      flash[:error] = "You don't have acces to this page!"
+      flash[:error] = "You don't have access to this page!"
       redirect_to root_path
     end
   end
