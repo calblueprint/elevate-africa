@@ -18,4 +18,6 @@ class Buzz < ActiveRecord::Base
   validates :headline, presence: true
   validates :subhead, presence: true
   validates :content, presence: true
+
+  # mount_uploader :picture, PictureUploader
 end

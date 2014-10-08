@@ -1,6 +1,6 @@
-<%= link_to "Create Blog Post", new_buzz_path %>
-<h1>Hello</h1>
-
+<div class="wide-container padding">
+  <%= link_to "Create Blog Post", new_buzz_path %>
+</div>
 <% @buzzes.each do |buzz| %>
   <%= link_to "#{buzz.headline}", buzz_path(buzz) %>
 <% end %>

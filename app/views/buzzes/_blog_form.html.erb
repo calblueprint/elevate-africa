@@ -1,4 +1,4 @@
-<% if current_user && curren_user.is_admin? %>
+<% if current_user && current_user.is_admin? %>
   <%= simple_form_for buzz do |f| %>
     <%= f.input :headline %>
     <%= f.input :subhead %>
