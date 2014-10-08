@@ -39,8 +39,12 @@ gem 'simple_form', '~> 3.0.2'
 # Store ENV variables
 gem 'figaro', '~> 1.0.0'
 
-# Upload pictures
-
+# For aws cloud storage
+gem 'fog'
+# Photo resizing
+gem "mini_magick"
+# File upload solution
+gem 'carrierwave'
 
 group :development do
   gem 'better_errors', '~> 1.1.0'
