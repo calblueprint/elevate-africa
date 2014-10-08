@@ -6,4 +6,5 @@
   <%= f.hidden_field :admin_id, value: current_user.id %>
   <!-- Add Image here! -->
   <%= f.submit "Create Post!" %>
+  <%= f.file_field :picture, label: "Attach a photo!" %>
 <% end %>

@@ -20,5 +20,5 @@ class Buzz < ActiveRecord::Base
   validates :subhead, presence: true
   validates :content, presence: true
 
-  # mount_uploader :picture, PictureUploader
+  mount_uploader :picture, PictureUploader
 end
