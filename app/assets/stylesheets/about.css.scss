@@ -13,3 +13,28 @@ for the about.css.scss file custom styling*/
 @media (max-width: 600px) {
   /* Adaptations for small-sized screens */
 }
+
+#about-banner {
+  background: url(asset_path("elephants.jpg"));
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-top: 0px;
+}
+
+.about-button {
+  float: left;
+  display: block;
+  margin: 150px 0px 0px 100px;
+  padding: 25px 50px 25px 50px;
+  background: $secondary-color;
+  color: #fff;
+  font: $h2;
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+  	background: $primary-color;
+  	color: #fff;
+  }
+}
