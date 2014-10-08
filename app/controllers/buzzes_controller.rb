@@ -46,7 +46,7 @@ class BuzzesController < ApplicationController
   private
 
   def authenticate_admin!
-    current_user.is_admin?
+    current_user && current_user.is_admin?
   end
 
   def buzz_params
