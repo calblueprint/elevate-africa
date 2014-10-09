@@ -23,6 +23,11 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
   box-sizing: border-box;
 }
 
+/* removes annoying google highlight */
+*:focus {
+  outline: 0;
+}
+
 /* the main header styling */
 h1 {
   font: $h1;
