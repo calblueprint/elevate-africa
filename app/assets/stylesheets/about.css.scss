@@ -20,6 +20,10 @@ for the about.css.scss file custom styling*/
   background-position: center;
   height: 400px;
   margin-top: -50px;
+
+  -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
 }
 
 #about-rachel {
@@ -30,10 +34,18 @@ for the about.css.scss file custom styling*/
   margin-left: 300px;
 }
 
+/* use this to add padding to containers */
+.about-padding {
+  padding: 50px 25px 25px 25px;
+}
+
 .about-wrapper {
   max-width: 1280px;
   margin-left: auto;
   margin-right : auto;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.5);
 }
 
 .about-section {
@@ -42,7 +54,7 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .about-button {
