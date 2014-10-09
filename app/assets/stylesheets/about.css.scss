@@ -83,8 +83,7 @@ for the about.css.scss file custom styling*/
 .about-member {
   height: 200px;
   width: 900px;
-  display: block;
-  text-align: center;
+  display: inherit;
 }
 
 .about-member-text {
