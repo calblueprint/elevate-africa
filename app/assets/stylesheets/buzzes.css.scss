@@ -15,7 +15,7 @@
 }
 
 #buzz-title-container {
-  padding-top: 170px;
+  padding-top: 150px;
 }
 
 #buzz-title {
@@ -24,8 +24,17 @@
 }
 
 #buzz-button {
-  padding-top: 60px;
+  margin-top: 60px;
+  display: inline-block;
+  background-color: $primary-color;
+  text-align: center;
+  padding: 15px 50px;
+  font: $h2;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
 }
+
 
 @media (max-width: 1000px) {
   /* Adaptations for medium-sized screens */
