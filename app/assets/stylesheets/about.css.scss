@@ -20,10 +20,11 @@ for the about.css.scss file custom styling*/
   background-position: center;
   height: 400px;
   margin-top: -50px;
+  padding-top: 150px;
 
-  -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
-  box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  // -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  // -moz-box-shadow:    inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  // box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
 }
 
 #about-rachel {
@@ -39,17 +40,26 @@ for the about.css.scss file custom styling*/
   padding-bottom: 36px;
 }
 
+.about-button {
+  box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
+  border-radius: 4px;
+
+  &:hover {
+    background: $tertiary-color;
+    color: #fff;
+  }
+}
+
 .about-padding {
   padding: 36px 36px;
 }
 
 .about-wrapper {
-  max-width: 1280px;
   margin-left: auto;
   margin-right : auto;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  // -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  // -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  // box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
 .about-section {
@@ -58,31 +68,6 @@ for the about.css.scss file custom styling*/
   text-align: center;
   margin: auto;
   margin-top: 0px;
-}
-
-.about-button {
-  float: left;
-  display: block;
-  margin: 150px 35px;
-  padding: 15px 25px;
-  font: $h2;
-  font-size: 48px;
-  font-weight: 700;
-  background: $secondary-color;
-  color: #fff;
-
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.5);
-  box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.5);
-
-  -moz-border-radius:4px;
-  -webkit-border-radius:4px;
-  border-radius:4px;
-
-  &:hover {
-    background: $primary-color;
-    color: #fff;
-  }
 }
 
 .about-team {
