@@ -14,9 +14,7 @@
   <h2 id="buzz-headline">What We're Up To</h2>
 </div>
 
-<div class="wide-container padding">
 
-</div>
 <% @buzzes.each do |buzz| %>
   <%= link_to "#{buzz.headline}", buzz_path(buzz) %>
 <% end %>
