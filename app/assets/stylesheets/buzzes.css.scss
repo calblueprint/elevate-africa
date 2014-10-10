@@ -14,10 +14,17 @@
   height: 100%;
 }
 
+#buzz-title-container {
+  padding-top: 170px;
+}
+
 #buzz-title {
   text-align: center;
-  padding-top: 150px;
   color: white;
+}
+
+#buzz-button {
+  padding-top: 60px;
 }
 
 @media (max-width: 1000px) {
