@@ -1,0 +1,5 @@
+<script type="text/javascript">
+  <% flash.each do |type, message| %>
+    toastr.<%= type %>('<%= message %>')
+  <% end %>
+</script>

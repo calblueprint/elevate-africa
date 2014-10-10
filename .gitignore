@@ -33,3 +33,6 @@
 
 # Environment Variables
 .env
+
+# Ignore uploads
+/public/uploads/*
