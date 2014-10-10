@@ -28,11 +28,11 @@ for the about.css.scss file custom styling*/
 }
 
 #about-rachel {
-  background: url(asset_path("elephants.jpg"));
-  background-size: 200px 200px;
+  background: url(asset_path("kevin.jpg"));
+  background-size: 320px 240px;
   background-repeat: no-repeat;
   float: left;
-  margin-left: 250px;
+  margin-left: 300px;
 }
 
 #about-description {
@@ -43,6 +43,7 @@ for the about.css.scss file custom styling*/
 .about-button {
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
   border-radius: 4px;
+  margin: 0 15px;
 
   &:hover {
     background: $tertiary-color;
@@ -80,13 +81,28 @@ for the about.css.scss file custom styling*/
   height: 200px;
   width: 900px;
   display: inherit;
+  margin-bottom: 50px;
 }
 
 .about-member-text {
   height: 200px;
-  width: 450px;
+  width: 350px;
   display: block;
   float: left;
-  margin-left: 250px;
+  margin-left: 350px;
   text-align: left;
 }
+
+.about-member-name {
+  font: 400 36px Lato;
+  color: #666666;
+}
+
+.about-member-content {
+  font: 16px Bitter, sans-serif;
+  color: #666666;
+}
+
+
+
+
