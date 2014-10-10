@@ -6,6 +6,66 @@
 .about-potato { width: 100px; }
 for the about.css.scss file custom styling*/
 
+
+#campaign-banner {
+  background: url(asset_path("campaign-banner.jpg"));
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-top: -49px;
+}
+
+#campaign-banner-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-top: -49px;
+
+}
+
+#campaign-title {
+  color: #ffffff;
+  margin-top: 43px;
+}
+
+.campaign-icon {
+  float: left;
+  width: 333px;
+  height: 273px;
+  top: -30px;
+  position: relative;
+
+}
+
+.campaign-middle {
+  width: 334px;
+}
+
+#campaign-wedding, #campaign-sports, #campaign-birthday {
+  background: url(asset_path("campaign-wedding.png"));
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  margin-left: 67px;
+}
+
+#campaign-sports {
+  background: url(asset_path("campaign-sport.png"));
+  background-size: cover;
+}
+
+#campaign-birthday {
+  background: url(asset_path("campaign-birthday.png"));
+  background-size: cover;
+}
+
+.campaign-icon-font {
+  font: $h1;
+  color: $black;
+  font-size: 35px;
+}
+
 @media (max-width: 1000px) {
   /* Adaptations for medium-sized screens */
 }

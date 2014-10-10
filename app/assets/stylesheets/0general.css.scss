@@ -69,11 +69,6 @@ p {
  width: 600px;
 }
 
-/* use this to add padding to containers */
-.padding {
-  padding: 100px 25px 100px 25px;
-}
-
 /* adds a color top border */
 .border-top {
   border-top: 5px solid $secondary-color;
@@ -104,6 +99,19 @@ p {
   // -moz-border-radius:4px;
   // -webkit-border-radius:4px;
   // border-radius:4px;
+}
+
+.button a {
+  color: white;
+}
+
+/* use this to add padding to containers */
+.padding {
+  padding: 100px 25px 100px 25px;
+}
+
+.margin {
+  margin: 50px 0 50px 0;
 }
 
 @media (max-width: 1000px) {

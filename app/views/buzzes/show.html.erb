@@ -1,10 +1,12 @@
-<% if current_user && current_user.is_admin? %>
-  <%= link_to "Edit Buzz", edit_buzz_path(@buzz) %>
-  <%= link_to "Delete Buzz", buzz_path(@buzz),
-                             method: :delete,
-                             data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
-<% end %>
-<%= @buzz.headline %>
-<%= @buzz.subhead %>
-<%= @buzz.content %>
-<%= image_tag(@buzz.picture) if @buzz.picture?   %>
+<div class="wide-container padding">
+  <% if current_user && current_user.is_admin? %>
+    <%= link_to "Edit Buzz", edit_buzz_path(@buzz) %>
+    <%= link_to "Delete Buzz", buzz_path(@buzz),
+                               method: :delete,
+                               data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
+  <% end %>
+  <%= @buzz.headline %>
+  <%= @buzz.subhead %>
+  <%= @buzz.content %>
+  <%= image_tag(@buzz.picture) if @buzz.picture?   %>
+</div>
