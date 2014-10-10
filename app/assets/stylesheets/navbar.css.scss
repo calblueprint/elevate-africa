@@ -121,5 +121,15 @@
   }
 }
 
+.sign-in {
+  background: transparent;
+  color: #FFFFFF;
+  cursor: default;
+}
+
+.sign-in:hover {
+  color: #FFFFFF;
+}
+
 @media (max-width: 600px) {
 }

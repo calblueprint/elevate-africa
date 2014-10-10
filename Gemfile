@@ -24,12 +24,27 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Authentication
+gem 'devise', '~> 3.4.0'
 
 # Pagination
 gem 'kaminari'
 
 # Database
-gem 'pg'
+gem 'pg', '~> 0.17.1'
+
+# Form
+gem 'simple_form', '~> 3.0.2'
+
+# Store ENV variables
+gem 'figaro', '~> 1.0.0'
+
+# For aws cloud storage
+gem 'fog'
+# Photo resizing
+gem "mini_magick"
+# File upload solution
+gem 'carrierwave'
 
 group :development do
   gem 'better_errors', '~> 1.1.0'

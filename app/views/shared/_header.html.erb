@@ -1,11 +1,18 @@
 <div id="navbar-container" onmouseover="navReveal()" onmouseout="navHide()">
   <div class="hide-medium" id="navbar">
-    <a id="navbar-home" href="#"></a>
+    <%= link_to "", root_path, id: 'navbar-home' %>
     <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
     <a class="navbar-tab" href="#"> CONTACT </a>
-    <a class="navbar-tab" href="#"> BUZZ </a>
+    <%= link_to "BUZZ", buzzes_path, class: 'navbar-tab' %>
     <a class="navbar-tab" href="#"> CAMPAIGN </a>
     <a class="navbar-tab" href="#"> ABOUT </a>
+    <% if current_user %>
+      <%= link_to "SIGN OUT", destroy_user_session_path,
+                              method: :delete,
+                              class: "navbar-tab sign-in" %>
+    <% else %>
+      <%= link_to "SIGN IN", new_user_session_path,  class: "navbar-tab sign-in" %>
+    <% end %>
   </div>
 </div>
 <div class="navbar-spacer"></div>
