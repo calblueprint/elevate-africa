@@ -5,15 +5,17 @@
       <h2 id="buzz-button">Check it out!</h2>
     </div>
   </div>
- </div>
+</div>
 
-<h2 id="buzz-headline">What We're Up To</h2>
-
+<div id="buzz-headline-container">
+  <% if valid_admin? %>
+    <h2><%= link_to "Create", new_buzz_path, id: "buzz-create-button" %><h2>
+  <% end %>
+  <h2 id="buzz-headline">What We're Up To</h2>
+</div>
 
 <div class="wide-container padding">
-  <% if valid_admin? %>
-    <%= link_to "Create Blog Post", new_buzz_path %>
-  <% end %>
+
 </div>
 <% @buzzes.each do |buzz| %>
   <%= link_to "#{buzz.headline}", buzz_path(buzz) %>
