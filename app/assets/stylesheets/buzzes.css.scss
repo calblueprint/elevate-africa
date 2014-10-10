@@ -1,3 +1,29 @@
-// Place all the styles related to the buzzes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Import the variables for the general theme */
+@import "variables.css.scss";
+
+#buzz-banner {
+  background: url(asset_path("buzz.JPG"));
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+#buzz-black-cover {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+#buzz-title {
+  text-align: center;
+  padding-top: 150px;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  /* Adaptations for medium-sized screens */
+}
+
+@media (max-width: 600px) {
+  /* Adaptations for small-sized screens */
+}
