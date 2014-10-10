@@ -26,12 +26,15 @@ for the about.css.scss file custom styling*/
 
 #campaign-title {
   color: #ffffff;
+  margin-top: 43px;
 }
 
 .campaign-icon {
   float: left;
   width: 333px;
-  height: 400px;
+  height: 273px;
+  top: -30px;
+  position: relative;
 
 }
 
@@ -60,12 +63,6 @@ for the about.css.scss file custom styling*/
 .campaign-icon-font {
   font: $h1;
   color: $black;
-  font-size: 35px;
-}
-
-a {
-  font: $h2;
-  color: black;
   font-size: 35px;
 }
 
