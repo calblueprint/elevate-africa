@@ -14,6 +14,11 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
+#about-description {
+  padding-top: 0px;
+  padding-bottom: 36px;
+}
+
 #about-banner {
   background: url(asset_path("elephants.jpg"));
   background-size: cover;
@@ -29,15 +34,26 @@ for the about.css.scss file custom styling*/
 
 #about-rachel {
   background: url(asset_path("kevin.jpg"));
-  background-size: 320px 240px;
+  background-size: 240px 180px;
   background-repeat: no-repeat;
-  float: left;
-  margin-left: 300px;
+  display: inline-block;
 }
 
-#about-description {
-  padding-top: 0px;
-  padding-bottom: 36px;
+#about-process {
+  background: url(asset_path("process.png"));
+  background-size: 480px 480px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.about-process-background {
+  height: 480px;
+  width: 480px;
+}
+
+.about-process-container {
+  width: 100%;
+  text-align: center;
 }
 
 .about-button {
@@ -68,28 +84,33 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: 0px;
 }
 
-.about-team {
+.about-team-container {
   width: 100%;
   height: 500px;
   display: block;
+  text-align: center;
 }
 
-.about-member {
+.about-member-container {
   height: 200px;
-  width: 900px;
-  display: inherit;
-  margin-bottom: 50px;
+  width: 100%;
+  margin-bottom: 25px;
+  display: block;
+  text-align: center;
+}
+
+.about-member-background {
+  height: 180px;
+  width: 240px;
 }
 
 .about-member-text {
-  height: 200px;
-  width: 350px;
-  display: block;
-  float: left;
-  margin-left: 350px;
+  height: 180px;
+  width: 360px;
+  display: inline-block;
+  padding-left: 15px;
   text-align: left;
 }
 
