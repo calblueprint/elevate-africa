@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin = Admin.create(email: 'admin@gmail.com', password: 'password', first_name: 'Charles', last_name: 'Xue', username: 'charlesx')
+buzz = Buzz.create(headline: "Hello World", subhead: "This is a subhead", content: "Lorem Ipsum")
