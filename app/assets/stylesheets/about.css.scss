@@ -32,27 +32,9 @@ for the about.css.scss file custom styling*/
   // box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
 }
 
-#about-process {
-  background: url(asset_path("process.png"));
-  background-size: 480px 480px;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-.about-process-background {
-  height: 480px;
-  width: 480px;
-}
-
 .about-process-container {
   width: 100%;
   text-align: center;
-}
-
-.about-process-text-container {
-  height: 480px;
-  width: 480px;
-  padding: 150px 150px;
 }
 
 .about-button {
