@@ -52,6 +52,22 @@
   color: $dark-gray;
 }
 
+.buzz-small-box {
+  float:left;
+  width: 12.5%;
+  height: 0px;
+  padding-bottom: 25%;
+  overflow: hidden;
+  background: #4679BD;
+}
+
+.buzz-medium-box {
+
+}
+
+.buzz-large-box {
+
+}
 @media (max-width: 1000px) {
   /* Adaptations for medium-sized screens */
 }
