@@ -46,6 +46,9 @@ gem "mini_magick"
 # File upload solution
 gem 'carrierwave'
 
+# Font-awesome icons
+gem 'font-awesome-less'
+
 group :development do
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
