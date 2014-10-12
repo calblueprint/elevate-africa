@@ -48,6 +48,10 @@
   position: absolute;
 }
 
+#buzz-create-button:hover {
+  color: $dark-gray;
+}
+
 @media (max-width: 1000px) {
   /* Adaptations for medium-sized screens */
 }
