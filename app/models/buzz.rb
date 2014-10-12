@@ -22,4 +22,6 @@ class Buzz < ActiveRecord::Base
   validates :content, presence: true
 
   mount_uploader :picture, PictureUploader
+
+  BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
 end
