@@ -9,7 +9,7 @@
 
 <div id="buzz-headline-container">
   <% if valid_admin? %>
-    <h2><%= link_to "Create", new_buzz_path, id: "buzz-create-button" %><h2>
+    <i><%= link_to "", new_buzz_path, class: "fa fa-plus-square fa-5x" , id: "buzz-create-button" %></i>
   <% end %>
   <h2 id="buzz-headline">What We're Up To</h2>
 </div>
