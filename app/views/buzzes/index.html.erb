@@ -16,6 +16,6 @@
 
 <% @buzzes.each do |buzz| %>
   <div class="buzz-small-box">
-    <%= image_tag("src" :options) %>
+    <%= image_tag(buzz.picture_url, class: 'buzz-image') if buzz.picture? %>
   </div>
 <% end %>
