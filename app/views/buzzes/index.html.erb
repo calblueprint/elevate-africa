@@ -16,6 +16,13 @@
 
 <% @buzzes.each do |buzz| %>
   <% if buzz.picture? %>
-    <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-small-box"></div>
+    <div class="buzz-small-box">
+      <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
+      </div>
+      <div class="buzz-info">
+        <h2><%= buzz.headline %></h2>
+        <p><%= link_to "Read More", buzzes_path(buzz), class: "buzz-show" %></p>
+      </div>
+    </div>
   <% end %>
 <% end %>
