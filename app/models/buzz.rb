@@ -24,4 +24,8 @@ class Buzz < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
+
+  def get_date
+    created_at.strftime("%b %d, %Y")
+  end
 end
