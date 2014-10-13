@@ -32,21 +32,14 @@ for the about.css.scss file custom styling*/
   // box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
 }
 
-.about-process {
-  width: 100%;
-  text-align: center;
+.about-wrapper {
+  margin-left: auto;
+  margin-right : auto;
+  // -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  // -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  // box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
-.about-process-image {
-  padding-top: 36px;
-  display: inline;
-}
-
-.about-process-text {
-  display: inline;
-  position: absolute;
-  z-index: 1;
-}
 .about-button {
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
   border-radius: 4px;
@@ -58,23 +51,36 @@ for the about.css.scss file custom styling*/
   }
 }
 
-.about-padding {
-  padding: 36px 36px;
-}
-
-.about-wrapper {
-  margin-left: auto;
-  margin-right : auto;
-  // -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  // -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  // box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-}
-
 .about-section {
   width: 100%;
   display: block;
   text-align: center;
   margin: auto;
+}
+
+.about-padding {
+  padding: 36px 36px;
+}
+
+.about-process {
+  width: 100%;
+  text-align: center;
+}
+
+.about-process-image {
+  padding-top: 36px;
+  display: inline;
+  position: relative;
+}
+
+.about-process-text {
+  width: 240px;
+  height: 240px;
+  display: inline;
+  position: absolute;
+  top: 1075px;
+  left: 600px;
+  z-index: 1;
 }
 
 .about-team-container {
