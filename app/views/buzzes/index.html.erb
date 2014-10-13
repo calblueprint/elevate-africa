@@ -19,6 +19,7 @@
     <div class="buzz-small-box">
       <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
         <div class="buzz-info">
+          <p><%= buzz.get_date %></p>
           <h2><%= buzz.headline %></h2>
           <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
         </div>
