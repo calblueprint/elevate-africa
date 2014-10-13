@@ -32,11 +32,21 @@ for the about.css.scss file custom styling*/
   // box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
 }
 
-.about-process-container {
+.about-process {
   width: 100%;
   text-align: center;
 }
 
+.about-process-image {
+  padding-top: 36px;
+  display: inline;
+}
+
+.about-process-text {
+  display: inline;
+  position: absolute;
+  z-index: 1;
+}
 .about-button {
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
   border-radius: 4px;
