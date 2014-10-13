@@ -15,7 +15,7 @@
 </div>
 
 <% @buzzes.each do |buzz| %>
-  <div class="buzz-small-box">
-    <%= image_tag(buzz.picture_url, class: 'buzz-image') if buzz.picture? %>
-  </div>
+  <% if buzz.picture? %>
+    <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-small-box"></div>
+  <% end %>
 <% end %>
