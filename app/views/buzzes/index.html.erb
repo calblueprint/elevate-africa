@@ -22,7 +22,7 @@
           <div style="background: <%= buzz.box_color %>" class="buzz-info">
             <p class="buzz-time"><%= buzz.get_date %></p>
             <h1 class="buzz-headline"><%= buzz.headline %></h1>
-            <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
+            <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
           </div>
         </div>
       </div>

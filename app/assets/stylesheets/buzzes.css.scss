@@ -85,17 +85,19 @@
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-// .buzz-time {
-//   text-align: center;
-// }
+.buzz-time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
 
-// .buzz-headline {
-//   text-align: center;
-//   margin-right: 5px;
-//   margin-left: 5px;
-// }
+.buzz-headline {
+  color: white;
+}
 
 .buzz-small-box:hover .buzz-info-container {
   display: table;
