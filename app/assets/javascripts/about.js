@@ -2,11 +2,11 @@ $(document).ready(function() {
   $(".about-process-container").on("mouseenter", "img", function() {
   //$(this).animate({"opacity": "0"}, "slow");
   	console.log("hello");
-    $(".about-process-text").animate({"opacity": "1"}, "fast");
+    $(".about-process-text").animate({"opacity": "1"}, "slow");
   });
   $(".about-process-container").on("mouseleave", "img", function() {
   //$(this).animate({"opacity": "1"}, "slow");
-  	$(".about-process-text").animate({"opacity": "0"}, "fast");
+  	$(".about-process-text").animate({"opacity": "0"}, "slow");
   });
 });
 
