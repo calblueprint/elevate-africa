@@ -1,4 +1,4 @@
-Worldreader
+Elevate Africa
 ================
 
 This application is a website for the organization Elevate Africa. It will allow Elevate Africa to properly represent their direction and vision, while utilizing the power of social media and crowdfunding to help support their work.
