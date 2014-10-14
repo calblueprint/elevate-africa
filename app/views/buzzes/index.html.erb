@@ -18,10 +18,12 @@
   <% if buzz.picture? %>
     <div class="buzz-small-box">
       <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
-        <div class="buzz-info">
-          <p><%= buzz.get_date %></p>
-          <h2><%= buzz.headline %></h2>
-          <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
+        <div class="buzz-info-container">
+          <div style="background: <%= buzz.box_color %>" class="buzz-info">
+            <p class="buzz-time"><%= buzz.get_date %></p>
+            <h1 class="buzz-headline"><%= buzz.headline %></h1>
+            <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
+          </div>
         </div>
       </div>
     </div>

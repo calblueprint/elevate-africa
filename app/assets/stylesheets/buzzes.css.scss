@@ -72,14 +72,33 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+
+}
+
+.buzz-info-container {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
 .buzz-info {
-  display: none;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.buzz-small-box:hover .buzz-info {
-  display: inline;
+// .buzz-time {
+//   text-align: center;
+// }
+
+// .buzz-headline {
+//   text-align: center;
+//   margin-right: 5px;
+//   margin-left: 5px;
+// }
+
+.buzz-small-box:hover .buzz-info-container {
+  display: table;
   position: relative;
 }
 
