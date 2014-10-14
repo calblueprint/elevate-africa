@@ -9,3 +9,7 @@ $(document).ready(function() {
   	$(".about-process-text").animate({"opacity": "0"}, "fast");
   });
 });
+
+function smoothScroll(section) {
+  $('html, body').animate({scrollTop: $('#' + section).offset().top}, 1000);
+}
