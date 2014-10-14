@@ -11,9 +11,13 @@
 #  headline   :string(255)
 #  subhead    :string(255)
 #  picture    :string(255)
+#  box_size   :integer          default(1)
 #
 
 class Buzz < ActiveRecord::Base
+
+  BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
+
   belongs_to :admin
 
   validates :headline, presence: true
@@ -21,4 +25,8 @@ class Buzz < ActiveRecord::Base
   validates :content, presence: true
 
   mount_uploader :picture, PictureUploader
+
+  def get_date
+    created_at.strftime("%b %d, %Y")
+  end
 end

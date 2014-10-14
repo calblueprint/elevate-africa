@@ -5,6 +5,10 @@
   <%= f.input :video_link, label: "Embed Youtube Video (optional)" %>
   <%= f.hidden_field :admin_id, value: current_user.id %>
   <!-- Add Image here! -->
-  <%= f.submit "Create Post!" %>
   <%= f.file_field :picture, label: "Attach a photo!" %>
+  </br>
+  <%= f.label :box_size %>
+  <%= f.select :box_size, Buzz::BOX_SIZE_SELECT %>
+  </br>
+  <%= f.submit "Create Post!" %>
 <% end %>

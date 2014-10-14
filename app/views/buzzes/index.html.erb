@@ -9,12 +9,21 @@
 
 <div id="buzz-headline-container">
   <% if valid_admin? %>
-    <h2><%= link_to "Create", new_buzz_path, id: "buzz-create-button" %><h2>
+    <i><%= link_to "", new_buzz_path, class: "fa fa-plus-square fa-5x" , id: "buzz-create-button" %></i>
   <% end %>
   <h2 id="buzz-headline">What We're Up To</h2>
 </div>
 
-
 <% @buzzes.each do |buzz| %>
-  <%= link_to "#{buzz.headline}", buzz_path(buzz) %>
+  <% if buzz.picture? %>
+    <div class="buzz-small-box">
+      <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
+        <div class="buzz-info">
+          <p><%= buzz.get_date %></p>
+          <h2><%= buzz.headline %></h2>
+          <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
