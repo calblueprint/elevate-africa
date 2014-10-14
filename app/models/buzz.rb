@@ -12,6 +12,7 @@
 #  subhead    :string(255)
 #  picture    :string(255)
 #  box_size   :integer          default(1)
+#  box_color  :string(255)
 #
 
 class Buzz < ActiveRecord::Base
