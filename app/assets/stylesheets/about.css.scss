@@ -58,13 +58,6 @@ for the about.css.scss file custom styling*/
   margin: auto;
 }
 
-.about-section-team {
-  width: 100%;
-  display: block;
-  text-align: center;
-  margin: -175px auto 0px auto;
-}
-
 .about-padding {
   padding: 36px 36px;
 }
@@ -72,7 +65,35 @@ for the about.css.scss file custom styling*/
 .about-process-container {
   width: 100%;
   text-align: center;
+  padding-top: 36px;
 }
+
+.about-circle-container {
+  position: relative;
+  width: 30em;
+  height: 30em;
+  padding: 2.8em;
+  border: dashed 1px;
+  border-radius: 50%;
+  margin: 1.75em auto 0;
+}
+
+.about-circle-container a {
+  display: block;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6em; height: 6em;
+  margin: -3em;
+}
+
+.about-circle-container img { display: block; width: 100%; }
+.deg0 { transform: translate(15em); }
+.deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
+.deg120 { transform: rotate(120deg) translate(15em) rotate(-120deg); }
+.deg180 { transform: translate(-15em); }
+.deg240 { transform: rotate(240deg) translate(15em) rotate(-240deg); }
+.deg300 { transform: rotate(300deg) translate(15em) rotate(-300deg); }
+
 .about-process-image {
   padding-top: 36px;
   display: inline;
