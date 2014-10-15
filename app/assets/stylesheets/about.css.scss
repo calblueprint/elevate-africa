@@ -95,8 +95,10 @@ for the about.css.scss file custom styling*/
   img {
     display: block;
     width: 100%;
+    opacity: 0.875;
     &:hover {
-      opacity: 0.5;
+      opacity: 1;
+      transform: scale(1.1);
     }
   }
 }
@@ -128,7 +130,7 @@ for the about.css.scss file custom styling*/
   top: -385px;
   margin: auto;
   position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 .about-process-text {
