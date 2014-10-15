@@ -58,6 +58,14 @@ for the about.css.scss file custom styling*/
   margin: auto;
 }
 
+.about-section-team {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: -220px;
+}
+
 .about-padding {
   padding: 36px 36px;
 }
@@ -72,7 +80,7 @@ for the about.css.scss file custom styling*/
   position: relative;
   width: 30em;
   height: 30em;
-  padding: 2.8em;
+  padding: 1.4em;
   border: dashed 1px;
   border-radius: 50%;
   margin: 1.75em auto 0;
@@ -82,11 +90,19 @@ for the about.css.scss file custom styling*/
   display: block;
   position: absolute;
   top: 50%; left: 50%;
-  width: 6em; height: 6em;
-  margin: -3em;
+  width: 7em; height: 7em;
+  margin: -3.5em;
+
+  img {
+    display: block;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }
 
-.about-circle-container img { display: block; width: 100%; }
 .deg0 { transform: translate(15em); }
 .deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
 .deg120 { transform: rotate(120deg) translate(15em) rotate(-120deg); }
@@ -94,25 +110,20 @@ for the about.css.scss file custom styling*/
 .deg240 { transform: rotate(240deg) translate(15em) rotate(-240deg); }
 .deg300 { transform: rotate(300deg) translate(15em) rotate(-300deg); }
 
-.about-process-image {
-  padding-top: 36px;
-  display: inline;
-  position: relative;
-}
+.deg30 { transform: rotate(30deg) translate(15em); }
 
 .about-process-texts {
   width: 100%;
-  top: -340px;
+  top: -385px;
   margin: auto;
   position: relative;
   z-index: 1;
 }
 
 .about-process-text {
-  width: 210px;
-  height: 210px;
+  width: 300px;
+  height: 300px;
   margin: auto;
-  opacity: 0;
 }
 
 .about-team-container {
@@ -147,7 +158,3 @@ for the about.css.scss file custom styling*/
   font: 16px Bitter, sans-serif;
   color: #666666;
 }
-
-
-
-
