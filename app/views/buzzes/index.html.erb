@@ -16,7 +16,7 @@
 
 <% @buzzes.each do |buzz| %>
   <% if buzz.picture? %>
-    <div class="buzz-small-box">
+    <div class="buzz-box-<%= buzz.box_size %>">
       <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
         <div class="buzz-info-container">
           <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>

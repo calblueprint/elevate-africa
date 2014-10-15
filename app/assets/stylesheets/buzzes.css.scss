@@ -53,18 +53,22 @@
   color: $dark-gray;
 }
 
-.buzz-small-box {
+.buzz-box-1 {
   float:left;
   width: 25%;
   height: 360px;
 }
 
-.buzz-medium-box {
-
+.buzz-box-2 {
+  float:left;
+  width: 50%;
+  height: 360px;
 }
 
-.buzz-large-box {
-
+.buzz-box-3 {
+  float:left;
+  width: 755%;
+  height: 360px;
 }
 
 .buzz-image {
@@ -105,7 +109,7 @@
   vertical-align: center;
 }
 
-.buzz-small-box:hover .buzz-info-container {
+.buzz-box-1:hover .buzz-info-container {
   display: block;
   position: relative;
 }
