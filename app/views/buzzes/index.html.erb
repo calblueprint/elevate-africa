@@ -8,10 +8,16 @@
 </div>
 
 <div id="buzz-headline-container">
-  <% if valid_admin? %>
-    <i><%= link_to "", new_buzz_path, class: "fa fa-plus-square fa-5x" , id: "buzz-create-button" %></i>
-  <% end %>
-  <h2 id="buzz-headline">What We're Up To</h2>
+  <h2 id="buzz-headline">
+    What We're Up To
+    <% if valid_admin? %>
+      <span>
+        <i>
+          <%= link_to "", new_buzz_path, class: "fa fa-plus-square" , id: "buzz-create-button" %>
+        </i>
+      </span>
+    <% end %>
+  </h2>
 </div>
 
 <% @buzzes.each do |buzz| %>
