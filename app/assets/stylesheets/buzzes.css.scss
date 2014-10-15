@@ -76,7 +76,6 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-
 }
 
 .buzz-info-container {
@@ -110,6 +109,16 @@
 }
 
 .buzz-box-1:hover .buzz-info-container {
+  display: block;
+  position: relative;
+}
+
+.buzz-box-2:hover .buzz-info-container {
+  display: block;
+  position: relative;
+}
+
+.buzz-box-3:hover .buzz-info-container {
   display: block;
   position: relative;
 }
