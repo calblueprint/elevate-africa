@@ -2,15 +2,20 @@ $(document).ready(function() {
   $(".about-circle-container").on("mouseenter", ".about-process-icon", function() {
   	endProcessAnimation();
     if($(this).hasClass("deg0")) {
-      console.log("deg0 doeeeeee")
       $(".about-process-text").find(".hi").text("deg0");
     }
-    $(".about-process-text").animate({"opacity": "1"}, "slow");
+    $(".about-process-icon").not(this).each(function() {
+      $(this).css({"opacity": "0.75"});
+    });
+    $(".about-process-text").fadeTo("0", "1");
   });
-  
+
   $(".about-circle-container").on("mouseleave", ".about-process-icon", function() {
   	endProcessAnimation();
-  	$(".about-process-text").animate({"opacity": "0"}, "slow");
+    $(".about-process-icon").not(this).each(function() {
+      $(this).css({"opacity": "1"});
+    });
+  	$(".about-process-text").animate({"opacity": "0"}, "fast");
   });
 });
 
