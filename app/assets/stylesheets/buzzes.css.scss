@@ -1,6 +1,10 @@
 /* Import the variables for the general theme */
 @import "variables.css.scss";
 
+/*
+  Buzz Index Page
+*/
+
 #buzz-banner {
   background: url(asset_path("buzz.JPG"));
   background-size: cover;
@@ -117,6 +121,47 @@
   display: block;
   position: relative;
 }
+/*
+  Buzz Show Page
+*/
+
+#buzz-show-banner {
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+#buzz-show-headline {
+  color: white;
+  text-align: center;
+  font-size: 200px;
+}
+
+#buzz-show-subhead {
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 80px;
+}
+
+#buzz-show-title-container {
+  padding-top: 200px;
+}
+
+#buzz-show-content-container {
+  padding: 75px 25px 75px 25px;
+  width: 75%;
+  height: auto;
+  margin: auto;
+}
+
+#buzz-show-content {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+
 
 @media (max-width: 1000px) {
   /* Adaptations for medium-sized screens */
