@@ -14,5 +14,5 @@
                                data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
 <% end %>
 <div id="buzz-show-content-container">
-  <p id="buzz-show-content"><%= @buzz.content %></p>
+  <p id="buzz-show-content"><%= simple_format @buzz.content.gsub(/\r\n/,"<br />") %></p>
 </div>
