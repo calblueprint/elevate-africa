@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 ruby '2.1.2'
 
@@ -46,6 +47,8 @@ gem "mini_magick"
 # File upload solution
 gem 'carrierwave'
 
+#Social media
+gem 'rails-assets-RRSSB'
 group :development do
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
