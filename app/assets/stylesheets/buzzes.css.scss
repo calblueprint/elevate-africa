@@ -48,7 +48,7 @@
   margin-bottom: 30px;
 }
 
-#buzz-create-button:hover {
+.buzz-icon-button:hover {
   color: $dark-gray;
 }
 
@@ -152,7 +152,7 @@
 }
 
 #buzz-show-content-container {
-  padding: 75px 25px 75px 25px;
+  padding: 50px 25px 50px 25px;
   width: 75%;
   height: auto;
   margin: auto;
@@ -165,6 +165,19 @@
   font-size: 20px;
 }
 
+#buzz-edit-buttons {
+  text-align: center;
+  color: black;
+  margin-top: 10px;
+}
+
+#buzz-line-separator {
+  margin: 10px auto;
+  width: 50%;
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
+}
 
 
 @media (max-width: 1000px) {

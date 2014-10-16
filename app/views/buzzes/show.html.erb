@@ -8,11 +8,17 @@
 </div>
 
 <% if current_user && current_user.is_admin? %>
-  <%= link_to "Edit Buzz", edit_buzz_path(@buzz) %>
-  <%= link_to "Delete Buzz", buzz_path(@buzz),
-                               method: :delete,
-                               data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
+  <h2 id="buzz-edit-buttons">
+    <span>
+      <i class="fa fa-pencil-square buzz-icon-button"><%= link_to "", edit_buzz_path(@buzz) %></i>
+      <i class="fa fa-minus-square buzz-icon-button">
+        <%= link_to "", buzz_path(@buzz), method: :delete,
+                        data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
+      </i>
+    </span>
+  </h2>
 <% end %>
 <div id="buzz-show-content-container">
   <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
+  <div id="buzz-line-separator"></div>
 </div>
