@@ -9,6 +9,8 @@
   </br>
   <%= f.label :box_size %>
   <%= f.select :box_size, Buzz::BOX_SIZE_SELECT %>
+  <%= f.label :box_color, "Tag" %>
+  <%= f.select :box_color, Buzz::BOX_COLORS %>
   </br>
   <%= f.submit "Submit Buzz!" %>
 <% end %>
