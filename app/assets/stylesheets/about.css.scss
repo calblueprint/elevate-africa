@@ -125,7 +125,7 @@ for the about.css.scss file custom styling*/
 .deg270 { transform: rotate(270deg) translate(15em); }
 .deg330 { transform: rotate(330deg) translate(15em); }
 
-.about-process-texts {
+.about-process-text-container {
   width: 100%;
   top: -385px;
   margin: auto;
@@ -137,6 +137,7 @@ for the about.css.scss file custom styling*/
   width: 300px;
   height: 300px;
   margin: auto;
+  opacity: 0;
 }
 
 .about-team-container {
