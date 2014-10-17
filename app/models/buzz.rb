@@ -22,11 +22,17 @@ class Buzz < ActiveRecord::Base
                 ["Tag 4", "#FFC48C"], ["Tag 5", "F56991"],
                 ["Tag 6", "FF9F80"]]
 
+  VIDEO_REGEX = /(youtube|vimeo).com\/.*[a-zA-Z0-9]+\z/
+
   belongs_to :admin
 
   validates :headline, presence: true
   validates :subhead, presence: true
   validates :content, presence: true
+  validates :video_link, format: { with: VIDEO_REGEX }
+  validates :box_size, presence: true
+  validates :box_color, presence: true
+
 
   mount_uploader :picture, PictureUploader
 
