@@ -84,22 +84,30 @@ for the about.css.scss file custom styling*/
   // border: dashed 1px;
   // border-radius: 50%;
   margin: 1.75em auto 0;
-}
 
-.about-circle-container .about-process-icon {
-  display: block;
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 7em; height: 7em;
-  margin: -3.5em;
-  img {
+  .about-process-icon {
     display: block;
-    width: 100%;
-    opacity: 0.875;
-    &:hover {
-      opacity: 1;
-      transform: scale(1.1);
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 7em; height: 7em;
+    margin: -3.5em;
+    img {
+      display: block;
+      width: 100%;
+      opacity: 0.875;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
     }
+  }
+
+  .about-process-arrow {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 3em; height: 5em;
+    margin: -2.0em;
   }
 }
 
@@ -109,14 +117,6 @@ for the about.css.scss file custom styling*/
 .deg180 { transform: translate(-15em); }
 .deg240 { transform: rotate(240deg) translate(15em) rotate(-240deg); }
 .deg300 { transform: rotate(300deg) translate(15em) rotate(-300deg); }
-
-.about-circle-container .about-process-arrow {
-  display: block;
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 3em; height: 5em;
-  margin: -2.0em;
-}
 
 .deg30 { transform: rotate(30deg) translate(15em); }
 .deg90 { transform: rotate(90deg) translate(15em); }

@@ -2,8 +2,9 @@ var ready = function() {
 
   $(document).ready(function() {
     $(".about-circle-container").on("mouseenter", ".about-process-icon", function() {
-      console.log("hi");
-    	endProcessAnimation();
+    	
+      endProcessAnimation();
+
       if($(this).hasClass("deg0")) {
         $(".about-process-text").find(".hi").text("sooo");
       }
@@ -13,17 +14,19 @@ var ready = function() {
       else if($(this).hasClass("deg120")) {
         $(".about-process-text").find(".hi").text("doee");
       }
+
       $(".about-process-icon").not(this).each(function() {
-        $(this).css({"opacity": "0.75"});
+        $(this).animate({"opacity": "0.75"}, "fast");
       });
       fadeArrows("0.75");
-      $(".about-process-text").animate({"opacity": "1"}, "fast");;
-    });
+      
+      $(".about-process-text").animate({"opacity": "1"}, "fast");
+      });
 
     $(".about-circle-container").on("mouseleave", ".about-process-icon", function() {
     	endProcessAnimation();
       $(".about-process-icon").not(this).each(function() {
-        $(this).css({"opacity": "1"});
+        $(this).animate({"opacity": "1"}, "fast");
       });
       fadeArrows("1");
     	$(".about-process-text").animate({"opacity": "0"}, "fast");
@@ -41,7 +44,8 @@ function endProcessAnimation() {
 
 function fadeArrows(opacity) {
   $(".about-process-arrow").each(function() {
-      $(this).css({"opacity": opacity});
+    //  $(this).css({"opacity": opacity});
+      $(this).animate({"opacity": opacity}, "fast");
   });
 }
 
