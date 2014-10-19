@@ -7,7 +7,10 @@ var ready = function() {
       endProcessAnimation();
       changeCenterText(selected, content);
       fadeOthers(selected, 0.75);
-      content.animate({"opacity": 1}, "fast");
+      content.animate({opacity: 1}, "fast");
+      $(".about-process-girl-left").animate({"opacity": 1}, "fast");
+      $(".about-process-girl-right").animate({"opacity": 1}, "fast");
+      selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em"}, "fast");
     });
 
     circle.on("mouseleave", ".about-process-icon", function() {
@@ -15,6 +18,10 @@ var ready = function() {
       endProcessAnimation();
       fadeOthers(selected, 1.0);
     	content.animate({"opacity": 0}, "fast");
+      $(".about-process-girl-left").animate({"opacity": 0}, "fast");
+      $(".about-process-girl-right").animate({"opacity": 0}, "fast");
+
+      selected.animate({width: "7em", height: "7em", margin: "-3.5em"}, "fast");
     });
   });
 }
@@ -23,9 +30,11 @@ $(document).ready(ready);
 $(document).on('page:load', ready);
 
 function endProcessAnimation() {
-  $(".about-process-text").stop([true][true]);
-  $(".about-process-icon").stop([true][true]);
-  $(".about-process-arrow").stop([true][true]);
+  $(".about-process-text").stop(true, true);
+  $(".about-process-icon").stop(true, true);
+  $(".about-process-arrow").stop(true, true);
+  $(".about-process-girl-left").stop(true, true);
+  $(".about-process-girl-right").stop(true, true);
 }
 
 function changeCenterText(selected, content) {
