@@ -12,3 +12,5 @@ module ApplicationHelper
     end
   end
 end
+
+# <iframe src="//www.youtube.com/embed/HEmZyj-eHGM" frameborder="0" allowfullscreen></iframe>
