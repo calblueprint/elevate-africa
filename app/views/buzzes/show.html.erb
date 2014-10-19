@@ -21,12 +21,12 @@
   <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
   <div id="buzz-line-separator"></div>
   <% if @buzz.video_link %>
-    <div id="buzz-video container">
-      <iframe title="Video player"
-              type="text/html" src="<%=get_url(@buzz.video_link) %>"
-              width="560" height="315"
-              frameborder="0" allowFullScreen>
-      </iframe>
+    <div class="embed-container">
+    <iframe title="Video player"
+            type="text/html" src="<%=get_url(@buzz.video_link) %>"
+            width="480" height="270"
+            frameborder="0" allowFullScreen>
+    </iframe>
     </div>
   <% end %>
 </div>
