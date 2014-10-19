@@ -78,12 +78,68 @@
 }
 
 .buzz-info-container {
-  display: none;
   width: 100%;
   height: 100%;
+  display: block;
+  position: relative;
 }
 
-.buzz-background {
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    -webkit-transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    -webkit-transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-moz-keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    -webkit-transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+
+.buzz-image:hover .buzz-background {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -92,13 +148,27 @@
   opacity: 0.5;
 }
 
-.buzz-info {
+.buzz-image:hover .buzz-info {
+  display: block;
+  animation: fadeInFromLeft 0.5s;
+  -webkit-animation: fadeInFromLeft 0.5s;
+  -moz-animation: fadeInFromLeft 0.5s;
+  -ms-animation: fadeInFromLeft 0.5s;
   position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
   height: 50%;
   padding-left: 20px;
+}
+
+
+.buzz-background {
+  display: none;
+}
+
+.buzz-info {
+  display: none;
 }
 
 .buzz-headline {
@@ -110,20 +180,6 @@
   color: black;
 }
 
-.buzz-box-1:hover .buzz-info-container {
-  display: block;
-  position: relative;
-}
-
-.buzz-box-2:hover .buzz-info-container {
-  display: block;
-  position: relative;
-}
-
-.buzz-box-3:hover .buzz-info-container {
-  display: block;
-  position: relative;
-}
 /*
   Buzz Show Page
 */

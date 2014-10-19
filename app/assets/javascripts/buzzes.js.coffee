@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  url = "http://tutorialzine.com/2014/08/cool-share-jquery-plugin/"
+  url = "http://localhost:3000/buzzes"
   options =
     twitter:
       text: "Check out this awesome jQuery Social Buttons Plugin! "
@@ -13,8 +13,6 @@ $ ->
     googlePlus: true
 
   $(".socialShare").shareButtons url, options
-
-
 #
 #
 # // You can also share to pinterest and tumblr:
