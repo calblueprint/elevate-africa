@@ -21,7 +21,7 @@
   <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
   <div id="buzz-line-separator"></div>
   <% if @buzz.video_link %>
-    <div class="embed-container">
+    <div id="buzz-video">
     <iframe title="Video player"
             type="text/html" src="<%=get_url(@buzz.video_link) %>"
             width="480" height="270"
