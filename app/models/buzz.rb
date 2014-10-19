@@ -29,7 +29,7 @@ class Buzz < ActiveRecord::Base
   validates :headline, presence: true
   validates :subhead, presence: true
   validates :content, presence: true
-  validates :video_link, format: { with: VIDEO_REGEX }
+  validates :video_link, format: { with: VIDEO_REGEX }, allow_blank: true
   validates :box_size, presence: true
   validates :box_color, presence: true
 
