@@ -42,10 +42,33 @@ h2 {
   color: $dark-gray;
 }
 
+/* the smaller header styling */
+h3 {
+  font: $h1;
+  font-size: 72px;
+  letter-spacing: 3px;
+  line-height: 64px;
+  color: $primary-color;
+}
+
+/* the smaller subtitle styling */
+h4 {
+  font: $h2;
+  font-size: 34px;
+  color: $dark-gray;
+}
+
 /* the main body styling */
 p {
   font: $p;
   line-height: 32px;
+}
+
+input {
+  border: 1px solid $light-gray;
+  background: #fff;
+  width: 100%;
+  padding: 15px;
 }
 
 /* various containers */
