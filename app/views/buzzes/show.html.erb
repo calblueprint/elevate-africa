@@ -1,11 +1,4 @@
-<div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner">
-  <div id="buzz-black-cover">
-    <div id="buzz-show-title-container">
-      <h1 id="buzz-show-headline"><%= @buzz.headline %></h1>
-      <h2 id="buzz-show-subhead"><%= @buzz.subhead %></h2>
-    </div>
-  </div>
-</div>
+<div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner"></div>
 
 <% if current_user && current_user.is_admin? %>
   <h2 id="buzz-edit-buttons">
@@ -17,6 +10,12 @@
     </i>
   </h2>
 <% end %>
+
+<div id="buzz-show-title-container">
+  <h3 id="buzz-show-headline"><%= @buzz.headline %></h3>
+  <h4 id="buzz-show-subhead"><%= @buzz.subhead %></h4>
+</div>
+
 <div id="buzz-show-content-container">
   <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
   <div id="buzz-line-separator"></div>
