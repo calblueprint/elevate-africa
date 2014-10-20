@@ -12,8 +12,7 @@ var ready = function() {
       var selected = $(this);
       if(!selected.is(previous)) {
         endProcessAnimation();
-    //  fadeOthers(selected, 0.75);
-        // fadeGirls();
+        fadeGirls();
         content.animate({opacity: 0}, function() {
           changeCenterText(selected, content);
           content.animate({opacity: 1});
@@ -23,13 +22,6 @@ var ready = function() {
         previous = selected;
       }
     });
-
-    // circle.on("mouseleave", ".about-process-icon", function() {
-    //   var selected = $(this);
-    //   endProcessAnimation();
-    //   fadeOthers(selected, 1.0);
-    //   selected.animate({width: "7em", height: "7em", margin: "-3.5em"});
-    // });
   });
 }
 
@@ -48,7 +40,7 @@ function initialSettings(first_icon, content, opacity) {
   $(".about-process-icon").not(first_icon).each(function() {
     $(this).css({"opacity": opacity});
   });
-  // $(".about-process-arrow").not(".sir").each(function() {
+
   $(".about-process-arrow").each(function() {
     $(this).css({"opacity": opacity});
   });
