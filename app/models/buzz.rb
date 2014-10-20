@@ -21,6 +21,8 @@ class Buzz < ActiveRecord::Base
   BOX_COLORS = [["Tag 1","#D1F2A5"], ["Tag 2", "#EFFAB4"],
                 ["Tag 4", "#FFC48C"], ["Tag 5", "F56991"],
                 ["Tag 6", "FF9F80"]]
+  TAGS = { "D1F2A5" => "Tag 1", "#EFFAB4" => "Tag 2", "#FFC48C" => "Tag 3",
+           "F56991" => "Tag 5", "FF9F80" => "Tag 6" }
 
   VIDEO_REGEX = /(youtube|vimeo).com\/.*[a-zA-Z0-9]+\z/
 
@@ -36,8 +38,13 @@ class Buzz < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  # Formats date
   def get_date
     created_at.strftime("%b %d, %Y")
+  end
+
+  def tag
+    TAGS[box_color]
   end
 
   # def assign_color
