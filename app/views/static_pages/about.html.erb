@@ -1,11 +1,7 @@
 <div class="about-wrapper">
-
   <div class="wide-container about-padding">
       <h1> WHO ARE WE? </h1>
-      <p id="about-description"> We are a team of Berkeley students with blue paws.<br>
-      Because we have blue paws, we make blue "prints" wherever we walk.<br>
-      Yes, that means we walk around like dogs do. </p>
-  </div>
+      <h2>BLUEPRINTERS</div>
   <div class="wide-container" id="about-banner">
     <a class="button about-button" onclick="smoothScroll('process')"> Our Process </a>
     <a class="button about-button" onclick="smoothScroll('team')"> Our Team </a>
@@ -16,21 +12,38 @@
     <h1> OUR PROCESS </h1>
     <h2> CYCLICAL CROWDFUNDING </h2>
     <div class="about-process-container">
-      <img src="<%= asset_path("process.png") %>" alt-"Process" class="about-process-image">
-      <div class="about-process-texts">
+      <div class="about-process-circle">
+        <img class="about-process-girl-left" src="<%= asset_path("elizabeth.png") %>">
+        <img class="about-process-girl-right" src="<%= asset_path("elizabeth.png") %>">
+        <a href="#" class="about-process-icon deg0"><img src="<%= asset_path("orange_skull.png") %>"></a>
+        <a href="#" class="about-process-icon deg60"><img src="<%= asset_path("orange_skull.png") %>"></a>
+        <a href="#" class="about-process-icon deg120"><img src="<%= asset_path("orange_skull.png") %>"></a>
+        <a href="#" class="about-process-icon deg180"><img src="<%= asset_path("orange_skull.png") %>"></a>
+        <a href="#" class="about-process-icon deg240"><img src="<%= asset_path("orange_skull.png") %>"></a>
+        <a href="#" class="about-process-icon deg300" id="first_icon"><img src="<%= asset_path("orange_skull.png") %>"></a>
+
+        <img class="about-process-arrow deg30" src="<%= asset_path("orange_arrow.png") %>">
+        <img class="about-process-arrow deg90" src="<%= asset_path("orange_arrow.png") %>">
+        <img class="about-process-arrow deg150" src="<%= asset_path("orange_arrow.png") %>">
+        <img class="about-process-arrow deg210" src="<%= asset_path("orange_arrow.png") %>">
+        <img class="about-process-arrow deg270 sir" src="<%= asset_path("orange_arrow.png") %>">
+        <img class="about-process-arrow deg330 sir" src="<%= asset_path("orange_arrow.png") %>">
+      </div>
+      <div class="about-process-square">
         <div class="about-process-text">
-          <h3>MOTIVATION</h3>
-          <p>Put the team on your back. It's time to make a change. It's time to get things going. It's time to be you. You can do it!</p>
+          <h1 class="about-process-text-title">Hover</h1>
+          <p class="about-process-text-paragraph"> 
+            This is the story of Elevate Africa. It is one of majesticness unknown to all of mankind, waiting to be discovered by some Cal students.
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="about-section-team" id="team">
+  <div class="about-section-team about-padding" id="team">
     <h1> OUR TEAM </h1>
     <h2> DEDICATED TO GOOD </h2>
-    <div class="about-team-container about-padding">
-
+    <div class="about-team-container">
       <div class="about-member-container">
         <img src="<%= asset_path("kevin.jpg") %>" alt="Kevin">
         <div class="about-member-text">
@@ -64,5 +77,4 @@
          </p>
     </div>
   </div>
-
 </div>

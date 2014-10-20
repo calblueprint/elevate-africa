@@ -8,20 +8,29 @@
 </div>
 
 <div id="buzz-headline-container">
-  <% if valid_admin? %>
-    <i><%= link_to "", new_buzz_path, class: "fa fa-plus-square fa-5x" , id: "buzz-create-button" %></i>
-  <% end %>
-  <h2 id="buzz-headline">What We're Up To</h2>
+  <h2 id="buzz-headline">
+    What We're Up To
+    <% if valid_admin? %>
+      <span>
+        <i>
+          <%= link_to "", new_buzz_path, class: "fa fa-plus-square buzz-icon-button" %>
+        </i>
+      </span>
+    <% end %>
+  </h2>
 </div>
 
 <% @buzzes.each do |buzz| %>
   <% if buzz.picture? %>
-    <div class="buzz-small-box">
+    <div class="buzz-box-<%= buzz.box_size %>">
       <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
-        <div class="buzz-info">
-          <p><%= buzz.get_date %></p>
-          <h2><%= buzz.headline %></h2>
-          <%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %>
+        <div class="buzz-info-container">
+          <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
+          <div class="buzz-info">
+            <h1 class="buzz-headline"><%= buzz.headline %></h1>
+            <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
+            <span class="socialShare"></span>
+          </div>
         </div>
       </div>
     </div>

@@ -14,36 +14,24 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
-#about-description {
-  padding-top: 0px;
-  padding-bottom: 36px;
-}
-
 #about-banner {
   background: url(asset_path("elephants.jpg"));
   background-size: cover;
   background-position: center;
-  height: 400px;
-  margin-top: -50px;
-  padding-top: 160px;
-
-  // -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
-  // -moz-box-shadow:    inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
-  // box-shadow:         inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  height: 425px;
+  padding-top: 165px;
+  margin-bottom: 36px;
 }
 
 .about-wrapper {
   margin-left: auto;
   margin-right : auto;
-  // -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  // -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
-  // box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
 .about-button {
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
   border-radius: 4px;
-  margin: 0 20px;
+  margin: 0 25px;
 
   &:hover {
     background: $tertiary-color;
@@ -62,7 +50,8 @@ for the about.css.scss file custom styling*/
   width: 100%;
   display: block;
   text-align: center;
-  margin: -175px auto 0px auto;
+  margin: auto;
+  margin-top: -264px;
 }
 
 .about-padding {
@@ -72,31 +61,81 @@ for the about.css.scss file custom styling*/
 .about-process-container {
   width: 100%;
   text-align: center;
-}
-.about-process-image {
   padding-top: 36px;
-  display: inline;
-  position: relative;
 }
 
-.about-process-texts {
+.about-process-circle {
+  position: relative;
+  width: 30em;
+  height: 30em;
+  padding: 1.4em;
+  margin: 1.75em auto 0;
+
+  .about-process-icon {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 7em; height: 7em;
+    margin: -3.5em;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .about-process-arrow {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 3em; height: 5em;
+    margin: -2.0em;
+  }
+}
+
+.deg0 { transform: translate(15em); }
+.deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
+.deg120 { transform: rotate(120deg) translate(15em) rotate(-120deg); }
+.deg180 { transform: translate(-15em); }
+.deg240 { transform: rotate(240deg) translate(15em) rotate(-240deg); }
+.deg300 { transform: rotate(300deg) translate(15em) rotate(-300deg); }
+
+.deg30 { transform: rotate(30deg) translate(15em); }
+.deg90 { transform: rotate(90deg) translate(15em); }
+.deg150 { transform: rotate(150deg) translate(15em); }
+.deg210 { transform: rotate(210deg) translate(15em); }
+.deg270 { transform: rotate(270deg) translate(15em); }
+.deg330 { transform: rotate(330deg) translate(15em); }
+
+.about-process-girl-left {
+  position: absolute;
+  left: -62.5%;
+  opacity: 1;
+}
+
+.about-process-girl-right {
+  position: absolute;
+  left: 117.5%;
+  transform: scaleX(-1);
+  opacity: 1;
+}
+
+.about-process-square {
   width: 100%;
-  top: -340px;
+  top: -385px;
   margin: auto;
   position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 .about-process-text {
-  width: 210px;
-  height: 210px;
+  width: 300px;
+  height: 300px;
   margin: auto;
-  opacity: 0;
+  opacity: 1;
 }
 
 .about-team-container {
   width: 100%;
-  height: 500px;
   display: block;
   text-align: center;
 }
@@ -104,7 +143,7 @@ for the about.css.scss file custom styling*/
 .about-member-container {
   height: 200px;
   width: 100%;
-  margin-bottom: 25px;
+  margin-top: 36px;
   display: block;
   text-align: center;
 }
@@ -126,7 +165,3 @@ for the about.css.scss file custom styling*/
   font: 16px Bitter, sans-serif;
   color: #666666;
 }
-
-
-
-

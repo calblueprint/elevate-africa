@@ -54,6 +54,7 @@ class BuzzesController < ApplicationController
 
   def buzz_params
     params.require(:buzz).permit(:headline, :subhead, :content,
-                                 :admin_id, :video_link, :picture)
+                                 :admin_id, :video_link, :picture,
+                                 :box_color, :box_size)
   end
 end

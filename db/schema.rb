@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012101024) do
+ActiveRecord::Schema.define(version: 20141014042531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20141012101024) do
     t.string   "subhead"
     t.string   "picture"
     t.integer  "box_size",   default: 1
+    t.string   "box_color"
   end
 
   create_table "users", force: true do |t|
