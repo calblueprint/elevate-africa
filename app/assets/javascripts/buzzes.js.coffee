@@ -25,6 +25,13 @@ $(document).ready ->
     opts = "status=1, width=#{width}, height=#{height},top=#{top},left=#{left}"
     window.open(url,'twitter', opts)
     return false
+
+  $('.share-google').click (e)->
+    e.preventDefault
+    window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
+                                scrollbars=yes,height=600,width=600')
+    return false;
+
 #
 #
 # // You can also share to pinterest and tumblr:
