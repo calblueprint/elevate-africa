@@ -26,11 +26,11 @@
       <i class="fa fa-google-plus-square" id="buzz-google"></i>
     </a>
   </h4>
+  <div id="buzz-line-separator"></div>
 </div>
 
 <div id="buzz-show-content-container">
   <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
-  <div id="buzz-line-separator"></div>
   <% if @buzz.video_link %>
     <div id="buzz-video">
     <iframe title="Video player"
