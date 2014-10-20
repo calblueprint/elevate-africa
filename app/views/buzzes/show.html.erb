@@ -1,12 +1,32 @@
-<div class="wide-container padding">
-  <% if current_user && current_user.is_admin? %>
-    <%= link_to "Edit Buzz", edit_buzz_path(@buzz) %>
-    <%= link_to "Delete Buzz", buzz_path(@buzz),
-                               method: :delete,
-                               data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
+<div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner">
+  <div id="buzz-black-cover">
+    <div id="buzz-show-title-container">
+      <h1 id="buzz-show-headline"><%= @buzz.headline %></h1>
+      <h2 id="buzz-show-subhead"><%= @buzz.subhead %></h2>
+    </div>
+  </div>
+</div>
+
+<% if current_user && current_user.is_admin? %>
+  <h2 id="buzz-edit-buttons">
+    <i><%= link_to "", edit_buzz_path(@buzz), class: "fa fa-pencil-square buzz-icon-button" %></i>
+    <i>
+      <%= link_to "", buzz_path(@buzz), method: :delete,
+                      class: "fa fa-minus-square buzz-icon-button",
+                      data: { confirm: "Are you sure you want to this? The buzz cannot be recovered" } %>
+    </i>
+  </h2>
+<% end %>
+<div id="buzz-show-content-container">
+  <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
+  <div id="buzz-line-separator"></div>
+  <% if @buzz.video_link %>
+    <div id="buzz-video">
+    <iframe title="Video player"
+            type="text/html" src="<%=get_url(@buzz.video_link) %>"
+            width="480" height="270"
+            frameborder="0" allowFullScreen>
+    </iframe>
+    </div>
   <% end %>
-  <%= @buzz.headline %>
-  <%= @buzz.subhead %>
-  <%= @buzz.content %>
-  <%= image_tag(@buzz.picture) if @buzz.picture?   %>
 </div>
