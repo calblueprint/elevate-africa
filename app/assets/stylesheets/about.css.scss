@@ -61,7 +61,7 @@ for the about.css.scss file custom styling*/
 .about-process-container {
   width: 100%;
   text-align: center;
-  padding-top: 36px;
+  padding-top: 18px;
 }
 
 .about-process-circle {
@@ -108,28 +108,28 @@ for the about.css.scss file custom styling*/
 
 .about-process-girl-left {
   position: absolute;
-  left: -62.5%;
+  left: -75.0%;
   opacity: 1;
 }
 
 .about-process-girl-right {
   position: absolute;
-  left: 117.5%;
+  left: 125.0%;
   transform: scaleX(-1);
   opacity: 1;
 }
 
 .about-process-square {
   width: 100%;
-  top: -385px;
+  top: -350px;
   margin: auto;
   position: relative;
   z-index: -1;
 }
 
 .about-process-text {
-  width: 300px;
-  height: 300px;
+  width: 275px;
+  height: 275px;
   margin: auto;
   opacity: 1;
 }
@@ -149,15 +149,14 @@ for the about.css.scss file custom styling*/
 }
 
 .about-member-text {
-  height: 180px;
-  width: 360px;
+  width: 400px;
   display: inline-block;
-  padding-left: 15px;
+  padding-left: 18px;
   text-align: left;
 }
 
 .about-member-name {
-  font: 400 36px Lato;
+  font: 400 30px Lato;
   color: #666666;
 }
 

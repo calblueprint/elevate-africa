@@ -55,12 +55,12 @@ function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
 
-  if(selected.hasClass("deg0")) { title.text("strong"); }
-  else if(selected.hasClass("deg60")) { title.text("doee"); }
-  else if(selected.hasClass("deg120")) { title.text("super"); }
-  else if(selected.hasClass("deg180")) { title.text("man"); }
-  else if(selected.hasClass("deg240")) { title.text("doee"); }
-  else { title.text("sooo"); }
+  if(selected.hasClass("deg0")) { title.text("STRONG"); }
+  else if(selected.hasClass("deg60")) { title.text("DOEE"); }
+  else if(selected.hasClass("deg120")) { title.text("SUPER"); }
+  else if(selected.hasClass("deg180")) { title.text("MANN"); }
+  else if(selected.hasClass("deg240")) { title.text("DOEE"); }
+  else { title.text("SOOO"); }
 }
 
 function fadeOthers(selected, opacity) {
