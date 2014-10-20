@@ -1,27 +1,29 @@
 var ready = function() {
   $(document).ready(function() {
-    var circle = $(".about-process-circle");
-    var content = $(".about-process-text");
+    if($(".about-page").length > 0) {
+      var circle = $(".about-process-circle");
+      var content = $(".about-process-text");
 
-    var first_icon = $("#first_icon");
-    initialSettings(first_icon, content, 0.75);
+      var first_icon = $("#first_icon");
+      initialSettings(first_icon, content, 0.75);
 
-    var previous = first_icon;
+      var previous = first_icon;
 
-    circle.on("mouseenter", ".about-process-icon", function() {
-      var selected = $(this);
-      if(!selected.is(previous)) {
-        endProcessAnimation();
-        fadeGirls();
-        content.animate({opacity: 0}, function() {
-          changeCenterText(selected, content);
-          content.animate({opacity: 1});
-        });
-        selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
-        previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: 0.75});
-        previous = selected;
-      }
-    });
+      circle.on("mouseenter", ".about-process-icon", function() {
+        var selected = $(this);
+        if(!selected.is(previous)) {
+          endProcessAnimation();
+          fadeGirls();
+          content.animate({opacity: 0}, function() {
+            changeCenterText(selected, content);
+            content.animate({opacity: 1});
+          });
+          selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
+          previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: 0.75});
+          previous = selected;
+        }
+      });
+    }
   });
 }
 
