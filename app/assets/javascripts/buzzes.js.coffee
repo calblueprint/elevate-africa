@@ -32,6 +32,12 @@ $(document).ready ->
                                 scrollbars=yes,height=600,width=600')
     return false;
 
+  $('.share-facebook').click (e)->
+    e.preventDefault
+    window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
+                                scrollbars=yes,height=600,width=600')
+    return false;
+
 #
 #
 # // You can also share to pinterest and tumblr:
