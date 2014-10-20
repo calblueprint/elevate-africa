@@ -87,10 +87,18 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 3em; height: 5em;
-    margin: -2.0em;
+    width: 2.5em; height: 4em;
+    margin: -1.25em;
   }
 }
+
+// .deg0 { transform: rotate(-90deg) translate(15em) rotate(90deg); }
+// .deg60 { transform: rotate(-38.5deg) translate(15em) rotate(38.5deg); }
+// .deg120 { transform: rotate(13deg) translate(15em) rotate(-13deg); }
+// .deg180 { transform: rotate(64.5deg) translate(15em) rotate(-64.5deg); }
+// .deg240 { transform: rotate(116deg) translate(15em) rotate(-116deg); }
+// .deg300 { transform: rotate(167.5deg) translate(15em) rotate(-167.5deg); }
+// .deg360 { transform: rotate(219deg) translate(15em) rotate(-219deg); }
 
 .deg0 { transform: translate(15em); }
 .deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
@@ -107,16 +115,14 @@ for the about.css.scss file custom styling*/
 .deg330 { transform: rotate(330deg) translate(15em); }
 
 .about-process-girl-left {
-  position: absolute;
-  left: -75.0%;
-  opacity: 1;
+    position: absolute;
+    left: -75.0%;
 }
 
 .about-process-girl-right {
-  position: absolute;
-  left: 125.0%;
-  transform: scaleX(-1);
-  opacity: 1;
+    position: absolute;
+    left: 125.0%;
+    transform: scaleX(-1);
 }
 
 .about-process-square {

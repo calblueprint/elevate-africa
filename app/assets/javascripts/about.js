@@ -1,11 +1,12 @@
 var ready = function() {
   $(document).ready(function() {
     if($(".about-page").length > 0) {
+      var opacity = 0.625;
       var circle = $(".about-process-circle");
       var content = $(".about-process-text");
 
       var first_icon = $("#first_icon");
-      initialSettings(first_icon, content, 0.75);
+      initialSettings(first_icon, content, opacity);
 
       var previous = first_icon;
 
@@ -19,7 +20,7 @@ var ready = function() {
             content.animate({opacity: 1});
           });
           selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
-          previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: 0.75});
+          previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
           previous = selected;
         }
       });
@@ -34,8 +35,7 @@ function endProcessAnimation() {
   $(".about-process-text").stop(true, true);
   $(".about-process-icon").stop(true, true);
   $(".about-process-arrow").stop(true, true);
-  $(".about-process-girl-left").stop(true, true);
-  $(".about-process-girl-right").stop(true, true);
+  $(".about-process-girls").stop(true, true);
 }
 
 function initialSettings(first_icon, content, opacity) {
@@ -73,10 +73,8 @@ function fadeOthers(selected, opacity) {
 }
 
 function fadeGirls() {
-  $(".about-process-girl-left").animate({"opacity": 0});
-  $(".about-process-girl-right").animate({"opacity": 0}, function() {
-    $(".about-process-girl-left").animate({"opacity": 1});
-    $(".about-process-girl-right").animate({"opacity": 1});
+  $(".about-process-girls").animate({"opacity": 0}, function() {
+    $(".about-process-girls").animate({"opacity": 1});
   });
 }
 
