@@ -1,0 +1,128 @@
+/* Import the variables for the general theme */
+@import "variables.css.scss";
+
+#contact-text {
+    width: 333px;
+    float: left;
+    position: relative;
+}
+
+#contact-info {
+    width: 667px;
+    float: left;
+}
+
+.contact-text {
+    background: #aaaaaa;
+    font-color: $black;
+    font: $p;
+    opacity: 0.4;
+    margin-top: 15px;
+    margin-left: 100px;
+}
+.contact-name {
+    width: 275px;
+    height: 30px;
+    float: left;
+}
+
+.contact-textbox {
+    width: 560px;
+    height: 30px;
+    float: left;
+}
+
+.contact-address-font {
+    font: $p;
+    font-size: 30px;
+}
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+
+#contact-first {
+    margin-right: 5px;
+}
+
+#contact-last {
+    margin-left: 5px;
+}
+
+#contact-message {
+    width: 560px;
+    height: 200px;
+}
+
+#contact-button {
+    width: 560px;
+    height: 60px;
+    margin-left: 100px;
+    margin-top: 15px;
+}
+
+#contact-mail {
+    height: 300px;
+}
+
+#contact-email {
+    height: 500px;
+}
+
+#contact-map {
+    height: 400px;
+    width: 425px;
+    float: left;
+}
+
+#contact-address {
+    height: 400px;
+    width: 425px;
+    float: right;
+}
+
+#contact-connect {
+    height: 300px;
+}
+
+#campaign-birthday {
+  background: url(asset_path("campaign-birthday.png"));
+  background-size: cover;
+}
+
+#contact-twitter {
+    background: url(asset_path("contact-twitter.png"));
+    background-size: cover;
+}
+
+#contact-facebook {
+    background: url(asset_path("contact-facebook.png"));
+    background-size: cover;
+}
+
+#contact-instagram {
+    background: url(asset_path("contact-instagram.png"));
+    background-size: cover;
+}
+
+#contact-youtube {
+    background: url(asset_path("contact-youtube.png"));
+    background-size: cover;
+}
+
+#contact-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 70px;
+    width: 256px;
+}
+
+@media (max-width: 1000px) {
+  /* Adaptations for medium-sized screens */
+}
+
+@media (max-width: 600px) {
+  /* Adaptations for small-sized screens */
+}

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'campaign', to: 'static_pages#campaign'
   get 'template', to: 'static_pages#template'
+  get 'contact', to: 'static_pages#contact'
 
   resources :buzzes
 
