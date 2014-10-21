@@ -51,7 +51,7 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: -264px;
+  margin-top: -228px;
 }
 
 .about-padding {
@@ -61,7 +61,7 @@ for the about.css.scss file custom styling*/
 .about-process-container {
   width: 100%;
   text-align: center;
-  padding-top: 18px;
+  padding-top: 36px;
 }
 
 .about-process-circle {
@@ -155,18 +155,20 @@ for the about.css.scss file custom styling*/
 }
 
 .about-member-text {
-  width: 400px;
+  width: 300px;
+  height: 180px;
   display: inline-block;
-  padding-left: 18px;
+  padding-left: 16px;
   text-align: left;
 }
 
 .about-member-name {
   font: 400 30px Lato;
-  color: #666666;
+  color: $dark-gray;
 }
 
 .about-member-content {
-  font: 16px Bitter, sans-serif;
-  color: #666666;
+  font: 14px Bitter, sans-serif;
+  line-height: 1.75;
+  color: $dark-gray;
 }
