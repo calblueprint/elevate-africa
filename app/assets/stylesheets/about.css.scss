@@ -150,7 +150,8 @@ for the about.css.scss file custom styling*/
   height: 200px;
   width: 100%;
   margin-top: 36px;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   text-align: center;
 }
 
@@ -160,6 +161,7 @@ for the about.css.scss file custom styling*/
   display: inline-block;
   padding-left: 16px;
   text-align: left;
+  vertical-align: top;
 }
 
 .about-member-name {
