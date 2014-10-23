@@ -26,6 +26,12 @@ for the about.css.scss file custom styling*/
 .about-wrapper {
   margin-left: auto;
   margin-right : auto;
+
+  background: #fff;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  margin-bottom: 200px;
 }
 
 .about-button {

@@ -1,0 +1,74 @@
+/* Import the variables for the general theme */
+@import "variables.css.scss";
+
+/* Define all custom css here, but start every class and id with the filename. For example:
+#about-box { width: 100%; }
+.about-potato { width: 100px; }
+for the about.css.scss file custom styling*/
+
+@media (max-width: 1000px) {
+  /* Adaptations for medium-sized screens */
+}
+
+@media (max-width: 600px) {
+  /* Adaptations for small-sized screens */
+}
+
+.footer-wrapper {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+
+  height: 200px;
+  background-color: #333333;
+  background-size: cover;
+  background-position: center;
+
+  // box-shadow: inset 0px 5px 10px 0px rgba(50, 50, 50, 0.75);
+}
+
+.footer-table {
+  padding: 0px 0px;
+  margin: 0 12.5% 0 12.5%;
+
+  ul {
+    padding: 0 0;
+  	list-style-type: none;
+
+  	p {
+  	  color: $light-gray;
+  	}
+  }
+
+  hr {
+  	border-color: $light-gray;
+  }
+}
+
+.footer-col {
+  display: block;
+  float:left;
+  margin-top: 1.5%;
+//	margin-top: 1% 0 1% 1.6%;
+}
+
+.footer-third {
+  width: 33.33%;
+}
+
+.footer-extra {
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+
+  p {
+  	color: $light-gray;
+  	display: inline;
+  }
+}
+
+#footer-blueprint {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
