@@ -3,12 +3,12 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  created_at             :datetime
+#  updated_at             :datetime
 #  first_name             :string(255)
 #  last_name              :string(255)
 #  password               :string(255)
 #  username               :string(255)
-#  created_at             :datetime
-#  updated_at             :datetime
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
@@ -22,23 +22,8 @@
 #  type                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  EMAIL_PATTERN = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: EMAIL_PATTERN }, uniqueness: true, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :username, presence: true
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+class Team < User
   def is_team?
-    false
-  end
-
-  def is_admin?
-    false
+    true
   end
 end
