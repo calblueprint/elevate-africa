@@ -15,17 +15,16 @@ for the about.css.scss file custom styling*/
 }
 
 #about-banner {
-  background: url(asset_path("elephants.jpg"));
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.125), 
+      rgba(0, 0, 0, 0.125)
+    ), url(asset_path("elephants.jpg"));
   background-size: cover;
   background-position: center;
+
   height: 425px;
   padding-top: 165px;
   margin-bottom: 36px;
-}
-
-.about-wrapper {
-  margin-left: auto;
-  margin-right : auto;
 }
 
 .about-button {
@@ -51,7 +50,7 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: -264px;
+  margin-top: -228px;
 }
 
 .about-padding {
@@ -87,10 +86,18 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 3em; height: 5em;
-    margin: -2.0em;
+    width: 2.5em; height: 4em;
+    margin: -1.25em;
   }
 }
+
+// .deg0 { transform: rotate(-90deg) translate(15em) rotate(90deg); }
+// .deg60 { transform: rotate(-38.5deg) translate(15em) rotate(38.5deg); }
+// .deg120 { transform: rotate(13deg) translate(15em) rotate(-13deg); }
+// .deg180 { transform: rotate(64.5deg) translate(15em) rotate(-64.5deg); }
+// .deg240 { transform: rotate(116deg) translate(15em) rotate(-116deg); }
+// .deg300 { transform: rotate(167.5deg) translate(15em) rotate(-167.5deg); }
+// .deg360 { transform: rotate(219deg) translate(15em) rotate(-219deg); }
 
 .deg0 { transform: translate(15em); }
 .deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
@@ -107,29 +114,27 @@ for the about.css.scss file custom styling*/
 .deg330 { transform: rotate(330deg) translate(15em); }
 
 .about-process-girl-left {
-  position: absolute;
-  left: -62.5%;
-  opacity: 1;
+    position: absolute;
+    left: -75.0%;
 }
 
 .about-process-girl-right {
-  position: absolute;
-  left: 117.5%;
-  transform: scaleX(-1);
-  opacity: 1;
+    position: absolute;
+    left: 125.0%;
+    transform: scaleX(-1);
 }
 
 .about-process-square {
   width: 100%;
-  top: -385px;
+  top: -350px;
   margin: auto;
   position: relative;
   z-index: -1;
 }
 
 .about-process-text {
-  width: 300px;
-  height: 300px;
+  width: 275px;
+  height: 275px;
   margin: auto;
   opacity: 1;
 }
@@ -144,24 +149,27 @@ for the about.css.scss file custom styling*/
   height: 200px;
   width: 100%;
   margin-top: 36px;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   text-align: center;
 }
 
 .about-member-text {
+  width: 300px;
   height: 180px;
-  width: 360px;
   display: inline-block;
-  padding-left: 15px;
+  padding-left: 16px;
   text-align: left;
+  vertical-align: top;
 }
 
 .about-member-name {
-  font: 400 36px Lato;
-  color: #666666;
+  font: 400 30px Lato;
+  color: $dark-gray;
 }
 
 .about-member-content {
-  font: 16px Bitter, sans-serif;
-  color: #666666;
+  font: 14px Bitter, sans-serif;
+  line-height: 1.75;
+  color: $dark-gray;
 }

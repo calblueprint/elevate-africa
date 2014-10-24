@@ -66,10 +66,31 @@ for the about.css.scss file custom styling*/
   font-size: 35px;
 }
 
+.campaign-wrapper {
+  margin-left: auto;
+  margin-right : auto;
+
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  // overflow: hidden;
+  margin-bottom: $footer-margin;
+}
+
 @media (max-width: 1000px) {
-  /* Adaptations for medium-sized screens */
+  .campaign-padding {
+    padding: 60px 20px 60px 20px;
+  }
+  
+  #campaign-wedding, #campaign-sports, #campaign-birthday {
+
+  }
 }
 
 @media (max-width: 600px) {
-  /* Adaptations for small-sized screens */
+  #campaign-title {
+    font-size: 70px;
+    line-height: 72px;
+  }
+
 }

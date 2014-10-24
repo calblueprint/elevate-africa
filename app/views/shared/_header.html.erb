@@ -2,7 +2,7 @@
   <div class="hide-medium" id="navbar">
     <%= link_to "", root_path, id: 'navbar-home' %>
     <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
-    <a class="navbar-tab" href="#"> CONTACT </a>
+    <%= link_to "CONTACT", contact_path, class: 'navbar-tab' %>
     <%= link_to "BUZZ", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
     <%= link_to "CAMPAIGN", campaign_path, class: 'navbar-tab' %>
     <%= link_to "ABOUT", about_path, class: 'navbar-tab' %>

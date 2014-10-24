@@ -45,7 +45,7 @@ h2 {
 /* the smaller header styling */
 h3 {
   font: $h1;
-  font-size: 72px;
+  font-size: 84px;
   letter-spacing: 3px;
   line-height: 64px;
   color: $primary-color;
@@ -144,6 +144,16 @@ input, textarea, select {
 
 .margin-bottom {
   margin-bottom: 35px;
+}
+
+.general-wrapper {
+  margin-left: auto;
+  margin-right : auto;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  // overflow: hidden;
+  margin-bottom: $footer-margin;
 }
 
 @media (max-width: 1000px) {

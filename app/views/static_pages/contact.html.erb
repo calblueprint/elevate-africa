@@ -1,3 +1,4 @@
+<div class="campaign-wrapper">
 <div class="wide-container padding">
     <h1>We'd love to hear from you</h1>
     <h2>QUESTIONS OR COMMENTS?</h2>
@@ -12,7 +13,7 @@
         <input type="text" class="contact-name contact-text" id="contact-last" placeholder="Last Name">
         <input type="text" class="contact-textbox contact-text" placeholder="Email Address">
         <input type="text" class="contact-textbox contact-text" placeholder="Subject">
-        <input type="text" class="contact-text" id="contact-message" placeholder="Message">
+        <textarea class="contact-text" id="contact-message" placeholder="Message"></textarea>
         <div class="button" id="contact-button">
             <a href="#">Submit</a>
         </div>
@@ -20,29 +21,35 @@
 </div>
 
 
-<div class="wide-container padding border-top" id="contact-mail">
+<div class="wide-container padding" id="contact-mail">
     <h1>Mailing Address</h1>
     <h2>SEND US SOME LOVE!</h2>
 </div>
 
-<div class="medium-container" id="contact-mail">
+<div class="medium-container" id="contact-map-container">
     <div id="contact-map">
-        <p class="contact-address-font">COOL INTERACTIVE MAP</p>
+        <iframe
+            width="400px"
+            height="400px"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBSi8Rv0CjOOPThZyrK62JYf6z0xySwYp4&q=663+S+Rancho+Santa+Fe+Rd,+Suite+258+San+Marcos,+California+92078">
+        </iframe>
     </div>
     <div id="contact-address">
-        <p class="contact-address-font">2409 College Avenue #6</p><br>
-        <p class="contact-address-font">Berkeley, CA 94704</p><br>
-        <p class="contact-address-font">(909)630-1050</p>
+        <p class="contact-address-font">663 S Rancho Santa Fe Rd, Suite 258</p><br>
+        <p class="contact-address-font">San Marcos, California 92078</p><br>
+        <p class="contact-address-font">(858) 952-1179</p>
     </div>
 </div>
-<div class="wide-container border-bottom"></div>
+
 <div class="medium-container" id="contact-connect">
     <h1>Connect with us</h1>
     <h2>Follow us on social media!</h2>
     <div class="small-container" id="contact-container">
-        <div class="contact-icon" id="contact-twitter"></div>
-        <div class="contact-icon" id="contact-facebook"></div>
-        <div class="contact-icon" id="contact-youtube"></div>
-        <div class="contact-icon" id="contact-instagram"></div>
+        <div data-sr class="contact-icon" id="contact-twitter"></div>
+        <div data-sr class="contact-icon" id="contact-facebook"></div>
+        <div data-sr class="contact-icon" id="contact-youtube"></div>
+        <div data-sr class="contact-icon" id="contact-instagram"></div>
     </div>
+</div>
 </div>
