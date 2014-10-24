@@ -1,27 +1,31 @@
 var ready = function() {
   $(document).ready(function() {
-    var circle = $(".about-process-circle");
-    var content = $(".about-process-text");
 
-    var first_icon = $("#first_icon");
-    initialSettings(first_icon, content, 0.75);
+    if($(".about-page").length > 0) {
+      var opacity = 0.625;
+      var circle = $(".about-process-circle");
+      var content = $(".about-process-text");
 
-    var previous = first_icon;
+      var first_icon = $("#first_icon");
+      initialSettings(first_icon, content, opacity);
 
-    circle.on("mouseenter", ".about-process-icon", function() {
-      var selected = $(this);
-      if(!selected.is(previous)) {
-        endProcessAnimation();
-        fadeGirls();
-        content.animate({opacity: 0}, function() {
-          changeCenterText(selected, content);
-          content.animate({opacity: 1});
-        });
-        selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
-        previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: 0.75});
-        previous = selected;
-      }
-    });
+      var previous = first_icon;
+
+      circle.on("mouseenter", ".about-process-icon", function() {
+        var selected = $(this);
+        if(!selected.is(previous)) {
+          endProcessAnimation();
+          fadeGirls();
+          content.animate({opacity: 0}, function() {
+            changeCenterText(selected, content);
+            content.animate({opacity: 1});
+          });
+          selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
+          previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
+          previous = selected;
+        }
+      });
+    }
   });
 }
 
@@ -32,8 +36,7 @@ function endProcessAnimation() {
   $(".about-process-text").stop(true, true);
   $(".about-process-icon").stop(true, true);
   $(".about-process-arrow").stop(true, true);
-  $(".about-process-girl-left").stop(true, true);
-  $(".about-process-girl-right").stop(true, true);
+  $(".about-process-girls").stop(true, true);
 }
 
 function initialSettings(first_icon, content, opacity) {
@@ -53,12 +56,12 @@ function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
 
-  if(selected.hasClass("deg0")) { title.text("strong"); }
-  else if(selected.hasClass("deg60")) { title.text("doee"); }
-  else if(selected.hasClass("deg120")) { title.text("super"); }
-  else if(selected.hasClass("deg180")) { title.text("man"); }
-  else if(selected.hasClass("deg240")) { title.text("doee"); }
-  else { title.text("sooo"); }
+  if(selected.hasClass("deg0")) { title.text("STRONG"); }
+  else if(selected.hasClass("deg60")) { title.text("DOEE"); }
+  else if(selected.hasClass("deg120")) { title.text("SUPER"); }
+  else if(selected.hasClass("deg180")) { title.text("MANN"); }
+  else if(selected.hasClass("deg240")) { title.text("DOEE"); }
+  else { title.text("SOOO"); }
 }
 
 function fadeOthers(selected, opacity) {
@@ -71,10 +74,8 @@ function fadeOthers(selected, opacity) {
 }
 
 function fadeGirls() {
-  $(".about-process-girl-left").animate({"opacity": 0});
-  $(".about-process-girl-right").animate({"opacity": 0}, function() {
-    $(".about-process-girl-left").animate({"opacity": 1});
-    $(".about-process-girl-right").animate({"opacity": 1});
+  $(".about-process-girls").animate({"opacity": 0}, function() {
+    $(".about-process-girls").animate({"opacity": 1});
   });
 }
 
