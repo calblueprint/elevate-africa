@@ -35,7 +35,7 @@ for the about.css.scss file custom styling*/
   position: relative;
   z-index: 1;
   // overflow: hidden;
-  margin-bottom: 200px;
+  margin-bottom: $footer-margin;
 }
 
 .about-button {
