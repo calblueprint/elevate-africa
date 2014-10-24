@@ -15,9 +15,13 @@ for the about.css.scss file custom styling*/
 }
 
 #about-banner {
-  background: url(asset_path("elephants.jpg"));
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.125), 
+      rgba(0, 0, 0, 0.125)
+    ), url(asset_path("elephants.jpg"));
   background-size: cover;
   background-position: center;
+
   height: 425px;
   padding-top: 165px;
   margin-bottom: 36px;
@@ -29,8 +33,8 @@ for the about.css.scss file custom styling*/
 
   background: #fff;
   position: relative;
-  z-index: 5;
-  overflow: hidden;
+  z-index: 1;
+  // overflow: hidden;
   margin-bottom: 200px;
 }
 
