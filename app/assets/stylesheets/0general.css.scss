@@ -64,11 +64,14 @@ p {
   line-height: 32px;
 }
 
-input {
+input, textarea, select {
   border: 1px solid $light-gray;
   background: #fff;
   width: 100%;
   padding: 15px;
+  color: $black;
+  font: $p;
+  margin: 15px 0 15px;
 }
 
 /* various containers */
@@ -115,7 +118,9 @@ input {
   font-size: 25px;
   font-weight: 700;
   background: $secondary-color;
+  margin-top: 15px;
   color: #fff;
+  border: none;
   &:hover {
     cursor: pointer;
   }
@@ -135,6 +140,10 @@ input {
 
 .margin {
   margin: 50px 0 50px 0;
+}
+
+.margin-bottom {
+  margin-bottom: 35px;
 }
 
 @media (max-width: 1000px) {

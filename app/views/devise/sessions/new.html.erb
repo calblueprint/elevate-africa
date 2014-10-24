@@ -1,25 +1,26 @@
- <div class="wide-container padding">
-  <h2>Log in</h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div>
-      <%= f.input :email, autofocus: true, label: false, placeholder: "Email" %>
-    </div>
-
-    <div>
-      <%= f.input :password, autocomplete: "off", label: false, placeholder: "Password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div>
-        <%= f.input :remember_me, as: :boolean %>
+ <div class="small-container padding">
+  <h2 class="margin-bottom">LOG IN</h2>
+  <div class="login-form">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-padding">
+        <%= f.input :email, autofocus: true, label: false, placeholder: "Email" %>
       </div>
-    <% end -%>
 
-    <div>
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+      <div class="input-padding">
+        <%= f.input :password, autocomplete: "off", label: false, placeholder: "Password" %>
+      </div>
+
+<!--       <% if devise_mapping.rememberable? -%>
+        <div>
+          <%= f.input :remember_me, as: :boolean %>
+        </div>
+      <% end -%> -->
+
+      <div class="input-padding">
+        <%= f.submit "Log in", class: "button" %>
+      </div>
+    <% end %>
+  </div>
 
   <!-- <%= render "devise/shared/links" %> -->
 </div>
