@@ -20,21 +20,8 @@
 #  name                   :string(255)      default("")
 #
 
-class User < ActiveRecord::Base
-  EMAIL_PATTERN = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: EMAIL_PATTERN }, uniqueness: true, presence: true
-  validates :name, presence: true
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+class Team < User
   def team?
-    false
-  end
-
-  def admin?
-    false
+    true
   end
 end

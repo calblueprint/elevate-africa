@@ -1,16 +1,14 @@
-<%= simple_form_for buzz do |f| %>
-  <%= f.input :headline %>
-  <%= f.input :subhead %>
-  <%= f.input :content %>
-  <%= f.input :video_link, label: "Embed Youtube Video (optional)" %>
-  <%= f.hidden_field :admin_id, value: current_user.id %>
-  <!-- Add Image here! -->
-  <%= f.file_field :picture, label: "Attach a photo!" %>
-  </br>
-  <%= f.label :box_size %>
-  <%= f.select :box_size, Buzz::BOX_SIZE_SELECT %>
-  <%= f.label :box_color, "Tag" %>
-  <%= f.select :box_color, Buzz::BOX_COLORS %>
-  </br>
-  <%= f.submit "Submit Buzz!" %>
-<% end %>
+<div class="small-container">
+  <%= simple_form_for buzz do |f| %>
+    <%= f.input :headline, label: false, placeholder: 'Headline' %>
+    <%= f.input :subhead, label: false, placeholder: 'Subhead' %>
+    <%= f.input :content, label: false, placeholder: 'Your content here...' %>
+    <%= f.input :video_link, label: false, placeholder: "Embed Youtube Video (optional)" %>
+    <%= f.hidden_field :admin_id, value: current_user.id %>
+    <!-- Add Image here! -->
+    <%= f.file_field :picture, label: "Attach a photo!" %>
+    <%= f.input :box_color, collection: Buzz::BOX_COLORS, prompt: "Please select a tag", label: false %>
+    <%= f.input :box_size, collection: Buzz::BOX_SIZE_SELECT, prompt: "Select a box size", label: false %>
+    <%= f.submit "Submit Buzz!", class: "button" %>
+  <% end %>
+</div>

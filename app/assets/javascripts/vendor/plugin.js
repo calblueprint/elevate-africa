@@ -61,7 +61,7 @@
 			if (options.tumblr.name) {
 				shareURLs['tumblr'] += '&name=' + encodeURIComponent(options.tumblr.name);
 			}
-			
+
 			if (options.tumblr.description) {
 				shareURLs['tumblr'] += '&description=' + encodeURIComponent(options.tumblr.description);
 			}
@@ -164,5 +164,5 @@
 
 		return this;
 	};
-	
+
 })(jQuery);
