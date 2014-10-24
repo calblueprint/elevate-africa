@@ -6,7 +6,6 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  password               :string(255)
-#  username               :string(255)
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
@@ -24,8 +23,7 @@
 class User < ActiveRecord::Base
   EMAIL_PATTERN = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: EMAIL_PATTERN }, uniqueness: true, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :name, presence: true
   validates :username, presence: true
 
   # Include default devise modules. Others available are:
