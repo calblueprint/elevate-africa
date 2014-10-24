@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 20141024061208) do
     t.string   "box_color"
   end
 
+  create_table "campaigns", force: true do |t|
+    t.string   "name"
+    t.decimal  "goal",       precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donations", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",     precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
