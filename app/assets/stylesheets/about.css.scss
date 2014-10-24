@@ -27,17 +27,6 @@ for the about.css.scss file custom styling*/
   margin-bottom: 36px;
 }
 
-.about-wrapper {
-  margin-left: auto;
-  margin-right : auto;
-
-  background: #fff;
-  position: relative;
-  z-index: 1;
-  // overflow: hidden;
-  margin-bottom: $footer-margin;
-}
-
 .about-button {
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
   border-radius: 4px;
