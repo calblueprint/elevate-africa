@@ -47,6 +47,12 @@ class Buzz < ActiveRecord::Base
     TAGS[box_color]
   end
 
+  def recommended_buzz
+    related = Buzz.where(box_color: box_color)
+    related.delete(self)
+    related.take(3)
+  end
+
   # def assign_color
   #   self.box_color = BOX_COLORS.shuffle.min do |color1, color2|
   #     Buzz.where(box_color: color1).count <=> Buzz.where(box_color: color2).count
