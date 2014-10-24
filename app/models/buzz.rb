@@ -11,7 +11,7 @@
 #  headline   :string(255)
 #  subhead    :string(255)
 #  picture    :string(255)
-#  box_size   :integer          default(1)
+#  box_size   :integer
 #  box_color  :string(255)
 #
 
