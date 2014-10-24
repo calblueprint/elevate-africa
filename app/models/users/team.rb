@@ -5,8 +5,6 @@
 #  id                     :integer          not null, primary key
 #  created_at             :datetime
 #  updated_at             :datetime
-#  first_name             :string(255)
-#  last_name              :string(255)
 #  password               :string(255)
 #  username               :string(255)
 #  email                  :string(255)      default(""), not null
@@ -20,6 +18,7 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #  type                   :string(255)
+#  name                   :string(255)      default("")
 #
 
 class Team < User
