@@ -30,11 +30,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def is_team?
+  def team?
     false
   end
 
-  def is_admin?
+  def admin?
     false
   end
 end

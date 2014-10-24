@@ -23,7 +23,7 @@
 class Admin < User
   has_many :posts
 
-  def is_admin?
+  def admin?
     true
   end
 end

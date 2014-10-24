@@ -21,7 +21,7 @@
 #
 
 class Team < User
-  def is_team?
+  def team?
     true
   end
 end
