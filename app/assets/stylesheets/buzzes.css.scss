@@ -265,11 +265,11 @@
   margin-top: 10px;
 }
 
-#buzz-line-separator {
+.buzz-line-separator {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 30%;
   height:1px;
   background:#717171;
   border-bottom:1px solid #313030;
@@ -291,6 +291,17 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+}
+
+#buzz-show-recommended {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 500px;
+}
+
+#buzz-show-recommended-title {
+  text-align: center;
+  padding-top: 20px;
 }
 
 @media (max-width: 1000px) {
