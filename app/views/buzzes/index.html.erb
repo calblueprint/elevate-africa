@@ -27,7 +27,7 @@
         <div class="buzz-info-container">
           <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
           <div class="buzz-info">
-            <h1 class="buzz-headline"><%= buzz.headline.truncate 40 %></h1>
+            <h1 class="buzz-headline"><%= truncate_headline buzz %></h1>
             <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
             <span class="socialShare buzz-share"></span>
           </div>
