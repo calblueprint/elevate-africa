@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: campaigns
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  goal        :decimal(9, 2)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  donation_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  goal: 
+  precision: MyString
+  9,: MyString
+  scale: MyString
+  2: MyString
+
+two:
+  name: MyString
+  goal: 
+  precision: MyString
+  9,: MyString
+  scale: MyString
+  2: MyString
