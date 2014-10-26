@@ -21,6 +21,7 @@
 #
 
 class Team < User
+  has_one :campaign
   def team?
     true
   end

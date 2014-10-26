@@ -16,14 +16,14 @@ for the about.css.scss file custom styling*/
 
 #about-banner {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.125), 
-      rgba(0, 0, 0, 0.125)
+      rgba(0, 0, 0, 0.05), 
+      rgba(0, 0, 0, 0.05)
     ), url(asset_path("elephants.jpg"));
   background-size: cover;
   background-position: center;
 
   height: 425px;
-  padding-top: 165px;
+  padding-top: 192.5px;
   margin-bottom: 36px;
 }
 
@@ -59,6 +59,7 @@ for the about.css.scss file custom styling*/
 
 .about-process-container {
   width: 100%;
+  margin: auto;
   text-align: center;
   padding-top: 36px;
 }
@@ -74,8 +75,8 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 7em; height: 7em;
-    margin: -3.5em;
+    width: 6em; height: 6em;
+    margin: -3em;
     img {
       display: block;
       width: 100%;
@@ -86,32 +87,46 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 2.5em; height: 4em;
+    width: 2em; height: 3em;
     margin: -1.25em;
   }
 }
 
-// .deg0 { transform: rotate(-90deg) translate(15em) rotate(90deg); }
-// .deg60 { transform: rotate(-38.5deg) translate(15em) rotate(38.5deg); }
-// .deg120 { transform: rotate(13deg) translate(15em) rotate(-13deg); }
-// .deg180 { transform: rotate(64.5deg) translate(15em) rotate(-64.5deg); }
-// .deg240 { transform: rotate(116deg) translate(15em) rotate(-116deg); }
-// .deg300 { transform: rotate(167.5deg) translate(15em) rotate(-167.5deg); }
-// .deg360 { transform: rotate(219deg) translate(15em) rotate(-219deg); }
+.icon-one { transform: rotate(-67.5deg) translate(15em) rotate(67.5deg); }
+.icon-two { transform: rotate(-22.5deg) translate(15em) rotate(22.5deg); }
+.icon-three { transform: rotate(22.5deg) translate(15em) rotate(-22.5deg); }
+.icon-four { transform: rotate(67.5deg) translate(15em) rotate(-67.5deg); }
+.icon-five { transform: rotate(112.5deg) translate(15em) rotate(-112.5deg); }
+.icon-six { transform: rotate(157.5deg) translate(15em) rotate(-157.5deg); }
+.icon-seven { transform: rotate(202.5deg) translate(15em) rotate(-202.5deg); }
+.icon-eight { transform: rotate(247.5deg) translate(15em) rotate(-247.5deg); }
 
-.deg0 { transform: translate(15em); }
-.deg60 { transform: rotate(60deg) translate(15em) rotate(-60deg); }
-.deg120 { transform: rotate(120deg) translate(15em) rotate(-120deg); }
-.deg180 { transform: translate(-15em); }
-.deg240 { transform: rotate(240deg) translate(15em) rotate(-240deg); }
-.deg300 { transform: rotate(300deg) translate(15em) rotate(-300deg); }
+.arrow-one { transform: translate(15em); }
+.arrow-two { transform: rotate(45deg) translate(15em); }
+.arrow-three { transform: rotate(90deg) translate(15em); }
+.arrow-four { transform: rotate(135deg) translate(15em); }
+.arrow-five { transform: rotate(180deg) translate(15em); }
+.arrow-six { transform: rotate(225.5deg) translate(15em); }
+.arrow-seven { transform: rotate(270deg) translate(15em); }
+.arrow-eight { transform: rotate(315deg) translate(15em); }
 
-.deg30 { transform: rotate(30deg) translate(15em); }
-.deg90 { transform: rotate(90deg) translate(15em); }
-.deg150 { transform: rotate(150deg) translate(15em); }
-.deg210 { transform: rotate(210deg) translate(15em); }
-.deg270 { transform: rotate(270deg) translate(15em); }
-.deg330 { transform: rotate(330deg) translate(15em); }
+// .deg0 { transform: translate(15em); }
+// .deg45 { transform: rotate(45deg) translate(15em) rotate(-45deg); }
+// .deg90 { transform: rotate(90deg) translate(15em) rotate(-90deg); }
+// .deg135 { transform: rotate(135deg) translate(15em) rotate(-135deg); }
+// .deg180 { transform: rotate(180deg) translate(15em) rotate(-180deg); }
+// .deg225 { transform: rotate(225deg) translate(15em) rotate(-225deg); }
+// .deg270 { transform: rotate(270deg) translate(15em) rotate(-270deg); }
+// .deg315 { transform: rotate(315deg) translate(15em) rotate(-315deg); }
+
+// .arrow-one { transform: rotate(22.5deg) translate(15em); }
+// .arrow-two { transform: rotate(67.5deg) translate(15em); }
+// .arrow-three { transform: rotate(112.5deg) translate(15em); }
+// .arrow-four { transform: rotate(157.5deg) translate(15em); }
+// .arrow-five { transform: rotate(202.5deg) translate(15em); }
+// .arrow-six { transform: rotate(247.5deg) translate(15em); }
+// .arrow-seven { transform: rotate(292.5deg) translate(15em); }
+// .arrow-eight { transform: rotate(337.5deg) translate(15em); }
 
 .about-process-girl-left {
     position: absolute;
@@ -146,25 +161,38 @@ for the about.css.scss file custom styling*/
 }
 
 .about-member-container {
-  height: 200px;
   width: 100%;
-  margin-top: 36px;
+  margin-top: 32px;
   display: inline-block;
   vertical-align: top;
   text-align: center;
 }
 
-.about-member-text {
-  width: 300px;
+.about-member-text-right {
+  width: 360px;
   height: 180px;
   display: inline-block;
-  padding-left: 16px;
+  margin-left: 32px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.about-member-text-left {
+  width: 360px;
+  height: 180px;
+  display: inline-block;
+  margin-right: 32px;
   text-align: left;
   vertical-align: top;
 }
 
 .about-member-name {
-  font: 400 30px Lato;
+  font: 200 32px Lato;
+  color: $dark-gray;
+}
+
+.about-member-title {
+  font: 200 20px Lato;
   color: $dark-gray;
 }
 
