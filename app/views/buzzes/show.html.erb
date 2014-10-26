@@ -45,5 +45,11 @@
 
 <div id="buzz-show-recommended">
   <h2 id="buzz-show-recommended-title">Related Buzzes</h2>
+  <% @buzz.recommended_buzz.each do |rec_buzz| %>
+    <div class="buzz-recommended">
+      <div class="buzz-recommended-image" style="background-image: url(<%= rec_buzz.picture_url %>)"></div>
+      <div class="buzz-recommended-headline"><%= rec_buzz.headline %>
+    </div>
+  <% end %>
 </div>
 
