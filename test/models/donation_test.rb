@@ -10,7 +10,7 @@
 #  campaign_id :integer
 #
 
-require 'test_helper'
+require "test_helper"
 
 class DonationTest < ActiveSupport::TestCase
   # test "the truth" do
