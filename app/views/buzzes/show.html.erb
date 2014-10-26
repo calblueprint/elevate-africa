@@ -1,6 +1,6 @@
 <div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner"></div>
 
-<% if current_user && current_user.is_admin? %>
+<% if current_user && current_user.admin? %>
   <h2 id="buzz-edit-buttons">
     <i><%= link_to "", edit_buzz_path(@buzz), class: "fa fa-pencil-square buzz-icon-button" %></i>
     <i>
