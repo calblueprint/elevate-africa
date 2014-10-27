@@ -9,12 +9,15 @@
       <th>Deadline</th>
     </tr>
 
-    <% @campaigns.each do |c| %>
+    <% @campaigns.each do |campaign| %>
       <tr>
-        <td><%= c.name %></td>
-        <td><%= c.description %></td>
-        <td><%= c.goal %></td>
-        <td><%= c.deadline %></td>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.description %></td>
+        <td><%= campaign.goal %></td>
+        <td><%= campaign.deadline %></td>
+        <td><%= link_to 'show', campaign_path(campaign) %></td>
+        <td><%= link_to 'edit', edit_campaign_path(campaign) %></td>
+        <td><%= link_to 'destroy', campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </table>

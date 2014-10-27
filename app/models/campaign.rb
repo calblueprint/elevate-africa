@@ -15,4 +15,6 @@
 class Campaign < ActiveRecord::Base
   belongs_to :team
   has_many :donations
+
+  validates :name, presence: true, length: { minimum: 1 }
 end
