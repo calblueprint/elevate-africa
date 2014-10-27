@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
 
   resources :buzzes
+  resources :comments
 
   resources :users
   # Example of named route that can be invoked with purchase_url(id: product.id)
