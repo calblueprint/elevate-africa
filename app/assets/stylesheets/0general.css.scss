@@ -152,7 +152,7 @@ input, textarea, select {
   background: #fff;
   position: relative;
   z-index: 1;
-  // overflow: hidden;
+  overflow: auto;
   margin-bottom: $footer-margin;
 }
 
