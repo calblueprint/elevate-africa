@@ -1,6 +1,6 @@
 class CampaignsController < ApplicationController
   def index
-  	@campaigns = Campaign.all
+    @campaigns = Campaign.all
   end
 
   def new
@@ -8,12 +8,12 @@ class CampaignsController < ApplicationController
   end
 
   def create
-   	@campaign = Campaign.new(campaign_params)
+    @campaign = Campaign.new(campaign_params)
   	
     if @campaign.save
       redirect_to @campaign
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -31,7 +31,7 @@ class CampaignsController < ApplicationController
     if @campaign.update(campaign_params)
       redirect_to @campaign
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -40,9 +40,9 @@ class CampaignsController < ApplicationController
     @campaign.destroy
     redirect_to campaigns_path
   end
-  
+
   private
     def campaign_params
       params.require(:campaign).permit(:name, :goal, :description, :deadline)
-  	end
+    end
 end

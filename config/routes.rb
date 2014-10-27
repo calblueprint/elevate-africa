@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#index'
-  get 'about', to: 'static_pages#about'
-  get 'campaign', to: 'static_pages#campaign', as: :static_campaign
-  get 'template', to: 'static_pages#template'
-  get 'contact', to: 'static_pages#contact'
+  root "static_pages#index"
+  get "about", to: "static_pages#about"
+  get "campaign", to: "static_pages#campaign", as: :static_campaign
+  get "template", to: "static_pages#template"
+  get "contact", to: "static_pages#contact"
 
   resources :buzzes
 
