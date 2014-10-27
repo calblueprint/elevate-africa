@@ -1,0 +1,21 @@
+<div class="wide-container">
+  <h1>All Campaigns</h1>
+  <%= link_to 'new campaign?', new_campaign_path %>
+  <table class="small-container">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Goal</th>
+      <th>Deadline</th>
+    </tr>
+
+    <% @campaigns.each do |c| %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.description %></td>
+        <td><%= c.goal %></td>
+        <td><%= c.deadline %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
