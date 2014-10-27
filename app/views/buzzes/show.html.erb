@@ -52,8 +52,14 @@
     <% @buzz.recommended_buzz.each do |rec_buzz| %>
       <div class="buzz-recommended">
         <div class="buzz-recommended-center">
-          <div class="buzz-recommended-image" style="background-image: url(<%= rec_buzz.picture_url %>)"></div>
-          <div class="buzz-recommended-headline"><%= rec_buzz.headline %></div>
+          <a class="buzz-recommended-link" href=<%=buzz_path(rec_buzz)%>>
+            <div class="buzz-recommended-image" style="background-image: url(<%= rec_buzz.picture_url %>)">
+            </div>
+          </a>
+          <h4 class="buzz-recommended-headline">
+            <%= link_to rec_buzz.headline, buzz_path(rec_buzz), class: "buzz-recommended-headline-link" %>
+          </h4>
+          <p class="buzz-recommended-author">By: <%= rec_buzz.admin.name %></p>
         </div>
       </div>
     <% end %>
