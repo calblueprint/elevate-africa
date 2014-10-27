@@ -8,6 +8,8 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  donation_id :integer
+#  description :string(255)
+#  deadline    :string(255)
 #
 
 class Campaign < ActiveRecord::Base

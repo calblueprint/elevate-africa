@@ -4,7 +4,7 @@
     <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
     <%= link_to "CONTACT", contact_path, class: 'navbar-tab' %>
     <%= link_to "BUZZ", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
-    <%= link_to "CAMPAIGN", campaign_path, class: 'navbar-tab' %>
+    <%= link_to "CAMPAIGN", static_campaign_path, class: 'navbar-tab' %>
     <%= link_to "ABOUT", about_path, class: 'navbar-tab' %>
     <% if current_user %>
       <%= link_to "SIGN OUT", destroy_user_session_path,
