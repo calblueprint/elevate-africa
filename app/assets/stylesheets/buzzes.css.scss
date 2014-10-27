@@ -315,9 +315,9 @@
 /* Buzz Recommended */
 
 .buzz-show-recommended {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.01);
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 
 .buzz-show-recommended-title {
@@ -327,15 +327,27 @@
 }
 
 .buzz-recommended-container {
-  padding-right: 5%;
-  padding-left: 5%;
+  width: 75%;
+  margin: 20px auto;
+  // margin-top: 20px;
+}
+
+.buzz-recommended {
+  width: 33%;
+  height: auto;
+  float: left;
+  padding: 0px 10px;
 }
 
 .buzz-recommended-image {
-  width: 20%;
+  width: 100%;
   height: 150px;
   background-position: center;
   background-size: cover;
+}
+
+.buzz-recommended-center {
+  margin: auto;
 }
 
 @media (max-width: 1000px) {
