@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = Admin.create(email: 'admin@gmail.com', password: 'password', first_name: 'Charles', last_name: 'Xue', username: 'charlesx')
+admin = Admin.create(email: 'admin@gmail.com', password: 'password', name: 'Charles Xue')
 buzz = Buzz.create(headline: "Hello World", subhead: "This is a subhead", content: "Lorem Ipsum")
