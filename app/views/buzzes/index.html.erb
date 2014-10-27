@@ -20,19 +20,23 @@
   </h2>
 </div>
 
-<% @buzzes.each do |buzz| %>
-  <% if buzz.picture? %>
-    <div class="buzz-box-<%= buzz.box_size %>">
-      <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
-        <div class="buzz-info-container">
-          <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
-          <div class="buzz-info">
-            <h1 class="buzz-headline"><%= truncate_headline buzz %></h1>
-            <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
-            <span class="socialShare buzz-share"></span>
+<% if !@buzzes.blank? %>
+  <% @buzzes.each do |buzz| %>
+    <% if buzz.picture? %>
+      <div class="buzz-box-<%= buzz.box_size %>">
+        <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
+          <div class="buzz-info-container">
+            <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
+            <div class="buzz-info">
+              <h1 class="buzz-headline"><%= truncate_headline buzz %></h1>
+              <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
+              <span class="socialShare buzz-share"></span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
+<% else %>
+  <h2 id="buzz-empty">There's nothing here, come back later!</h2>
 <% end %>
