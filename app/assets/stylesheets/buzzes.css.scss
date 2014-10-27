@@ -39,6 +39,13 @@
   color: white;
 }
 
+#buzz-index-container {
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 #buzz-headline-container {
   margin-top: 50px;
 }
@@ -200,14 +207,15 @@
 
 #buzz-show-headline {
   text-align: center;
-  font-size: 150px;
-  line-height: 125px;
+  // font-size: 100px;
+  line-height: 120px;
 }
 
 #buzz-show-subhead {
   text-align: center;
-  padding-top: 20px;
-  font-size: 75px;
+  padding-top: -50px;
+  padding-bottom: 20px;
+  // font-size: 50px;
 }
 
 #buzz-show-tag {
@@ -251,14 +259,20 @@
 }
 
 #buzz-show-content-container {
-  padding: 50px 25px 50px 25px;
+  padding: 25px 25px 50px 25px;
   width: 75%;
   height: auto;
   margin: auto;
 }
 
+#buzz-show-author {
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
 #buzz-show-content {
-  text-align: center;
+  text-align: left;
   width: 100%;
   height: 100%;
   font-size: 20px;
@@ -298,16 +312,30 @@
   height: 100%;
 }
 
-#buzz-show-recommended {
+/* Buzz Recommended */
+
+.buzz-show-recommended {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 500px;
 }
 
-#buzz-show-recommended-title {
+.buzz-show-recommended-title {
   text-align: center;
   color: $black;
   padding-top: 20px;
+}
+
+.buzz-recommended-container {
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.buzz-recommended-image {
+  width: 20%;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
 }
 
 @media (max-width: 1000px) {

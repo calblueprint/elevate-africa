@@ -21,8 +21,8 @@ class Buzz < ActiveRecord::Base
   BOX_COLORS = [["Tag 1","#D1F2A5"], ["Tag 2", "#EFFAB4"],
                 ["Tag 4", "#FFC48C"], ["Tag 5", "F56991"],
                 ["Tag 6", "FF9F80"]]
-  TAGS = { "D1F2A5" => "Tag 1", "#EFFAB4" => "Tag 2", "#FFC48C" => "Tag 3",
-           "F56991" => "Tag 5", "FF9F80" => "Tag 6" }
+  TAGS = { "#D1F2A5" => "Tag 1", "#EFFAB4" => "Tag 2", "#FFC48C" => "Tag 3",
+           "#F56991" => "Tag 5", "#FF9F80" => "Tag 6" }
 
   VIDEO_REGEX = /(youtube|vimeo).com\/.*[a-zA-Z0-9]+\z/
 
