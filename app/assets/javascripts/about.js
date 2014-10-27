@@ -20,8 +20,8 @@ var ready = function() {
             changeCenterText(selected, content);
             content.animate({opacity: 1});
           });
-          selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
-          previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
+          selected.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: 1});
+          previous.animate({width: "6em", height: "6em", margin: "-3em", opacity: opacity});
           previous = selected;
         }
       });
@@ -48,7 +48,7 @@ function initialSettings(first_icon, content, opacity) {
     $(this).css({"opacity": opacity});
   });
   
-  first_icon.css({width: "7.5em", height: "7.5em", margin: "-3.75em"});
+  first_icon.css({width: "7em", height: "7em", margin: "-3.5em"});
   changeCenterText(first_icon, content);
 }
 
@@ -56,12 +56,23 @@ function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
 
-  if(selected.hasClass("deg0")) { title.text("STRONG"); }
-  else if(selected.hasClass("deg60")) { title.text("DOEE"); }
-  else if(selected.hasClass("deg120")) { title.text("SUPER"); }
-  else if(selected.hasClass("deg180")) { title.text("MANN"); }
-  else if(selected.hasClass("deg240")) { title.text("DOEE"); }
-  else { title.text("SOOO"); }
+  if(selected.hasClass("icon-one")) { title.text("put"); }
+  else if(selected.hasClass("icon-two")) { title.text("the"); }
+  else if(selected.hasClass("icon-three")) { title.text("team"); }
+  else if(selected.hasClass("icon-four")) { title.text("on"); }
+  else if(selected.hasClass("icon-five")) { title.text("your"); }
+  else if(selected.hasClass("icon-six")) { title.text("back"); }
+  else if(selected.hasClass("icon-seven")) { title.text("doe"); }
+  else { title.text("!!!"); }
+
+  // Inspiration
+  // Ideation
+  // Training
+  // Funding
+  // Mentoring
+  // Technology
+  // Impact
+  // Re-investing
 }
 
 function fadeOthers(selected, opacity) {
