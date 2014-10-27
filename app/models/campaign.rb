@@ -13,11 +13,4 @@
 class Campaign < ActiveRecord::Base
   belongs_to :team
   has_many :donations
-
-  def new
-  end
-
-  def create
-  end
-  
 end
