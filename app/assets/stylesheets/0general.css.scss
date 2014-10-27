@@ -74,6 +74,10 @@ input, textarea, select {
   margin: 15px 0 15px;
 }
 
+textarea {
+  height: 300px;
+}
+
 /* various containers */
 .wide-container, .medium-container, .small-container {
   display: block;
