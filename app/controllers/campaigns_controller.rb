@@ -6,12 +6,9 @@ class CampaignsController < ApplicationController
   end
 
   def create
-  	@campaign = Campaign.new(campaign_params)
-  	if @campaign.save
-  	  redirect_to @campaign
-  	else
-  	  render 'new'
-  	end
+   	@campaign = Campaign.new(campaign_params)
+  	@campaign.save
+  	redirect_to @campaign
   end
 
   def show
