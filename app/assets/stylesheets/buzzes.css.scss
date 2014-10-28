@@ -199,6 +199,10 @@
   Buzz Show Page
 */
 
+#buzz-show-title-container {
+
+}
+
 #buzz-show-banner {
   background-size: cover;
   background-position: center;
@@ -317,7 +321,9 @@
 .buzz-show-recommended {
   background-color: rgba(0, 0, 0, 0.01);
   width: 100%;
-  height: 350px;
+  height: auto;
+  overflow: auto;
+  padding-bottom: 20px;
 }
 
 .buzz-show-recommended-title {

@@ -11,7 +11,7 @@
   </h2>
 <% end %>
 
-<div id="buzz-show-title-container">
+<div class="medium-container">
   <h3 id="buzz-show-headline"><%= @buzz.headline %></h3>
   <h4 id="buzz-show-subhead"><%= @buzz.subhead %></h4>
   <h5 id="buzz-show-tag"><%= @buzz.tag %> | <%= @buzz.get_date %></h5>
@@ -57,7 +57,7 @@
             </div>
           </a>
           <h4 class="buzz-recommended-headline">
-            <%= link_to rec_buzz.headline, buzz_path(rec_buzz), class: "buzz-recommended-headline-link" %>
+            <%= link_to rec_buzz.headline.truncate(30), buzz_path(rec_buzz), class: "buzz-recommended-headline-link" %>
           </h4>
           <p class="buzz-recommended-author">By: <%= rec_buzz.admin.name %></p>
         </div>
