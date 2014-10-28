@@ -47,15 +47,15 @@
   cursor: pointer;
 }
 
-#contact-first {
+#contact_first {
   margin-right: 5px;
 }
 
-#contact-last {
+#contact_last {
   margin-left: 5px;
 }
 
-#contact-message {
+#contact_message {
   width: 560px;
   height: 200px;
   margin-left: 93px;
@@ -124,14 +124,6 @@
   background: url(asset_path("contact-youtube.png"));
   background-size: cover;
 }
-
-// #contact-subject {
-
-// }
-
-// #contact-email {
-  
-// }
 
 #contact-container {
   margin-top: 50px;
