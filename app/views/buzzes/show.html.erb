@@ -1,3 +1,4 @@
+<div id="buzz-show"></div>
 <div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner"></div>
 
 <% if current_user && current_user.admin? %>
@@ -17,20 +18,20 @@
   <h5 id="buzz-show-tag"><%= @buzz.tag %> | <%= @buzz.get_date %></h5>
   <h4 id="buzz-share-icons">
     <a href="https://twitter.com/share" class="share-twitter">
-      <i class="fa fa-twitter-square" id="buzz-twitter"></i>
+      <i class="fa fa-twitter" id="buzz-twitter"></i>
     </a>
     <a href='http://www.facebook.com/share.php?u=<%=request.url%>' class="share-facebook">
-      <i class="fa fa-facebook-square" id='buzz-facebook'></i>
+      <i class="fa fa-facebook" id='buzz-facebook'></i>
     </a>
     <a href="https://plus.google.com/share?url=<%=request.url%>" class="share-google">
-      <i class="fa fa-google-plus-square" id="buzz-google"></i>
+      <i class="fa fa-google-plus" id="buzz-google"></i>
     </a>
   </h4>
   <div class="buzz-line-separator"></div>
 </div>
 
-<div id="buzz-show-content-container">
-  <div class="small-container">
+<div id="buzz-show-content-container-outer">
+  <div id="buzz-show-content-container-inner">
     <h4 id="buzz-show-author">By: <%= @buzz.admin.name %></h4>
     <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
   </div>
