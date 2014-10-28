@@ -14,29 +14,36 @@ $ ->
 
   $(".socialShare").shareButtons url, options
 
-$(document).ready ->
-  $('.share-twitter').click (e)->
-    e.preventDefault()
-    width = 575
-    height = 400
-    left = ($(window).width() -  width) / 2
-    top = ($(window).height() - height) / 2
-    url = this.href
-    opts = "status=1, width=#{width}, height=#{height},top=#{top},left=#{left}"
-    window.open(url,'twitter', opts)
-    return false
+ready = ->
+  if $('#buzz-show').length
+    $('.share-twitter').click (e)->
+      e.preventDefault()
+      width = 575
+      height = 400
+      left = ($(window).width() -  width) / 2
+      top = ($(window).height() - height) / 2
+      url = this.href
+      opts = "status=1, width=#{width}, height=#{height},top=#{top},left=#{left}"
+      window.open(url,'twitter', opts)
+      return false
 
-  $('.share-google').click (e)->
-    e.preventDefault
-    window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
-                                scrollbars=yes,height=600,width=600')
-    return false;
+    $('.share-google').click (e)->
+      e.preventDefault
+      window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
+                                  scrollbars=yes,height=600,width=600')
+      return false;
 
-  $('.share-facebook').click (e)->
-    e.preventDefault
-    window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
-                                scrollbars=yes,height=600,width=600')
-    return false;
+    $('.share-facebook').click (e)->
+      e.preventDefault
+      window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,
+                                  scrollbars=yes,height=600,width=600')
+      return false;
+  else if $('#buzz-index').length
+    window.sr = new scrollReveal();
+
+
+$(document).ready ready
+$(document).on 'page:load', ready
 
 #
 #

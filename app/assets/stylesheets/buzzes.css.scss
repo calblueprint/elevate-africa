@@ -199,10 +199,6 @@
   Buzz Show Page
 */
 
-#buzz-show-title-container {
-
-}
-
 #buzz-show-banner {
   background-size: cover;
   background-position: center;
@@ -212,7 +208,7 @@
 #buzz-show-headline {
   text-align: center;
   // font-size: 100px;
-  line-height: 120px;
+  line-height: 90px;
 }
 
 #buzz-show-subhead {
@@ -262,11 +258,15 @@
   padding-top: 50px;
 }
 
-#buzz-show-content-container {
+#buzz-show-content-container-outer {
   padding: 25px 25px 50px 25px;
-  width: 75%;
+  width: 60%;
   height: auto;
   margin: auto;
+}
+
+#buzz-show-content-container-inner {
+  width: 100%;
 }
 
 #buzz-show-author {
