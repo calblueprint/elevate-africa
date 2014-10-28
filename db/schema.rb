@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20141024061208) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "achievements", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "badge"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "buzzes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,6 +34,16 @@ ActiveRecord::Schema.define(version: 20141024061208) do
     t.string   "picture"
     t.integer  "box_size"
     t.string   "box_color"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "campaign_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
