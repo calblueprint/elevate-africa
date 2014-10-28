@@ -39,6 +39,13 @@
   color: white;
 }
 
+#buzz-index-container {
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 #buzz-headline-container {
   margin-top: 50px;
 }
@@ -159,8 +166,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  // height: 100%;
-  // height: 50%;
+  height: auto;
   padding-left: 20px;
 }
 
@@ -184,6 +190,11 @@
   color: black;
 }
 
+#buzz-empty {
+  text-align: center;
+  padding: 50px 0px;
+}
+
 /*
   Buzz Show Page
 */
@@ -196,14 +207,15 @@
 
 #buzz-show-headline {
   text-align: center;
-  font-size: 150px;
-  line-height: 125px;
+  // font-size: 100px;
+  line-height: 120px;
 }
 
 #buzz-show-subhead {
   text-align: center;
-  padding-top: 20px;
-  font-size: 75px;
+  padding-top: -50px;
+  padding-bottom: 20px;
+  // font-size: 50px;
 }
 
 #buzz-show-tag {
@@ -247,14 +259,20 @@
 }
 
 #buzz-show-content-container {
-  padding: 50px 25px 50px 25px;
+  padding: 25px 25px 50px 25px;
   width: 75%;
   height: auto;
   margin: auto;
 }
 
+#buzz-show-author {
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
 #buzz-show-content {
-  text-align: center;
+  text-align: left;
   width: 100%;
   height: 100%;
   font-size: 20px;
@@ -266,11 +284,11 @@
   margin-top: 10px;
 }
 
-#buzz-line-separator {
+.buzz-line-separator {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 30%;
   height:1px;
   background:#717171;
   border-bottom:1px solid #313030;
@@ -292,6 +310,53 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Buzz Recommended */
+
+.buzz-show-recommended {
+  background-color: rgba(0, 0, 0, 0.01);
+  width: 100%;
+  height: 350px;
+}
+
+.buzz-show-recommended-title {
+  text-align: center;
+  color: $black;
+  padding-top: 20px;
+}
+
+.buzz-recommended-container {
+  width: 75%;
+  margin: 20px auto;
+}
+
+.buzz-recommended {
+  width: 33%;
+  height: auto;
+  float: left;
+  padding: 0px 10px;
+}
+
+.buzz-recommended-link:hover .buzz-recommended-image {
+  outline: 4px solid $secondary-color;
+}
+
+.buzz-recommended-image {
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  transition: outline 0.1s;
+}
+
+.buzz-recommended-headline {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.buzz-recommended-headline-link:hover {
+  color: $primary-color;
 }
 
 @media (max-width: 1000px) {
