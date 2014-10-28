@@ -9,7 +9,6 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-
     if @donation.save
       redirect_to @donation
     else
@@ -40,7 +39,7 @@ class DonationsController < ApplicationController
     @donation.destroy
     redirect_to donations_path
   end
-  
+
   private
     def donation_params
       params.require(:donation).permit(:name, :amount)
