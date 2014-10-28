@@ -1,0 +1,22 @@
+<div class="medium-container">
+  <p>
+    <strong>Name:</strong>
+    <%= @campaign.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @campaign.description %>
+  </p>
+
+  <p>
+    <strong>Goal:</strong>
+    <%= @campaign.goal %>
+  </p>
+
+  <p>
+    <strong>Deadline:</strong>
+    <%= @campaign.deadline %>
+  </p>
+  <%= link_to "index", campaigns_path %> | <%= link_to "edit", edit_campaign_path(@campaign) %>
+</div>
