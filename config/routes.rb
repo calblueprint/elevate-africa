@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get 'campaign', to: 'static_pages#campaign'
   get 'template', to: 'static_pages#template'
   get 'contact', to: 'static_pages#contact'
+  post 'contact_email', to: 'static_pages#contact_email'
 
   resources :buzzes
-  resources :comments
 
   resources :users
   # Example of named route that can be invoked with purchase_url(id: product.id)

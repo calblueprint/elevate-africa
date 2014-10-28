@@ -1,0 +1,25 @@
+<p>
+  First Name:
+  <%= comment.first_name %>
+</p>
+
+<p>
+  Last Name:
+  <%= comment.last_name %>
+</p>
+
+<p>
+  Email:
+  <%= comment.email %>
+</p>
+ 
+<p>
+  Comment:
+  <%= comment.content %>
+</p>
+ 
+<p>
+  <%= link_to 'Destroy Comment', [comment.campaign, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
