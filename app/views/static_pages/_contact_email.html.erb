@@ -1,8 +1,8 @@
 <%= form_tag(contact_email_path) do %>
     <%= text_field_tag("contact-first", nil, :class => "contact-name contact-text", :placeholder => "First Name") %>
     <%= text_field_tag("contact-last", nil, :class => "contact-name contact-text", :placeholder => "Last Name") %>
-    <%= text_field_tag(nil, nil, :class => "contact-textbox contact-text", :placeholder => "Email") %>
-    <%= text_field_tag(nil, nil, :class => "contact-textbox contact-text", :placeholder => "Subject") %>
+    <%= text_field_tag("contact-email", nil, :class => "contact-textbox contact-text", :placeholder => "Email") %>
+    <%= text_field_tag("contact-subject", nil, :class => "contact-textbox contact-text", :placeholder => "Subject") %>
     <%= text_area_tag("contact-message", nil, :class => "contact-text", :placeholder => "Message") %>
     <%= submit_tag("Submit", :class => "button", :id => "contact-button") %>
     <% end %>
