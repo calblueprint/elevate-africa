@@ -36,6 +36,38 @@ ActiveRecord::Schema.define(version: 20141027031856) do
     t.string   "box_color"
   end
 
+  create_table "campaigns", force: true do |t|
+    t.string   "name"
+    t.decimal  "goal",        precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "donation_id"
+    t.string   "description"
+    t.string   "deadline"
+  end
+
+  add_index "campaigns", ["donation_id"], name: "index_campaigns_on_donation_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "campaign_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donations", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",      precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "campaign_id"
+  end
+
+  add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree
+
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
