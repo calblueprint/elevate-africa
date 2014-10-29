@@ -30,7 +30,9 @@
             <div class="buzz-info-container">
               <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
               <div class="buzz-info">
-                <h1 class="buzz-headline"><%= truncate_headline buzz %></h1>
+                <h1>
+                  <%= link_to truncate_headline(buzz), buzz_path(buzz), class:"buzz-headline" %>
+                </h1>
                 <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
                 <!-- <span class="socialShare buzz-share"></span> -->
               </div>
@@ -42,4 +44,8 @@
   <% else %>
     <h2 id="buzz-empty">There's nothing here, come back later!</h2>
   <% end %>
+  <div id='buzz-load-container'>
+    <%= link_to "Load More!", "#", class: 'button', id: 'buzz-load-more' %>
+  </div>
+  <%= paginate @buzzes %>
 </div>

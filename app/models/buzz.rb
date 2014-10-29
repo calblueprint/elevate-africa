@@ -17,6 +17,9 @@
 
 class Buzz < ActiveRecord::Base
 
+  # Kaminari
+  paginates_per 1
+
   BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
   BOX_COLORS = [["Tag 1","#D1F2A5"], ["Tag 2", "#EFFAB4"],
                 ["Tag 4", "#FFC48C"], ["Tag 5", "F56991"],
