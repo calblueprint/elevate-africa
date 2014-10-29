@@ -47,7 +47,7 @@ function initialSettings(first_icon, content, opacity) {
   $(".about-process-arrow").each(function() {
     $(this).css({"opacity": opacity});
   });
-  
+
   first_icon.css({width: "7.5em", height: "7.5em", margin: "-3.75em"});
   changeCenterText(first_icon, content);
 }
@@ -77,8 +77,4 @@ function fadeGirls() {
   $(".about-process-girls").animate({"opacity": 0}, function() {
     $(".about-process-girls").animate({"opacity": 1});
   });
-}
-
-function smoothScroll(section) {
-  $('html, body').animate({scrollTop: $('#' + section).offset().top + 18}, 1000);
 }

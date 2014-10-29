@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Useful functions!
+
+function smoothScroll(section) {
+  $('html, body').animate({scrollTop: $('#' + section).offset().top + 18}, 1000);
+}

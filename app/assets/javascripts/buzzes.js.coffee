@@ -41,6 +41,10 @@ ready = ->
   else if $('#buzz-index').length
     window.sr = new scrollReveal();
 
+    $('#buzz-button').click (e) ->
+      e.preventDefault()
+      smoothScroll('buzz-index-container')
+
 
 $(document).ready ready
 $(document).on 'page:load', ready
