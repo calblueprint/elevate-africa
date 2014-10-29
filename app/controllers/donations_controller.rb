@@ -13,7 +13,7 @@ class DonationsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.build(donation_params)
     if @donation.save
-      redirect_to [@campaign, @donation]
+      redirect_to @campaign
     else
       render "new"
     end
