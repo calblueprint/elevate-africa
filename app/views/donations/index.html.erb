@@ -10,11 +10,11 @@
       <tr>
         <td><%= donation.name %></td>
         <td><%= donation.amount %></td>
-        <td><%= link_to "show", donation_path(donation) %></td>
-        <td><%= link_to "edit", edit_donation_path(donation) %></td>
-        <td><%= link_to "destroy", donation_path(donation), method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to "show", campaign_donation_path(donation) %></td>
+        <td><%= link_to "edit", edit_campaign_donation_path(donation) %></td>
+        <td><%= link_to "destroy", campaign_donation_path(donation), method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </table>
-  <h2><%= link_to "new donation?", new_donation_path %></h2>
+  <h2><%= link_to "new donation?", new_campaign_donation_path %></h2>
 </div>

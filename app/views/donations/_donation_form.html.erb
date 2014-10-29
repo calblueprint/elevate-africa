@@ -1,26 +1,26 @@
-<%= form_for @donation do |f| %>
-    <% if @donation.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this campaign from being edited: </h2>
-        <ul>
-          <% @donation.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-
-    <p>
-      <%= f.label :amount %><br>
-      <%= f.text_area :amount %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
+<%= form_for [@campaign, @donation] do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this campaign from being edited: </h2>
+      <ul>
+        <% @donation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.text_area :amount %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

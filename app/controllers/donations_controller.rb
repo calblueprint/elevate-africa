@@ -1,14 +1,17 @@
 class DonationsController < ApplicationController
   def index
-    @donations = Donation.all
+    @campaign = Campaign.find(params[:campaign_id])
+    @donations = @campaign.donations
   end
 
   def new
-    @donation = Donation.new
+    @campaign = Campaign.find(params[:campaign_id])
+    @donation = @campaign.donations.build
   end
 
   def create
-    @donation = Donation.new(donation_params)
+    @campaign = Campaign.find(params[:campaign_id])
+    @donation = @campaign.donations.build(donation_params)
     if @donation.save
       redirect_to @donation
     else
@@ -17,6 +20,7 @@ class DonationsController < ApplicationController
   end
 
   def show
+    @campaign = Campaign.find(params[:campaign_id])
     @donation = Donation.find(params[:id])
   end
 
