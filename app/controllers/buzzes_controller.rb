@@ -2,7 +2,11 @@ class BuzzesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :destroy]
 
   def index
-    @buzzes = Buzz.all
+    @buzzes = Buzz.all.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

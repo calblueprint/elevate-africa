@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :buzzes
 
-  resources :users
+  resources :teams, except: :index
 
   resources :campaigns do
     resources :donations

@@ -23,6 +23,12 @@ module ApplicationHelper
       return headline.truncate 60
     end
   end
-end
 
-# <iframe src="//www.youtube.com/embed/HEmZyj-eHGM" frameborder="0" allowfullscreen></iframe>
+  def can_create_campaign?(user)
+    user && user.team? && user.campaign.blank?
+  end
+
+  def has_campaign?(user)
+    user && user.team? && !user.campaign.blank?
+  end
+end

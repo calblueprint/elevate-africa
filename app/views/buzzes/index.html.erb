@@ -1,8 +1,9 @@
+<div id="buzz-index"></div>
 <div class="wide-container" id="buzz-banner">
   <div id="buzz-black-cover">
     <div id="buzz-title-container">
       <h1 id="buzz-title">HELLA BUZZ YO</h1>
-      <h2 id="buzz-button">Check it out!</h2>
+      <h2 id="buzz-button" class="button">Check it out!</h2>
     </div>
   </div>
 </div>
@@ -21,24 +22,19 @@
     </h2>
   </div>
 
-  <% if !@buzzes.blank? %>
-    <% @buzzes.each do |buzz| %>
-      <% if buzz.picture? %>
-        <div class="buzz-box-<%= buzz.box_size %>">
-          <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
-            <div class="buzz-info-container">
-              <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
-              <div class="buzz-info">
-                <h1 class="buzz-headline"><%= truncate_headline buzz %></h1>
-                <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
-                <span class="socialShare buzz-share"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div id="buzz-index-posts-container">
+    <% if !@buzzes.blank? %>
+      <div id="buzz-box-container">
+        <%= render @buzzes  %>
+      </div>
+    <% else %>
+      <h2 id="buzz-empty">There's nothing here, come back later!</h2>
     <% end %>
-  <% else %>
-    <h2 id="buzz-empty">There's nothing here, come back later!</h2>
-  <% end %>
+  </div>
+  <div id='buzz-load-container'>
+    <%= link_to "Load More!", "#", class: 'button', id: 'buzz-load-more' %>
+  </div>
+  <div id="buzz-infinite-scrolling">
+    <%= paginate @buzzes %>
+  </div>
 </div>

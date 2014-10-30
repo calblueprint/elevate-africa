@@ -1,0 +1,8 @@
+<%= simple_form_for @team do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :current_password %>
+  <%= f.submit "Submit", class: "button" %>
+<% end %>
