@@ -45,6 +45,9 @@ ready = ->
       e.preventDefault()
       smoothScroll('buzz-index-container')
 
+    # $(window).scroll (e) ->
+      # load_more =
+
 
 $(document).ready ready
 $(document).on 'page:load', ready
