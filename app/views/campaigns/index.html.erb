@@ -20,5 +20,11 @@
       </tr>
     <% end %>
   </table>
-  <h2><%= link_to "new campaign?", new_campaign_path %></h2>
+  <% if can_create_campaign? current_user %>
+    <h2><%= link_to "new campaign?", new_campaign_path %></h2>
+  <% else %>
+    <% if has_campaign? current_user %>
+        <h2><%= link_to "Go to campaign!", campaign_path(current_user.campaign) %></h2>
+    <% end %>
+  <% end %>
 </div>
