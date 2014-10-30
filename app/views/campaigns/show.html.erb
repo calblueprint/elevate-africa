@@ -11,12 +11,12 @@
 
   <p>
     <strong>Goal:</strong>
-    <%= @campaign.goal %>
+    <%= number_to_currency @campaign.goal %>
   </p>
 
   <p>
     <strong>Deadline:</strong>
-    <%= @campaign.deadline %>
+    <%= number_to_currency @campaign.goal %>
   </p>
   <%= link_to "index", campaigns_path %> | <%= link_to "edit", edit_campaign_path(@campaign) %>
 </div>

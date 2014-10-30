@@ -12,7 +12,7 @@
       <tr>
         <td><%= campaign.name %></td>
         <td><%= campaign.description %></td>
-        <td><%= campaign.goal %></td>
+        <td><%= number_to_currency campaign.goal %></td>
         <td><%= campaign.deadline %></td>
         <td><%= link_to "show", campaign_path(campaign) %></td>
         <td><%= link_to "edit", edit_campaign_path(campaign) %></td>
