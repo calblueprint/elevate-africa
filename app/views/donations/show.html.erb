@@ -1,0 +1,12 @@
+<div class="medium-container">
+  <p>
+    <strong>Name:</strong>
+    <%= @donation.name %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= @donation.amount %>
+  </p>
+  <%= link_to "index", donations_path %> | <%= link_to "edit", edit_donation_path(@donation) %>
+</div>
