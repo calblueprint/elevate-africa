@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
       sign_in(@team, bypass: true)
       redirect_to after_sign_in_path_for @team
     else
-      render 'edit'
+      render "edit"
     end
   end
 
