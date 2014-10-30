@@ -45,18 +45,29 @@ ready = ->
       e.preventDefault()
       smoothScroll('buzz-index-container')
 
-    $(window).bindWithDelay 'scroll', ->
-      done_scrolling = $(window).scrollTop() > $(document).height() - $(window).height() - 60
-      load_more = $('.pagination .next a').attr('href')
-      if load_more && done_scrolling
-        $.getScript load_more
-        console.log "hello"
-        return
-      else
-        console.log "wat"
-      return
-    , 100
-
+    # $(window).bindWithDelay 'scroll', ->
+    #   done_scrolling = $(window).scrollTop() > $(document).height() - $(window).height() - 60
+    #   load_more = $('.pagination .next a').attr('href')
+    #   if load_more && done_scrolling
+    #     $.getScript load_more
+    #     console.log "hello"
+    #     return
+    #   else
+    #     console.log "wat"
+    #   return
+    # , 100
+    $("#buzz-box-container").infinitescroll
+      loading: {
+        finishedMsg: "",
+        msgText: "",
+        selector: null,
+        speed: 'fast',
+        start: undefined
+      }
+      navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
+      nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
+      itemSelector: "#buzz-box-container" # selector for all items you'll retrieve
+      animated: true
 $(document).ready ready
 $(document).on 'page:load', ready
 
