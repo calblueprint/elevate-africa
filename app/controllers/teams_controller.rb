@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def show
     @team = Team.find params[:id]
+    @campaign = @team.campaign
   end
 
   def new
