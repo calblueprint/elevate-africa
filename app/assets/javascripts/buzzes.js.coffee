@@ -45,9 +45,17 @@ ready = ->
       e.preventDefault()
       smoothScroll('buzz-index-container')
 
-    # $(window).scroll (e) ->
-      # load_more =
-
+    $(window).bindWithDelay 'scroll', ->
+      done_scrolling = $(window).scrollTop() > $(document).height() - $(window).height() - 60
+      load_more = $('.pagination .next a').attr('href')
+      if load_more && done_scrolling
+        $.getScript load_more
+        console.log "hello"
+        return
+      else
+        console.log "wat"
+      return
+    , 100
 
 $(document).ready ready
 $(document).on 'page:load', ready

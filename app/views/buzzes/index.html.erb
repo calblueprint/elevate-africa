@@ -24,7 +24,9 @@
 
   <div id="buzz-index-posts-container">
     <% if !@buzzes.blank? %>
-      <%= render @buzzes  %>
+      <div id="buzz-box-container">
+        <%= render @buzzes  %>
+      </div>
     <% else %>
       <h2 id="buzz-empty">There's nothing here, come back later!</h2>
     <% end %>
@@ -32,5 +34,7 @@
   <div id='buzz-load-container'>
     <%= link_to "Load More!", "#", class: 'button', id: 'buzz-load-more' %>
   </div>
-  <%= paginate @buzzes %>
+  <div id="buzz-infinite-scrolling">
+    <%= paginate @buzzes %>
+  </div>
 </div>
