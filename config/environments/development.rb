@@ -1,4 +1,4 @@
-Rails.application.configure do
+sRails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -17,13 +17,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
+  address:              "smtp.gmail.com",
   port:                 587,
-  domain:               'gmail.com',
-  user_name:            'triciasfu',
-  password:             'PASSWORD',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
+  domain:               "gmail.com",
+  user_name:            "username",
+  password:             "PASSWORD",
+  authentication:       "plain",
+  enable_starttls_auto: true  } 
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

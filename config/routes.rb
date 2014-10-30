@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'campaign', to: 'static_pages#campaign'
   get 'template', to: 'static_pages#template'
-  get 'contact', to: 'static_pages#contact'
-  get 'static_pages/contact_email', to: 'static_pages#contact_email'
-  post 'contact', to: 'static_pages#contact_email'
+  get "contact", to: "static_pages#contact"
+  get "static_pages/contact_email", to: "static_pages#contact_email"
+  post "contact", to: "static_pages#contact_email"
 
   resources :buzzes
 
