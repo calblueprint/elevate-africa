@@ -7,5 +7,5 @@
 #   Mayor.create(name: "Emanuel", city: cities.first)
 
 admin = Admin.create(email: "admin@gmail.com", password: "password", name: "Charles Xue")
-team = Team.create(email: "admin@gmail.com", password: "password", name: "Charles Xue Cool Team")
+team = Team.create(email: "charlesx@berkeley.edu", password: "password", name: "Charles Xue Cool Team")
 team.campaign = Campaign.create(name: "This awesome adventure", goal: 1000.00)
