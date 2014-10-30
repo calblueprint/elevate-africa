@@ -15,9 +15,9 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find params[:id]
-    if @team.update_attributes(team_params)
+    if @team.update_with_password team_params
       flash[:success] = "You've updated your team!"
-      sign_in(@user, bypass: true)
+      sign_in(@team, bypass: true)
       redirect_to after_sign_in_path_for @team
     else
       render 'edit'
