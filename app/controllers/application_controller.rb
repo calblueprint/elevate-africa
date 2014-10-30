@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     if user.admin?
       root_path
-    # else
-    #   Fix This
-    #   redirect_to root_path
+    elsif user.team?
+      campaign_path user.campaign
     end
   end
 end
