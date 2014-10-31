@@ -40,7 +40,7 @@ Rails.application.configure do
   password:             "PASSWORD",
   authentication:       "plain",
   enable_starttls_auto: true  } 
-  
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
