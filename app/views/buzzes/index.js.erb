@@ -1,0 +1,9 @@
+console.log("HELOOOOOOO");
+$('#buzz-box-container').append("<%= escape_javascript(render(@buzzes)) %>");
+// $('#buzz-box-container').append('<%= j render @buzzes %>');
+// <% if @buzzes.next_page %>
+//   $('.pagination').replaceWith('<%= j paginate @buzzes %>');
+// <% else %>
+//   $(window).off('scroll');
+//   $('.pagination').remove();
+// <% end %>

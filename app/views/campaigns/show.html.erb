@@ -1,0 +1,44 @@
+<div class="medium-container">
+  <p>
+    <strong>Name:</strong>
+    <%= @campaign.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @campaign.description %>
+  </p>
+
+  <p>
+    <strong>Goal:</strong>
+    <%= @campaign.goal %>
+  </p>
+
+  <p>
+    <strong>Deadline:</strong>
+    <%= @campaign.deadline %>
+  </p>
+
+  <p>
+    <strong>Donations:</strong>
+    <% if @campaign.donations.any? %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+        </tr>
+
+        <% @donations.each do |donation| %>
+          <tr>
+            <td><%= donation.name %></td>
+            <td><%= donation.amount %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      No donations!
+    <% end %>
+  </p>
+
+  <%= link_to "index", campaigns_path %> | <%= link_to "edit", edit_campaign_path(@campaign) %> | <%= link_to "donate", new_campaign_donation_path(@campaign) %>
+</div>

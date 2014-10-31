@@ -74,6 +74,10 @@ input, textarea, select {
   margin: 15px 0 15px;
 }
 
+textarea {
+  height: 300px;
+}
+
 /* various containers */
 .wide-container, .medium-container, .small-container {
   display: block;
@@ -152,7 +156,7 @@ input, textarea, select {
   background: #fff;
   position: relative;
   z-index: 1;
-  // overflow: hidden;
+  overflow: auto;
   margin-bottom: $footer-margin;
 }
 

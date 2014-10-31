@@ -2,7 +2,11 @@ class BuzzesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :destroy]
 
   def index
-    @buzzes = Buzz.all
+    @buzzes = Buzz.all.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -46,7 +50,7 @@ class BuzzesController < ApplicationController
   private
 
   def authenticate_admin!
-    if current_user.nil? || !current_user.is_admin?
+    if current_user.nil? || !current_user.admin?
       flash[:error] = "You don't have access to this page!"
       redirect_to root_path
     end

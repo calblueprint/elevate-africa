@@ -4,19 +4,24 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#index'
-  get 'about', to: 'static_pages#about'
-  get 'campaign', to: 'static_pages#campaign'
-  get 'template', to: 'static_pages#template'
+  root "static_pages#index"
+  get "about", to: "static_pages#about"
+  get "campaign", to: "static_pages#campaign", as: :static_campaign
+  get "template", to: "static_pages#template"
   get "contact", to: "static_pages#contact"
   get "static_pages/contact_email", to: "static_pages#contact_email"
   post "contact", to: "static_pages#contact_email"
 
   resources :buzzes
 
-  resources :users
+  resources :teams, except: :index
+
+  resources :campaigns do
+    resources :donations
+  end
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #   get "products/:id/purchase" => "catalog#purchase", as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -24,12 +29,12 @@ Rails.application.routes.draw do
   # Example resource route with options:
   #   resources :products do
   #     member do
-  #       get 'short'
-  #       post 'toggle'
+  #       get "short"
+  #       post "toggle"
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get "sold"
   #     end
   #   end
 
@@ -43,13 +48,13 @@ Rails.application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', on: :collection
+  #       get "recent", on: :collection
   #     end
   #   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     post "toggle"
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable

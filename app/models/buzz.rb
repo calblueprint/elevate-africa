@@ -16,13 +16,16 @@
 #
 
 class Buzz < ActiveRecord::Base
+  default_scope { order("created_at DESC")}
+  # Kaminari
+  paginates_per 10
 
   BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
   BOX_COLORS = [["Tag 1","#D1F2A5"], ["Tag 2", "#EFFAB4"],
                 ["Tag 4", "#FFC48C"], ["Tag 5", "F56991"],
                 ["Tag 6", "FF9F80"]]
-  TAGS = { "D1F2A5" => "Tag 1", "#EFFAB4" => "Tag 2", "#FFC48C" => "Tag 3",
-           "F56991" => "Tag 5", "FF9F80" => "Tag 6" }
+  TAGS = { "#D1F2A5" => "Tag 1", "#EFFAB4" => "Tag 2", "#FFC48C" => "Tag 3",
+           "#F56991" => "Tag 5", "#FF9F80" => "Tag 6" }
 
   VIDEO_REGEX = /(youtube|vimeo).com\/.*[a-zA-Z0-9]+\z/
 
@@ -48,9 +51,9 @@ class Buzz < ActiveRecord::Base
   end
 
   def recommended_buzz
-    related = Buzz.where(box_color: box_color)
+    related = Buzz.where(box_color: box_color).where.not id: id
     related.delete(self)
-    related.take(3)
+    related.take(4)
   end
 
   # def assign_color

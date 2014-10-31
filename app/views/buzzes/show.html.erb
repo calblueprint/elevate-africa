@@ -1,6 +1,7 @@
+<div id="buzz-show"></div>
 <div style="background-image: url(<%= @buzz.picture_url %>)" wide-container id="buzz-show-banner"></div>
 
-<% if current_user && current_user.is_admin? %>
+<% if current_user && current_user.admin? %>
   <h2 id="buzz-edit-buttons">
     <i><%= link_to "", edit_buzz_path(@buzz), class: "fa fa-pencil-square buzz-icon-button" %></i>
     <i>
@@ -11,34 +12,59 @@
   </h2>
 <% end %>
 
-<div id="buzz-show-title-container">
-  <h3 id="buzz-show-headline"><%= @buzz.headline %></h3>
-  <h4 id="buzz-show-subhead"><%= @buzz.subhead %></h4>
-  <h5 id="buzz-show-tag"><%= @buzz.tag %> | <%= @buzz.get_date %></h5>
-  <h4 id="buzz-share-icons">
-    <a href="https://twitter.com/share" class="share-twitter">
-      <i class="fa fa-twitter-square" id="buzz-twitter"></i>
-    </a>
-    <a href='http://www.facebook.com/share.php?u=<%=request.url%>' class="share-facebook">
-      <i class="fa fa-facebook-square" id='buzz-facebook'></i>
-    </a>
-    <a href="https://plus.google.com/share?url=<%=request.url%>" class="share-google">
-      <i class="fa fa-google-plus-square" id="buzz-google"></i>
-    </a>
-  </h4>
-  <div id="buzz-line-separator"></div>
-</div>
+<div id="buzz-wrapper">
+  <div class="medium-container">
+    <h3 id="buzz-show-headline"><%= @buzz.headline %></h3>
+    <h4 id="buzz-show-subhead"><%= @buzz.subhead %></h4>
+    <h5 id="buzz-show-tag"><%= @buzz.tag %> | <%= @buzz.get_date %></h5>
+    <h4 id="buzz-share-icons">
+      <a href="https://twitter.com/share" class="share-twitter">
+        <i class="fa fa-twitter" id="buzz-twitter"></i>
+      </a>
+      <a href='http://www.facebook.com/share.php?u=<%=request.url%>' class="share-facebook">
+        <i class="fa fa-facebook" id='buzz-facebook'></i>
+      </a>
+      <a href="https://plus.google.com/share?url=<%=request.url%>" class="share-google">
+        <i class="fa fa-google-plus" id="buzz-google"></i>
+      </a>
+    </h4>
+    <div class="buzz-line-separator"></div>
+  </div>
 
-<div id="buzz-show-content-container">
-  <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
-  <% if @buzz.video_link %>
-    <div id="buzz-video">
-    <iframe title="Video player"
-            type="text/html" src="<%=get_url(@buzz.video_link) %>"
-            width="480" height="270"
-            frameborder="0" allowFullScreen>
-    </iframe>
+  <div id="buzz-show-content-container-outer">
+    <div id="buzz-show-content-container-inner">
+      <h4 id="buzz-show-author">By: <%= @buzz.admin.name %></h4>
+      <%= simple_format @buzz.content.gsub(/\r\n/,"<br />"), id: "buzz-show-content" %>
     </div>
-  <% end %>
-</div>
+    <% if !@buzz.video_link.blank? %>
+      <div id="buzz-video">
+      <iframe title="Video player"
+              type="text/html" src="<%=get_url(@buzz.video_link) %>"
+              width="480" height="270"
+              frameborder="0" allowFullScreen>
+      </iframe>
+      </div>
+    <% end %>
+    <div class="buzz-line-separator"></div>
+  </div>
 
+  <div class="buzz-show-recommended">
+    <h2 class="buzz-show-recommended-title">Related Buzzes</h2>
+    <div class="buzz-recommended-container">
+      <% @buzz.recommended_buzz.each do |rec_buzz| %>
+        <div class="buzz-recommended">
+          <div class="buzz-recommended-center">
+            <a class="buzz-recommended-link" href=<%=buzz_path(rec_buzz)%>>
+              <div class="buzz-recommended-image" style="background-image: url(<%= rec_buzz.picture_url %>)">
+              </div>
+            </a>
+            <h4 class="buzz-recommended-headline">
+              <%= link_to rec_buzz.headline.truncate(30), buzz_path(rec_buzz), class: "buzz-recommended-headline-link" %>
+            </h4>
+            <p class="buzz-recommended-author">By: <%= rec_buzz.admin.name %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

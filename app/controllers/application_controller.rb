@@ -5,10 +5,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     if user.admin?
-      redirect_to root_path
-    else
-      # Fix This
-      redirect_to root_path
+      root_path
+    elsif user.team?
+      team_path user
     end
   end
 end

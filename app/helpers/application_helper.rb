@@ -1,6 +1,6 @@
 module ApplicationHelper
   def valid_admin?
-    current_user && current_user.is_admin?
+    current_user && current_user.admin?
   end
 
   def get_url(video_link)
@@ -11,6 +11,24 @@ module ApplicationHelper
       return "//player.vimeo.com/video/109143336"
     end
   end
-end
 
-# <iframe src="//www.youtube.com/embed/HEmZyj-eHGM" frameborder="0" allowfullscreen></iframe>
+  def truncate_headline(buzz)
+    headline = buzz.headline
+    case buzz.box_size
+    when 1
+      return headline.truncate 20
+    when 2
+      return headline.truncate 40
+    when 3
+      return headline.truncate 60
+    end
+  end
+
+  def can_create_campaign?(user)
+    user && user.team? && user.campaign.blank?
+  end
+
+  def has_campaign?(user)
+    user && user.team? && !user.campaign.blank?
+  end
+end

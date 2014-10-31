@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028020143) do
+ActiveRecord::Schema.define(version: 20141030102315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20141028020143) do
     t.string   "box_color"
   end
 
+  create_table "campaigns", force: true do |t|
+    t.string   "name"
+    t.decimal  "goal",        precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "donation_id"
+    t.string   "description"
+    t.string   "deadline"
+    t.integer  "team_id"
+  end
+
+  add_index "campaigns", ["donation_id"], name: "index_campaigns_on_donation_id", using: :btree
+
   create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "campaign_id"
@@ -47,6 +60,16 @@ ActiveRecord::Schema.define(version: 20141028020143) do
   end
 
   add_index "comments", ["campaign_id"], name: "index_comments_on_campaign_id", using: :btree
+
+  create_table "donations", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",      precision: 9, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "campaign_id"
+  end
+
+  add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "first_name"
