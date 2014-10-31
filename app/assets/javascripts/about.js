@@ -43,15 +43,6 @@ function initialSettings(first_icon, content, opacity) {
   $(".about-process-icon").not(first_icon).each(function() {
     $(this).css({"opacity": opacity});
   });
-<<<<<<< HEAD
-  
-=======
-
-  $(".about-process-arrow").each(function() {
-    $(this).css({"opacity": opacity});
-  });
-
->>>>>>> c6908f34ae69148105f88eb3003f3f0ae1b7e9f6
   first_icon.css({width: "7.5em", height: "7.5em", margin: "-3.75em"});
   changeCenterText(first_icon, content);
 }
