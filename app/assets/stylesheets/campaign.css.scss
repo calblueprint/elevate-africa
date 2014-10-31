@@ -21,7 +21,6 @@ for the about.css.scss file custom styling*/
   background-position: center;
   height: 500px;
   margin-top: -49px;
-
 }
 
 #campaign-title {
@@ -29,13 +28,26 @@ for the about.css.scss file custom styling*/
   margin-top: 43px;
 }
 
+#campaign-buttons {
+  margin-top: 20px;
+}
+
+.campaign-signin {
+  margin-right: 25px;
+}
+
+.campaign-index {
+  margin-left: 25px;
+}
+
+
+
 .campaign-icon {
   float: left;
   width: 333px;
   height: 273px;
   top: -30px;
   position: relative;
-
 }
 
 .campaign-middle {
@@ -70,7 +82,7 @@ for the about.css.scss file custom styling*/
   .campaign-padding {
     padding: 60px 20px 60px 20px;
   }
-  
+
   #campaign-wedding, #campaign-sports, #campaign-birthday {
 
   }
