@@ -1,0 +1,36 @@
+/* Import the variables for the general theme */
+@import "variables.css.scss";
+
+/* Define all custom css here, but start every class and id with the filename. For example:
+#about-box { width: 100%; }
+.about-potato { width: 100px; }
+for the about.css.scss file custom styling*/
+
+@media (max-width: 1000px) {
+  /* Adaptations for medium-sized screens */
+}
+
+@media (max-width: 600px) {
+  /* Adaptations for small-sized screens */
+}
+
+.campaigns-wrapper {
+  table {
+    margin: auto auto;
+
+    th {
+      width: 25%;
+    }
+  }
+}
+
+.campaigns-section {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+.campaigns-padding {
+  padding: 36px 36px;
+}
