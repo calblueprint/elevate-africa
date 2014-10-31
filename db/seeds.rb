@@ -9,3 +9,4 @@
 admin = Admin.create(email: "admin@gmail.com", password: "password", name: "Charles Xue")
 team = Team.create(email: "charlesx@berkeley.edu", password: "password", name: "Charles Xue Cool Team")
 team.campaign = Campaign.create(name: "This awesome adventure", goal: 1000.00)
+team = Team.create(email: "ea@gmail.com", password: "password", name: "Elevate Africa")

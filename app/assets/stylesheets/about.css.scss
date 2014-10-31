@@ -75,8 +75,8 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 6em; height: 6em;
-    margin: -3em;
+    width: 7em; height: 7em;
+    margin: -3.5em;
     img {
       display: block;
       width: 100%;
@@ -87,8 +87,9 @@ for the about.css.scss file custom styling*/
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 2em; height: 3em;
-    margin: -1.25em;
+    width: 3em; height: 3em;
+    margin: -1.5em;
+    opacity: 0.5;
   }
 }
 
@@ -101,42 +102,33 @@ for the about.css.scss file custom styling*/
 .icon-seven { transform: rotate(202.5deg) translate(15em) rotate(-202.5deg); }
 .icon-eight { transform: rotate(247.5deg) translate(15em) rotate(-247.5deg); }
 
-.arrow-one { transform: translate(15em); }
-.arrow-two { transform: rotate(45deg) translate(15em); }
-.arrow-three { transform: rotate(90deg) translate(15em); }
-.arrow-four { transform: rotate(135deg) translate(15em); }
-.arrow-five { transform: rotate(180deg) translate(15em); }
-.arrow-six { transform: rotate(225.5deg) translate(15em); }
-.arrow-seven { transform: rotate(270deg) translate(15em); }
-.arrow-eight { transform: rotate(315deg) translate(15em); }
+.arrow-one { transform: translate(15em) rotate(90deg); }
+.arrow-two { transform: rotate(45deg) translate(15em) rotate(90deg); }
+.arrow-three { transform: rotate(90deg) translate(15em) rotate(90deg); }
+.arrow-four { transform: rotate(135deg) translate(15em) rotate(90deg); }
+.arrow-five { transform: rotate(180deg) translate(15em) rotate(90deg); }
+.arrow-six { transform: rotate(225.5deg) translate(15em) rotate(90deg); }
+.arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
+.arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
-// .deg0 { transform: translate(15em); }
-// .deg45 { transform: rotate(45deg) translate(15em) rotate(-45deg); }
-// .deg90 { transform: rotate(90deg) translate(15em) rotate(-90deg); }
-// .deg135 { transform: rotate(135deg) translate(15em) rotate(-135deg); }
-// .deg180 { transform: rotate(180deg) translate(15em) rotate(-180deg); }
-// .deg225 { transform: rotate(225deg) translate(15em) rotate(-225deg); }
-// .deg270 { transform: rotate(270deg) translate(15em) rotate(-270deg); }
-// .deg315 { transform: rotate(315deg) translate(15em) rotate(-315deg); }
-
-// .arrow-one { transform: rotate(22.5deg) translate(15em); }
-// .arrow-two { transform: rotate(67.5deg) translate(15em); }
-// .arrow-three { transform: rotate(112.5deg) translate(15em); }
-// .arrow-four { transform: rotate(157.5deg) translate(15em); }
-// .arrow-five { transform: rotate(202.5deg) translate(15em); }
-// .arrow-six { transform: rotate(247.5deg) translate(15em); }
-// .arrow-seven { transform: rotate(292.5deg) translate(15em); }
-// .arrow-eight { transform: rotate(337.5deg) translate(15em); }
-
-.about-process-girl-left {
-    position: absolute;
-    left: -75.0%;
+.about-process-figures {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.about-process-girl-right {
-    position: absolute;
-    left: 125.0%;
-    transform: scaleX(-1);
+.about-process-figure-left {
+  position: absolute;
+  left: -75.0%;
+  vertical-align: middle;
+}
+
+.about-process-figure-right {
+  position: absolute;
+  left: 125.0%;
+  transform: scaleX(-1);
+  vertical-align: middle;
 }
 
 .about-process-square {
@@ -148,8 +140,8 @@ for the about.css.scss file custom styling*/
 }
 
 .about-process-text {
-  width: 275px;
-  height: 275px;
+  width: 300px;
+  height: 300px;
   margin: auto;
   opacity: 1;
 }
@@ -162,26 +154,17 @@ for the about.css.scss file custom styling*/
 
 .about-member-container {
   width: 100%;
-  margin-top: 32px;
+  margin-top: 36px;
   display: inline-block;
   vertical-align: top;
   text-align: center;
 }
 
-.about-member-text-right {
-  width: 360px;
+.about-member-text {
+  width: 320px;
   height: 180px;
   display: inline-block;
-  margin-left: 32px;
-  text-align: left;
-  vertical-align: top;
-}
-
-.about-member-text-left {
-  width: 360px;
-  height: 180px;
-  display: inline-block;
-  margin-right: 32px;
+  margin-left: 24px;
   text-align: left;
   vertical-align: top;
 }

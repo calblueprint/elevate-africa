@@ -13,7 +13,7 @@ class DonationsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.build(donation_params)
     if @donation.save
-      redirect_to [@campaign, @donation]
+      redirect_to @campaign
     else
       render "new"
     end
@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:campaign_id])
-    @donation = @donation = @campaign.donations.find(params[:id])
+    @donation = @campaign.donations.find(params[:id])
   end
 
   def update
@@ -44,7 +44,7 @@ class DonationsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.find(params[:id])
     @donation.destroy
-    redirect_to campaign_donations_path
+    redirect_to campaign_path
   end
 
   private
