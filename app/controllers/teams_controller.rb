@@ -5,9 +5,11 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @team = Team.new
   end
 
   def create
+    1/0
   end
 
   def edit

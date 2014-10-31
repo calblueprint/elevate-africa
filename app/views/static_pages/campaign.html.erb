@@ -3,8 +3,8 @@
   <div class="medium-container campaign-padding padding">
     <h1 data-sr id="campaign-title">Embark on your African Adventure</h1>
     <div id="campaign-buttons">
-      <a data-sr href="#" class="campaign-signin button">Start Your Campaign</a>
-      <a data-sr href="#" class="campaign-index button">Check out Campaigns</a>
+      <%= link_to "Start Your Campaign", new_team_path, class: "campaign-signin button" %>
+      <%= link_to "Check out Campaigns", campaigns_path, class: "campaign-index button" %>
     </div>
   </div>
   </div>
@@ -34,8 +34,8 @@
       <p data-sr class="campaign-icon-font">Birthday</p>
     </div>
     <div id="campaign-buttons" class="margin">
-      <a data-sr href="#" class="campaign-signin button">Start Your Campaign</a>
-      <a data-sr href="#" class="campaign-index button">Check out Campaigns</a>
+      <%= link_to "Start Your Campaign", new_team_path, class: "campaign-signin button" %>
+      <%= link_to "Check out Campaigns", campaigns_path, class: "campaign-index button" %>
     </div>
   </div>
 </div>
