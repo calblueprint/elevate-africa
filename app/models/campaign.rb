@@ -16,5 +16,5 @@ class Campaign < ActiveRecord::Base
   belongs_to :team
   has_many :donations, dependent: :destroy
 
-  validates :name, presence: true, length: { minimum: 1 }
+  validates :name, presence: true
 end

@@ -7,4 +7,6 @@
 #   Mayor.create(name: "Emanuel", city: cities.first)
 
 admin = Admin.create(email: "admin@gmail.com", password: "password", name: "Charles Xue")
-buzz = Buzz.create(headline: "Hello World", subhead: "This is a subhead", content: "Lorem Ipsum")
+team = Team.create(email: "charlesx@berkeley.edu", password: "password", name: "Charles Xue Cool Team")
+team.campaign = Campaign.create(name: "This awesome adventure", goal: 1000.00)
+team = Team.create(email: "ea@gmail.com", password: "password", name: "Elevate Africa")

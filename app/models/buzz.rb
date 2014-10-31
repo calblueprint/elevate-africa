@@ -16,6 +16,9 @@
 #
 
 class Buzz < ActiveRecord::Base
+  default_scope { order("created_at DESC")}
+  # Kaminari
+  paginates_per 10
 
   BOX_SIZE_SELECT = [['1 square wide', 1], ['2 squares wide', 2], ['3 squares wide', 3]]
   BOX_COLORS = [["Tag 1","#D1F2A5"], ["Tag 2", "#EFFAB4"],
