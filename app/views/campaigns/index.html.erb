@@ -3,7 +3,6 @@
     <h1>All Campaigns</h1>
     <table class="medium-container campaigns-padding">
       <tr>
-<<<<<<< HEAD
         <th><h2>Name</h2></th>
         <th><h2>Description</h2></th>
         <th><h2>Goal</h2></th>
@@ -23,9 +22,9 @@
       <% end %>
     </table>
     <% if can_create_campaign? current_user %>
-    <h2><%= link_to "new campaign?", new_campaign_path %></h2>
-  <% else %>
-    <% if has_campaign? current_user %>
+      <h2><%= link_to "new campaign?", new_campaign_path %></h2>
+    <% else %>
+      <% if has_campaign? current_user %>
         <h2><%= link_to "Go to campaign!", campaign_path(current_user.campaign) %></h2>
     <% end %>
   <% end %>

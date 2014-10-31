@@ -111,20 +111,20 @@ for the about.css.scss file custom styling*/
 .arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
 .arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
-.about-process-girls {
+.about-process-figures {
   width: 100%;
   height: 100%;
   display: inline-block;
   vertical-align: middle;
 }
 
-.about-process-girl-left {
+.about-process-figure-left {
   position: absolute;
   left: -75.0%;
   vertical-align: middle;
 }
 
-.about-process-girl-right {
+.about-process-figure-right {
   position: absolute;
   left: 125.0%;
   transform: scaleX(-1);
