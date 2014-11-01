@@ -10,6 +10,7 @@
 #  donation_id :integer
 #  description :string(255)
 #  deadline    :string(255)
+#  team_id     :integer
 #
 
 class Campaign < ActiveRecord::Base

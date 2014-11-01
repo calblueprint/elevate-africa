@@ -4,24 +4,24 @@ var ready = function() {
     if($(".about-page").length > 0) {
 
       var hash_icons = new Object();
-      hash_icons["about-process-icon icon-one"] = 1;
-      hash_icons["about-process-icon icon-two"] = 2;
-      hash_icons["about-process-icon icon-three"] = 3;
-      hash_icons["about-process-icon icon-four"] = 4;
-      hash_icons["about-process-icon icon-five"] = 5;
-      hash_icons["about-process-icon icon-six"] = 6;
-      hash_icons["about-process-icon icon-seven"] = 7;
-      hash_icons["about-process-icon icon-eight"] = 8;
+      hash_icons["icon-one"] = 1;
+      hash_icons["icon-two"] = 2;
+      hash_icons["icon-three"] = 3;
+      hash_icons["icon-four"] = 4;
+      hash_icons["icon-five"] = 5;
+      hash_icons["icon-six"] = 6;
+      hash_icons["icon-seven"] = 7;
+      hash_icons["icon-eight"] = 8;
 
       var opacity = 0.75;
       var circle = $(".about-process-circle");
       var content = $(".about-process-text");
 
-      var first_icon = $("#first_icon");
+      var first_icon = $("#icon-one");
       initialSettings(first_icon, content, opacity);
 
       var previous = first_icon;
-      var previous_change = first_icon;
+      var previous_figure = first_icon;
 
       circle.on("mouseenter", ".about-process-icon", function() {
         var selected = $(this);
@@ -36,10 +36,9 @@ var ready = function() {
           previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
           previous = selected;
 
-          console.log(Math.abs(hash_icons[selected.attr("class")] - hash_icons[previous_change.attr("class")]));
-          if(Math.abs(hash_icons[selected.attr("class")] - hash_icons[previous_change.attr("class")]) > 1) {
-            previous_change = changeFigures(selected);
-          }
+          if(Math.floor((hash_icons[selected.attr("id")]+1)/2) != Math.floor((hash_icons[previous_figure.attr("id")]+1)/2))
+            changeFigures(selected);
+            previous_figure = selected;
         }
       });
     }
@@ -68,13 +67,13 @@ function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
 
-  if(selected.hasClass("icon-one")) { title.text("Inspiration"); }
-  else if(selected.hasClass("icon-two")) { title.text("Ideation"); }
-  else if(selected.hasClass("icon-three")) { title.text("Training"); }
-  else if(selected.hasClass("icon-four")) { title.text("Funding"); }
-  else if(selected.hasClass("icon-five")) { title.text("Mentoring"); }
-  else if(selected.hasClass("icon-six")) { title.text("Technology"); }
-  else if(selected.hasClass("icon-seven")) { title.text("Impact"); }
+  if(selected.attr("id") == "icon-one") { title.text("Inspiration"); }
+  else if(selected.attr("id") == "icon-two") { title.text("Ideation"); }
+  else if(selected.attr("id") == "icon-three") { title.text("Training"); }
+  else if(selected.attr("id") == "icon-four") { title.text("Funding"); }
+  else if(selected.attr("id") == "icon-five") { title.text("Mentoring"); }
+  else if(selected.attr("id") == "icon-six") { title.text("Technology"); }
+  else if(selected.attr("id") == "icon-seven") { title.text("Impact"); }
   else { title.text("Re-investing"); }
 }
 
@@ -93,20 +92,22 @@ function changeFigures(selected) {
   var right = $(".about-process-figure-right");
 
   figures.animate({"opacity": 0}, function() {
-    if(selected.hasClass("icon-one") || selected.hasClass("icon-two")) {
+    if(selected.attr("id") == "icon-one" || selected.attr("id") == "icon-two") {
       left.attr("src", "/assets/mom.png");
       right.attr("src", "/assets/mom.png");
     }
-    else if(selected.hasClass("icon-three") || selected.hasClass("icon-four")) {
+    else if(selected.attr("id") == "icon-three" || selected.attr("id") == "icon-four") {
       left.attr("src", "/assets/daughter.png");
       right.attr("src", "/assets/daughter.png");
     }
-    else if(selected.hasClass("icon-five") || selected.hasClass("icon-six")) {
+    else if(selected.attr("id") == "icon-five" || selected.attr("id") == "icon-six") {
       left.attr("src", "/assets/son.png");
       right.attr("src", "/assets/son.png");
     }
+    else {
+      left.attr("src", "/assets/daughter.png");
+      right.attr("src", "/assets/daughter.png");
+    }
     figures.animate({"opacity": 1});
   });
-  
-  return selected;
 }
