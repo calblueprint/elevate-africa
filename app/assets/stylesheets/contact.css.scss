@@ -2,97 +2,102 @@
 @import "variables.css.scss";
 
 #contact-text {
-    width: 333px;
-    float: left;
-    position: relative;
+  width: 333px;
+  float: left;
+  position: relative;
 }
 
 #contact-info {
-    width: 667px;
-    float: left;
+  width: 667px;
+  float: left;
 }
 
 .contact-text {
-    color: $black;
-    font: $p;
-    margin-top: 15px;
-    margin-left: 100px;
+  color: $black;
+  font: $p;
+  margin-top: 15px;
+  margin-left: 100px;
 }
 
 .contact-name {
-    width: 275px;
-    height: 30px;
-    float: left;
+  width: 275px;
+  height: 30px;
+  float: left;
 }
 
 .contact-textbox {
-    width: 560px;
-    height: 30px;
-    float: left;
+  width: 560px;
+  height: 30px;
+  float: left;
 }
 
 .contact-address-font {
-    font: $p;
-    font-size: 30px;
+  font: $p;
+  font-size: 30px;
 }
 
 .contact-icon {
-    width: 64px;
-    height: 64px;
-    float: left;
+  width: 64px;
+  height: 64px;
+  float: left;
 }
 
-#contact-first {
-    margin-right: 5px;
+.contact-icon:hover {
+  opacity: 0.4;
+  cursor: pointer;
 }
 
-#contact-last {
-    margin-left: 5px;
+#contact_first {
+  margin-right: 5px;
 }
 
-#contact-message {
-    width: 560px;
-    height: 200px;
-    margin-left: 93px;
+#contact_last {
+  margin-left: 5px;
+}
+
+#contact_message {
+  width: 560px;
+  height: 200px;
+  margin-left: 93px;
 }
 
 #contact-button {
-    width: 560px;
-    height: 60px;
-    margin-left: 93px;
-    margin-top: 15px;
-    padding: 15px 35px;
+  width: 560px;
+  height: 60px;
+  margin-left: 93px;
+  margin-top: 15px;
+  padding: 15px 35px;
 }
 
 #contact-mail {
-    height: 300px;
+  height: 300px;
 }
 
 #contact-map-container {
-    height: 500px;
+  height: 500px;
 }
 
 #contact-email {
-    height: 500px;
+  height: 500px;
 }
 
 #contact-map {
-    height: 400px;
-    width: 425px;
-    float: left;
-    margin-left: 50px;
+  height: 400px;
+  width: 425px;
+  float: left;
+  margin-left: 50px;
 }
 
 #contact-address {
-    height: 400px;
-    width: 425px;
-    float: left;
-    padding-top: 100px;
-    margin-left: 75px;
+  height: 400px;
+  width: 425px;
+  float: left;
+  padding-top: 100px;
+  margin-left: 75px;
 }
 
 #contact-connect {
-    height: 300px;
+  height: 300px;
 }
 
 #campaign-birthday {
@@ -101,30 +106,30 @@
 }
 
 #contact-twitter {
-    background: url(asset_path("contact-twitter.png"));
-    background-size: cover;
+  background: url(asset_path("contact-twitter.png"));
+  background-size: cover;
 }
 
 #contact-facebook {
-    background: url(asset_path("contact-facebook.png"));
-    background-size: cover;
+  background: url(asset_path("contact-facebook.png"));
+  background-size: cover;
 }
 
 #contact-instagram {
-    background: url(asset_path("contact-instagram.png"));
-    background-size: cover;
+  background: url(asset_path("contact-instagram.png"));
+  background-size: cover;
 }
 
 #contact-youtube {
-    background: url(asset_path("contact-youtube.png"));
-    background-size: cover;
+  background: url(asset_path("contact-youtube.png"));
+  background-size: cover;
 }
 
 #contact-container {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    height: 70px;
-    width: 256px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 70px;
+  width: 256px;
 }
 
 @media (max-width: 1000px) {

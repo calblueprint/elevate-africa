@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20141030102315) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["campaign_id"], name: "index_comments_on_campaign_id", using: :btree
+
   create_table "donations", force: true do |t|
     t.string   "name"
     t.decimal  "amount",      precision: 9, scale: 2

@@ -1,0 +1,8 @@
+<%= form_tag(contact_path) do %>
+    <%= text_field_tag("contact_first", nil, :class => "contact-name contact-text", :placeholder => "First Name", :required => "required") %>
+    <%= text_field_tag("contact_last", nil, :class => "contact-name contact-text", :placeholder => "Last Name", :required => "required") %>
+    <%= text_field_tag("contact_email_address", nil, :class => "contact-textbox contact-text", :placeholder => "Email", :type => "email", :required => "required") %>
+    <%= text_field_tag("contact_subject", nil, :class => "contact-textbox contact-text", :placeholder => "Subject", :required => "required") %>
+    <%= text_area_tag("contact_message", nil, :class => "contact-text", :placeholder => "Message", :required => "required") %>
+    <%= submit_tag("Submit", :class => "button", :id => "contact-button", :controller => "static_pages", :action => "contact_email") %>
+    <% end %>
