@@ -34,3 +34,20 @@ for the about.css.scss file custom styling*/
 .campaigns-padding {
   padding: 36px 36px;
 }
+
+.campaigns-display {
+  margin: 0 6.25% 0 6.25%;
+  border: solid;
+  border-radius: 5px;
+  border-width: 5px;
+}
+
+.campaigns-col {
+  display: block;
+  margin-top: 1.5%;
+//  margin-top: 1% 0 1% 1.6%;
+}
+
+.campaigns-third {
+  width: 33.33%;
+}

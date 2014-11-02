@@ -1,22 +1,33 @@
 <div class="medium-container campaigns-padding">
 
   <h1><%= @campaign.name %></h1>
-  <h2>by <%= @team.name %></h2>
+  <h2>by <%= %></h2>
+  <div class="campaigns-display">
+    <div class="campaigns-col campaigns-third"></div>
+    <div class="campaigns-col campaigns-third"></div>
+    <div class="campaigns-col campaigns-third">
+      <p>
+        <strong>Description:</strong>
+        <%= @campaign.description %>
+      </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @campaign.description %>
-  </p>
+      <p>
+        <strong>Goal:</strong>
+        <%= number_to_currency @campaign.goal %>
+      </p>
 
-  <p>
-    <strong>Goal:</strong>
-    <%= number_to_currency @campaign.goal %>
-  </p>
+      <p>
+        <strong>Deadline:</strong>
+        <%= @campaign.deadline %>
+      </p>
 
-  <p>
-    <strong>Deadline:</strong>
-    <%= @campaign.deadline %>
-  </p>
+      <p>
+        <strong>Backers:</strong>
+        <%= @donations.count %>
+      </p>
+    </div>
+  </div>
+
 
   <p>
     <strong>Donations:</strong>

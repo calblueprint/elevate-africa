@@ -9,6 +9,7 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
+    @campaign.team_id = 4
     if @campaign.save
       redirect_to @campaign
     else
@@ -19,7 +20,6 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     @donations = @campaign.donations
-    @team = Team.find(@campaign.team_id)
   end
 
   def edit

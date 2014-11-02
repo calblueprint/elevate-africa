@@ -2,6 +2,7 @@
   <h1>All Campaigns</h1>
   <table class="medium-container campaigns-padding">
     <tr>
+      <th><h2>ID</h2></th>
       <th><h2>Name</h2></th>
       <th><h2>Description</h2></th>
       <th><h2>Goal</h2></th>
@@ -9,6 +10,7 @@
     </tr>
     <% @campaigns.each do |campaign| %>
       <tr>
+        <td><h4><%= campaign.id %></h4></td>
         <td><h4><%= campaign.name %></h4></td>
         <td><h4><%= campaign.description %></h4></td>
         <td><h4><%= number_to_currency campaign.goal %></h4></td>
