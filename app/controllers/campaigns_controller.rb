@@ -1,9 +1,12 @@
 class CampaignsController < ApplicationController
+  before_filter :authenticate_team, except: [:index, :show]
+
   def index
     @campaigns = Campaign.all
   end
 
   def new
+
     @campaign = Campaign.new
   end
 
@@ -50,5 +53,16 @@ end
   private
     def campaign_params
       params.require(:campaign).permit(:name, :goal, :description, :deadline)
+    end
+
+    def authenticate_team
+      unless current_user?
+        flash[:error] = "You need to be logged into a team!"
+        redirect_to campaigns_path
+      end
+    end
+
+    def current_user?
+      !!current_user
     end
 end
