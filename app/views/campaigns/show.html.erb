@@ -2,52 +2,42 @@
 
   <h1><%= @campaign.name %></h1>
   <h2>by <%= %></h2>
-  <div class="campaigns-display">
-    <div class="campaigns-col campaigns-third"></div>
-    <div class="campaigns-col campaigns-third"></div>
-    <div class="campaigns-col campaigns-third">
-      <p>
-        <strong>Description:</strong>
-        <%= @campaign.description %>
-      </p>
+  <h4>
+    Description:
+    <%= @campaign.description %>
+  </h4>
 
-      <p>
-        <strong>Goal:</strong>
-        <%= number_to_currency @campaign.goal %>
-      </p>
+  <h4>
+    <strong><%= number_to_currency @total_donations %></strong> pledged of
+    <%= number_to_currency @campaign.goal %> goal
+  </h4>
 
-      <p>
-        <strong>Deadline:</strong>
-        <%= @campaign.deadline %>
-      </p>
+  <p>
+    <strong>Deadline:</strong>
+    <%= @campaign.deadline %>
+  </p>
 
-      <p>
-        <strong>Backers:</strong>
-        <%= @donations.count %>
-      </p>
-    </div>
-  </div>
-
+  <p>
+    <strong>Backers:</strong>
+    <%= @donations.count %>
+  </p>
 
   <p>
     <strong>Donations:</strong>
     <% if @campaign.donations.any? %>
-      <% @total = 0 %>
       <table>
         <tr>
           <th>Name</th>
           <th>Amount</th>
         </tr>
         <% @donations.each do |donation| %>
-          <% @total += donation.amount %>
           <tr>
             <td><%= donation.name %></td>
             <td><%= number_to_currency donation.amount %></td>
           </tr>
         <% end %>
       </table>
-      <h2>Total: <%= number_to_currency @total %></h2>
-      <% if @total >= @campaign.goal %>
+      <% if @total_donations >= @campaign.goal %>
         <p>Campaign success!</p>
       <% else %>
         <p>Campaign incomplete!</p>
