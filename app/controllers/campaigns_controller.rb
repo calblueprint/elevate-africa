@@ -6,7 +6,6 @@ class CampaignsController < ApplicationController
   end
 
   def new
-
     @campaign = Campaign.new
   end
 
@@ -22,12 +21,8 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     @donations = @campaign.donations
-    @total_donations = 0
-    if @donations.any?
-      @donations.each do |donation|
-        @total_donations += donation.amount
-      end
-    end
+    @team = Team.find(@campaign.team_id)
+    @total_donations = @campaign.get_total_donations
 end
 
   def edit
@@ -36,7 +31,6 @@ end
 
   def update
     @campaign = Campaign.find(params[:id])
-
     if @campaign.update(campaign_params)
       redirect_to @campaign
     else
@@ -56,13 +50,9 @@ end
     end
 
     def authenticate_team
-      unless current_user?
+      if current_user.nil? || !current_user.team?
         flash[:error] = "You need to be logged into a team!"
         redirect_to campaigns_path
       end
-    end
-
-    def current_user?
-      !!current_user
     end
 end
