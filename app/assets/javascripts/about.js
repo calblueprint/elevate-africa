@@ -36,7 +36,7 @@ var ready = function() {
           previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
           previous = selected;
 
-          if(Math.floor((hash_icons[selected.attr("id")]+1)/2) != Math.floor((hash_icons[previous_figure.attr("id")]+1)/2))
+          if(Math.floor((hash_icons[selected.attr("id")]+1)/2) != Math.floor((hash_icons[previous_figure.attr("id")]+1)/2)) {
             changeFigures(selected);
             previous_figure = selected;
         }

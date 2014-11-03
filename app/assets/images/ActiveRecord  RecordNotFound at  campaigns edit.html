@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://0.0.0.0:3000/campaigns/edit -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ActiveRecord::RecordNotFound at /campaigns/edit</title>
+<style type="text/css"></style></head>
+<body>
+    <style>
+    /* Basic reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        vertical-align: top;
+        text-align: left;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    body {
+        font-size: 10pt;
+    }
+
+    body, td, input, textarea {
+        font-family: helvetica neue, lucida grande, sans-serif;
+        line-height: 1.5;
+        color: #333;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    html {
+        background: #f0f0f5;
+    }
+
+    .clearfix::after{
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    /* ---------------------------------------------------------------------
+     * Basic layout
+     * --------------------------------------------------------------------- */
+
+    /* Small */
+    @media screen and (max-width: 1100px) {
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            margin: 0 20px;
+        }
+
+        header.exception {
+            margin: 0 -20px;
+        }
+
+        nav.sidebar {
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul.frames {
+            max-height: 200px;
+            overflow: auto;
+        }
+    }
+
+    /* Wide */
+    @media screen and (min-width: 1100px) {
+        header.exception {
+           position: fixed;
+           top: 0;
+           left: 0;
+           right: 0;
+        }
+
+        nav.sidebar,
+        .frame_info {
+            position: fixed;
+            top: 95px;
+            bottom: 0;
+
+            box-sizing: border-box;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        nav.sidebar {
+            width: 40%;
+            left: 20px;
+            top: 115px;
+            bottom: 20px;
+        }
+
+        .frame_info {
+            right: 0;
+            left: 40%;
+
+            padding: 20px;
+            padding-left: 10px;
+            margin-left: 30px;
+        }
+    }
+
+    nav.sidebar {
+        background: #d3d3da;
+        border-top: solid 3px #a33;
+        border-bottom: solid 3px #a33;
+        border-radius: 4px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ---------------------------------------------------------------------
+     * Header
+     * --------------------------------------------------------------------- */
+
+    header.exception {
+        padding: 18px 20px;
+
+        height: 59px;
+        min-height: 59px;
+
+        overflow: hidden;
+
+        background-color: #20202a;
+        color: #aaa;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+        font-weight: 200;
+        box-shadow: inset 0 -5px 3px -3px rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+
+        -webkit-text-smoothing: antialiased;
+    }
+
+    /* Heading */
+    header.exception h2 {
+        font-weight: 200;
+        font-size: 11pt;
+    }
+
+    header.exception h2,
+    header.exception p {
+        line-height: 1.4em;
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+    }
+
+    header.exception h2 strong {
+        font-weight: 700;
+        color: #d55;
+    }
+
+    header.exception p {
+        font-weight: 200;
+        font-size: 20pt;
+        color: white;
+    }
+
+    header.exception:hover {
+        height: auto;
+        z-index: 2;
+    }
+
+    header.exception:hover h2,
+    header.exception:hover p {
+        padding-right: 20px;
+        overflow-y: auto;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        height: auto;
+        max-height: 7em;
+    }
+
+    @media screen and (max-width: 1100px) {
+        header.exception {
+            height: auto;
+        }
+
+        header.exception h2,
+        header.exception p {
+            padding-right: 20px;
+            overflow-y: auto;
+            word-wrap: break-word;
+            height: auto;
+            max-height: 7em;
+        }
+    }
+
+
+    /* ---------------------------------------------------------------------
+     * Navigation
+     * --------------------------------------------------------------------- */
+
+    nav.tabs {
+        border-bottom: solid 1px #ddd;
+
+        background-color: #eee;
+        text-align: center;
+
+        padding: 6px;
+
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    nav.tabs a {
+        display: inline-block;
+
+        height: 22px;
+        line-height: 22px;
+        padding: 0 10px;
+
+        text-decoration: none;
+        font-size: 8pt;
+        font-weight: bold;
+
+        color: #999;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    nav.tabs a.selected {
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 16px;
+        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1);
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    nav.tabs a.disabled {
+        text-decoration: line-through;
+        text-shadow: none;
+        cursor: default;
+    }
+
+    /* ---------------------------------------------------------------------
+     * Sidebar
+     * --------------------------------------------------------------------- */
+
+    ul.frames {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Each item */
+    ul.frames li {
+        background-color: #f8f8f8;
+        background: -webkit-linear-gradient(top, #f8f8f8 80%, #f0f0f0);
+        background: -moz-linear-gradient(top, #f8f8f8 80%, #f0f0f0);
+        background: linear-gradient(top, #f8f8f8 80%, #f0f0f0);
+        box-shadow: inset 0 -1px 0 #e2e2e2;
+        padding: 7px 20px;
+
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    ul.frames .name,
+    ul.frames .location {
+        overflow: hidden;
+        height: 1.5em;
+
+        white-space: nowrap;
+        word-wrap: none;
+        text-overflow: ellipsis;
+    }
+
+    ul.frames .method {
+        color: #966;
+    }
+
+    ul.frames .location {
+        font-size: 0.85em;
+        font-weight: 400;
+        color: #999;
+    }
+
+    ul.frames .line {
+        font-weight: bold;
+    }
+
+    /* Selected frame */
+    ul.frames li.selected {
+        background: #38a;
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.01), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    ul.frames li.selected .name,
+    ul.frames li.selected .method,
+    ul.frames li.selected .location {
+        color: white;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    ul.frames li.selected .location {
+        opacity: 0.6;
+    }
+
+    /* Iconography */
+    ul.frames li {
+        padding-left: 60px;
+        position: relative;
+    }
+
+    ul.frames li .icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 15px;
+
+        text-align: center;
+
+        background: white;
+        border: solid 2px #ccc;
+
+        font-size: 9pt;
+        font-weight: 200;
+        font-style: normal;
+
+        position: absolute;
+        top: 14px;
+        left: 20px;
+    }
+
+    ul.frames .icon.application {
+        background: #808090;
+        border-color: #555;
+    }
+
+    ul.frames .icon.application:before {
+        content: 'A';
+        color: white;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsiveness -- flow to single-line mode */
+    @media screen and (max-width: 1100px) {
+        ul.frames li {
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding-left: 36px;
+            line-height: 1.3;
+        }
+
+        ul.frames li .icon {
+            width: 11px;
+            height: 11px;
+            line-height: 11px;
+
+            top: 7px;
+            left: 10px;
+            font-size: 5pt;
+        }
+
+        ul.frames .name,
+        ul.frames .location {
+            display: inline-block;
+            line-height: 1.3;
+            height: 1.3em;
+        }
+
+        ul.frames .name {
+            margin-right: 10px;
+        }
+    }
+
+    /* ---------------------------------------------------------------------
+     * Monospace
+     * --------------------------------------------------------------------- */
+
+    pre, code, .repl input, .repl .prompt span, textarea, .code_linenums {
+        font-family: menlo, lucida console, monospace;
+        font-size: 8pt;
+    }
+
+    /* ---------------------------------------------------------------------
+     * Display area
+     * --------------------------------------------------------------------- */
+
+    .trace_info {
+        background: #fff;
+        padding: 6px;
+        border-radius: 3px;
+        margin-bottom: 2px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.03), 1px 1px 0 rgba(0, 0, 0, 0.05), -1px 1px 0 rgba(0, 0, 0, 0.05), 0 0 0 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .code_block{
+        background: #f1f1f1;
+        border-left: 1px solid #ccc;
+    }
+
+    /* Titlebar */
+    .trace_info .title {
+        background: #f1f1f1;
+
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+        padding: 6px 10px;
+
+        border: solid 1px #ccc;
+        border-bottom: 0;
+
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+
+    .trace_info .title .name,
+    .trace_info .title .location {
+        font-size: 9pt;
+        line-height: 26px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .trace_info .title .location {
+        float: left;
+        font-weight: bold;
+        font-size: 10pt;
+    }
+
+    .trace_info .title .location a {
+        color:inherit;
+        text-decoration:none;
+        border-bottom:1px solid #aaaaaa;
+    }
+
+    .trace_info .title .location a:hover {
+        border-color:#666666;
+    }
+
+    .trace_info .title .name {
+        float: right;
+        font-weight: 200;
+    }
+
+    .code, .console, .unavailable {
+        background: #fff;
+        padding: 5px;
+
+        box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .code_linenums{
+        background:#f1f1f1;
+        padding-top:10px;
+        padding-bottom:9px;
+        float:left;
+    }
+
+    .code_linenums span{
+        display:block;
+        padding:0 12px;
+    }
+
+    .code {
+        margin-bottom: -1px;
+        border-top-left-radius:2px;
+        padding: 10px 0;
+        overflow: auto;
+    }
+
+    .code pre{
+        padding-left:12px;
+        min-height:16px;
+    }
+
+    /* Source unavailable */
+    p.unavailable {
+        padding: 20px 0 40px 0;
+        text-align: center;
+        color: #b99;
+        font-weight: bold;
+    }
+
+    p.unavailable:before {
+        content: '\00d7';
+        display: block;
+
+        color: #daa;
+
+        text-align: center;
+        font-size: 40pt;
+        font-weight: normal;
+        margin-bottom: -10px;
+    }
+
+    @-webkit-keyframes highlight {
+        0%   { background: rgba(220, 30, 30, 0.3); }
+        100% { background: rgba(220, 30, 30, 0.1); }
+    }
+    @-moz-keyframes highlight {
+        0%   { background: rgba(220, 30, 30, 0.3); }
+        100% { background: rgba(220, 30, 30, 0.1); }
+    }
+    @keyframes highlight {
+        0%   { background: rgba(220, 30, 30, 0.3); }
+        100% { background: rgba(220, 30, 30, 0.1); }
+    }
+
+    .code .highlight, .code_linenums .highlight {
+        background: rgba(220, 30, 30, 0.1);
+        -webkit-animation: highlight 400ms linear 1;
+        -moz-animation: highlight 400ms linear 1;
+        animation: highlight 400ms linear 1;
+    }
+
+    /* REPL shell */
+    .console {
+        padding: 0 1px 10px 1px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .console pre {
+        padding: 10px 10px 0 10px;
+        max-height: 400px;
+        overflow-x: none;
+        overflow-y: auto;
+        margin-bottom: -3px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    /* .prompt > span + input */
+    .console .prompt {
+        display: table;
+        width: 100%;
+    }
+
+    .console .prompt span,
+    .console .prompt input {
+        display: table-cell;
+    }
+
+    .console .prompt span {
+        width: 1%;
+        padding-right: 5px;
+        padding-left: 10px;
+    }
+
+    .console .prompt input {
+        width: 99%;
+    }
+
+    /* Input box */
+    .console input,
+    .console input:focus {
+        outline: 0;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        margin: 0;
+    }
+
+    /* Hint text */
+    .hint {
+        margin: 15px 0 20px 0;
+        font-size: 8pt;
+        color: #8080a0;
+        padding-left: 20px;
+    }
+
+    .hint:before {
+        content: '\25b2';
+        margin-right: 5px;
+        opacity: 0.5;
+    }
+
+    /* ---------------------------------------------------------------------
+     * Variable infos
+     * --------------------------------------------------------------------- */
+
+    .sub {
+        padding: 10px 0;
+        margin: 10px 0;
+    }
+
+    .sub:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+
+        border-radius: 2px;
+        background: rgba(0, 150, 200, 0.05);
+        box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.04), inset 2px 2px 2px rgba(0, 0, 0, 0.07);
+    }
+
+    .sub h3 {
+        color: #39a;
+        font-size: 1.1em;
+        margin: 10px 0;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sub .inset {
+        overflow-y: auto;
+    }
+
+    .sub table {
+        table-layout: fixed;
+    }
+
+    .sub table td {
+        border-top: dotted 1px #ddd;
+        padding: 7px 1px;
+    }
+
+    .sub table td.name {
+        width: 150px;
+
+        font-weight: bold;
+        font-size: 0.8em;
+        padding-right: 20px;
+
+        word-wrap: break-word;
+    }
+
+    .sub table td pre {
+        max-height: 15em;
+        overflow-y: auto;
+    }
+
+    .sub table td pre {
+        width: 100%;
+
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+    /* "(object doesn't support inspect)" */
+    .sub .unsupported {
+      font-family: sans-serif;
+      color: #777;
+    }
+
+    /* ---------------------------------------------------------------------
+     * Scrollbar
+     * --------------------------------------------------------------------- */
+
+    nav.sidebar::-webkit-scrollbar,
+    .inset pre::-webkit-scrollbar,
+    .console pre::-webkit-scrollbar,
+    .code::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .inset pre::-webkit-scrollbar-thumb,
+    .console pre::-webkit-scrollbar-thumb,
+    .code::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 5px;
+    }
+
+    nav.sidebar::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.0);
+        border-radius: 5px;
+    }
+
+    nav.sidebar:hover::-webkit-scrollbar-thumb {
+        background-color: #999;
+        background: -webkit-linear-gradient(left, #aaa, #999);
+    }
+
+    .console pre:hover::-webkit-scrollbar-thumb,
+    .inset pre:hover::-webkit-scrollbar-thumb,
+    .code:hover::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    </style>
+
+    <script>
+    (function() {
+        var elements = ["section", "nav", "header", "footer", "audio"];
+        for (var i = 0; i < elements.length; i++) {
+            document.createElement(elements[i]);
+        }
+    })();
+    </script>
+
+    <script>
+      if (window.Turbolinks) {
+          for(var i=0; i < document.styleSheets.length; i++) {
+              if(document.styleSheets[i].href)
+                  document.styleSheets[i].disabled = true;
+          }
+          document.addEventListener("page:restore", function restoreCSS(e) {
+              for(var i=0; i < document.styleSheets.length; i++) {
+                  document.styleSheets[i].disabled = false;
+              }
+              document.removeEventListener("page:restore", restoreCSS, false);
+          });
+      }
+    </script>
+
+    <div class="top">
+        <header class="exception">
+            <h2><strong>ActiveRecord::RecordNotFound</strong> <span>at /campaigns/edit</span></h2>
+            <p>Couldn't find Campaign with 'id'=edit</p>
+        </header>
+    </div>
+
+    <section class="backtrace">
+        <nav class="sidebar">
+            <nav class="tabs">
+                <a href="http://0.0.0.0:3000/campaigns/edit#" id="application_frames" class="disabled" title="No application frames available">Application Frames</a>
+                <a href="http://0.0.0.0:3000/campaigns/edit#" id="all_frames" class="selected">All Frames</a>
+            </nav>
+            <ul class="frames">
+                    <li class="selected" data-context="gem" data-index="0" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Campaign::ActiveRecord_Relation</strong><span class="method">#raise_record_not_found_exception!</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/relation/finder_methods.rb</span>, line <span class="line">320</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="1" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Campaign::ActiveRecord_Relation</strong><span class="method">#find_one</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/relation/finder_methods.rb</span>, line <span class="line">420</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="2" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Campaign::ActiveRecord_Relation</strong><span class="method">#find_with_ids</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/relation/finder_methods.rb</span>, line <span class="line">404</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="3" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Campaign::ActiveRecord_Relation</strong><span class="method">#find</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/relation/finder_methods.rb</span>, line <span class="line">68</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="4" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Campaign</strong><span class="method">.find</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/querying.rb</span>, line <span class="line">3</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="5" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#show</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename"> () Users/warren/Desktop/elevate-africa/app/controllers/campaigns_controller.rb</span>, line <span class="line">23</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="6" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#send_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb</span>, line <span class="line">4</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="7" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/abstract_controller/base.rb</span>, line <span class="line">189</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="8" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/rendering.rb</span>, line <span class="line">10</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="9" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/abstract_controller/callbacks.rb</span>, line <span class="line">20</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="10" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Callbacks::Filters::End</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">113</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="11" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::Before</strong><span class="method">.halting_and_conditional</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">149</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="12" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::After</strong><span class="method">.halting</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">229</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="13" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::After</strong><span class="method">.halting</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">229</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="14" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::Before</strong><span class="method">.halting</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">166</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="15" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::Before</strong><span class="method">.halting</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">166</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="16" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Callbacks::Filters::Before</strong><span class="method">.halting</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">166</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="17" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#run_callbacks</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">86</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="18" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/abstract_controller/callbacks.rb</span>, line <span class="line">19</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="19" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/rescue.rb</span>, line <span class="line">29</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="20" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb</span>, line <span class="line">31</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="21" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Notifications</strong><span class="method">.instrument</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/notifications.rb</span>, line <span class="line">159</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="22" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Notifications::Instrumenter</strong><span class="method">#instrument</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb</span>, line <span class="line">20</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="23" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Notifications</strong><span class="method">.instrument</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/notifications.rb</span>, line <span class="line">159</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="24" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb</span>, line <span class="line">30</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="25" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb</span>, line <span class="line">250</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="26" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process_action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb</span>, line <span class="line">18</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="27" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/abstract_controller/base.rb</span>, line <span class="line">136</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="28" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#process</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionview (4.1.5) lib/action_view/rendering.rb</span>, line <span class="line">30</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="29" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#dispatch</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal.rb</span>, line <span class="line">196</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="30" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>CampaignsController</strong><span class="method">#dispatch</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb</span>, line <span class="line">13</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="31" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in CampaignsController</strong><span class="method">.action</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_controller/metal.rb</span>, line <span class="line">232</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="32" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Routing::RouteSet::Dispatcher</strong><span class="method">#dispatch</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb</span>, line <span class="line">82</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="33" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Routing::RouteSet::Dispatcher</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb</span>, line <span class="line">50</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="34" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActionDispatch::Journey::Router</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/journey/router.rb</span>, line <span class="line">71</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="35" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Journey::Router</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/journey/router.rb</span>, line <span class="line">59</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="36" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Routing::RouteSet</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb</span>, line <span class="line">678</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="37" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in Warden::Manager</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">warden (1.2.3) lib/warden/manager.rb</span>, line <span class="line">35</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="38" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Warden::Manager</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">warden (1.2.3) lib/warden/manager.rb</span>, line <span class="line">34</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="39" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::ETag</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/etag.rb</span>, line <span class="line">23</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="40" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::ConditionalGet</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/conditionalget.rb</span>, line <span class="line">25</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="41" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Head</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/head.rb</span>, line <span class="line">11</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="42" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::ParamsParser</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb</span>, line <span class="line">27</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="43" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Flash</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb</span>, line <span class="line">254</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="44" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Session::CookieStore</strong><span class="method">#context</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/session/abstract/id.rb</span>, line <span class="line">225</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="45" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Session::CookieStore</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/session/abstract/id.rb</span>, line <span class="line">220</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="46" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Cookies</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb</span>, line <span class="line">560</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="47" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveRecord::QueryCache</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/query_cache.rb</span>, line <span class="line">36</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="48" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveRecord::ConnectionAdapters::ConnectionManagement</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb</span>, line <span class="line">621</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="49" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveRecord::Migration::CheckPending</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activerecord (4.1.5) lib/active_record/migration.rb</span>, line <span class="line">380</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="50" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActionDispatch::Callbacks</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb</span>, line <span class="line">29</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="51" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Callbacks</strong><span class="method">#run_callbacks</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/callbacks.rb</span>, line <span class="line">82</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="52" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Callbacks</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb</span>, line <span class="line">27</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="53" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Reloader</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb</span>, line <span class="line">73</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="54" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::RemoteIp</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb</span>, line <span class="line">76</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="55" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>BetterErrors::Middleware</strong><span class="method">#protected_app_call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">better_errors (1.1.0) lib/better_errors/middleware.rb</span>, line <span class="line">84</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="56" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>BetterErrors::Middleware</strong><span class="method">#better_errors_call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">better_errors (1.1.0) lib/better_errors/middleware.rb</span>, line <span class="line">79</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="57" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>BetterErrors::Middleware</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">better_errors (1.1.0) lib/better_errors/middleware.rb</span>, line <span class="line">56</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="58" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::DebugExceptions</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb</span>, line <span class="line">17</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="59" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::ShowExceptions</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb</span>, line <span class="line">30</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="60" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rails::Rack::Logger</strong><span class="method">#call_app</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">railties (4.1.5) lib/rails/rack/logger.rb</span>, line <span class="line">38</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="61" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in Rails::Rack::Logger</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">railties (4.1.5) lib/rails/rack/logger.rb</span>, line <span class="line">20</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="62" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in ActiveSupport::Logger</strong><span class="method">#tagged</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/tagged_logging.rb</span>, line <span class="line">68</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="63" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Logger::SimpleFormatter</strong><span class="method">#tagged</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/tagged_logging.rb</span>, line <span class="line">26</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="64" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Logger</strong><span class="method">#tagged</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/tagged_logging.rb</span>, line <span class="line">68</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="65" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rails::Rack::Logger</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">railties (4.1.5) lib/rails/rack/logger.rb</span>, line <span class="line">20</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="66" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::RequestId</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb</span>, line <span class="line">21</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="67" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::MethodOverride</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/methodoverride.rb</span>, line <span class="line">21</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="68" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Runtime</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/runtime.rb</span>, line <span class="line">17</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="69" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActiveSupport::Cache::Strategy::LocalCache::Middleware</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb</span>, line <span class="line">26</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="70" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Lock</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/lock.rb</span>, line <span class="line">17</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="71" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ActionDispatch::Static</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">actionpack (4.1.5) lib/action_dispatch/middleware/static.rb</span>, line <span class="line">64</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="72" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Sendfile</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/sendfile.rb</span>, line <span class="line">112</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="73" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ElevateAfrica::Application</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">railties (4.1.5) lib/rails/engine.rb</span>, line <span class="line">514</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="74" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>ElevateAfrica::Application</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">railties (4.1.5) lib/rails/application.rb</span>, line <span class="line">144</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="75" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Lock</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/lock.rb</span>, line <span class="line">17</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="76" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::ContentLength</strong><span class="method">#call</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/content_length.rb</span>, line <span class="line">14</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="77" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>Rack::Handler::WEBrick</strong><span class="method">#service</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename">rack (1.5.2) lib/rack/handler/webrick.rb</span>, line <span class="line">60</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="78" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>WEBrick::HTTPServer</strong><span class="method">#service</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename"> () Users/warren/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb</span>, line <span class="line">138</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="79" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>WEBrick::HTTPServer</strong><span class="method">#run</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename"> () Users/warren/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb</span>, line <span class="line">94</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gem" data-context="gem" data-index="80" style="display: block;">
+                        <span class="stroke"></span>
+                        <i class="icon gem"></i>
+                        <div class="info">
+                            <div class="name">
+                                <strong>block in WEBrick::HTTPServer</strong><span class="method">#start_thread</span>
+                            </div>
+                            <div class="location">
+                                <span class="filename"> () Users/warren/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb</span>, line <span class="line">295</span>
+                            </div>
+                        </div>
+                    </li>
+            </ul>
+        </nav>
+
+            <div class="frame_info" id="frame_info_0" style="display: block;"><header class="trace_info clearfix">
+    <div class="title">
+        <h2 class="name">raise_record_not_found_exception!</h2>
+        <div class="location"><span class="filename"><a href="txmt://open?url=file://%2FUsers%2Fwarren%2F.rvm%2Fgems%2Fruby-2.1.2%2Fgems%2Factiverecord-4.1.5%2Flib%2Factive_record%2Frelation%2Ffinder_methods.rb&line=320">activerecord (4.1.5) lib/active_record/relation/finder_methods.rb</a></span></div>
+    </div>
+    <div class="code_block clearfix">
+        <div class="code_linenums"><span class="">  315</span><span class="">  316</span><span class="">  317</span><span class="">  318</span><span class="">  319</span><span class="highlight">  320</span><span class="">  321</span><span class="">  322</span><span class="">  323</span><span class="">  324</span><span class="">  325</span></div><div class="code"><pre class="">      <span style="color:#080;font-weight:bold">else</span>
+</pre><pre class="">        error = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Couldn't find all </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@klass</span>.name.pluralize<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> with '</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>primary_key<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">': </span><span style="color:#710">"</span></span>
+</pre><pre class="">        error &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">(</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>ids.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, </span><span style="color:#710">"</span></span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>conditions<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> (found </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>result_size<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> results, but was looking for </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>expected_size<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">"</span></span>
+</pre><pre class="">      <span style="color:#080;font-weight:bold">end</span>
+</pre><pre class=""></pre><pre class="highlight">      raise <span style="color:#036;font-weight:bold">RecordNotFound</span>, error
+</pre><pre class="">    <span style="color:#080;font-weight:bold">end</span>
+</pre><pre class=""></pre><pre class="">    private
+</pre><pre class=""></pre><pre class="">    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">find_with_associations</span>
+</pre></div>
+    </div>
+
+        <div class="repl">
+            <div class="console">
+                <pre></pre>
+                <div class="prompt"><span>&gt;&gt;</span> <input></div>
+            </div>
+        </div>
+</header>
+
+    <div class="hint">
+        This is a live shell. Type in here.
+    </div>
+
+    <div class="variable_info"></div>
+
+
+<div class="sub">
+    <h3>Request info</h3>
+    <div class="inset variables">
+        <table class="var_table">
+                <tbody><tr><td class="name">Request parameters</td><td><pre>{"action"=&gt;"show", "controller"=&gt;"campaigns", "id"=&gt;"edit"}</pre></td></tr>
+                <tr><td class="name">Rack session</td><td><pre>#&lt;ActionDispatch::Request::Session:0x007fd7eca17a40 @by=#&lt;ActionDispatch::Session::CookieStore:0x007fd7ecc707d8 @app=#&lt;ActionDispatch::Flash:0x007fd7ecc70800 @app=#&lt;ActionDispatch::ParamsParser:0x007fd7ecc708f0 @app=#&lt;Rack::Head:0x007fd7ecc70918 @app=#&lt;Rack::ConditionalGet:0x007fd7ecc70940 @app=#&lt;Rack::ETag:0x007fd7ecc70968 @app=#&lt;Warden::Manager:0x007fd7ecc70a58 @config={:default_scope=&gt;:user, :scope_defaults=&gt;{}, :default_strategies=&gt;{:user=&gt;[:rememberable, :database_authenticatable]}, :intercept_401=&gt;false, :failure_app=&gt;#&lt;Devise::Delegator:0x007fd7eca4f7d8&gt;}, @app=#&lt;ActionDispatch::Routing::RouteSet:0x007fd7ecdc0d18&gt;&gt;, @cache_control="max-age=0, private, must-revalidate", @no_cache_control="no-cache"&gt;&gt;&gt;, @parsers={#&lt;Mime::Type:0x007fd7eca3e0a0 @synonyms=["text/x-json", "application/jsonrequest"], @symbol=:json, @string="application/json"&gt;=&gt;:json}&gt;&gt;, @default_options={:path=&gt;"/", :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false}, @key="_elevate-africa_session", @cookie_only=true&gt;, @env={"GATEWAY_INTERFACE"=&gt;"CGI/1.1", "PATH_INFO"=&gt;"/campaigns/edit", "QUERY_STRING"=&gt;"", "REMOTE_ADDR"=&gt;"127.0.0.1", "REMOTE_HOST"=&gt;"127.0.0.1", "REQUEST_METHOD"=&gt;"GET", "REQUEST_URI"=&gt;"http://0.0.0.0:3000/campaigns/edit", "SCRIPT_NAME"=&gt;"", "SERVER_NAME"=&gt;"0.0.0.0", "SERVER_PORT"=&gt;"3000", "SERVER_PROTOCOL"=&gt;"HTTP/1.1", "SERVER_SOFTWARE"=&gt;"WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)", "HTTP_HOST"=&gt;"0.0.0.0:3000", "HTTP_CONNECTION"=&gt;"keep-alive", "HTTP_ACCEPT"=&gt;"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "HTTP_USER_AGENT"=&gt;"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36", "HTTP_ACCEPT_ENCODING"=&gt;"gzip,deflate,sdch", "HTTP_ACCEPT_LANGUAGE"=&gt;"en-US,en;q=0.8", "HTTP_COOKIE"=&gt;"remember_token=hVKvw95dEdc6jRuuwv5vkg; _elevate-africa_session=UHhsc2VlMXNFeSsxaXNqb21mRUlQU09pRnFVbUF5bmFsWG9BOHE2SFBoZ2o4TEppY2JOaUxJZDhkYTJmNUVHYVB6TEJBVHppaWtRTy9PWWoxWFlLZmc5aTlReGZzZ2ViUmVueVE0TU1mQkRidVBqWElrcllURkl2RW5JOEZQekc5aU5VQ2J5OGNkUU1OU0Zna1cwQ0JpbU50MWpjUDduUzBmYm05aXB1TURFSUhJZ25pb1ROcVlOVDdVMnUwUFcwcUNCRXJTOWp5aTBsZFJtQ2txV0UwQnUrZlpwa2JTVmtEQTd0ZHlDVnhmMGNLS0FVUFdlMlhVdkdzUDY1L2lBaWVSSWM2ZVpCYmlpeENMQm5pb1BBUXc9PS0tOVI0TERsM2ZvQnVQS0kxUm10UUNpQT09--4a0d6e49495a1fd37f41043539c51e14ccd8b52a", "rack.version"=&gt;[1, 2], "rack.input"=&gt;#&lt;StringIO:0x007fd7ecd33a80&gt;, "rack.errors"=&gt;#&lt;IO:&lt;STDERR&gt;&gt;, "rack.multithread"=&gt;true, "rack.multiprocess"=&gt;false, "rack.run_once"=&gt;false, "rack.url_scheme"=&gt;"http", "HTTP_VERSION"=&gt;"HTTP/1.1", "REQUEST_PATH"=&gt;"/campaigns/edit", "ORIGINAL_FULLPATH"=&gt;"/campaigns/edit", "ORIGINAL_SCRIPT_NAME"=&gt;"", "action_dispatch.routes"=&gt;#&lt;ActionDispatch::Routing::RouteSet:0x007fd7ecdc0d18&gt;, "action_dispatch.parameter_filter"=&gt;[:password], "action_dispatch.redirect_filter"=&gt;[], "action_dispatch.secret_token"=&gt;nil, "action_dispatch.secret_key_base"=&gt;"9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", "action_dispatch.show_exceptions"=&gt;true, "action_dispatch.show_detailed_exceptions"=&gt;true, "action_dispatch.logger"=&gt;#&lt;ActiveSupport::Logger:0x007fd7ecd52688 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x007fd7ecd52610 @datetime_format=nil&gt;, @formatter=#&lt;ActiveSupport::Logger::SimpleFormatter:0x007fd7ee0b86c8 @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x007fd7ecd52598 @shift_size=nil, @shift_age=nil, @filename=nil, @dev=#&lt;File:/Users/warren/Desktop/elevate-africa/log/development.log&gt;, @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x007fd7ecd52548 @mon_owner=nil, @mon_count=0, @mon_mutex=#&lt;Mutex:0x007fd7ecd524f8&gt;&gt;&gt;&gt;, "action_dispatch.backtrace_cleaner"=&gt;#&lt;Rails::BacktraceCleaner:0x007fd7ec9e70c0 @filters=[#&lt;Proc:0x007fd7ec9e6f30@/Users/warren/.rvm/gems/ruby-2.1.2/gems/railties-4.1.5/lib/rails/backtrace_cleaner.rb:10&gt;, #&lt;Proc:0x007fd7ec9e6f08@/Users/warren/.rvm/gems/ruby-2.1.2/gems/railties-4.1.5/lib/rails/backtrace_cleaner.rb:11&gt;, #&lt;Proc:0x007fd7ec9e6ee0@/Users/warren/.rvm/gems/ruby-2.1.2/gems/railties-4.1.5/lib/rails/backtrace_cleaner.rb:12&gt;, #&lt;Proc:0x007fd7ec9e6440@/Users/warren/.rvm/gems/ruby-2.1.2/gems/railties-4.1.5/lib/rails/backtrace_cleaner.rb:24&gt;], @silencers=[#&lt;Proc:0x007fd7ec9e62b0@/Users/warren/.rvm/gems/ruby-2.1.2/gems/railties-4.1.5/lib/rails/backtrace_cleaner.rb:15&gt;]&gt;, "action_dispatch.key_generator"=&gt;#&lt;ActiveSupport::CachingKeyGenerator:0x007fd7ec9e5e28 @key_generator=#&lt;ActiveSupport::KeyGenerator:0x007fd7ec9e5e78 @secret="9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", @iterations=1000&gt;, @cache_keys=#&lt;ThreadSafe::Cache:0x007fd7ec9e5dd8 @backend={"encrypted cookie64"=&gt;"\xD5\"\x9B\xB7\x05\\\xE7s\xEB\x1D4m\xAB\xF5`\x87\xF4\xD5\xDD\xB1\xF0&gt;\x8B\xD9\xCC\x9B\x99\x9C7\x14o \xA6L(\xB5\xFA\xB0zi;ZakQ86g\xFB\f\xD53S\xA1J{hSpV\xE1\x1D\xECR", "signed encrypted cookie64"=&gt;"&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", "signed cookie64"=&gt;"9\x04\xA0a\vh\xCD~(\x10\xE4\v\xA8\x00\xDC\xBB\xA7\x1E`?\x13\xDB(\x8B\v\xF4U \x9B\xCBpI\x91\xCFl\x013s\xF0~\x8AG\n\xF5\x9F\xA1\r/\xA4\xA4\x93\xA4\xD5\xBDN\xD1\xCA\xEE\xC3\a\xA1e\x88\xDB"}, @default_proc=nil&gt;&gt;, "action_dispatch.http_auth_salt"=&gt;"http authentication", "action_dispatch.signed_cookie_salt"=&gt;"signed cookie", "action_dispatch.encrypted_cookie_salt"=&gt;"encrypted cookie", "action_dispatch.encrypted_signed_cookie_salt"=&gt;"signed encrypted cookie", "action_dispatch.cookies_serializer"=&gt;:json, "ROUTES_70282684270220_SCRIPT_NAME"=&gt;"", "action_dispatch.request_id"=&gt;"a0a0fc30-c26c-48fb-b46a-be00defaf9d0", "action_dispatch.remote_ip"=&gt;#&lt;ActionDispatch::RemoteIp::GetIp:0x007fd7ecd30f88 @env={...}, @check_ip=true, @proxies=/
+      ^127\.0\.0\.1$                | # localhost IPv4
+      ^::1$                         | # localhost IPv6
+      ^fc00:                        | # private IPv6 range fc00
+      ^10\.                         | # private IPv4 range 10.x.x.x
+      ^172\.(1[6-9]|2[0-9]|3[0-1])\.| # private IPv4 range 172.16.0.0 .. 172.31.255.255
+      ^192\.168\.                     # private IPv4 range 192.168.x.x
+    /x&gt;, "rack.session"=&gt;#&lt;ActionDispatch::Request::Session:0x007fd7eca17a40 ...&gt;, "rack.session.options"=&gt;#&lt;ActionDispatch::Request::Session::Options:0x007fd7eca17838 @by=#&lt;ActionDispatch::Session::CookieStore:0x007fd7ecc707d8 @app=#&lt;ActionDispatch::Flash:0x007fd7ecc70800 @app=#&lt;ActionDispatch::ParamsParser:0x007fd7ecc708f0 @app=#&lt;Rack::Head:0x007fd7ecc70918 @app=#&lt;Rack::ConditionalGet:0x007fd7ecc70940 @app=#&lt;Rack::ETag:0x007fd7ecc70968 @app=#&lt;Warden::Manager:0x007fd7ecc70a58 @config={:default_scope=&gt;:user, :scope_defaults=&gt;{}, :default_strategies=&gt;{:user=&gt;[:rememberable, :database_authenticatable]}, :intercept_401=&gt;false, :failure_app=&gt;#&lt;Devise::Delegator:0x007fd7eca4f7d8&gt;}, @app=#&lt;ActionDispatch::Routing::RouteSet:0x007fd7ecdc0d18&gt;&gt;, @cache_control="max-age=0, private, must-revalidate", @no_cache_control="no-cache"&gt;&gt;&gt;, @parsers={#&lt;Mime::Type:0x007fd7eca3e0a0 @synonyms=["text/x-json", "application/jsonrequest"], @symbol=:json, @string="application/json"&gt;=&gt;:json}&gt;&gt;, @default_options={:path=&gt;"/", :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false}, @key="_elevate-africa_session", @cookie_only=true&gt;, @env={...}, @delegate={:path=&gt;"/", :domain=&gt;nil, :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :defer=&gt;false, :renew=&gt;false, :id=&gt;"be067fc839aa4d20d0d10e3dd7c29078"}&gt;, "warden"=&gt;Warden::Proxy:70282682350340 @config={:default_scope=&gt;:user, :scope_defaults=&gt;{}, :default_strategies=&gt;{:user=&gt;[:rememberable, :database_authenticatable]}, :intercept_401=&gt;false, :failure_app=&gt;#&lt;Devise::Delegator:0x007fd7eca4f7d8&gt;}, "action_dispatch.request.path_parameters"=&gt;{:action=&gt;"show", :controller=&gt;"campaigns", :id=&gt;"edit"}, "action_controller.instance"=&gt;#&lt;CampaignsController:0x007fd7eabb9ff8 @_action_has_layout=true, @_routes=nil, @_headers={"Content-Type"=&gt;"text/html"}, @_status=200, @_request=#&lt;ActionDispatch::Request:0x007fd7eabb9eb8 @env={...}, @symbolized_path_params=nil, @filtered_parameters={"action"=&gt;"show", "controller"=&gt;"campaigns", "id"=&gt;"edit"}, @filtered_env=nil, @filtered_path=nil, @protocol=nil, @port=nil, @method="GET", @request_method="GET", @remote_ip=nil, @original_fullpath=nil, @fullpath="/campaigns/edit", @ip=nil, @uuid=nil&gt;, @_response=#&lt;ActionDispatch::Response:0x007fd7eabb9e90 @mon_owner=nil, @mon_count=0, @mon_mutex=#&lt;Mutex:0x007fd7eabb9dc8&gt;, @stream=#&lt;ActionDispatch::Response::Buffer:0x007fd7eabb9aa8 @response=#&lt;ActionDispatch::Response:0x007fd7eabb9e90 ...&gt;, @buf=[], @closed=false&gt;, @header={"X-Frame-Options"=&gt;"SAMEORIGIN", "X-XSS-Protection"=&gt;"1; mode=block", "X-Content-Type-Options"=&gt;"nosniff"}, @status=200, @sending_file=false, @blank=false, @cv=#&lt;MonitorMixin::ConditionVariable:0x007fd7eabb9a08 @monitor=#&lt;ActionDispatch::Response:0x007fd7eabb9e90 ...&gt;, @cond=#&lt;Thread::ConditionVariable:0x007fd7eabb98c8&gt;&gt;, @committed=false, @sending=false, @sent=false, @content_type=nil, @charset=nil, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0x007fd7eabb9eb8 @env={...}, @symbolized_path_params=nil, @filtered_parameters={"action"=&gt;"show", "controller"=&gt;"campaigns", "id"=&gt;"edit"}, @filtered_env=nil, @filtered_path=nil, @protocol=nil, @port=nil, @method="GET", @request_method="GET", @remote_ip=nil, @original_fullpath=nil, @fullpath="/campaigns/edit", @ip=nil, @uuid=nil&gt;&gt;, @_env={...}, @_prefixes=["campaigns", "application"], @_lookup_context=#&lt;ActionView::LookupContext:0x007fd7eabb9030 @details_key=nil, @details={:locale=&gt;[:en], :formats=&gt;[:html], :variants=&gt;[], :handlers=&gt;[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}, @skip_default_locale=false, @cache=true, @prefixes=["campaigns", "application"], @rendered_format=nil, @view_paths=#&lt;ActionView::PathSet:0x007fd7eabb8f40 @paths=[#&lt;ActionView::OptimizedFileSystemResolver:0x007fd7ecdb3d70 @pattern=":prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}", @cache=#&lt;ActionView::Resolver::Cache:0x007fd7ecdb3d48 @data=#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ecdb3d20 @backend={#&lt;ActionView::LookupContext::DetailsKey:0x007fd7ea158168 @hash=-1514535670935709511&gt;=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea102c40 @backend={"about"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea101c50 @backend={"static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea1002d8 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea0fbc88 @backend={[]=&gt;[app/views/static_pages/about.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03530@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:47 (lambda)&gt;&gt;, #&lt;ActionView::LookupContext::DetailsKey:0x007fd7ecf64430 @hash=3529345680881508165&gt;=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee41aa00 @backend={"about"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee41a910 @backend={"static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee41a730 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee41a578 @backend={[]=&gt;[app/views/static_pages/about.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee418bd8 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee418958 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee418840 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "application"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee40b348 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee40b208 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee40afb0 @backend={[]=&gt;[app/views/layouts/application.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "header"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee2d4498 @backend={"shared"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee2d43a8 @backend={true=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee2d42b8 @backend={[]=&gt;[app/views/shared/_header.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "flash"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafe9c90 @backend={"shared"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafe9b50 @backend={true=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafe99c0 @backend={["flash"]=&gt;[app/views/shared/_flash.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "footer"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafda790 @backend={"shared"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafda678 @backend={true=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eafda560 @backend={[]=&gt;[app/views/shared/_footer.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "show"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7bcb30 @backend={"campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7bc9c8 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7bc838 @backend={[]=&gt;[app/views/campaigns/show.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7b61e0 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7b5fb0 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7b5df8 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "new"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ec8cd388 @backend={"campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ec8cd068 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ec8ccd48 @backend={[]=&gt;[app/views/campaigns/new.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "campaign_form"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eabd8fc0 @backend={"campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eabd8e80 @backend={true=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eabd8ae8 @backend={[]=&gt;[app/views/campaigns/_campaign_form.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "index"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eccb97a8 @backend={"static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eccb9618 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7eccb9410 @backend={[]=&gt;[app/views/static_pages/index.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;, "campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7f22f9d70 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7f22f9c80 @backend={[]=&gt;[app/views/campaigns/index.html.erb]}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03530@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:47 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03508@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:48 (lambda)&gt;&gt;&gt;, @path="/Users/warren/Desktop/elevate-africa/app/views"&gt;, #&lt;ActionView::OptimizedFileSystemResolver:0x007fd7ecdb8370 @pattern=":prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}", @cache=#&lt;ActionView::Resolver::Cache:0x007fd7ecdb8348 @data=#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ecdb8320 @backend={#&lt;ActionView::LookupContext::DetailsKey:0x007fd7ecf64430 @hash=3529345680881508165&gt;=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee413160 @backend={"static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee413048 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee412da0 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee412be8 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7afb88 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7af980 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7af480 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03530@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:47 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03508@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:48 (lambda)&gt;&gt;&gt;, @path="/Users/warren/.rvm/gems/ruby-2.1.2/gems/kaminari-0.16.1/app/views"&gt;, #&lt;ActionView::OptimizedFileSystemResolver:0x007fd7ecdb8bb8 @pattern=":prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}", @cache=#&lt;ActionView::Resolver::Cache:0x007fd7ecdb8b90 @data=#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ecdb8b68 @backend={#&lt;ActionView::LookupContext::DetailsKey:0x007fd7ecf64430 @hash=3529345680881508165&gt;=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee411838 @backend={"static_pages"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee411630 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee4114f0 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ee4112e8 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;, "campaigns"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7ad6a8 @backend={"layouts"=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7ad450 @backend={false=&gt;#&lt;ActionView::Resolver::Cache::SmallCache:0x007fd7ea7ad068 @backend={}, @default_proc=nil&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03580@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:45 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03558@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:46 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03530@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:47 (lambda)&gt;&gt;}, @default_proc=#&lt;Proc:0x007fd7ead03508@/Users/warren/.rvm/gems/ruby-2.1.2/gems/actionview-4.1.5/lib/action_view/template/resolver.rb:48 (lambda)&gt;&gt;&gt;, @path="/Users/warren/.rvm/gems/ruby-2.1.2/gems/devise-3.4.0/app/views"&gt;]&gt;&gt;, @_action_name="show", @_response_body=nil, @marked_for_same_origin_verification=true, @_config={}, @_params={"action"=&gt;"show", "controller"=&gt;"campaigns", "id"=&gt;"edit"}&gt;, "action_dispatch.request.content_type"=&gt;nil, "action_dispatch.request.request_parameters"=&gt;{}, "rack.request.query_string"=&gt;"", "rack.request.query_hash"=&gt;{}, "action_dispatch.request.query_parameters"=&gt;{}, "action_dispatch.request.parameters"=&gt;{"action"=&gt;"show", "controller"=&gt;"campaigns", "id"=&gt;"edit"}, "action_dispatch.request.formats"=&gt;[#&lt;Mime::Type:0x007fd7eca351a8 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html"&gt;], "rack.request.cookie_hash"=&gt;{"remember_token"=&gt;"hVKvw95dEdc6jRuuwv5vkg", "_elevate-africa_session"=&gt;"UHhsc2VlMXNFeSsxaXNqb21mRUlQU09pRnFVbUF5bmFsWG9BOHE2SFBoZ2o4TEppY2JOaUxJZDhkYTJmNUVHYVB6TEJBVHppaWtRTy9PWWoxWFlLZmc5aTlReGZzZ2ViUmVueVE0TU1mQkRidVBqWElrcllURkl2RW5JOEZQekc5aU5VQ2J5OGNkUU1OU0Zna1cwQ0JpbU50MWpjUDduUzBmYm05aXB1TURFSUhJZ25pb1ROcVlOVDdVMnUwUFcwcUNCRXJTOWp5aTBsZFJtQ2txV0UwQnUrZlpwa2JTVmtEQTd0ZHlDVnhmMGNLS0FVUFdlMlhVdkdzUDY1L2lBaWVSSWM2ZVpCYmlpeENMQm5pb1BBUXc9PS0tOVI0TERsM2ZvQnVQS0kxUm10UUNpQT09--4a0d6e49495a1fd37f41043539c51e14ccd8b52a"}, "rack.request.cookie_string"=&gt;"remember_token=hVKvw95dEdc6jRuuwv5vkg; _elevate-africa_session=UHhsc2VlMXNFeSsxaXNqb21mRUlQU09pRnFVbUF5bmFsWG9BOHE2SFBoZ2o4TEppY2JOaUxJZDhkYTJmNUVHYVB6TEJBVHppaWtRTy9PWWoxWFlLZmc5aTlReGZzZ2ViUmVueVE0TU1mQkRidVBqWElrcllURkl2RW5JOEZQekc5aU5VQ2J5OGNkUU1OU0Zna1cwQ0JpbU50MWpjUDduUzBmYm05aXB1TURFSUhJZ25pb1ROcVlOVDdVMnUwUFcwcUNCRXJTOWp5aTBsZFJtQ2txV0UwQnUrZlpwa2JTVmtEQTd0ZHlDVnhmMGNLS0FVUFdlMlhVdkdzUDY1L2lBaWVSSWM2ZVpCYmlpeENMQm5pb1BBUXc9PS0tOVI0TERsM2ZvQnVQS0kxUm10UUNpQT09--4a0d6e49495a1fd37f41043539c51e14ccd8b52a", "action_dispatch.cookies"=&gt;#&lt;ActionDispatch::Cookies::CookieJar:0x007fd7ea7e4d10 @key_generator=#&lt;ActiveSupport::CachingKeyGenerator:0x007fd7ec9e5e28 @key_generator=#&lt;ActiveSupport::KeyGenerator:0x007fd7ec9e5e78 @secret="9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", @iterations=1000&gt;, @cache_keys=#&lt;ThreadSafe::Cache:0x007fd7ec9e5dd8 @backend={"encrypted cookie64"=&gt;"\xD5\"\x9B\xB7\x05\\\xE7s\xEB\x1D4m\xAB\xF5`\x87\xF4\xD5\xDD\xB1\xF0&gt;\x8B\xD9\xCC\x9B\x99\x9C7\x14o \xA6L(\xB5\xFA\xB0zi;ZakQ86g\xFB\f\xD53S\xA1J{hSpV\xE1\x1D\xECR", "signed encrypted cookie64"=&gt;"&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", "signed cookie64"=&gt;"9\x04\xA0a\vh\xCD~(\x10\xE4\v\xA8\x00\xDC\xBB\xA7\x1E`?\x13\xDB(\x8B\v\xF4U \x9B\xCBpI\x91\xCFl\x013s\xF0~\x8AG\n\xF5\x9F\xA1\r/\xA4\xA4\x93\xA4\xD5\xBDN\xD1\xCA\xEE\xC3\a\xA1e\x88\xDB"}, @default_proc=nil&gt;&gt;, @set_cookies={"request_method"=&gt;{:value=&gt;"GET", :path=&gt;"/"}}, @delete_cookies={}, @host="0.0.0.0", @secure=false, @options={:signed_cookie_salt=&gt;"signed cookie", :encrypted_cookie_salt=&gt;"encrypted cookie", :encrypted_signed_cookie_salt=&gt;"signed encrypted cookie", :secret_token=&gt;nil, :secret_key_base=&gt;"9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", :upgrade_legacy_signed_cookies=&gt;false, :serializer=&gt;:json}, @cookies={"remember_token"=&gt;"hVKvw95dEdc6jRuuwv5vkg", "_elevate-africa_session"=&gt;"UHhsc2VlMXNFeSsxaXNqb21mRUlQU09pRnFVbUF5bmFsWG9BOHE2SFBoZ2o4TEppY2JOaUxJZDhkYTJmNUVHYVB6TEJBVHppaWtRTy9PWWoxWFlLZmc5aTlReGZzZ2ViUmVueVE0TU1mQkRidVBqWElrcllURkl2RW5JOEZQekc5aU5VQ2J5OGNkUU1OU0Zna1cwQ0JpbU50MWpjUDduUzBmYm05aXB1TURFSUhJZ25pb1ROcVlOVDdVMnUwUFcwcUNCRXJTOWp5aTBsZFJtQ2txV0UwQnUrZlpwa2JTVmtEQTd0ZHlDVnhmMGNLS0FVUFdlMlhVdkdzUDY1L2lBaWVSSWM2ZVpCYmlpeENMQm5pb1BBUXc9PS0tOVI0TERsM2ZvQnVQS0kxUm10UUNpQT09--4a0d6e49495a1fd37f41043539c51e14ccd8b52a", "request_method"=&gt;"GET"}, @committed=false, @encrypted=#&lt;ActionDispatch::Cookies::EncryptedCookieJar:0x007fd7ea7d72f0 @parent_jar=#&lt;ActionDispatch::Cookies::CookieJar:0x007fd7ea7e4d10 ...&gt;, @options={:signed_cookie_salt=&gt;"signed cookie", :encrypted_cookie_salt=&gt;"encrypted cookie", :encrypted_signed_cookie_salt=&gt;"signed encrypted cookie", :secret_token=&gt;nil, :secret_key_base=&gt;"9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", :upgrade_legacy_signed_cookies=&gt;false, :serializer=&gt;:json}, @encryptor=#&lt;ActiveSupport::MessageEncryptor:0x007fd7ea7d7020 @secret="\xD5\"\x9B\xB7\x05\\\xE7s\xEB\x1D4m\xAB\xF5`\x87\xF4\xD5\xDD\xB1\xF0&gt;\x8B\xD9\xCC\x9B\x99\x9C7\x14o \xA6L(\xB5\xFA\xB0zi;ZakQ86g\xFB\f\xD53S\xA1J{hSpV\xE1\x1D\xECR", @sign_secret="&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", @cipher="aes-256-cbc", @verifier=#&lt;ActiveSupport::MessageVerifier:0x007fd7ea7d6eb8 @secret="&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", @digest="SHA1", @serializer=ActiveSupport::MessageEncryptor::NullSerializer&gt;, @serializer=ActionDispatch::Cookies::NullSerializer&gt;&gt;, @signed_or_encrypted=#&lt;ActionDispatch::Cookies::EncryptedCookieJar:0x007fd7ea7d72f0 @parent_jar=#&lt;ActionDispatch::Cookies::CookieJar:0x007fd7ea7e4d10 ...&gt;, @options={:signed_cookie_salt=&gt;"signed cookie", :encrypted_cookie_salt=&gt;"encrypted cookie", :encrypted_signed_cookie_salt=&gt;"signed encrypted cookie", :secret_token=&gt;nil, :secret_key_base=&gt;"9a0775d76b475a4a0dce4361da7b7aaddeba30fcf13b08d79896282c4828e16df947e5f70b0b86ac1797f511a74f19ed097f7148ab9ed70c1053bc8b53344120", :upgrade_legacy_signed_cookies=&gt;false, :serializer=&gt;:json}, @encryptor=#&lt;ActiveSupport::MessageEncryptor:0x007fd7ea7d7020 @secret="\xD5\"\x9B\xB7\x05\\\xE7s\xEB\x1D4m\xAB\xF5`\x87\xF4\xD5\xDD\xB1\xF0&gt;\x8B\xD9\xCC\x9B\x99\x9C7\x14o \xA6L(\xB5\xFA\xB0zi;ZakQ86g\xFB\f\xD53S\xA1J{hSpV\xE1\x1D\xECR", @sign_secret="&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", @cipher="aes-256-cbc", @verifier=#&lt;ActiveSupport::MessageVerifier:0x007fd7ea7d6eb8 @secret="&lt;;\x9E\xF0\xE6UR\x00\x0E\xDF\xB7\xC9\x8F5v\xF17\x18?&amp;\xFE\xD4\xA9\xDE\x97\xAD\xB8\x1Cm2Q#\xF4\xB5*\x9B\xDE\x14\xF0\xED\b\x1D\xF58\xEF\v\a6l\x19\xB7(,\xF8\x06\xF5\t\x95\xFA\x01\xD1\t\xB3v", @digest="SHA1", @serializer=ActiveSupport::MessageEncryptor::NullSerializer&gt;, @serializer=ActionDispatch::Cookies::NullSerializer&gt;&gt;&gt;, "action_dispatch.request.unsigned_session_cookie"=&gt;{"session_id"=&gt;"be067fc839aa4d20d0d10e3dd7c29078", "_csrf_token"=&gt;"mvauRyPSM3MUW4Ruxid8Y1RgsWRMoGQUYrFeYKkGgMc=", "flash"=&gt;{"discard"=&gt;["success"], "flashes"=&gt;{"success"=&gt;"You need to be logged into a team!"}}}}, @delegate={"session_id"=&gt;"be067fc839aa4d20d0d10e3dd7c29078", "_csrf_token"=&gt;"mvauRyPSM3MUW4Ruxid8Y1RgsWRMoGQUYrFeYKkGgMc=", "flash"=&gt;{"discard"=&gt;["success"], "flashes"=&gt;{"success"=&gt;"You need to be logged into a team!"}}}, @loaded=true, @exists=true&gt;</pre></td></tr>
+        </tbody></table>
+    </div>
+</div>
+
+<div class="sub">
+    <h3>Local Variables</h3>
+    <div class="inset variables">
+        <table class="var_table">
+                <tbody><tr><td class="name">ids</td><td><pre>"edit"</pre></td></tr>
+                <tr><td class="name">result_size</td><td><pre>0</pre></td></tr>
+                <tr><td class="name">expected_size</td><td><pre>1</pre></td></tr>
+                <tr><td class="name">conditions</td><td><pre>nil</pre></td></tr>
+                <tr><td class="name">error</td><td><pre>"Couldn't find Campaign with 'id'=edit"</pre></td></tr>
+        </tbody></table>
+    </div>
+</div>
+
+<div class="sub">
+    <h3>Instance Variables</h3>
+    <div class="inset variables">
+        <table class="var_table">
+                <tbody><tr><td class="name">@klass</td><td><pre>Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer)</pre></td></tr>
+                <tr><td class="name">@table</td><td><pre>#&lt;Arel::Table:0x007fd7eabab750 @name="campaigns", @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @columns=nil, @aliases=[], @table_alias=nil, @primary_key=nil&gt;</pre></td></tr>
+                <tr><td class="name">@values</td><td><pre>{}</pre></td></tr>
+                <tr><td class="name">@offsets</td><td><pre>{}</pre></td></tr>
+                <tr><td class="name">@loaded</td><td><pre>false</pre></td></tr>
+                <tr><td class="name">@arel</td><td><pre>#&lt;Arel::SelectManager:0x007fd7ea7a0480 @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @ctx=#&lt;Arel::Nodes::SelectCore:0x007fd7ea7a03e0 @source=#&lt;Arel::Nodes::JoinSource:0x007fd7ea7a03b8 @left=#&lt;Arel::Table:0x007fd7eabab750 @name="campaigns", @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @columns=nil, @aliases=[], @table_alias=nil, @primary_key=nil&gt;, @right=[]&gt;, @top=nil, @set_quantifier=nil, @projections=[#&lt;struct Arel::Attributes::Attribute relation=#&lt;Arel::Table:0x007fd7eabab750 @name="campaigns", @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @columns=nil, @aliases=[], @table_alias=nil, @primary_key=nil&gt;, name="*"&gt;], @wheres=[], @groups=[], @having=nil, @windows=[]&gt;, @bind_values=[], @ast=#&lt;Arel::Nodes::SelectStatement:0x007fd7ea7a0408 @cores=[#&lt;Arel::Nodes::SelectCore:0x007fd7ea7a03e0 @source=#&lt;Arel::Nodes::JoinSource:0x007fd7ea7a03b8 @left=#&lt;Arel::Table:0x007fd7eabab750 @name="campaigns", @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @columns=nil, @aliases=[], @table_alias=nil, @primary_key=nil&gt;, @right=[]&gt;, @top=nil, @set_quantifier=nil, @projections=[#&lt;struct Arel::Attributes::Attribute relation=#&lt;Arel::Table:0x007fd7eabab750 @name="campaigns", @engine=Campaign(id: integer, name: string, goal: decimal, created_at: datetime, updated_at: datetime, donation_id: integer, description: string, deadline: string, team_id: integer), @columns=nil, @aliases=[], @table_alias=nil, @primary_key=nil&gt;, name="*"&gt;], @wheres=[], @groups=[], @having=nil, @windows=[]&gt;], @orders=[], @limit=nil, @lock=nil, @offset=nil, @with=nil&gt;&gt;</pre></td></tr>
+        </tbody></table>
+    </div>
+</div>
+
+<!-- 0.0413661003112793 seconds -->
+</div>
+            <div class="frame_info" id="frame_info_1" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_2" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_3" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_4" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_5" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_6" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_7" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_8" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_9" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_10" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_11" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_12" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_13" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_14" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_15" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_16" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_17" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_18" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_19" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_20" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_21" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_22" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_23" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_24" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_25" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_26" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_27" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_28" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_29" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_30" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_31" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_32" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_33" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_34" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_35" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_36" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_37" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_38" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_39" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_40" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_41" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_42" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_43" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_44" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_45" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_46" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_47" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_48" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_49" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_50" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_51" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_52" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_53" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_54" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_55" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_56" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_57" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_58" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_59" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_60" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_61" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_62" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_63" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_64" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_65" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_66" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_67" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_68" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_69" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_70" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_71" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_72" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_73" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_74" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_75" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_76" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_77" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_78" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_79" style="display:none;"></div>
+            <div class="frame_info" id="frame_info_80" style="display:none;"></div>
+    </section>
+
+<script>
+(function() {
+
+    var OID = "70282664218160";
+
+    var previousFrame = null;
+    var previousFrameInfo = null;
+    var allFrames = document.querySelectorAll("ul.frames li");
+    var allFrameInfos = document.querySelectorAll(".frame_info");
+
+    function apiCall(method, opts, cb) {
+        var req = new XMLHttpRequest();
+        req.open("POST", "" + "/__better_errors/" + OID + "/" + method, true);
+        req.setRequestHeader("Content-Type", "application/json");
+        req.send(JSON.stringify(opts));
+        req.onreadystatechange = function() {
+            if(req.readyState == 4) {
+                var res = JSON.parse(req.responseText);
+                cb(res);
+            }
+        };
+    }
+
+    function escapeHTML(html) {
+        return html.replace(/&/, "&amp;").replace(/</g, "&lt;");
+    }
+
+    function REPL(index) {
+        this.index = index;
+
+        var previousCommands = JSON.parse(localStorage.getItem("better_errors_previous_commands"));
+        if(previousCommands === null) {
+          localStorage.setItem("better_errors_previous_commands", JSON.stringify([]));
+          previousCommands = [];
+        }
+
+        this.previousCommandOffset = previousCommands.length;
+    }
+
+    REPL.all = [];
+
+    REPL.prototype.install = function(containerElement) {
+        this.container = containerElement;
+
+        this.promptElement  = this.container.querySelector(".prompt span");
+        this.inputElement   = this.container.querySelector("input");
+        this.outputElement  = this.container.querySelector("pre");
+
+        var self = this;
+        this.inputElement.onkeydown = function(ev) {
+            self.onKeyDown(ev);
+        };
+
+        this.setPrompt(">>");
+
+        REPL.all[this.index] = this;
+    }
+
+    REPL.prototype.focus = function() {
+        this.inputElement.focus();
+    };
+
+    REPL.prototype.setPrompt = function(prompt) {
+        this._prompt = prompt;
+        this.promptElement.innerHTML = escapeHTML(prompt);
+    };
+
+    REPL.prototype.getInput = function() {
+        return this.inputElement.value;
+    };
+
+    REPL.prototype.setInput = function(text) {
+        this.inputElement.value = text;
+
+        if(this.inputElement.setSelectionRange) {
+            // set cursor to end of input
+            this.inputElement.setSelectionRange(text.length, text.length);
+        }
+    };
+
+    REPL.prototype.writeRawOutput = function(output) {
+        this.outputElement.innerHTML += output;
+        this.outputElement.scrollTop = this.outputElement.scrollHeight;
+    };
+
+    REPL.prototype.writeOutput = function(output) {
+        this.writeRawOutput(escapeHTML(output));
+    };
+
+    REPL.prototype.sendInput = function(line) {
+        var self = this;
+        apiCall("eval", { "index": this.index, source: line }, function(response) {
+            if(response.error) {
+                self.writeOutput(response.error + "\n");
+            }
+            self.writeOutput(self._prompt + " ");
+            self.writeRawOutput(response.highlighted_input + "\n");
+            self.writeOutput(response.result);
+            self.setPrompt(response.prompt);
+            self.setInput(response.prefilled_input);
+        });
+    };
+
+    REPL.prototype.onEnterKey = function() {
+        var text = this.getInput();
+        if(text != "" && text !== undefined) {
+            var previousCommands = JSON.parse(localStorage.getItem("better_errors_previous_commands"));
+            this.previousCommandOffset = previousCommands.push(text);
+            if(previousCommands.length > 100) {
+              previousCommands.splice(0, 1);
+            }
+            localStorage.setItem("better_errors_previous_commands", JSON.stringify(previousCommands));
+        }
+        this.setInput("");
+        this.sendInput(text);
+    };
+
+    REPL.prototype.onNavigateHistory = function(direction) {
+        this.previousCommandOffset += direction;
+        var previousCommands = JSON.parse(localStorage.getItem("better_errors_previous_commands"));
+
+        if(this.previousCommandOffset < 0) {
+            this.previousCommandOffset = -1;
+            this.setInput("");
+            return;
+        }
+
+        if(this.previousCommandOffset >= previousCommands.length) {
+            this.previousCommandOffset = previousCommands.length;
+            this.setInput("");
+            return;
+        }
+
+        this.setInput(previousCommands[this.previousCommandOffset]);
+    };
+
+    REPL.prototype.onKeyDown = function(ev) {
+        if(ev.keyCode == 13) {
+            this.onEnterKey();
+        } else if(ev.keyCode == 38 || (ev.ctrlKey && ev.keyCode == 80)) {
+            // the user pressed the up arrow or Ctrl-P
+            this.onNavigateHistory(-1);
+            ev.preventDefault();
+            return false;
+        } else if(ev.keyCode == 40 || (ev.ctrlKey && ev.keyCode == 78)) {
+            // the user pressed the down arrow or Ctrl-N
+            this.onNavigateHistory(1);
+            ev.preventDefault();
+            return false;
+        }
+    };
+
+    function switchTo(el) {
+        if(previousFrameInfo) previousFrameInfo.style.display = "none";
+        previousFrameInfo = el;
+
+        el.style.display = "block";
+
+        var replInput = el.querySelector('.console input');
+        if (replInput) replInput.focus();
+    }
+
+    function selectFrameInfo(index) {
+        var el = allFrameInfos[index];
+        if(el) {
+            if (el.loaded) {
+                return switchTo(el);
+            }
+
+            apiCall("variables", { "index": index }, function(response) {
+                el.loaded = true;
+                if(response.error) {
+                    el.innerHTML = "<span class='error'>" + escapeHTML(response.error) + "</span>";
+                } else {
+                    el.innerHTML = response.html;
+
+                    var repl = el.querySelector(".repl .console");
+                    if(repl) {
+                        new REPL(index).install(repl);
+                    }
+
+                    switchTo(el);
+                }
+            });
+        }
+    }
+
+    for(var i = 0; i < allFrames.length; i++) {
+        (function(i, el) {
+            var el = allFrames[i];
+            el.onclick = function() {
+                if(previousFrame) {
+                    previousFrame.className = "";
+                }
+                el.className = "selected";
+                previousFrame = el;
+
+                selectFrameInfo(el.attributes["data-index"].value);
+            };
+        })(i);
+    }
+
+    // Click the first application frame
+    (
+      document.querySelector(".frames li.application") ||
+      document.querySelector(".frames li")
+    ).onclick();
+
+    // This is the second query performed for frames; maybe the 'allFrames' list
+    // currently used and this list can be better used to avoid the repetition:
+    var applicationFramesCount = document.querySelectorAll(
+        "ul.frames li[data-context=application]"
+    ).length;
+
+    var applicationFramesButtonIsInstalled = false;
+    var applicationFramesButton = document.getElementById("application_frames");
+    var allFramesButton = document.getElementById("all_frames");
+
+    // The application frames button only needs to be bound if
+    // there are actually any application frames to look at.
+    var installApplicationFramesButton = function() {
+        applicationFramesButton.onclick = function() {
+            allFramesButton.className = "";
+            applicationFramesButton.className = "selected";
+            for(var i = 0; i < allFrames.length; i++) {
+                if(allFrames[i].attributes["data-context"].value == "application") {
+                    allFrames[i].style.display = "block";
+                } else {
+                    allFrames[i].style.display = "none";
+                }
+            }
+            return false;
+        };
+
+        applicationFramesButtonIsInstalled = true;
+    }
+
+    allFramesButton.onclick = function() {
+        if(applicationFramesButtonIsInstalled) {
+            applicationFramesButton.className = "";
+        }
+
+        allFramesButton.className = "selected";
+        for(var i = 0; i < allFrames.length; i++) {
+            allFrames[i].style.display = "block";
+        }
+        return false;
+    };
+
+    // If there are no application frames, select the 'All Frames'
+    // tab by default.
+    if(applicationFramesCount > 0) {
+        installApplicationFramesButton();
+        applicationFramesButton.onclick();
+    } else {
+        applicationFramesButton.className = "disabled";
+        applicationFramesButton.title = "No application frames available";
+        allFramesButton.onclick();
+    }
+})();
+</script>
+
+
+<!-- generated by Better Errors in 0.01885700225830078 seconds -->
+</body></html>
