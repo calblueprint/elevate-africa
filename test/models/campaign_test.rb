@@ -9,8 +9,8 @@
 #  updated_at  :datetime
 #  donation_id :integer
 #  description :string(255)
-#  deadline    :string(255)
 #  team_id     :integer
+#  deadline    :integer
 #
 
 require "test_helper"

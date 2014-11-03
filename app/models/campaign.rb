@@ -9,9 +9,9 @@
 #  updated_at  :datetime
 #  donation_id :integer
 #  description :string(255)
-#  deadline    :string(255)
 #  team_id     :integer
-# =>
+#  deadline    :integer
+#
 
 class Campaign < ActiveRecord::Base
   belongs_to :team
