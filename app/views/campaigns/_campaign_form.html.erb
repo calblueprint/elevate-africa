@@ -11,19 +11,19 @@
   <% end %>
 
   <p>
-    <%= f.input :name %>
+    <%= f.input :name, input_html: { value: "Kevin Wu" } %>
   </p>
 
   <p>
-    <%= f.input :goal %>
+    <%= f.input :goal, as: :string, input_html: { value: "$1000.00" } %>
   </p>
 
   <p>
-    <%= f.input :description %>
+    <%= f.input :description, input_html: { value: "My campaign!" } %>
   </p>
 
   <p>
-    <%= f.input :deadline %>
+    <%= f.input :deadline, as: :string, input_html: { value: "30 days" } %>
   </p>
 
   <p>

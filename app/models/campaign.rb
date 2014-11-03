@@ -11,7 +11,7 @@
 #  description :string(255)
 #  deadline    :string(255)
 #  team_id     :integer
-# => 
+# =>
 
 class Campaign < ActiveRecord::Base
   belongs_to :team
