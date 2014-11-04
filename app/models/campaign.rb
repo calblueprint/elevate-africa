@@ -9,7 +9,8 @@
 #  updated_at  :datetime
 #  donation_id :integer
 #  description :string(255)
-#  deadline    :string(255)
+#  team_id     :integer
+#  deadline    :integer
 #
 
 class Campaign < ActiveRecord::Base
@@ -17,4 +18,14 @@ class Campaign < ActiveRecord::Base
   has_many :donations, dependent: :destroy
 
   validates :name, presence: true
+
+  def get_total_donations
+    total = 0
+    if donations.any?
+      donations.each do |donation|
+        total += donation.amount
+      end
+      return total
+    end
+  end
 end

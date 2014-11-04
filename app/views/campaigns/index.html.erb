@@ -1,31 +1,31 @@
-<div class="campaigns-wrapper">
-  <div class="wide-container campaigns-padding">
-    <h1>All Campaigns</h1>
-    <table class="medium-container campaigns-padding">
+<div class="medium-container campaigns-padding">
+  <h1>All Campaigns</h1>
+  <table class="medium-container campaigns-padding">
+    <tr>
+      <th><h2>ID</h2></th>
+      <th><h2>Name</h2></th>
+      <th><h2>Description</h2></th>
+      <th><h2>Goal</h2></th>
+      <th><h2>Deadline</h2></th>
+    </tr>
+    <% @campaigns.each do |campaign| %>
       <tr>
-        <th><h2>Name</h2></th>
-        <th><h2>Description</h2></th>
-        <th><h2>Goal</h2></th>
-        <th><h2>Deadline</h2></th>
+        <td><h4><%= campaign.id %></h4></td>
+        <td><h4><%= campaign.name %></h4></td>
+        <td><h4><%= campaign.description %></h4></td>
+        <td><h4><%= number_to_currency campaign.goal %></h4></td>
+        <td><h4><%= campaign.deadline %></h4></td>
+        <td><%= link_to "show", campaign_path(campaign) %></td>
+        <td><%= link_to "edit", edit_campaign_path(campaign) %></td>
+        <td><%= link_to "destroy", campaign_path(campaign), method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
-
-      <% @campaigns.each do |campaign| %>
-        <tr>
-          <td><h4><%= campaign.name %></h4></td>
-          <td><h4><%= campaign.description %></h4></td>
-          <td><h4><%= number_to_currency campaign.goal %></h4></td>
-          <td><h4><%= campaign.deadline %></h4></td>
-          <td><%= link_to "show", campaign_path(campaign) %></td>
-          <td><%= link_to "edit", edit_campaign_path(campaign) %></td>
-          <td><%= link_to "destroy", campaign_path(campaign), method: :delete, data: { confirm: "Are you sure?" } %></td>
-        </tr>
-      <% end %>
-    </table>
-    <% if can_create_campaign? current_user %>
-      <h2><%= link_to "new campaign?", new_campaign_path %></h2>
-    <% else %>
-      <% if has_campaign? current_user %>
-        <h2><%= link_to "Go to campaign!", campaign_path(current_user.campaign) %></h2>
+    <% end %>
+  </table>
+  <% if can_create_campaign? current_user %>
+    <h2><%= link_to "new campaign?", new_campaign_path %></h2>
+  <% else %>
+    <% if has_campaign? current_user %>
+      <h2><%= link_to "Go to campaign!", campaign_path(current_user.campaign) %></h2>
     <% end %>
   <% end %>
 </div>
