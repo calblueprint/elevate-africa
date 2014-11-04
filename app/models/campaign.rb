@@ -31,7 +31,7 @@ class Campaign < ActiveRecord::Base
       donations.each do |donation|
         total += donation.amount
       end
-      return total
     end
+    total
   end
 end
