@@ -90,14 +90,18 @@ for the about.css.scss file custom styling*/
 #campaign-index-campaigns {
   padding-bottom: 100px;
   overflow: auto;
+  width: 90%;
+  margin: 0 auto;
 }
+
 
 .campaign-view {
   border: 2px solid $light-gray;
   float: left;
   width: 25%;
   height: 600px;
-  margin: 20px 20px;
+  margin: 20px auto;
+  padding: 0px 20px;
 }
 
 .campaign-go-to {
