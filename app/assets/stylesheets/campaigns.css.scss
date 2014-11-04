@@ -14,56 +14,84 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
-.campaigns-wrapper {
-  table {
-    margin: auto auto;
-
-    th {
-      width: 25%;
-    }
-  }
-}
-
 #campaigns-create-background {
   background: url(asset_path("campaigns_form.jpg"));
   background-size: cover;
   background-position: center;
 
-  height: 1000px;
+  height: 875px;
 }
 
-.campaigns-create-box {
+.campaigns-create-header {
+  display: block;
+  text-align: center;
+  margin: auto;
+  width: 450px;
+  height: 50px;
+
+  border: solid;
+  border-color: #CCCCCC;
+  border-width: 1px;
+  border-bottom: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #EEEEEE;
+  padding: 24px 18px;
+}
+
+.campaigns-create-body {
   display: block;
   text-align: center;
   margin: auto;
   width: 450px;
 
-  border-radius: 5px;
+  border: solid;
+  border-color: #CCCCCC;
+  border-width: 1px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   background-color: white;
-  padding: 16px 16px;
+  padding: 24px 18px;
+}
+
+.campaigns-create-field {
+  border: solid;
+  border-color: #CCCCCC;
+  border-width: 1px;
+  border-radius: 4px;
+  height: 75px;
+
+  margin-top: 24px;
+
+  label {
+    font: Bitter;
+    font-size: 18px;
+    float: left;
+    padding: 10px 0 2px 12px;
+  }
+
+  #campaign_name, #campaign_goal, #campaign_description, #campaign_deadline {
+    padding: 0px 12px;
+    margin: 0 0;
+    border: none;
+
+    font: lighter 24px Lato, sans-serif;
+    color: $dark-gray;
+  }
 }
 
 .campaigns-create-button {
   padding: 0 0;
-  border-radius: 5px;
-  margin: 0 0;
-  height: 80px;
+  border-radius: 4px;
+  margin: 24px 0 0 0;
+  height: 75px;
   display: inline-block;
 
-  font: Lato;
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 600;
+  font: bold 36px Lato, sans-serif;
 
   background: $primary-color;
   color: #fff;
   border: none;
-
-  h4 {
-    font: $h2;
-    font-size: 34px;
-    color: $dark-gray;
-  }
 
   &:hover {
     cursor: pointer;

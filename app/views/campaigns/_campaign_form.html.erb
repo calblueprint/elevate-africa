@@ -1,4 +1,4 @@
-<%= simple_form_for @campaign do |f| %>
+<%= form_for @campaign do |f| %>
   <% if @campaign.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being edited: </h2>
@@ -10,25 +10,22 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.input :name, input_html: { value: "Kevin Wu" } %>
-  </p>
+  <div class="campaigns-create-field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, value: "Kevin Wu" %>
+  </div>
 
-  <p>
-    <%= f.input :goal, as: :string, input_html: { value: "$1000.00" } %>
-  </p>
+  <div class="campaigns-create-field">
+    <%= f.label :goal %><br>
+    <%= f.text_field :goal, value: "$1,000.00" %>
+  </div>
 
-  <p>
-    <%= f.input :description, input_html: { value: "My campaign!" } %>
-  </p>
+  <div class="campaigns-create-field">
+    <%= f.label :deadline %><br>
+    <%= f.text_field :deadline, value: "90 days from now" %>
+  </div>
 
-  <p>
-    <%= f.input :deadline, as: :string, input_html: { value: "30 days" } %>
-  </p>
+  <%= f.hidden_field :team_id, value: current_user.id %>
 
-  <p>
-    <%= f.hidden_field :team_id, value: current_user.id %>
-  </p>
-
-  <%= f.submit 'CONTINUE', class: "campaigns-create-button" %>
+  <%= f.submit "CONTINUE", class: "campaigns-create-button" %>
 <% end %>

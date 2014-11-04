@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     @donations = @campaign.donations
-    @team = @campaign.team
+    @team = Team.find(@campaign.team_id)
     @total_donations = @campaign.get_total_donations
   end
 
