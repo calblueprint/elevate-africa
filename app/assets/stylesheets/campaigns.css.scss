@@ -23,6 +23,7 @@ for the about.css.scss file custom styling*/
     }
   }
 }
+/* Campaign creation forms */
 
 #campaigns-create-background {
   background: url(asset_path("campaigns_form.jpg"));
@@ -70,3 +71,19 @@ for the about.css.scss file custom styling*/
     background: $secondary-color;
   }
 }
+
+/* Campaign Index */
+
+#campaign-index-slider {
+  margin-top: -20px;
+  width: 100%;
+}
+
+#slide {
+  background: url(asset_path("buzz.JPG"));
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  width: 0px;
+}
+
