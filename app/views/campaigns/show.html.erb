@@ -6,6 +6,8 @@
     <%= @campaign.description %>
   </h4>
 
+  <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
+
   <h4>
     <strong><%= number_to_currency @total_donations %></strong> pledged of
     <%= number_to_currency @campaign.goal %> goal
