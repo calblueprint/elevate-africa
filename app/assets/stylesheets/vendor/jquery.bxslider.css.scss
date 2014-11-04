@@ -99,13 +99,13 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: 10px;
+	left: 40px;
 	background: image-url("controls.png") no-repeat 0 -32px;
 }
 
 .bx-wrapper .bx-next {
-	right: 10px;
-	background: image-url("controls.png") no-repeat -43px -32px;
+	right: 40px;
+	background: image-url("controls.png") no-repeat -44px -32px;
 }
 
 .bx-wrapper .bx-prev:hover {
@@ -113,7 +113,7 @@
 }
 
 .bx-wrapper .bx-next:hover {
-	background-position: -43px 0;
+	background-position: -44px 0;
 }
 
 .bx-wrapper .bx-controls-direction a {

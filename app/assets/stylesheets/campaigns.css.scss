@@ -87,3 +87,24 @@ for the about.css.scss file custom styling*/
   width: 0px;
 }
 
+#campaign-index-campaigns {
+  padding-bottom: 100px;
+  overflow: auto;
+}
+
+.campaign-view {
+  border: 2px solid $light-gray;
+  float: left;
+  width: 25%;
+  height: 600px;
+  margin: 20px 20px;
+}
+
+.campaign-go-to {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0px;
+}
+
