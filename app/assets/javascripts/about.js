@@ -39,6 +39,7 @@ var ready = function() {
           if(Math.floor((hash_icons[selected.attr("id")]+1)/2) != Math.floor((hash_icons[previous_figure.attr("id")]+1)/2)) {
             changeFigures(selected);
             previous_figure = selected;
+          }
         }
       });
     }

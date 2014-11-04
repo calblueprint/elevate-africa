@@ -16,7 +16,7 @@ for the about.css.scss file custom styling*/
 
 #about-banner {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.05), 
+      rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0.05)
     ), url(asset_path("elephants.jpg"));
   background-size: cover;
@@ -34,7 +34,6 @@ for the about.css.scss file custom styling*/
 
   &:hover {
     background: $tertiary-color;
-    color: #fff;
   }
 }
 
