@@ -4,8 +4,7 @@ startCampaignIndex = ->
 
 start_slider = ->
   $('.bxslider').bxSlider({
-    auto: true,
-    autoControls: true
+    auto: true
   });
 
 $(document).ready startCampaignIndex
