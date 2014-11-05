@@ -144,7 +144,7 @@ for the about.css.scss file custom styling*/
 
 .campaign-index-total {
   text-align: left;
-  padding-left: 25px;
+  padding-left: 20px;
   padding-top: 10px;
   font-size: 50px;
   line-height: 45px;
@@ -161,13 +161,21 @@ for the about.css.scss file custom styling*/
 
 .campaign-index-days-container {
   text-align: left;
-  padding-left: 25px;
-  font-size: 10px;
+  padding-left: 20px;
+  font-size: 20px;
+  width: 100px;
+  float:left;
 }
 
 .campaign-index-days {
   color: $primary-color;
   font: $h1;
+  font-size: 30px;
+}
+
+.campaign-index-percentage {
+  float: right;
+  padding-right: 20px;
   font-size: 30px;
 }
 

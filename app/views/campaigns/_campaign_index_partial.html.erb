@@ -13,8 +13,12 @@
       <%= number_to_currency campaign.get_total_donations %>
     </h1>
     <div id="bar-<%= campaign.id %>" class="campaign-index-bar"></div>
-    <h2 class="campaign-index-days-container">
-      <span class="campaign-index-days">90</span>days
-    </h2>
+    <div class="campaign-index-info-container">
+      <h2 class="campaign-index-days-container">
+        <span class="campaign-index-days">90 </span>days
+      </h2>
+      <h2 class="campaign-index-percentage"><%= number_to_percentage(campaign.get_donation_percentage * 100, precision: 0) %>
+      </h2>
+    </div>
   </div>
 </div>
