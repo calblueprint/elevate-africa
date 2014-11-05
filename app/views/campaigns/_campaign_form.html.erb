@@ -29,9 +29,15 @@
   </div>
 
   <div class="campaigns-create-second">
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-description">
       <%= f.label :description %><br>
       <%= f.text_area :description, value: "Hi, nice site", size: "24x6" %>
+    </div>
+
+    <div class="campaigns-create-example-container">
+      <div class="campaigns-create-example" id="campaigns-create-example-one">Example 1</div>
+      <div class="campaigns-create-example" id="campaigns-create-example-two">Example 2</div>
+      <div class="campaigns-create-example">Custom</div>
     </div>
 
     <%= f.hidden_field :team_id, value: current_user.id %>
