@@ -1,0 +1,11 @@
+<div class="campaign-index-content-container">
+  <% if !campaign.picture_url.nil? %>
+    <div style="background-image: url(<%=campaign.picture_url%>)" class="campaign-index-image"></div>
+  <% else %>
+    <div class="campaign-index-image default"></div>
+  <% end %>
+  <h2 class="campaign-index-title"><%= campaign.name %></h2>
+  <p class="campaign-index-content">
+    <%= campaign.description.truncate 280 %>
+  </p>
+</div>

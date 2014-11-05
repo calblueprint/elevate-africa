@@ -131,8 +131,16 @@ for the about.css.scss file custom styling*/
   text-align: left;
   padding-left: 10px;
   padding-top: 10px;
+  color: $secondary-color;
 }
 
+.campaign-index-content {
+  height: 30%;
+  padding: 10px 10px;
+  line-height: 30px;
+  text-align: left;
+  overflow: hidden;
+}
 
 
 .campaign-go-to {

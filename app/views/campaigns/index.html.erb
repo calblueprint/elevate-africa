@@ -18,15 +18,7 @@
       <% @campaigns.each do |campaign| %>
         <%= link_to campaign_path(campaign) do %>
           <div class="campaign-index-view">
-            <div class="campaign-index-content-container">
-              <% if !campaign.picture_url.nil? %>
-                <div style="background-image: url(<%=campaign.picture_url%>)" class="campaign-index-image"></div>
-              <% else %>
-                <div class="campaign-index-image default"></div>
-              <% end %>
-              <h2 class="campaign-index-title"><%= campaign.name %></h2>
-              <h4><%= campaign.description %></h4>
-            </div>
+            <%= render 'campaign_index_partial', campaign: campaign %>
           </div>
         <% end %>
       <% end %>
