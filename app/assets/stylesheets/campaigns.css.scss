@@ -142,6 +142,23 @@ for the about.css.scss file custom styling*/
   overflow: hidden;
 }
 
+.campaign-index-days-container {
+  text-align: left;
+  padding-left: 25px;
+  padding-top: 10px;
+  font-size: 25px;
+}
+
+.campaign-index-days {
+  color: $primary-color;
+  font: $h1;
+  font-size: 50px;
+}
+
+#container {
+  width: 100%;
+  padding: 0px 10px;
+}
 
 .campaign-go-to {
   position: absolute;
