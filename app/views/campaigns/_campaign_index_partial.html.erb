@@ -9,9 +9,12 @@
     <%= campaign.description.truncate 280 %>
   </p>
   <div class="campaign-progress-bar-container">
+    <h1 class="campaign-index-total">
+      <%= number_to_currency campaign.get_total_donations %>
+    </h1>
+    <div id="bar-<%= campaign.id %>" class="campaign-index-bar"></div>
     <h2 class="campaign-index-days-container">
       <span class="campaign-index-days">90</span>days
     </h2>
-    <div id="bar-<%= campaign.id %>" class="campaign-index-bar"></div>
   </div>
 </div>
