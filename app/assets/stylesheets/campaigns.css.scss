@@ -94,14 +94,20 @@ for the about.css.scss file custom styling*/
   margin: 0 auto;
 }
 
-
-.campaign-view {
-  border: 2px solid $light-gray;
+.campaign-index-view {
   float: left;
   width: 25%;
-  height: 600px;
+  height: 500px;
   margin: 20px auto;
   padding: 0px 20px;
+
+}
+
+.campaign-index-content-container {
+  border: 2px solid $light-gray;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .campaign-go-to {
