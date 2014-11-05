@@ -35,9 +35,9 @@
     </div>
 
     <div class="campaigns-create-example-container">
-      <div class="campaigns-create-example" id="campaigns-create-example-one">Example 1</div>
-      <div class="campaigns-create-example" id="campaigns-create-example-two">Example 2</div>
-      <div class="campaigns-create-example">Custom</div>
+      <a class="campaigns-create-example" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
+      <a class="campaigns-create-example" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
+      <a class="campaigns-create-example" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
     </div>
 
     <%= f.hidden_field :team_id, value: current_user.id %>

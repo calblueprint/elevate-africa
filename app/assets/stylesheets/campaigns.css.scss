@@ -83,7 +83,7 @@ for the about.css.scss file custom styling*/
   }
 
   #campaign_description {
-    height: 300px;
+    height: 200px;
   }
 }
 
@@ -130,6 +130,16 @@ for the about.css.scss file custom styling*/
   padding-top: 3.5%;
   font: normal 14px Bitter;
   color: #CCCCCC;
+
+  &:hover {
+    color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+.campaigns-create-example-colored {
+  border-color: $primary-color;
+  color: $primary-color;
 }
 
 #campaigns-create-example-one, #campaigns-create-example-two {
