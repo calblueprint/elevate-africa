@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     @donations = @campaign.donations
-    @team = Team.find(@campaign.team_id)
+    @team = @campaign.team
     @total_donations = @campaign.get_total_donations
   end
 
@@ -46,7 +46,7 @@ class CampaignsController < ApplicationController
 
   private
     def campaign_params
-      params.require(:campaign).permit(:name, :goal, :description, :deadline)
+      params.require(:campaign).permit(:name, :goal, :description, :deadline, :team_id)
     end
 
     def authenticate_team
