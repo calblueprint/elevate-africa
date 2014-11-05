@@ -1,52 +1,52 @@
-<div class="campaigns-wrapper">
-  <div class="medium-container campaigns-padding">
+<div class="medium-container padding">
+  <h1><%= @campaign.name %></h1>
+  <h2>by <%= @team.name %></h2>
+  <h4>
+    Description:
+    <%= @campaign.description %>
+  </h4>
 
-    <h1><%= @campaign.name %></h1>
-    
-    <p>
-      <strong>Description:</strong>
-      <%= @campaign.description %>
-    </p>
+  <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
 
-    <p>
-      <strong>Goal:</strong>
-      <%= number_to_currency @campaign.goal %>
-    </p>
+  <h4>
+    <strong><%= number_to_currency @total_donations %></strong> pledged of
+    <%= number_to_currency @campaign.goal %> goal
+  </h4>
 
-    <p>
-      <strong>Deadline:</strong>
-      <%= @campaign.deadline %>
-    </p>
+  <p>
+    <strong>Deadline:</strong>
+    <%= @campaign.deadline %>
+  </p>
 
-    <p>
-      <strong>Donations:</strong>
-      <% if @campaign.donations.any? %>
-        <% @total = 0 %>
-        <table>
+  <p>
+    <strong>Backers:</strong>
+    <%= @donations.count %>
+  </p>
+
+  <p>
+    <strong>Donations:</strong>
+    <% if @campaign.donations.any? %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+        </tr>
+        <% @donations.each do |donation| %>
           <tr>
-            <th>Name</th>
-            <th>Amount</th>
+            <td><%= donation.name %></td>
+            <td><%= number_to_currency donation.amount %></td>
           </tr>
-
-          <% @donations.each do |donation| %>
-            <% @total += donation.amount %>
-            <tr>
-              <td><%= donation.name %></td>
-              <td><%= number_to_currency donation.amount %></td>
-            </tr>
-          <% end %>
-        </table>
-        <h2>Total: <%= number_to_currency @total %></h2>
-        <% if @total >= @campaign.goal %>
-          <p>Campaign success!</p>
-        <% else %>
-          <p>Campaign incomplete!</p>
         <% end %>
+      </table>
+      <% if @total_donations >= @campaign.goal %>
+        <p>Campaign success!</p>
       <% else %>
-        No donations!
+        <p>Campaign incomplete!</p>
       <% end %>
-    </p>
+    <% else %>
+      No donations!
+    <% end %>
+  </p>
 
-    <%= link_to "index", campaigns_path %> | <%= link_to "edit", edit_campaign_path(@campaign) %> | <%= link_to "donate", new_campaign_donation_path(@campaign) %>
-  </div>
+  <%= link_to "index", campaigns_path %> | <%= link_to "edit", edit_campaign_path(@campaign) %> | <%= link_to "donate", new_campaign_donation_path(@campaign) %>
 </div>

@@ -16,7 +16,7 @@ for the about.css.scss file custom styling*/
 
 #about-banner {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.05), 
+      rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0.05)
     ), url(asset_path("elephants.jpg"));
   background-size: cover;
@@ -34,7 +34,6 @@ for the about.css.scss file custom styling*/
 
   &:hover {
     background: $tertiary-color;
-    color: #fff;
   }
 }
 
@@ -81,6 +80,9 @@ for the about.css.scss file custom styling*/
       display: block;
       width: 100%;
     }
+    &:hover {
+      cursor: pointer;
+      }
   }
 
   .about-process-arrow {
@@ -93,23 +95,23 @@ for the about.css.scss file custom styling*/
   }
 }
 
-.icon-one { transform: rotate(-67.5deg) translate(15em) rotate(67.5deg); }
-.icon-two { transform: rotate(-22.5deg) translate(15em) rotate(22.5deg); }
-.icon-three { transform: rotate(22.5deg) translate(15em) rotate(-22.5deg); }
-.icon-four { transform: rotate(67.5deg) translate(15em) rotate(-67.5deg); }
-.icon-five { transform: rotate(112.5deg) translate(15em) rotate(-112.5deg); }
-.icon-six { transform: rotate(157.5deg) translate(15em) rotate(-157.5deg); }
-.icon-seven { transform: rotate(202.5deg) translate(15em) rotate(-202.5deg); }
-.icon-eight { transform: rotate(247.5deg) translate(15em) rotate(-247.5deg); }
+#icon-one { transform: rotate(-67.5deg) translate(15em) rotate(67.5deg); }
+#icon-two { transform: rotate(-22.5deg) translate(15em) rotate(22.5deg); }
+#icon-three { transform: rotate(22.5deg) translate(15em) rotate(-22.5deg); }
+#icon-four { transform: rotate(67.5deg) translate(15em) rotate(-67.5deg); }
+#icon-five { transform: rotate(112.5deg) translate(15em) rotate(-112.5deg); }
+#icon-six { transform: rotate(157.5deg) translate(15em) rotate(-157.5deg); }
+#icon-seven { transform: rotate(202.5deg) translate(15em) rotate(-202.5deg); }
+#icon-eight { transform: rotate(247.5deg) translate(15em) rotate(-247.5deg); }
 
-.arrow-one { transform: translate(15em) rotate(90deg); }
-.arrow-two { transform: rotate(45deg) translate(15em) rotate(90deg); }
-.arrow-three { transform: rotate(90deg) translate(15em) rotate(90deg); }
-.arrow-four { transform: rotate(135deg) translate(15em) rotate(90deg); }
-.arrow-five { transform: rotate(180deg) translate(15em) rotate(90deg); }
-.arrow-six { transform: rotate(225.5deg) translate(15em) rotate(90deg); }
-.arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
-.arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
+#arrow-one { transform: translate(15em) rotate(90deg); }
+#arrow-two { transform: rotate(45deg) translate(15em) rotate(90deg); }
+#arrow-three { transform: rotate(90deg) translate(15em) rotate(90deg); }
+#arrow-four { transform: rotate(135deg) translate(15em) rotate(90deg); }
+#arrow-five { transform: rotate(180deg) translate(15em) rotate(90deg); }
+#arrow-six { transform: rotate(225.5deg) translate(15em) rotate(90deg); }
+#arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
+#arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
 .about-process-figures {
   width: 100%;

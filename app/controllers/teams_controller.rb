@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.new team_params
     if @team.save
       flash[:success] = "You've created a new team! Time for adventure!"
+      sign_in @team, bypass: true
       redirect_to after_sign_in_path_for @team
     else
       render "new"

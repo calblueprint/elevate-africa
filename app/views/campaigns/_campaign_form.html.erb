@@ -1,36 +1,38 @@
-<%= form_for @campaign do |f| %>
-    <% if @campaign.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being edited: </h2>
-        <ul>
-          <% @campaign.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-
-    <p>
-      <%= f.label :goal %><br>
-      <%= f.text_area :goal %>
-    </p>
-
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </p>
-
-    <p>
-      <%= f.label :deadline %><br>
-      <%= f.text_area :deadline %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
+<%= simple_form_for @campaign do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being edited: </h2>
+      <ul>
+        <% @campaign.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+
+  <p>
+    <%= f.input :name, input_html: { value: "Kevin Wu" } %>
+  </p>
+
+  <p>
+    <%= f.input :goal %>
+  </p>
+
+  <p>
+    <%= f.input :description, input_html: { value: "My campaign!" } %>
+  </p>
+
+  <p>
+    <%= f.input :deadline, as: :string, input_html: { value: "30 days" } %>
+  </p>
+
+  <p>
+    <%= f.file_field :picture, label: "Put your picture here!" %>
+  </p>
+
+  <p>
+    <%= f.hidden_field :team_id, value: current_user.id %>
+  </p>
+
+  <%= f.submit 'CONTINUE', class: "campaigns-create-button" %>
+<% end %>

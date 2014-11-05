@@ -1,0 +1,24 @@
+<div class="campaign-index-content-container">
+  <% if !campaign.picture_url.nil? %>
+    <div style="background-image: url(<%=campaign.picture_url%>)" class="campaign-index-image"></div>
+  <% else %>
+    <div class="campaign-index-image default"></div>
+  <% end %>
+  <h2 class="campaign-index-title"><%= campaign.name %></h2>
+  <p class="campaign-index-content">
+    <%= campaign.description.truncate 280 %>
+  </p>
+  <div class="campaign-progress-bar-container">
+    <h1 class="campaign-index-total">
+      <%= number_to_currency campaign.get_total_donations %>
+    </h1>
+    <div id="bar-<%= campaign.id %>" class="campaign-index-bar"></div>
+    <div class="campaign-index-info-container">
+      <h2 class="campaign-index-days-container">
+        <span class="campaign-index-days">90 </span>days
+      </h2>
+      <h2 class="campaign-index-percentage"><%= number_to_percentage(campaign.get_donation_percentage * 100, precision: 0) %>
+      </h2>
+    </div>
+  </div>
+</div>

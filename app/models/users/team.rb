@@ -22,7 +22,13 @@
 
 class Team < User
   has_one :campaign
+
   def team?
     true
+  end
+
+  # Checks if a team can edit a campaign
+  def can_edit?(campaign)
+    self.campaign == campaign
   end
 end
