@@ -12,13 +12,21 @@
       </li>
     </ul>
   </div>
-  <div class="wide-container campaigns-padding">
+  <div class="wide-container">
     <h1>All Campaigns</h1>
     <div id="campaign-index-campaigns">
       <% @campaigns.each do |campaign| %>
-        <div class="campaign-index-view">
-          <div class="campaign-index-content-container"></div>
-        </div>
+        <%= link_to campaign_path(campaign) do %>
+          <div class="campaign-index-view">
+            <div class="campaign-index-content-container">
+              <% if !campaign.picture_url.nil? %>
+                <div style="background-image: url(<%=campaign.picture_url%>)" class="campaign-index-image"></div>
+              <% else %>
+                <div class="campaign-index-image default"></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="campaign-go-to">
