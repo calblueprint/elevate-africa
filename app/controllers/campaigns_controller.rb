@@ -47,23 +47,24 @@ class CampaignsController < ApplicationController
   end
 
   private
-    def campaign_params
-      params.require(:campaign).permit(:name, :goal, :description,
-                                       :deadline, :picture)
-    end
 
-    def authenticate_team
-      if !current_user || !current_user.team?
-        flash[:error] = "You need to be logged into a team!"
-        redirect_to campaigns_path
-      end
-    end
+  def campaign_params
+    params.require(:campaign).permit(:name, :goal, :description,
+                                     :deadline, :picture)
+  end
 
-    def authenticate_owner
-      @campaign = Campaign.find(params[:id])
-      if !current_user.can_edit? @campaign
-        flash[:error] = "You can't edit this team!"
-        redirect_to campaigns_path
-      end
+  def authenticate_team
+    if !current_user || !current_user.team?
+      flash[:error] = "You need to be logged into a team!"
+      redirect_to campaigns_path
     end
+  end
+
+  def authenticate_owner
+    @campaign = Campaign.find(params[:id])
+    if !current_user.can_edit? @campaign
+      flash[:error] = "You can't edit this team!"
+      redirect_to campaigns_path
+    end
+  end
 end

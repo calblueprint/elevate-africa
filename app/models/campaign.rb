@@ -26,7 +26,6 @@ class Campaign < ActiveRecord::Base
   validates :description, presence: true
   # validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-
   # Calulates the total amount of donations
   def get_total_donations
     total = 0
