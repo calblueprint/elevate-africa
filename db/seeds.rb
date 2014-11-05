@@ -6,7 +6,31 @@
 #   cities = City.create([{ name: "Chicago" }, { name: "Copenhagen" }])
 #   Mayor.create(name: "Emanuel", city: cities.first)
 
-admin = Admin.create(email: "admin@gmail.com", password: "password", name: "Charles Xue")
-team = Team.create(email: "charlesx@berkeley.edu", password: "password", name: "Charles Xue Cool Team")
-team.campaign = Campaign.create(name: "This awesome adventure", goal: 1000.00)
-team = Team.create(email: "ea@gmail.com", password: "password", name: "Elevate Africa")
+def create_admin
+  1.times do |n|
+    Admin.create email: "admin#{n}@gmail.com",
+                 password: "password",
+                 name: "Admin #{n}"
+  end
+end
+
+def create_team_and_campaign_with_donations
+  10.times do |n|
+    team = Team.create email: "team#{n}@gmail.com",
+                       password: "password",
+                       name: "Team #{n}"
+    team.campaign = Campaign.create name: Faker::Name.name,
+                                    goal: 1000.00,
+                                    description: Faker::Lorem.paragraph
+    team.campaign.donations.create name: Faker::Name.name,
+                                   amount: Random.rand(0..1000)
+
+  end
+end
+
+def create_buzzes
+end
+
+create_admin
+create_team_and_campaign_with_donations
+create_buzzes
