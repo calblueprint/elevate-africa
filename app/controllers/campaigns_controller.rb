@@ -50,7 +50,7 @@ class CampaignsController < ApplicationController
 
   def campaign_params
     params.require(:campaign).permit(:name, :goal, :description,
-                                     :deadline, :picture)
+                                     :deadline, :picture, :team_id)
   end
 
   def authenticate_team
