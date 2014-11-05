@@ -13,7 +13,7 @@
     </ul>
   </div>
   <div class="wide-container">
-    <h1>All Campaigns</h1>
+    <h1 id="campaign-index-header">All Campaigns</h1>
     <div id="campaign-index-campaigns">
       <% @campaigns.each do |campaign| %>
         <%= link_to campaign_path(campaign) do %>
@@ -24,6 +24,8 @@
               <% else %>
                 <div class="campaign-index-image default"></div>
               <% end %>
+              <h2 class="campaign-index-title"><%= campaign.name %></h2>
+              <h4><%= campaign.description %></h4>
             </div>
           </div>
         <% end %>
