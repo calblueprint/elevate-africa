@@ -156,8 +156,12 @@ for the about.css.scss file custom styling*/
 }
 
 .campaign-index-bar {
-  width: 100%;
+  width: auto;
   padding: 0px 10px;
+}
+
+svg {
+  background-color: #EEEEEE;
 }
 
 .campaign-go-to {
