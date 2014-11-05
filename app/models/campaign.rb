@@ -7,8 +7,7 @@
 #  goal        :decimal(9, 2)
 #  created_at  :datetime
 #  updated_at  :datetime
-#  donation_id :integer
-#  description :string(255)
+#  description :text             default("")
 #  team_id     :integer
 #  deadline    :integer
 #  picture     :string(255)
@@ -37,5 +36,9 @@ class Campaign < ActiveRecord::Base
       end
     end
     total
+  end
+
+  def get_donation_percentage
+    get_total_donations / goal
   end
 end
