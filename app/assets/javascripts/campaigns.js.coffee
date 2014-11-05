@@ -21,7 +21,7 @@ start_progress = ->
                         duration: 800
                        }
     progressBar = new ProgressBar.Line "#bar-#{campaignId}", lineOptions
-    progressBar.animate 0.3, animationOptions
+    progressBar.animate percent, animationOptions
 
 
 $(document).ready startCampaignIndex
