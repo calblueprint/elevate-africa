@@ -39,6 +39,6 @@ class Campaign < ActiveRecord::Base
   end
 
   def get_donation_percentage
-    get_total_donations / goal
+    (get_total_donations / goal).to_f.round(2)
   end
 end

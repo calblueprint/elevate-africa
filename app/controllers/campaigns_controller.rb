@@ -4,6 +4,10 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all
+    percentages = @campaigns.map do |c|
+      [c.id, c.get_donation_percentage]
+    end
+    gon.push percentages: percentages
   end
 
   def new

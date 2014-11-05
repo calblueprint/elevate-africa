@@ -1,5 +1,6 @@
 startCampaignIndex = ->
   if $('#campaign-index-slider').length > 0
+    console.log gon.percentages
     start_slider()
     start_progress()
 
@@ -9,16 +10,18 @@ start_slider = ->
   });
 
 start_progress = ->
-  lineOptions = {
-                  strokeWidth: 5,
-                  color: "#F8991E"
-                }
-  animationOptions = {
-                      duration: 800
-                     }
-  progressBar = new ProgressBar.Line '#container', lineOptions
-  progressBar.animate 0.3, animationOptions, ->
-    console.log 'Animation has finished'
+  for campaign in gon.percentages
+    [campaignId, percent] = campaign
+    console.log campaignId
+    lineOptions = {
+                    strokeWidth: 5,
+                    color: "#F8991E"
+                  }
+    animationOptions = {
+                        duration: 800
+                       }
+    progressBar = new ProgressBar.Line "#bar-#{campaignId}", lineOptions
+    progressBar.animate 0.3, animationOptions
 
 
 $(document).ready startCampaignIndex
