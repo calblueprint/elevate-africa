@@ -25,6 +25,7 @@ class Campaign < ActiveRecord::Base
 
   validates :name, presence: true
 
+  # Calulates the total amount of donations
   def get_total_donations
     total = 0
     if donations.any?

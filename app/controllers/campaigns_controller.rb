@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_filter :authenticate_team, except: [:index, :show]
+  before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
     @campaigns = Campaign.all
@@ -26,11 +27,9 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find(params[:id])
   end
 
   def update
-    @campaign = Campaign.find(params[:id])
     if @campaign.update(campaign_params)
       redirect_to @campaign
     else
@@ -39,7 +38,6 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
     @campaign.destroy
     redirect_to campaigns_path
   end
@@ -53,6 +51,14 @@ class CampaignsController < ApplicationController
     def authenticate_team
       if !current_user || !current_user.team?
         flash[:error] = "You need to be logged into a team!"
+        redirect_to campaigns_path
+      end
+    end
+
+    def authenticate_owner
+      @campaign = Campaign.find(params[:id])
+      if !current_user.can_edit? @campaign
+        flash[:error] = "You can't edit this team!"
         redirect_to campaigns_path
       end
     end
