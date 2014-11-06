@@ -13,7 +13,7 @@
   <div class="campaigns-create-first">
     <div class="campaigns-create-field">
       <%= f.label :name %><br>
-      <%= f.text_field :name, value: "Kevin Wu" %>
+      <%= f.text_field :name, placeholder: "Enter a name" %>
     </div>
 
     <div class="campaigns-create-field">
@@ -23,14 +23,14 @@
 
     <div class="campaigns-create-field">
       <%= f.label :deadline %><br>
-      <%= f.text_field :deadline, value: "90" %>
+      <%= f.text_field :deadline, placeholder: "90? 30? 10?" %>
     </div>
     <div class="campaigns-create-button" onclick="campaignsCreateSecond()">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-second">
     <div class="campaigns-create-field">
-      <%= f.text_area :description, value: "Hi, nice site", size: "24x6" %>
+      <%= f.text_area :description %>
     </div>
 
     <div class="campaigns-create-example-container">
