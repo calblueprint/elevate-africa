@@ -19,6 +19,8 @@ class Campaign < ActiveRecord::Base
 
   validates :name, presence: true
 
+  mount_uploader :picture, PictureUploader
+
   def get_total_donations
     total = 0
     if donations.any?

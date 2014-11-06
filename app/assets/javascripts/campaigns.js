@@ -1,6 +1,7 @@
 var ready = function() {
   $(document).ready(function() {
     $(".campaigns-create-second").hide();
+    $(".campaigns-create-third").hide();
     campaignsChangeDescription("one");
 
     $(".campaigns-create-field").focusin(function() {
@@ -18,7 +19,14 @@ $(document).on('page:load', ready);
 
 function campaignsCreateSecond() {
   $(".campaigns-create-first").hide();
+  $("#campaigns-create-title").text("Write a Mission Statement")
   $(".campaigns-create-second").show();
+}
+
+function campaignsCreateThird() {
+  $(".campaigns-create-second").hide();
+  $("#campaigns-create-title").text("Choose a Photo")
+  $(".campaigns-create-third").show();
 }
 
 function campaignsChangeDescription(which) {
