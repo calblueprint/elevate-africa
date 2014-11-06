@@ -91,6 +91,35 @@ for the about.css.scss file custom styling*/
   width: 0px;
 }
 
+#campaign-index-form {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+}
+
+#campaign-index-search {
+  height: 75px;
+  border-left: none;
+  float: right;
+  width: 90%;
+  font-size: 40px;
+}
+
+#campaign-index-icon {
+  float:left;
+  width: 10%;
+  height: 75px;
+  padding-top: 10px;
+  margin: 15px 0px;
+  margin-right: -100px;
+  color: $light-gray;
+  border: 1px solid $light-gray;
+}
+
+#campaign-index-campaign-container {
+  margin-top: 50px;
+}
+
 #campaign-index-search-headline {
   padding-top: 100px;
 }

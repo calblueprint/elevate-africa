@@ -1,11 +1,14 @@
 <div id="campaign-index" class="wide-container">
   <div id="campaign-index-search-container">
     <h1 id="campaign-index-search-headline">Join an Adventure!</h1>
-    <%= form_tag campaigns_path, method: :get do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for a project..." %>
-    <% end %>
+    <div id="campaign-index-form">
+      <i id="campaign-index-icon" class="fa fa-search fa-3x"></i>
+      <%= form_tag campaigns_path, method: :get do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for a project...", id: "campaign-index-search" %>
+      <% end %>
+    </div>
   </div>
-  <div class="wide-container">
+  <div id="campaign-index-campaign-container">
     <h1 id="campaign-index-header">All Campaigns</h1>
     <div id="campaign-index-campaigns">
       <% @campaigns.each do |campaign| %>
