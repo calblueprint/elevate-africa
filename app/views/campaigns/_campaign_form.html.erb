@@ -33,20 +33,24 @@
       <%= f.text_area :description %>
     </div>
 
-    <div class="campaigns-create-example-container">
-      <a class="campaigns-create-example" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
-      <a class="campaigns-create-example" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
-      <a class="campaigns-create-example" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
+    <div class="campaigns-create-example-buttons-container">
+      <a class="campaigns-create-example-button" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
     </div>
     <div class="campaigns-create-button" onclick="campaignsCreateThird()">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-third">
-    <%= f.file_field :picture %>
+    <img id="campaigns-create-preview" src="#" alt="image preview">
 
-    <div class="campaigns-create-picture-container">
-      <a class="campaigns-create-picture" id="campaigns-create-picture-upload">UPLOAD</a>
-      <a class="campaigns-create-picture" id="campaigns-create-picture-choose">CHOOSE</a>
+    <div id="campaigns-create-hidden-upload">
+      <%= f.file_field :picture, id: "campaigns-create-upload" %>
+    </div>
+
+    <div class="campaigns-create-picture-buttons-container">
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsChoosePicture()">Upload</a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose">Choose</a>
     </div>
 
     <%= f.hidden_field :team_id, value: current_user.id %>

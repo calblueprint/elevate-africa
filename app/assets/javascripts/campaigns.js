@@ -22,6 +22,10 @@ var ready = function() {
       if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored"))
         campaignsChangeDescription("partial");
     });
+
+    $("#campaigns-create-upload").change(function() {
+      campaignsChangePreview(this);
+    });
   });
 }
 
@@ -63,5 +67,19 @@ function campaignsChangeDescription(which, stay) {
     $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
     $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
     $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
+  }
+}
+
+function campaignsChoosePicture() {
+  $("#campaigns-create-upload").click();
+}
+
+function campaignsChangePreview(param) {
+  if(param.files && param.files[0]) {
+    var read = new FileReader();
+    read.onload = function(e) {
+      $("#campaigns-create-preview").attr("src", e.target.result);
+    }
+    read.readAsDataURL(param.files[0]);
   }
 }

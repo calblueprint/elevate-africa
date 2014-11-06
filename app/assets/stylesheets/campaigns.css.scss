@@ -108,13 +108,13 @@ for the about.css.scss file custom styling*/
   }
 }
 
-.campaigns-create-example-container {
+.campaigns-create-example-buttons-container {
   width: 100%;
   height: 50px;
   margin: 18px 0;
 }
 
-.campaigns-create-example {
+.campaigns-create-example-button {
   width: 30%;
   height: 50px;
   border: solid;
@@ -143,13 +143,13 @@ for the about.css.scss file custom styling*/
   margin-right: 5%;
 }
 
-.campaigns-create-picture-container {
+.campaigns-create-picture-buttons-container {
   width: 100%;
   height: 62.5px;
   margin: 18px 0;
 }
 
-.campaigns-create-picture {
+.campaigns-create-picture-button {
   width: 47.5%;
   height: 62.5px;
   border: solid;
@@ -160,8 +160,21 @@ for the about.css.scss file custom styling*/
   float: left;
 
   padding-top: 3.5%;
-  font: normal 14px Bitter;
-  color: #CCCCCC;
+  font: normal 20px Bitter;
+  color: $primary-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#campaigns-create-hidden-upload {
+  height: 0px;
+  overflow: hidden;
+}
+
+#campaigns-create-preview {
+  width: 100%;
 }
 
 #campaigns-create-picture-upload {
