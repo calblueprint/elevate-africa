@@ -9,7 +9,15 @@
     </div>
   </div>
   <div id="campaign-index-campaign-container">
-    <h2 id="campaign-index-header">All Campaigns</h2>
+    <% if @campaigns.nil? %>
+      <h2 id="campaign-index-header">Sorry, no results were found!</h2>
+    <% else %>
+      <% if !@search.blank? %>
+        <h2 id="campaign-index-header">Search results for "<%= @search %>"</h2>
+      <% else %>
+        <h2 id="campaign-index-header">All Campaigns</h2>
+      <% end %>
+    <% end %>
     <div id="campaign-index-campaigns">
       <% @campaigns.each do |campaign| %>
         <%= link_to campaign_path(campaign) do %>

@@ -4,7 +4,8 @@ class CampaignsController < ApplicationController
 
   def index
     if params[:search]
-      @campaigns = Campaign.search params[:search]
+      @search = params[:search]
+      @campaigns = Campaign.search @search
     else
       @campaigns = Campaign.all
     end
