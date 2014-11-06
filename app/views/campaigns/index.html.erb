@@ -4,7 +4,7 @@
     <div id="campaign-index-form">
       <i id="campaign-index-icon" class="fa fa-search fa-3x"></i>
       <%= form_tag campaigns_path, method: :get do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search for a project...", id: "campaign-index-search" %>
+        <%= text_field_tag :search, "", placeholder: "Search for ", id: "campaign-index-search" %>
       <% end %>
     </div>
   </div>
