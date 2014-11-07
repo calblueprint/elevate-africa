@@ -26,6 +26,23 @@ var ready = function() {
     $("#campaigns-create-upload").change(function() {
       campaignsChangePreview(this);
     });
+
+    $("#campaign_goal").on("change", function () {
+      var param = $("#campaign_goal").val();
+      param = param.replace(/\D/g, '');
+      var count = 0;
+      for(i = param.length-1; i >= 0; i--) {
+        if(count < 3)
+          count++;
+        else {
+          count = 0;
+          console.log(param.substring(0,i+1));
+          param = param.substring(0,i+1) + "," + param.substring(i+1);
+        }
+      }
+      param = "$" + param + ".00";
+      $("#campaign_goal").val(param);
+    });
   });
 }
 

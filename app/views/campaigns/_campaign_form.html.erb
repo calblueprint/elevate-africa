@@ -18,12 +18,12 @@
 
     <div class="campaigns-create-field">
       <%= f.label :goal %><br>
-      <%= f.text_field :goal, value: "1000" %>
+      <%= f.text_field :goal, placeholder: "Enter a number" %>
     </div>
 
     <div class="campaigns-create-field">
       <%= f.label :deadline %><br>
-      <%= f.text_field :deadline, placeholder: "90? 30? 10?" %>
+      <%= f.text_field :deadline, placeholder: "Enter a number" %>
     </div>
     <div class="campaigns-create-button" onclick="campaignsCreateSecond()">CONTINUE</div>
   </div>
@@ -42,7 +42,7 @@
   </div>
 
   <div class="campaigns-create-third">
-    <img id="campaigns-create-preview" src="#" alt="image preview">
+    <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview">
 
     <div id="campaigns-create-hidden-upload">
       <%= f.file_field :picture, id: "campaigns-create-upload" %>
