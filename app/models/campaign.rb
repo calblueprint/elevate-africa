@@ -40,4 +40,13 @@ class Campaign < ActiveRecord::Base
   def get_donation_percentage
     (get_total_donations / goal).to_f.round(2)
   end
+
+  def self.search(search)
+    search.downcase!
+    Campaign.all.select do |c|
+      c.name.downcase.include?(search) ||
+      c.description.downcase.include?(search) ||
+      c.team.name.downcase.include?(search)
+    end
+  end
 end

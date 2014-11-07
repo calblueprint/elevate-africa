@@ -3,7 +3,12 @@ class CampaignsController < ApplicationController
   before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
-    @campaigns = Campaign.all
+    if params[:search]
+      @search = params[:search]
+      @campaigns = Campaign.search @search
+    else
+      @campaigns = Campaign.all
+    end
     percentages = @campaigns.map do |c|
       [c.id, c.get_donation_percentage]
     end

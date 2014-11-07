@@ -1,19 +1,23 @@
-<div class="wide-container">
-  <div id="campaign-index-slider">
-    <ul class="bxslider">
-      <li id="slide">
-        <!-- <%= image_tag("buzz.JPG") %> -->
-      </li>
-      <li id="slide">
-        <!-- <%= image_tag("buzz.JPG") %> -->
-      </li>
-      <li id="slide">
-        <!-- <%= image_tag("buzz.JPG") %> -->
-      </li>
-    </ul>
+<div id="campaign-index" class="wide-container">
+  <div id="campaign-index-search-container">
+    <h1 id="campaign-index-search-headline">Join an Adventure!</h1>
+    <div id="campaign-index-form">
+      <i id="campaign-index-icon" class="fa fa-search fa-3x"></i>
+      <%= form_tag campaigns_path, method: :get do %>
+        <%= text_field_tag :search, "", placeholder: "Search for ", id: "campaign-index-search" %>
+      <% end %>
+    </div>
   </div>
-  <div class="wide-container">
-    <h1 id="campaign-index-header">All Campaigns</h1>
+  <div id="campaign-index-campaign-container">
+    <% if @campaigns.nil? %>
+      <h2 id="campaign-index-header">Sorry, no results were found!</h2>
+    <% else %>
+      <% if !@search.blank? %>
+        <h2 id="campaign-index-header">Search results for "<%= @search %>"</h2>
+      <% else %>
+        <h2 id="campaign-index-header">All Campaigns</h2>
+      <% end %>
+    <% end %>
     <div id="campaign-index-campaigns">
       <% @campaigns.each do |campaign| %>
         <%= link_to campaign_path(campaign) do %>

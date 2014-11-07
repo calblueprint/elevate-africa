@@ -29,7 +29,6 @@ for the about.css.scss file custom styling*/
   background: url(asset_path("campaigns_form.jpg"));
   background-size: cover;
   background-position: center;
-
   height: 1000px;
 }
 
@@ -79,16 +78,57 @@ for the about.css.scss file custom styling*/
   width: 100%;
 }
 
-#campaign-index-header {
-  padding-top: 20px;
-}
-
 #slide {
   background: url(asset_path("buzz.JPG"));
   background-size: cover;
   background-position: center;
   height: 600px;
   width: 0px;
+}
+
+#campaign-index-search-container {
+  margin-top: 75px;
+}
+
+#campaign-index-form {
+  width: 60%;
+  height: auto;
+  margin: 50px auto;
+}
+
+#campaign-index-search {
+  height: 75px;
+  border-left: none;
+  float: right;
+  width: 90%;
+  font-size: 40px;
+}
+
+#campaign-index-icon {
+  float:left;
+  width: 10%;
+  height: 75px;
+  padding-top: 10px;
+  margin: 15px 0px;
+  margin-right: -100px;
+  color: $light-gray;
+  border: 1px solid $light-gray;
+}
+
+#campaign-index-search-headline {
+  padding-top: 100px;
+}
+
+#campaign-index-campaign-container {
+  margin-top: 300px;
+}
+
+#campaign-index-header {
+  text-align: left;
+  color: $primary-color;
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 20px;
 }
 
 #campaign-index-campaigns {
@@ -104,11 +144,11 @@ for the about.css.scss file custom styling*/
   height: 700px;
   margin: 20px auto;
   padding: 0px 20px;
-
 }
 
 .campaign-index-content-container {
   border: 2px solid $light-gray;
+  border-radius: 5px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -117,6 +157,9 @@ for the about.css.scss file custom styling*/
 .campaign-index-image {
   background-size: cover;
   background-position: center;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
   width: 100%;
   height: 40%;
 }
