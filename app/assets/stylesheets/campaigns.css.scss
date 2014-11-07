@@ -14,7 +14,6 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
-<<<<<<< HEAD
 .campaigns-wrapper {
   table {
     margin: auto auto;
@@ -39,7 +38,6 @@ for the about.css.scss file custom styling*/
   margin: auto;
   width: 450px;
   height: 50px;
-
   border: solid;
   border-color: #CCCCCC;
   border-width: 1px;
@@ -61,6 +59,7 @@ for the about.css.scss file custom styling*/
   border-width: 1px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  border-radius: 5px;
   background-color: white;
   padding: 24px 18px;
 
@@ -145,7 +144,54 @@ for the about.css.scss file custom styling*/
   }
 }
 
-<<<<<<< HEAD
+.campaigns-create-example-colored {
+  border-color: $primary-color;
+  color: $primary-color;
+}
+
+#campaigns-create-example-one, #campaigns-create-example-two {
+  margin-right: 5%;
+}
+
+.campaigns-create-picture-buttons-container {
+  width: 100%;
+  height: 62.5px;
+  margin: 18px 0;
+}
+
+.campaigns-create-picture-button {
+  width: 47.5%;
+  height: 62.5px;
+  border: solid;
+  border-color: #CCCCCC;
+  border-width: 1px;
+
+  display: inline-block;
+  float: left;
+
+  padding-top: 3.5%;
+  font: normal 20px Bitter;
+  color: $primary-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#campaigns-create-hidden-upload {
+  height: 0px;
+  overflow: hidden;
+}
+
+#campaigns-create-preview {
+  width: 50%;
+}
+
+#campaigns-create-picture-upload {
+  margin-right: 5%;
+}
+
+
 /* Campaign Index */
 
 #campaign-index-slider {
@@ -305,51 +351,3 @@ for the about.css.scss file custom styling*/
   margin: 20px 0px;
 }
 
-=======
-.campaigns-create-example-colored {
-  border-color: $primary-color;
-  color: $primary-color;
-}
-
-#campaigns-create-example-one, #campaigns-create-example-two {
-  margin-right: 5%;
-}
-
-.campaigns-create-picture-buttons-container {
-  width: 100%;
-  height: 62.5px;
-  margin: 18px 0;
-}
-
-.campaigns-create-picture-button {
-  width: 47.5%;
-  height: 62.5px;
-  border: solid;
-  border-color: #CCCCCC;
-  border-width: 1px;
-
-  display: inline-block;
-  float: left;
-
-  padding-top: 3.5%;
-  font: normal 20px Bitter;
-  color: $primary-color;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-#campaigns-create-hidden-upload {
-  height: 0px;
-  overflow: hidden;
-}
-
-#campaigns-create-preview {
-  width: 50%;
-}
-
-#campaigns-create-picture-upload {
-  margin-right: 5%;
-}
->>>>>>> 12b905b400ea593868bbb4c53c6cb6770a6fefc0

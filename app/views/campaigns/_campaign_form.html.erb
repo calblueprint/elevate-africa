@@ -52,15 +52,6 @@
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsChoosePicture()">Upload</a>
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose">Choose</a>
     </div>
-
-<<<<<<< HEAD
-  <p>
-    <%= f.file_field :picture, label: "Put your picture here!" %>
-  </p>
-
-  <p>
-=======
->>>>>>> 12b905b400ea593868bbb4c53c6cb6770a6fefc0
     <%= f.hidden_field :team_id, value: current_user.id %>
 
     <%= f.submit "SUBMIT", class: "campaigns-create-button" %>
