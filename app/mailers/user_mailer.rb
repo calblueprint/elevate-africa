@@ -7,6 +7,6 @@ class UserMailer < ActionMailer::Base
     @message = message
     @email = email
     @subject = subject
-    mail(to: "triciasfu@gmail.com", subject: subject)
+    mail(to: "contact.elevate.africa@gmail.com", subject: subject)
   end
 end
