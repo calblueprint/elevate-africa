@@ -14,9 +14,9 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.build(donation_params)
     if @donation.save
       customer = Stripe::Customer.create email: params[:stripeEmail],
-                                       card: params[:stripeToken]
+                                         card: params[:stripeToken]
       Stripe::Charge.create customer: customer, amount: params[:donation][:amount],
-                            description: 'Elevate Africa Campaign Donation', currency: 'usd'
+                            description: "Elevate Africa Campaign Donation", currency: "usd"
       flash[:success] = "Thanks for helping these adventurers out!"
       redirect_to @campaign
     else
