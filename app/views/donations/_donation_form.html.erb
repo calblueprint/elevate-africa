@@ -23,24 +23,4 @@
   </div>
 <% end %>
 
-<script>
-  var handler = StripeCheckout.configure({
-    key: "pk_test_dMePjt4Mgya6EMonDTxv5abB",
-    token: function(token) {
-      var $token = $('<input type=hidden name=stripeToken />').val(token.id);
-      var $email = $('<input type=hidden name=donation[email] />').val(token.email);
-      $('form').append($token).append($email).submit();
-    }
-  });
-
-  $('#customButton').click(function(e) {
-    // Open Checkout with further options
-    var amount = $("#donate-amount").val()
-    handler.open({
-      name: 'Donation Payment!',
-      description: 'Amt: ' + "$" + amount,
-      amount: amount * 100
-    });
-    e.preventDefault();
-  });
-</script>
+<%= render 'stripe' %>
