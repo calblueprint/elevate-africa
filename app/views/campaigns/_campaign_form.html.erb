@@ -1,4 +1,4 @@
-<%= simple_form_for @campaign do |f| %>
+<%= form_for @campaign do |f| %>
   <% if @campaign.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being edited: </h2>
@@ -10,29 +10,50 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.input :name, input_html: { value: "Kevin Wu" } %>
-  </p>
+  <div class="campaigns-create-first">
+    <div class="campaigns-create-field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, placeholder: "Enter a name" %>
+    </div>
 
-  <p>
-    <%= f.input :goal %>
-  </p>
+    <div class="campaigns-create-field">
+      <%= f.label :goal %><br>
+      <%= f.text_field :goal, placeholder: "Enter a number" %>
+    </div>
 
-  <p>
-    <%= f.input :description, input_html: { value: "My campaign!" } %>
-  </p>
+    <div class="campaigns-create-field">
+      <%= f.label :deadline %><br>
+      <%= f.text_field :deadline, placeholder: "Enter a number" %>
+    </div>
+    <div class="campaigns-create-button" onclick="campaignsCreateSecond()">CONTINUE</div>
+  </div>
 
-  <p>
-    <%= f.input :deadline, as: :string, input_html: { value: "30 days" } %>
-  </p>
+  <div class="campaigns-create-second">
+    <div class="campaigns-create-field">
+      <%= f.text_area :description %>
+    </div>
 
-  <p>
-    <%= f.file_field :picture, label: "Put your picture here!" %>
-  </p>
+    <div class="campaigns-create-example-buttons-container">
+      <a class="campaigns-create-example-button" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
+    </div>
+    <div class="campaigns-create-button" onclick="campaignsCreateThird()">CONTINUE</div>
+  </div>
 
-  <p>
+  <div class="campaigns-create-third">
+    <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview">
+
+    <div id="campaigns-create-hidden-upload">
+      <%= f.file_field :picture, id: "campaigns-create-upload" %>
+    </div>
+
+    <div class="campaigns-create-picture-buttons-container">
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsChoosePicture()">Upload</a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose">Choose</a>
+    </div>
     <%= f.hidden_field :team_id, value: current_user.id %>
-  </p>
 
-  <%= f.submit 'CONTINUE', class: "campaigns-create-button" %>
+    <%= f.submit "SUBMIT", class: "campaigns-create-button" %>
+  </div>
 <% end %>
