@@ -1,13 +1,13 @@
 <%= simple_form_for [@campaign, @donation] do |f| %>
   <% if @donation.errors.any? %>
-    <div id="error_explanation">
+<!--     <div id="error_explanation">
       <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this campaign from being edited: </h2>
       <ul>
         <% @donation.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
-    </div>
+    </div> -->
   <% end %>
 
   <p>
@@ -27,9 +27,9 @@
   var handler = StripeCheckout.configure({
     key: "pk_test_dMePjt4Mgya6EMonDTxv5abB",
     token: function(token) {
-      var $input = $('<input type=hidden name=stripeToken />').val(token.id);
-      var $input = $('<%=>').val(token.email);
-      $('form').append($input).submit();
+      var $token = $('<input type=hidden name=stripeToken />').val(token.id);
+      var $email = $('<input type=hidden name=donation[email] />').val(token.email);
+      $('form').append($token).append($email).submit();
     }
   });
 

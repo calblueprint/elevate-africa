@@ -13,10 +13,19 @@ class DonationsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.build(donation_params)
     if @donation.save
+      customer = Stripe::Customer.create email: params[:stripeEmail],
+                                       card: params[:stripeToken]
+      Stripe::Charge.create customer: customer, amount: params[:donation][:amount],
+                            description: 'Elevate Africa Campaign Donation', currency: 'usd'
+      flash[:success] = "Thanks for helping these adventurers out!"
       redirect_to @campaign
     else
       render "new"
     end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    puts "CardError! #{e.message}"
+    redirect_to new_campaign_donation(@campaign)
   end
 
   def show
