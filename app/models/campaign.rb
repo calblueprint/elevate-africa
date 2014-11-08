@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
-#  goal        :decimal(9, 2)
+#  goal        :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :text             default("")
@@ -38,6 +38,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def get_donation_percentage
+    return 1 unless goal > 0
     (get_total_donations / goal).to_f.round(2)
   end
 
