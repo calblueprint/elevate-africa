@@ -11,8 +11,6 @@
         <td><%= donation.name %></td>
         <td><%= donation.amount %></td>
         <td><%= link_to "show", campaign_donation_path(@campaign, donation) %></td>
-        <td><%= link_to "edit", edit_campaign_donation_path(@campaign, donation) %></td>
-        <td><%= link_to "destroy", campaign_donation_path(@campaign, donation), method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </table>

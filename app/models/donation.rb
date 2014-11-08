@@ -8,10 +8,11 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  campaign_id :integer
+#  email       :string(255)      default("")
 #
 
 class Donation < ActiveRecord::Base
   belongs_to :campaign
 
-  validates :name, presence: true, length: { minimum: 1 }
+  validates :name, presence: true
 end

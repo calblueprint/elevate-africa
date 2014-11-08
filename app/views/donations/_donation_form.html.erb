@@ -1,4 +1,4 @@
-<%= form_for [@campaign, @donation] do |f| %>
+<%= simple_form_for [@campaign, @donation] do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this campaign from being edited: </h2>
@@ -11,29 +11,36 @@
   <% end %>
 
   <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </p>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-      <%= label_tag :card_number, "Credit Card Number " %>
-      <%= text_field_tag :card_number, nil, name: nil %>
-  </div>
-  <div class="field">
-      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-      <%= text_field_tag :card_code, nil, name: nil %>
-  </div>
-  <div class="field">
-    <%= label_tag :card_month, "Card Expiration" %>
-    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
-    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+    <%= f.input :amount, id: "donate-amount" %>
   </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div>
+    <%= f.submit "Donate!", id: "customButton" %>
+  </div>
 <% end %>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: "pk_test_dMePjt4Mgya6EMonDTxv5abB",
+    token: function(token) {
+      var $input = $('<input type=hidden name=stripeToken />').val(token.id);
+      var $input = $('<%=>').val(token.email);
+      $('form').append($input).submit();
+    }
+  });
+
+  $('#customButton').click(function(e) {
+    // Open Checkout with further options
+    var amount = $("#donate-amount").val()
+    handler.open({
+      name: 'Donation Payment!',
+      description: 'Amt: ' + "$" + amount,
+      amount: amount * 100
+    });
+    e.preventDefault();
+  });
+</script>

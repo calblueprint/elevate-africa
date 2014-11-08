@@ -24,15 +24,9 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.find(params[:id])
   end
 
-  def destroy
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-    @donation.destroy
-    redirect_to campaign_path
-  end
 
   private
     def donation_params
-      params.require(:donation).permit(:name, :amount)
+      params.require(:donation).permit(:name, :email, :amount)
     end
 end
