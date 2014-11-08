@@ -24,22 +24,6 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.find(params[:id])
   end
 
-  def edit
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-  end
-
-  def update
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-
-    if @donation.update(donation_params)
-      redirect_to [@campaign, @donation]
-    else
-      render "edit"
-    end
-  end
-
   def destroy
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.find(params[:id])
