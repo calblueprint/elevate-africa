@@ -14,15 +14,6 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
-.campaigns-wrapper {
-  table {
-    margin: auto auto;
-
-    th {
-      width: 25%;
-    }
-  }
-}
 /* Campaign creation forms */
 
 #campaigns-create-background {
@@ -36,7 +27,7 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  width: 450px;
+  width: 400px;
   height: 50px;
   border: solid;
   border-color: #CCCCCC;
@@ -45,21 +36,19 @@ for the about.css.scss file custom styling*/
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   background-color: #EEEEEE;
-  padding: 24px 18px;
 }
 
 .campaigns-create-body {
   display: block;
   text-align: center;
   margin: auto;
-  width: 450px;
+  width: 400px;
 
   border: solid;
   border-color: #CCCCCC;
   border-width: 1px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  border-radius: 5px;
   background-color: white;
   padding: 24px 18px;
 
