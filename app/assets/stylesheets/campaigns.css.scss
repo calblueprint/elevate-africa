@@ -111,8 +111,14 @@ for the about.css.scss file custom styling*/
   #campaign_description {
     height: 200px;
   }
+}
 
+.campaigns-create-field-selected {
+  border-color: #FFC953;
+}
 
+.campaigns-create-field-incorrect {
+  border-color: #FF0000;
 }
 
 .campaigns-create-button {

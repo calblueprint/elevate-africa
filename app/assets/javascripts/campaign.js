@@ -11,22 +11,26 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
-    $(".campaigns-create-second").hide();
-    $(".campaigns-create-third").hide();
-    campaignsChangeDescription("one");
+    $(".campaigns-create-field").click(function() {
+      if(!$(this).hasClass("campaigns-create-field-selected")) {
+        $(this).find("input").focus();
+      }
+    });
 
     $(".campaigns-create-field").focusin(function() {
-      $(this).css("border-color", "#FFC953");
+      $(this).addClass("campaigns-create-field-selected");
+      $(this).removeClass("campaigns-create-field-incorrect");
     });
 
     $(".campaigns-create-field").focusout(function() {
-      var str = $(this).find("input");
-      if(str.length != 0 && $.trim(str.val()).length == 0) {
-        str.val("");
-        campaignsIncorrectField($(this));
+      var field = $(this).find("input");
+      if($.trim(field.val()).length == 0) {
+        field.val("");
+        $(this).addClass("campaigns-create-field-incorrect");
       }
       else
-        campaignsCorrectField($(this));
+        $(this).removeClass("campaigns-create-field-incorrect");
+      $(this).removeClass("campaigns-create-field-selected");
     });
 
     $("#campaign_description").on("change keyup paste", function() {
@@ -67,6 +71,10 @@ var ready = function() {
       var change = (($(this).val().length) + 1) * 10;
       $(this).css("width", change);
     });
+
+    $(".campaigns-create-second").hide();
+    $(".campaigns-create-third").hide();
+    campaignsChangeDescription("one");
   });
 }
 
@@ -98,14 +106,6 @@ function campaignsCheckValidityOne() {
   }
 
   return bool
-}
-
-function campaignsIncorrectField(field) {
-  field.css("border-color", "#FF0000");
-}
-
-function campaignsCorrectField(field) {
-  field.css("border-color", "#CCCCCC");
 }
 
 function campaignsCreateSecond() {
