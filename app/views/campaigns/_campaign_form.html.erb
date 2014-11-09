@@ -11,21 +11,21 @@
   <% end %>
 
   <div class="campaigns-create-first">
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-field-name">
       <%= f.label :name %><br>
       <%= f.text_field :name, placeholder: "Enter a name" %>
     </div>
 
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-field-goal">
       <%= f.label :goal %><br>
       <%= f.text_field :goal, placeholder: "Enter a number" %>
     </div>
 
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-field-deadline">
       <%= f.label :deadline %><br>
       <%= f.text_field :deadline, placeholder: "Enter a number" %>
     </div>
-    <div class="campaigns-create-button" onclick="campaignsCreateSecond()">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-one">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-second">
@@ -38,7 +38,7 @@
       <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
     </div>
-    <div class="campaigns-create-button" onclick="campaignsCreateThird()">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-third">

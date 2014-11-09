@@ -23,10 +23,8 @@ var ready = function() {
       var str = $(this).find("input");
       if(str.length != 0 && $.trim(str.val()).length == 0) {
         str.val("");
-        $(this).css("border-color", "#FF0000");
+        campaignsIncorrectField($(this));
       }
-      else
-        $(this).css("border-color", "#CCCCCC");
     });
 
     $("#campaign_description").on("change keyup paste", function() {
@@ -36,6 +34,15 @@ var ready = function() {
 
     $("#campaigns-create-upload").change(function() {
       campaignsChangePreview(this);
+    });
+
+    $("#campaigns-create-submit-one").on("click", function() {
+      if(campaignsCheckValidityOne())
+        campaignsCreateSecond();
+    });
+
+    $("#campaigns-create-submit-two").on("click", function() {
+
     });
 
     // $("#campaign_goal").on("change", function () {
@@ -59,6 +66,37 @@ var ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+function campaignsCheckValidityOne() {
+  var bool = true;
+
+  var field = $("#campaigns-create-field-name")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    campaignsIncorrectField(field);
+    bool = false;
+  }
+
+  field = $("#campaigns-create-field-goal")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    campaignsIncorrectField(field);
+    bool = false;
+  }
+
+  field = $("#campaigns-create-field-deadline")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    campaignsIncorrectField(field);
+    bool = false;
+  }
+
+  return bool
+}
+
+function campaignsIncorrectField(field) {
+  field.css("border-color", "#FF0000");
+}
 
 function campaignsCreateSecond() {
   $(".campaigns-create-first").hide();
