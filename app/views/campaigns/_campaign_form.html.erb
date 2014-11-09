@@ -18,7 +18,8 @@
 
     <div class="campaigns-create-field" id="campaigns-create-field-goal">
       <%= f.label :goal %><br>
-      <%= f.text_field :goal, placeholder: "Enter a number" %>
+      <span id="campaigns-create-dollar-sign">$</span>
+      <%= f.text_field :goal, value: "1000" %>
     </div>
 
     <div class="campaigns-create-field" id="campaigns-create-field-deadline">
@@ -29,15 +30,17 @@
   </div>
 
   <div class="campaigns-create-second">
-    <div class="campaigns-create-field">
-      <%= f.text_area :description %>
-    </div>
 
     <div class="campaigns-create-example-buttons-container">
       <a class="campaigns-create-example-button" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
     </div>
+
+    <div class="campaigns-create-field">
+      <%= f.text_area :description %>
+    </div>
+
     <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
   </div>
 

@@ -25,6 +25,8 @@ var ready = function() {
         str.val("");
         campaignsIncorrectField($(this));
       }
+      else
+        campaignsCorrectField($(this));
     });
 
     $("#campaign_description").on("change keyup paste", function() {
@@ -42,25 +44,29 @@ var ready = function() {
     });
 
     $("#campaigns-create-submit-two").on("click", function() {
-
+      campaignsCreateThird();
     });
 
-    // $("#campaign_goal").on("change", function () {
-    //   var param = $("#campaign_goal").val();
-    //   param = param.replace(/\D/g, '');
-    //   var count = 0;
-    //   for(i = param.length-1; i >= 0; i--) {
-    //     if(count < 3)
-    //       count++;
-    //     else {
-    //       count = 0;
-    //       console.log(param.substring(0,i+1));
-    //       param = param.substring(0,i+1) + "," + param.substring(i+1);
-    //     }
-    //   }
-    //   param = param;
-    //   $("#campaign_goal").val(param);
-    // });
+    $("#campaign_goal").on("change", function () {
+      var param = $("#campaign_goal").val();
+      param = param.replace(/\D/g, '');
+      var count = 0;
+      for(i = param.length-1; i >= 0; i--) {
+        if(count < 3)
+          count++;
+        else {
+          count = 0;
+          console.log(param.substring(0,i+1));
+          param = param.substring(0,i+1) + "," + param.substring(i+1);
+        }
+      }
+      // $("#campaign_goal").val(param);
+    });
+
+    $("#campaign_deadline").on("keyup", function() {
+      var change = (($(this).val().length) + 1) * 10;
+      $(this).css("width", change);
+    });
   });
 }
 
@@ -96,6 +102,10 @@ function campaignsCheckValidityOne() {
 
 function campaignsIncorrectField(field) {
   field.css("border-color", "#FF0000");
+}
+
+function campaignsCorrectField(field) {
+  field.css("border-color", "#CCCCCC");
 }
 
 function campaignsCreateSecond() {
@@ -148,4 +158,22 @@ function campaignsChangePreview(param) {
     }
     read.readAsDataURL(param.files[0]);
   }
+}
+
+function campaignsAdjustField(textbox) {
+  console.log("called");
+  if (!textbox.startW) { textbox.startW = textbox.offsetWidth; }
+
+  var style = textbox.wit;
+
+  //Force complete recalculation of width
+  //in case characters are deleted and not added:
+  style.width = 0;
+
+  //http://stackoverflow.com/a/9312727/1869660
+  var desiredW = textbox.scrollWidth;
+  //Optional padding to reduce "jerkyness" when typing:
+  desiredW += textbox.offsetHeight;
+
+  style.width = Math.max(desiredW, textbox.startW) + 'px';
 }
