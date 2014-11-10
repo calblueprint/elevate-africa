@@ -52,6 +52,10 @@ gem 'gon', '~> 5.0.4'
 # Lorem Ipsum
 gem 'ffaker'
 
+# Stripe
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+
 group :development do
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
