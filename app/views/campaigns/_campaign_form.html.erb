@@ -44,13 +44,19 @@
   </div>
 
   <div class="campaigns-create-third">
-    <div class="campaigns-create-picture-buttons-container">
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">Upload</a>
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChoosePicture()">Choose</a>
+    <div class="campaigns-create-preview-container">
+      <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview"/>
     </div>
 
-    <div class="campaigns-create-preview-container">
-      <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview">
+    <div class="campaigns-create-picture-buttons-container">
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">
+        UPLOAD
+        <p>your own photo</p>
+      </a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChoosePicture()">
+        CHOOSE
+        <p>one of ours</p>
+      </a>
     </div>
 
     <div id="campaigns-create-hidden-upload">

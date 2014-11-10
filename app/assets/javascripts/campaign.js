@@ -22,10 +22,21 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-incorrect");
     });
 
-    $(".campaigns-create-field").focusout(function() {
+    $(".campaigns-create-field").not(".campaigns-create-text-area").focusout(function() {
       var field = $(this).find("input");
       if($.trim(field.val()).length == 0) {
         field.val("");
+        $(this).addClass("campaigns-create-field-incorrect");
+      }
+      else
+        $(this).removeClass("campaigns-create-field-incorrect");
+      $(this).removeClass("campaigns-create-field-selected");
+    });
+
+    $(".campaigns-create-text-area").focusout(function() {
+      var area = $(this).find("textarea");
+      if($.trim(area.val()).length == 0) {
+        area.val("");
         $(this).addClass("campaigns-create-field-incorrect");
       }
       else
@@ -153,7 +164,7 @@ function campaignsUploadPicture() {
 }
 
 function campaignsChoosePicture() {
-  $(".campaigns-create-picture-options").fadeIn();
+  $(".campaigns-create-picture-options-container").fadeIn();
 }
 
 function campaignsChangePreview(param) {
