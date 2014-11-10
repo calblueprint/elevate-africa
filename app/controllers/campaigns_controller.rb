@@ -20,6 +20,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
+    params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,'')
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       redirect_to @campaign
@@ -54,7 +55,7 @@ class CampaignsController < ApplicationController
   private
   def campaign_params
     params.require(:campaign).permit(:name, :goal, :description,
-                                     :deadline, :picture, :team_id)
+                                     :duration, :picture, :team_id)
   end
 
   def authenticate_team

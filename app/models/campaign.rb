@@ -9,8 +9,8 @@
 #  updated_at  :datetime
 #  description :text             default("")
 #  team_id     :integer
-#  deadline    :integer
 #  picture     :string(255)
+#  duration    :integer
 #
 
 class Campaign < ActiveRecord::Base

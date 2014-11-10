@@ -59,7 +59,7 @@ var ready = function() {
         if(count < 3)
           count++;
         else {
-          count = 0;
+          count = 1;
           console.log(param.substring(0,i+1));
           param = param.substring(0,i+1) + "," + param.substring(i+1);
         }
@@ -67,10 +67,10 @@ var ready = function() {
       $("#campaign_goal").val(param);
     });
 
-    $("#campaign_deadline").on("change", function () {
-      var param = $("#campaign_deadline").val();
+    $("#campaign_duration").on("change", function () {
+      var param = $("#campaign_duration").val();
       param = param.replace(/\D/g, '');
-      $("#campaign_deadline").val(param);
+      $("#campaign_duration").val(param);
     });
 
     $(".campaigns-create-second").hide();
@@ -100,7 +100,7 @@ function campaignsCheckValidityOne() {
     bool = false;
   }
 
-  field = $("#campaigns-create-field-deadline")
+  field = $("#campaigns-create-field-duration")
   var str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");

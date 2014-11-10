@@ -23,6 +23,10 @@ for the about.css.scss file custom styling*/
   height: 1000px;
 }
 
+.campaigns-create-padding {
+  padding: 72px;
+}
+
 .campaigns-create-header {
   display: block;
   text-align: center;
@@ -95,7 +99,7 @@ for the about.css.scss file custom styling*/
     padding: 0 0 2px 0;
   }
 
-  #campaign_name, #campaign_goal, #campaign_description, #campaign_deadline, #campaigns-create-dollar-sign {
+  #campaign_name, #campaign_goal, #campaign_description, #campaign_duration, #campaigns-create-dollar-sign {
     padding: 0 0;
     margin: 0 0;
     border: none;
@@ -115,7 +119,13 @@ for the about.css.scss file custom styling*/
 
   #campaign_description {
     height: 250px;
+    padding: 10px 10px;
+    vertical-align: top;
   }
+}
+
+.campaigns-create-text-area {
+  padding: 0 1px;
 }
 
 .campaigns-create-field-selected {
@@ -174,14 +184,8 @@ for the about.css.scss file custom styling*/
   }
 }
 
-// .campaigns-create-example-colored {
-//   border-color: $primary-color;
-//   color: $primary-color;
-// }
-
 .campaigns-create-example-colored {
   background-color: $primary-color;
-  // background-color: rgba(255, 201, 83, 0.875);
   border-color: $primary-color;
   color: white;
 
@@ -197,12 +201,12 @@ for the about.css.scss file custom styling*/
 .campaigns-create-picture-buttons-container {
   width: 100%;
   height: 62.5px;
-  margin: 18px 0;
 }
 
 .campaigns-create-picture-button {
-  width: 47.5%;
-  height: 62.5px;
+  width: 30%;
+  height: 50px;
+  border-radius: 4px;
   border: solid;
   border-color: #CCCCCC;
   border-width: 1px;
@@ -212,7 +216,6 @@ for the about.css.scss file custom styling*/
 
   padding-top: 5%;
   font: normal 18px Bitter;
-  color: #CCCCCC;
 
   &:hover {
     cursor: pointer;
@@ -224,9 +227,14 @@ for the about.css.scss file custom styling*/
   overflow: hidden;
 }
 
-#campaigns-create-preview {
+.campaigns-create-preview-container {
   width: 100%;
-  height: 150px;
+  margin-bottom: 24px;
+}
+
+#campaigns-create-preview {
+  width: 350px;
+  height: 350px;
 }
 
 #campaigns-create-picture-upload {
