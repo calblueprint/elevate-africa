@@ -39,7 +39,7 @@ class Campaign < ActiveRecord::Base
 
   def get_donation_percentage
     return 1 unless goal > 0
-    (get_total_donations / goal).to_f.round(2)
+    (get_total_donations / goal.to_f).round(2)
   end
 
   def self.search(search)
