@@ -18,6 +18,7 @@
 #  last_sign_in_ip        :inet
 #  type                   :string(255)
 #  name                   :string(255)      default("")
+#  picture                :string(255)
 #
 
 class User < ActiveRecord::Base
