@@ -4,6 +4,5 @@ class UsersController < ApplicationController
   end
 
   def update
-    1/0
   end
 end

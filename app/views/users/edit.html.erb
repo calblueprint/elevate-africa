@@ -1,0 +1,15 @@
+<div class="wide-container">
+  <h1>Edit Page</h1>
+  <div class="small-container">
+    <%= simple_form_for @user, as: :user, url: { action: 'update' } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.file_field :picture %>
+      <%= f.input :password %>
+      <%= f.input :password_confimation %>
+      <%= f.input :current_password %>
+      <%= f.submit "Save changes!", class: "button" %>
+    <% end %>
+  </div>
+</div>
+
