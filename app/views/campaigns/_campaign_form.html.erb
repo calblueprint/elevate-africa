@@ -52,8 +52,8 @@
     </div>
 
     <div class="campaigns-create-picture-buttons-container">
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsChoosePicture()">Upload</a>
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose">Choose</a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">Upload</a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChoosePicture()">Choose</a>
     </div>
     <%= f.hidden_field :team_id, value: current_user.id %>
 

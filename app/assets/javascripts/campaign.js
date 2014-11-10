@@ -64,16 +64,18 @@ var ready = function() {
           param = param.substring(0,i+1) + "," + param.substring(i+1);
         }
       }
-      // $("#campaign_goal").val(param);
+      $("#campaign_goal").val(param);
     });
 
-    $("#campaign_deadline").on("keyup", function() {
-      var change = (($(this).val().length) + 1) * 10;
-      $(this).css("width", change);
+    $("#campaign_deadline").on("change", function () {
+      var param = $("#campaign_deadline").val();
+      param = param.replace(/\D/g, '');
+      $("#campaign_deadline").val(param);
     });
 
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
+    $(".campaigns-create-picture-options-container").hide();
     campaignsChangeDescription("one");
   });
 }
@@ -87,21 +89,21 @@ function campaignsCheckValidityOne() {
   var field = $("#campaigns-create-field-name")
   var str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
-    campaignsIncorrectField(field);
+    field.addClass("campaigns-create-field-incorrect");
     bool = false;
   }
 
   field = $("#campaigns-create-field-goal")
   var str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
-    campaignsIncorrectField(field);
+    field.addClass("campaigns-create-field-incorrect");
     bool = false;
   }
 
   field = $("#campaigns-create-field-deadline")
   var str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
-    campaignsIncorrectField(field);
+    field.addClass("campaigns-create-field-incorrect");
     bool = false;
   }
 
@@ -146,8 +148,12 @@ function campaignsChangeDescription(which, stay) {
   }
 }
 
-function campaignsChoosePicture() {
+function campaignsUploadPicture() {
   $("#campaigns-create-upload").click();
+}
+
+function campaignsChoosePicture() {
+  $(".campaigns-create-picture-options").fadeIn();
 }
 
 function campaignsChangePreview(param) {
@@ -158,22 +164,4 @@ function campaignsChangePreview(param) {
     }
     read.readAsDataURL(param.files[0]);
   }
-}
-
-function campaignsAdjustField(textbox) {
-  console.log("called");
-  if (!textbox.startW) { textbox.startW = textbox.offsetWidth; }
-
-  var style = textbox.wit;
-
-  //Force complete recalculation of width
-  //in case characters are deleted and not added:
-  style.width = 0;
-
-  //http://stackoverflow.com/a/9312727/1869660
-  var desiredW = textbox.scrollWidth;
-  //Optional padding to reduce "jerkyness" when typing:
-  desiredW += textbox.offsetHeight;
-
-  style.width = Math.max(desiredW, textbox.startW) + 'px';
 }
