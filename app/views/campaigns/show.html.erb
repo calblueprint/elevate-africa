@@ -15,14 +15,17 @@
             <h2 id="campaign-owner-font">by <%= @team.name %></h2>
           </div>
         </div>
-        <div class="campaign-info-container">
-          <h1 id="campaign-donation"><%= number_to_currency @total_donations %><div id="campaign-donation-usd">USD</div></h1>
+        <div class="campaign-info-container" id="campaign-money-container">
+          <h1 id="campaign-donation"><%= number_to_currency @total_donations %><span style="font-size:30px">USD</span></h1>
           <p id="campaign-total">Raised out of <%= number_to_currency @campaign.goal %></p>
         </div>
-        <div class="campaign-info-container">
+        <div class="campaign-info-container" id="campaign-progress-container">
           <div id="campaign-progress"></div>
         </div>
-        <div class="campaign-info-container"></div>
+        <div class="campaign-info-container" id="campaign-detail">
+          <div id="campaign-people"></div>
+          <div id="campaign-backers"></div>
+        </div>
         <div id="campaign-info-button"></div>
       </div>
     </div>

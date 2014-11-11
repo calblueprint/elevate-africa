@@ -48,9 +48,10 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-info {
-  width: 334px;
+  width: 319px;
   height: 600px;
   float: left;
+  margin-left: 15px;
 }
 
 #campaign-donation {
@@ -72,6 +73,10 @@ for the about.css.scss file custom styling*/
   float: left;
 }
 
+#campaign-progress-container {
+  height: 120px;
+}
+
 #campaign-total {
   font: $p;
   color: $black;
@@ -81,12 +86,34 @@ for the about.css.scss file custom styling*/
 
 #campaign-progress {
   width: 300px;
-  height: 60px;
+  height: 120px;
   background: $light-gray;
+}
+
+#campaign-detail {
+  width: 200px;
+  margin: auto;
 }
 
 #campaign-donation-usd {
   font-size: 10px;
+}
+
+#campaign-people {
+  width: 75px;
+  height: 15px;
+  background: url(asset_path("campaign-people.png"));
+  background-size: cover;
+  float: left;
+}
+
+#campaign-backers {
+  width: 75px;
+  height: 15px;
+}
+
+#campaign-money-container {
+    height: 110px;
 }
 
 @media (max-width: 1000px) {
