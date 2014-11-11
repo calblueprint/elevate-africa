@@ -163,7 +163,19 @@ function campaignsUploadPicture() {
   $("#campaigns-create-upload").click();
 }
 
-function campaignsChoosePicture() {
+function campaignsChoosePicture(param) {
+  if(param == "one")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-one.png");
+  else if(param == "two")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-two.png");
+  else if(param == "three")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-three.png");
+  else if(param == "four")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-four.png");
+  $(".campaigns-create-picture-options-container").fadeOut();
+}
+
+function campaignsChooseOptions() {
   $(".campaigns-create-picture-options-container").fadeIn();
 }
 

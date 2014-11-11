@@ -13,7 +13,7 @@
   <div class="campaigns-create-first">
     <div class="campaigns-create-field" id="campaigns-create-field-name">
       <%= f.label :name %><br>
-      <%= f.text_field :name, placeholder: "Enter a name", autofocus: true %>
+      <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
     </div>
 
     <div class="campaigns-create-field" id="campaigns-create-field-goal">
@@ -24,7 +24,7 @@
 
     <div class="campaigns-create-field" id="campaigns-create-field-duration">
       <%= f.label :duration %><br>
-      <%= f.text_field :duration, placeholder: "Enter a number" %>
+      <%= f.text_field :duration, placeholder: "duration in days here" %>
     </div>
     <div class="campaigns-create-button" id="campaigns-create-submit-one">CONTINUE</div>
   </div>
@@ -53,7 +53,7 @@
         UPLOAD
         <p>your own photo</p>
       </a>
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChoosePicture()">
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChooseOptions()">
         CHOOSE
         <p>one of ours</p>
       </a>
