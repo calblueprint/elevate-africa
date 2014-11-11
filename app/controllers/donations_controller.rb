@@ -13,10 +13,19 @@ class DonationsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @donation = @campaign.donations.build(donation_params)
     if @donation.save
+      customer = Stripe::Customer.create email: params[:stripeEmail],
+                                         card: params[:stripeToken]
+      Stripe::Charge.create customer: customer, amount: params[:donation][:amount],
+                            description: "Elevate Africa Campaign Donation", currency: "usd"
+      flash[:success] = "Thanks for helping these adventurers out!"
       redirect_to @campaign
     else
       render "new"
     end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    puts "CardError! #{e.message}"
+    redirect_to new_campaign_donation(@campaign)
   end
 
   def show
@@ -24,31 +33,9 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.find(params[:id])
   end
 
-  def edit
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-  end
-
-  def update
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-
-    if @donation.update(donation_params)
-      redirect_to [@campaign, @donation]
-    else
-      render "edit"
-    end
-  end
-
-  def destroy
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.find(params[:id])
-    @donation.destroy
-    redirect_to campaign_path
-  end
 
   private
     def donation_params
-      params.require(:donation).permit(:name, :amount)
+      params.require(:donation).permit(:name, :email, :amount)
     end
 end
