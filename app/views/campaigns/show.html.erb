@@ -6,9 +6,22 @@
     <div class="campaign-info-wrapper">
       <div id="campaign-adventure"></div>
       <div id="campaign-info">
-        <div class="campaign-info-container"></div>
-        <div class="campaign-info-container"></div>
-        <div class="campaign-info-container"></div>
+        <div class="campaign-info-container">
+          <div id="campaign-picture">
+            <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
+          </div>
+          <div id="campaign-by-names">
+            <p id="campaign-by-font">Campaign By:</p>
+            <h2 id="campaign-owner-font">by <%= @team.name %></h2>
+          </div>
+        </div>
+        <div class="campaign-info-container">
+          <h1 id="campaign-donation"><%= number_to_currency @total_donations %><div id="campaign-donation-usd">USD</div></h1>
+          <p id="campaign-total">Raised out of <%= number_to_currency @campaign.goal %></p>
+        </div>
+        <div class="campaign-info-container">
+          <div id="campaign-progress"></div>
+        </div>
         <div class="campaign-info-container"></div>
         <div id="campaign-info-button"></div>
       </div>
