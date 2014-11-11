@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108001221) do
+ActiveRecord::Schema.define(version: 20141108230219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20141108001221) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "achievements", ["team_id"], name: "index_achievements_on_team_id", using: :btree
 
   create_table "buzzes", force: true do |t|
     t.datetime "created_at"
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20141108001221) do
     t.string   "box_color"
   end
 
+  add_index "buzzes", ["admin_id"], name: "index_buzzes_on_admin_id", using: :btree
+
   create_table "campaigns", force: true do |t|
     t.string   "name"
     t.integer  "goal"
@@ -46,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141108001221) do
     t.integer  "deadline"
     t.string   "picture"
   end
+
+  add_index "campaigns", ["team_id"], name: "index_campaigns_on_team_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -61,10 +67,11 @@ ActiveRecord::Schema.define(version: 20141108001221) do
 
   create_table "donations", force: true do |t|
     t.string   "name"
-    t.decimal  "amount",      precision: 9, scale: 2
+    t.integer  "amount",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "campaign_id"
+    t.string   "email",       default: ""
   end
 
   add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree

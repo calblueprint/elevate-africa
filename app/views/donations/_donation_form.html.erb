@@ -1,26 +1,15 @@
-<%= form_for [@campaign, @donation] do |f| %>
-  <% if @donation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this campaign from being edited: </h2>
-      <ul>
-        <% @donation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for [@campaign, @donation] do |f| %>
   <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </p>
 
-  <p>
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="field">
+    <%= f.input :amount, id: "donate-amount" %>
+  </div>
+  <!-- MAKE SURE TO VALIDATE THIS SOME MORE WHOEVER IS WORKING ON THIS PAGE -->
+  <div>
+    <%= f.submit "Donate!", id: "customButton" %>
+  </div>
 <% end %>
+
+<%= render 'stripe' %>
