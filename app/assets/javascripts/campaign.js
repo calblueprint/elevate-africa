@@ -11,22 +11,37 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
-    $(".campaigns-create-second").hide();
-    $(".campaigns-create-third").hide();
-    campaignsChangeDescription("one");
-
-    $(".campaigns-create-field").focusin(function() {
-      $(this).css("border-color", "#FFC953");
+    $(".campaigns-create-field").click(function() {
+      if(!$(this).hasClass("campaigns-create-field-selected")) {
+        $(this).find("input").focus();
+      }
     });
 
-    $(".campaigns-create-field").focusout(function() {
-      var str = $(this).find("input");
-      if(str.length != 0 && $.trim(str.val()).length == 0) {
-        str.val("");
-        $(this).css("border-color", "#FF0000");
+    $(".campaigns-create-field").focusin(function() {
+      $(this).addClass("campaigns-create-field-selected");
+      $(this).removeClass("campaigns-create-field-incorrect");
+    });
+
+    $(".campaigns-create-field").not(".campaigns-create-text-area").focusout(function() {
+      var field = $(this).find("input");
+      if($.trim(field.val()).length == 0) {
+        field.val("");
+        $(this).addClass("campaigns-create-field-incorrect");
       }
       else
-        $(this).css("border-color", "#CCCCCC");
+        $(this).removeClass("campaigns-create-field-incorrect");
+      $(this).removeClass("campaigns-create-field-selected");
+    });
+
+    $(".campaigns-create-text-area").focusout(function() {
+      var area = $(this).find("textarea");
+      if($.trim(area.val()).length == 0) {
+        area.val("");
+        $(this).addClass("campaigns-create-field-incorrect");
+      }
+      else
+        $(this).removeClass("campaigns-create-field-incorrect");
+      $(this).removeClass("campaigns-create-field-selected");
     });
 
     $("#campaign_description").on("change keyup paste", function() {
@@ -38,27 +53,73 @@ var ready = function() {
       campaignsChangePreview(this);
     });
 
-    // $("#campaign_goal").on("change", function () {
-    //   var param = $("#campaign_goal").val();
-    //   param = param.replace(/\D/g, '');
-    //   var count = 0;
-    //   for(i = param.length-1; i >= 0; i--) {
-    //     if(count < 3)
-    //       count++;
-    //     else {
-    //       count = 0;
-    //       console.log(param.substring(0,i+1));
-    //       param = param.substring(0,i+1) + "," + param.substring(i+1);
-    //     }
-    //   }
-    //   param = param;
-    //   $("#campaign_goal").val(param);
-    // });
+    $("#campaigns-create-submit-one").on("click", function() {
+      if(campaignsCheckValidityOne())
+        campaignsCreateSecond();
+    });
+
+    $("#campaigns-create-submit-two").on("click", function() {
+      campaignsCreateThird();
+    });
+
+    $("#campaign_goal").on("change", function () {
+      var param = $("#campaign_goal").val();
+      param = param.replace(/\D/g, '');
+      var count = 0;
+      for(i = param.length-1; i >= 0; i--) {
+        if(count < 3)
+          count++;
+        else {
+          count = 1;
+          console.log(param.substring(0,i+1));
+          param = param.substring(0,i+1) + "," + param.substring(i+1);
+        }
+      }
+      $("#campaign_goal").val(param);
+    });
+
+    $("#campaign_duration").on("change", function () {
+      var param = $("#campaign_duration").val();
+      param = param.replace(/\D/g, '');
+      $("#campaign_duration").val(param);
+    });
+
+    $(".campaigns-create-second").hide();
+    $(".campaigns-create-third").hide();
+    $(".campaigns-create-picture-options-container").hide();
+    campaignsChangeDescription("one");
   });
 }
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+function campaignsCheckValidityOne() {
+  var bool = true;
+
+  var field = $("#campaigns-create-field-name")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    field.addClass("campaigns-create-field-incorrect");
+    bool = false;
+  }
+
+  field = $("#campaigns-create-field-goal")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    field.addClass("campaigns-create-field-incorrect");
+    bool = false;
+  }
+
+  field = $("#campaigns-create-field-duration")
+  var str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    field.addClass("campaigns-create-field-incorrect");
+    bool = false;
+  }
+
+  return bool
+}
 
 function campaignsCreateSecond() {
   $(".campaigns-create-first").hide();
@@ -98,8 +159,24 @@ function campaignsChangeDescription(which, stay) {
   }
 }
 
-function campaignsChoosePicture() {
+function campaignsUploadPicture() {
   $("#campaigns-create-upload").click();
+}
+
+function campaignsChoosePicture(param) {
+  if(param == "one")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-one.png");
+  else if(param == "two")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-two.png");
+  else if(param == "three")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-three.png");
+  else if(param == "four")
+    $("#campaigns-create-preview").attr("src", "/assets/create-pic-four.png");
+  $(".campaigns-create-picture-options-container").fadeOut();
+}
+
+function campaignsChooseOptions() {
+  $(".campaigns-create-picture-options-container").fadeIn();
 }
 
 function campaignsChangePreview(param) {

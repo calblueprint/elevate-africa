@@ -3,16 +3,6 @@ var ready = function() {
 
     if($(".about-page").length > 0) {
 
-      var hash_icons = new Object();
-      hash_icons["icon-one"] = 1;
-      hash_icons["icon-two"] = 2;
-      hash_icons["icon-three"] = 3;
-      hash_icons["icon-four"] = 4;
-      hash_icons["icon-five"] = 5;
-      hash_icons["icon-six"] = 6;
-      hash_icons["icon-seven"] = 7;
-      hash_icons["icon-eight"] = 8;
-
       var opacity = 0.75;
       var circle = $(".about-process-circle");
       var content = $(".about-process-text");
@@ -35,11 +25,6 @@ var ready = function() {
           selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
           previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
           previous = selected;
-
-          if(Math.floor((hash_icons[selected.attr("id")]+1)/2) != Math.floor((hash_icons[previous_figure.attr("id")]+1)/2)) {
-            changeFigures(selected);
-            previous_figure = selected;
-          }
         }
       });
     }
@@ -84,31 +69,5 @@ function fadeOthers(selected, opacity) {
       });
   $(".about-process-arrow").each(function() {
       $(this).animate({"opacity": opacity});
-  });
-}
-
-function changeFigures(selected) {
-  var figures = $(".about-process-figures");
-  var left = $(".about-process-figure-left");
-  var right = $(".about-process-figure-right");
-
-  figures.animate({"opacity": 0}, function() {
-    if(selected.attr("id") == "icon-one" || selected.attr("id") == "icon-two") {
-      left.attr("src", "/assets/mom.png");
-      right.attr("src", "/assets/mom.png");
-    }
-    else if(selected.attr("id") == "icon-three" || selected.attr("id") == "icon-four") {
-      left.attr("src", "/assets/daughter.png");
-      right.attr("src", "/assets/daughter.png");
-    }
-    else if(selected.attr("id") == "icon-five" || selected.attr("id") == "icon-six") {
-      left.attr("src", "/assets/son.png");
-      right.attr("src", "/assets/son.png");
-    }
-    else {
-      left.attr("src", "/assets/daughter.png");
-      right.attr("src", "/assets/daughter.png");
-    }
-    figures.animate({"opacity": 1});
   });
 }

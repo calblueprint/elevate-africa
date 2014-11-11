@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20141108230219) do
     t.datetime "updated_at"
     t.text     "description", default: ""
     t.integer  "team_id"
-    t.integer  "deadline"
     t.string   "picture"
+    t.integer  "duration"
   end
 
   add_index "campaigns", ["team_id"], name: "index_campaigns_on_team_id", using: :btree
