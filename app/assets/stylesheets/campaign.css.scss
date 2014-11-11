@@ -34,32 +34,41 @@ for the about.css.scss file custom styling*/
 
 .campaign-signin {
   margin-right: 25px;
+  margin-bottom: 50px;
 }
 
 .campaign-index {
   margin-left: 25px;
+  margin-bottom: 50px;
+
 }
 
 .campaign-icon {
   float: left;
-  width: 333px;
+  width: 275px;
   height: 273px;
-  top: -30px;
+  top: -60px;
   position: relative;
 }
 
-.campaign-middle {
-  width: 334px;
-}
-
-#campaign-wedding, #campaign-sports, #campaign-birthday {
+#campaign-wedding, #campaign-sports, #campaign-birthday, #campaign-question {
   background: url(asset_path("campaign-wedding.png"));
-  height: 200px;
-  width: 200px;
+  height: 220px;
+  width: 220px;
   background-size: cover;
-  margin-left: 67px;
+  margin-left: 27px;
 }
 
+#campaign-wedding:hover, #campaign-sports:hover, #campaign-birthday:hover, #campaign-question:hover {
+  -webkit-animation: campaign-hover 0.1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+
+#campaign-question {
+  background: url(asset_path("campaign-question.png"));
+  background-size: cover;
+}
 #campaign-sports {
   background: url(asset_path("campaign-sport.png"));
   background-size: cover;
@@ -70,10 +79,24 @@ for the about.css.scss file custom styling*/
   background-size: cover;
 }
 
+#campaign-icon-wrapper {
+  margin-left: 90px;
+}
+.campaign-wrapper {
+  background: #fff;
+}
+
 .campaign-icon-font {
   font: $h1;
   color: $black;
   font-size: 35px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+@-webkit-keyframes campaign-hover {
+  0% {width: 220px; height: 220px;}
+  100% {width: 250px; height: 250px;}
 }
 
 @media (max-width: 1000px) {
