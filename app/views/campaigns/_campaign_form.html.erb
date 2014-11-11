@@ -11,47 +11,58 @@
   <% end %>
 
   <div class="campaigns-create-first">
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-field-name">
       <%= f.label :name %><br>
-      <%= f.text_field :name, placeholder: "Enter a name" %>
+      <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
     </div>
 
-    <div class="campaigns-create-field">
+    <div class="campaigns-create-field" id="campaigns-create-field-goal">
       <%= f.label :goal %><br>
-      <%= f.text_field :goal, placeholder: "Enter a number" %>
+      <span id="campaigns-create-dollar-sign">$</span>
+      <%= f.text_field :goal, value: "1,234" %>
     </div>
 
-    <div class="campaigns-create-field">
-      <%= f.label :deadline %><br>
-      <%= f.text_field :deadline, placeholder: "Enter a number" %>
+    <div class="campaigns-create-field" id="campaigns-create-field-duration">
+      <%= f.label :duration %><br>
+      <%= f.text_field :duration, placeholder: "duration in days here" %>
     </div>
-    <div class="campaigns-create-button" onclick="campaignsCreateSecond()">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-one">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-second">
-    <div class="campaigns-create-field">
-      <%= f.text_area :description %>
-    </div>
-
     <div class="campaigns-create-example-buttons-container">
       <a class="campaigns-create-example-button" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
     </div>
-    <div class="campaigns-create-button" onclick="campaignsCreateThird()">CONTINUE</div>
+
+    <div class="campaigns-create-field campaigns-create-text-area">
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
   </div>
 
   <div class="campaigns-create-third">
-    <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview">
+    <div class="campaigns-create-preview-container">
+      <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview"/>
+    </div>
+
+    <div class="campaigns-create-picture-buttons-container">
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">
+        UPLOAD
+        <p>your own photo</p>
+      </a>
+      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChooseOptions()">
+        CHOOSE
+        <p>one of ours</p>
+      </a>
+    </div>
 
     <div id="campaigns-create-hidden-upload">
       <%= f.file_field :picture, id: "campaigns-create-upload" %>
     </div>
 
-    <div class="campaigns-create-picture-buttons-container">
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsChoosePicture()">Upload</a>
-      <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose">Choose</a>
-    </div>
     <%= f.hidden_field :team_id, value: current_user.id %>
 
     <%= f.submit "SUBMIT", class: "campaigns-create-button" %>
