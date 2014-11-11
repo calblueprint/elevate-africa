@@ -20,7 +20,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,'')
+    params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       redirect_to @campaign
