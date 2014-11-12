@@ -152,8 +152,9 @@ for the about.css.scss file custom styling*/
 
 /** TABBED-SECTION */
 .campaign-tabs {
-  width: 100%;
-  display:inline-block;
+  width: 800px;
+  display: inline-block;
+  margin: auto;
 }
 
 .campaign-tab-links:after {
@@ -172,35 +173,60 @@ for the about.css.scss file custom styling*/
   padding: 9px 15px;
   display: inline-block;
   border-radius: 3px 3px 0px 0px;
-  background: $primary-color;
+  background: #fff;
   font: $h2;
-  font-size: 15px;
-  color: #fff;
+  font-size: 20px;
+  font-weight: 600px;
+  color: $black;
   transition: all linear 0.15s;
 }
 
+.campaign-tab-links {
+  -webkit-padding-start: 0px;
+  -webkit-margin-after: 0px;
+}
+
 .campaign-tab-links a:hover {
-  background: $secondary-color;
+  background: $primary-color;
+  color: #fff;
   text-decoration: none;
 }
 
-li.active a li.active a:hover {
-  background: #fff;
+li.campaign-active a li.campaign-active a:hover {
+  background: $primary-color;
   color: #4c4c4c;
 }
 
 .campaign-tab-content {
   padding: 15px;
-  border-radius: 3px;
-  box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
+  // border-radius: 3px;
+  // box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
   background: #fff;
+  border-style: solid;
+  border-color: $primary-color;
+  border-width: 2px;
+}
+
+.campaign-overview-title {
+  font: $h2;
+  font-size: 30px;
+  text-align: left;
+  color: $black;
+  margin-bottom: 10px;
+}
+
+.campaign-overview-font {
+  font: $p;
+  font-size: 15px;
+  text-align: center;
+  color: $black;
 }
 
 .campaign-tab {
   display: none;
 }
 
-.campaign-tab.active {
+.campaign-tab.campaign-active {
   display: block;
 }
 
