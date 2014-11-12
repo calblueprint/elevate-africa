@@ -25,11 +25,10 @@
   left: 0;
   top: 0;
   width: 30%;
-  height: 450px;
-  border: 2px solid $light-gray;
+  height: 900px;
   border-top: none;
   border-left: none;
-  padding-top: 50px;
+  padding-top: 100px;
   background-color: $secondary-color;
 }
 
@@ -49,13 +48,26 @@
 
 #user-dashboard-name {
   color: white;
+  padding-top: 20px;
 }
 
+#user-dashboard-email {
+  color: white;
+  padding-top: 10px;
+}
 .user-icon-button {
   color: white;
   &:hover {
     color: #EAEAEA;
   }
+}
+
+#user-edit-buttons {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 #user-dashboard-campaign-info {
@@ -65,15 +77,4 @@
   top: 0;
   width: 70%;
   height: 100%;
-  background-color: blue;
-}
-
-#user-dashboard-days {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30%;
-  height: 450px;
-  background-color: green;
 }

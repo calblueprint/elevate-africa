@@ -7,6 +7,12 @@
         <div style="background-image: url(<% @image %>)"id="user-dashboard-image default"></div>
       <% end %>
       <h2 id="user-dashboard-name"><%= @user.name %></h2>
+      <h2 id="user-dashboard-email">
+        <span>
+          <i class="fa fa-envelope-square user-icon-button"></i>
+        </span>
+        <%= @user.name %>
+      </h2>
       <h2 id="user-edit-buttons">
         <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
         <i>
@@ -15,8 +21,6 @@
                     data: { confirm: "Are you sure you want to this? Your campaign will be destroyed!" } %>
         </i>
       </h2>
-    </div>
-    <div id="user-dashboard-days">
     </div>
     <div id="user-dashboard-campaign-info">
     </div>
