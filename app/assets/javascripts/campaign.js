@@ -85,6 +85,11 @@ var ready = function() {
       $("#campaign_duration").val(param);
     });
 
+    $(".campaigns-create-tab-selected").click(function() {
+      $(this).animate({width: "12.5%"});
+      $(".campaigns-create-tab").animate({width: "75%"})
+    });
+
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
     $(".campaigns-create-picture-options-container").hide();

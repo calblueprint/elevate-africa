@@ -40,6 +40,42 @@ for the about.css.scss file custom styling*/
   background-color: #EEEEEE;
 }
 
+.campaigns-create-tab-selected {
+  display: inline-block;
+  float: left;
+  width: 75%;
+  height: 100%;
+  border-right: 1px solid #CCCCCC;
+
+  vertical-align: middle;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 15px;
+  }
+
+  .campaigns-create-tab-number {
+    width: 50px;
+  }
+}
+
+.campaigns-create-tab {
+  display: inline-block;
+  float: left;
+  width: 12.5%;
+  height: 100%;
+  border-right: 1px solid #CCCCCC;
+}
+
+.campaigns-create-tab-last {
+  display: inline-block;
+  float: left;
+  width: 12.5%;
+  height: 100%;
+}
+
 .campaigns-create-body {
   display: block;
   text-align: center;
