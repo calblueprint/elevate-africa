@@ -1,5 +1,25 @@
 <div class="user-dashboard-background">
   <div class="user-dashboard-container">
+    <div id="user-dashboard-user">
+      <% if @image.nil? %>
+        <div id="user-dashboard-image-default"></div>
+      <% else %>
+        <div style="background-image: url(<% @image %>)"id="user-dashboard-image default"></div>
+      <% end %>
+      <h2 id="user-dashboard-name"><%= @user.name %></h2>
+      <h2 id="user-edit-buttons">
+        <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
+        <i>
+          <%= link_to "", user_path(@user), method: :delete,
+                    class: "fa fa-minus-square user-icon-button",
+                    data: { confirm: "Are you sure you want to this? Your campaign will be destroyed!" } %>
+        </i>
+      </h2>
+    </div>
+    <div id="user-dashboard-days">
+    </div>
+    <div id="user-dashboard-campaign-info">
+    </div>
 <!--     <h1>User Dashboard</h1>
     <% if current_user && @user == current_user %>
       <%= link_to "Edit Profile", edit_user_path(@user), class: "button" %>

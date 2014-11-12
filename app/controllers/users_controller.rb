@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :valid_user, except: :show
+  before_filter :valid_user
 
   def show
     @user = User.find params[:id]
     @campaign = @user.campaign unless @user.admin?
+    @image = @user.picture_url
   end
 
   def edit
