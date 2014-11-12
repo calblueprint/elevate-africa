@@ -21,6 +21,11 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
+
+    src = File.join(Rails.root, "/app/assets/images/create-pic-one.png")
+    src_file = File.new(src)
+    params[:campaign][:picture] = src_file
+
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       redirect_to @campaign

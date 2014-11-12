@@ -81,6 +81,7 @@ var ready = function() {
     $("#campaign_duration").on("change", function () {
       var param = $("#campaign_duration").val();
       param = param.replace(/\D/g, '');
+      param = param + " days"
       $("#campaign_duration").val(param);
     });
 
