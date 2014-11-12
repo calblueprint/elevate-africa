@@ -41,6 +41,9 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-create-tab {
+  position: relative;
+  z-index: 5;
+
   display: inline-block;
   float: left;
   height: 100%;
@@ -58,6 +61,9 @@ for the about.css.scss file custom styling*/
     display: inline-block;
     vertical-align: middle;
     padding-top: 16px;
+    height: 100%;
+
+    transition: 0.4s linear all;
   }
 
   .campaigns-create-tab-number {
@@ -75,12 +81,12 @@ for the about.css.scss file custom styling*/
 }
 
 #campaigns-create-tab-two {
-  width: 12.5%;
+  width: 12.25%;
 }
 
 #campaigns-create-tab-three {
   border-right: 0;
-  width: 12.5%;
+  width: 12.25%;
 }
 
 .campaigns-create-body {
@@ -101,6 +107,7 @@ for the about.css.scss file custom styling*/
   padding: 24px 18px;
 
   #campaigns-create-title {
+    position: relative;
     color: black;
     font-size: 24px;
     margin-bottom: 24px;

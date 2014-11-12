@@ -83,7 +83,7 @@ var ready = function() {
     });
 
     $("#campaigns-create-tab-three").click(function() {
-      if(tab_open < 2 && campaignsCheckValidityOne()) {
+      if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
         campaignsCreateThird();
         tab_open = 2;
@@ -110,7 +110,7 @@ var ready = function() {
     $("#campaign_duration").on("change", function () {
       var param = $("#campaign_duration").val();
       param = param.replace(/\D/g, '');
-      param = param + " days"
+      param = param + " day(s)"
       $("#campaign_duration").val(param);
     });
 
@@ -125,11 +125,11 @@ $(document).ready(ready);
 $(document).on('page:load', ready);
 
 function campaignsChangeTab(num, tab_open, tab_clicked) {
-  tab_open.animate({width: "12.5%"});
   tab_open.find(".campaigns-create-tab-number").text(num + 1);
   tab_open.removeClass("campaigns-create-tab-colored");
   tab_clicked.addClass("campaigns-create-tab-colored");
   tab_clicked.animate({width: "75%"});
+  tab_open.animate({width: "12.25%"});
 }
 
 function campaignsCheckValidityOne() {
@@ -151,6 +151,19 @@ function campaignsCheckValidityOne() {
 
   field = $("#campaigns-create-field-duration")
   str = field.find("input");
+  if(str.length == 0 || $.trim(str.val()).length == 0) {
+    field.addClass("campaigns-create-field-incorrect");
+    bool = false;
+  }
+
+  return bool
+}
+
+function campaignsCheckValidityTwo() {
+  var bool = true;
+
+  var field = $("#campaigns-create-field-description")
+  var str = field.find("textarea");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");
     bool = false;
@@ -204,6 +217,7 @@ function campaignsChangeDescription(which, stay) {
     $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
     $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
   }
+  $("#campaigns-create-field-description").removeClass("campaigns-create-field-incorrect");
 }
 
 function campaignsUploadPicture() {
