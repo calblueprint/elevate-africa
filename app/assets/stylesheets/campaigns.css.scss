@@ -37,7 +37,7 @@ for the about.css.scss file custom styling*/
   border-bottom: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  background-color: #EEEEEE;
+  background-color: white;
 }
 
 .campaigns-create-tab {
@@ -47,6 +47,8 @@ for the about.css.scss file custom styling*/
   border-right: 1px solid #CCCCCC;
   width: 75%;
 
+  font: normal 14px Bitter;
+  color: #CCCCCC;
 
   vertical-align: middle;
   overflow: hidden;
@@ -55,7 +57,7 @@ for the about.css.scss file custom styling*/
     float: left;
     display: inline-block;
     vertical-align: middle;
-    padding-top: 15px;
+    padding-top: 16px;
   }
 
   .campaigns-create-tab-number {
@@ -66,6 +68,10 @@ for the about.css.scss file custom styling*/
   &:hover {
     cursor: pointer;
   }
+}
+
+.campaigns-create-tab-colored {
+  color: $primary-color;
 }
 
 #campaigns-create-tab-two {
@@ -95,6 +101,7 @@ for the about.css.scss file custom styling*/
   padding: 24px 18px;
 
   #campaigns-create-title {
+    color: black;
     font-size: 24px;
     margin-bottom: 24px;
   }
@@ -102,14 +109,14 @@ for the about.css.scss file custom styling*/
 
 .campaigns-create-picture-options-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   display: block;
   text-align: center;
   margin: auto;
   width: 350px;
   height: 350px;
-  margin-top: -560px;
+  margin-top: -535px;
 
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -247,8 +254,8 @@ for the about.css.scss file custom styling*/
 .campaigns-create-picture-button {
   width: 47.5%;
   height: 61.5px;
-  border-radius: 4px solid #CCCCCC;
-  border-width: 1px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
 
   display: inline-block;
   float: left;
@@ -280,7 +287,7 @@ for the about.css.scss file custom styling*/
 }
 
 #campaigns-create-preview {
-  width: 100%;
+  width: 75%;
 }
 
 #campaigns-create-picture-upload {

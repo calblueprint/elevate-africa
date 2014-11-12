@@ -14,34 +14,6 @@ var ready = function() {
     var tab_open = 0;
     var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
 
-    $("#campaigns-create-tab-one").click(function() {
-      if(tab_open > 0) {
-        $(tab_hash[tab_open]).animate({width: "12.5%"});
-        $(this).animate({width: "75%"});
-        tab_open = 0;
-        campaignsCreateFirst();
-      }
-    });
-
-    $("#campaigns-create-tab-two").click(function() {
-      if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
-        console.log("called");
-        $(tab_hash[tab_open]).animate({width: "12.5%"});
-        $(this).animate({width: "75%"});
-        tab_open = 1;
-        campaignsCreateSecond();
-      }
-    });
-
-    $("#campaigns-create-tab-three").click(function() {
-      if(tab_open < 2 && campaignsCheckValidityOne()) {
-        $(tab_hash[tab_open]).animate({width: "12.5%"});
-        $(this).animate({width: "75%"});
-        tab_open = 2;
-        campaignsCreateThird();
-      }
-    });
-
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
         $(this).find("input").focus();
@@ -85,12 +57,38 @@ var ready = function() {
     });
 
     $("#campaigns-create-submit-one").on("click", function() {
-      if(campaignsCheckValidityOne())
-        campaignsCreateSecond();
+      $("#campaigns-create-tab-two").click();
     });
 
     $("#campaigns-create-submit-two").on("click", function() {
-      campaignsCreateThird();
+      $("#campaigns-create-tab-three").click();
+    });
+
+    $("#campaigns-create-tab-one").click(function() {
+      if(tab_open > 0) {
+        campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
+        campaignsCreateFirst();
+        tab_open = 0;
+        $(this).find(".campaigns-create-tab-number").text("1.");
+      }
+    });
+
+    $("#campaigns-create-tab-two").click(function() {
+      if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
+        campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
+        campaignsCreateSecond();
+        tab_open = 1;
+        $(this).find(".campaigns-create-tab-number").text("2.");
+      }
+    });
+
+    $("#campaigns-create-tab-three").click(function() {
+      if(tab_open < 2 && campaignsCheckValidityOne()) {
+        campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
+        campaignsCreateThird();
+        tab_open = 2;
+        $(this).find(".campaigns-create-tab-number").text("3.");
+      }
     });
 
     $("#campaign_goal").on("change", function () {
@@ -125,6 +123,14 @@ var ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+function campaignsChangeTab(num, tab_open, tab_clicked) {
+  tab_open.animate({width: "12.5%"});
+  tab_open.find(".campaigns-create-tab-number").text(num + 1);
+  tab_open.removeClass("campaigns-create-tab-colored");
+  tab_clicked.addClass("campaigns-create-tab-colored");
+  tab_clicked.animate({width: "75%"});
+}
 
 function campaignsCheckValidityOne() {
   var bool = true;
