@@ -1,19 +1,17 @@
-<h1>Show User</h1>
-
 <div class="medium-container padding">
   <h1>User Dashboard</h1>
-  <%= link_to "Edit Your Profile!", edit_team_path(@team) %>
-  <% if @campaign.blank? %>
-    <%= link_to "Start a new campaign!", new_campaign_path, class: 'button' %>
-  <% else %>
-    <%= link_to "Check out your campaign!", campaign_path(@campaign), class: 'button' %>
+  <% if current_user && @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: "button" %>
+    <%= link_to "Log Out", destroy_user_session_path,
+                              method: :delete,
+                              class: "button" %>
+  <% end %>
+  <% if @campaign %>
+    <% if @campaign.blank? %>
+      <%= link_to "Start a new campaign!", new_campaign_path, class: 'button' %>
+    <% else %>
+      <%= link_to "Check out your campaign!", campaign_path(@campaign), class: 'button' %>
+    <% end %>
   <% end %>
 </div>
 
-
-<% if current_user && @user == current_user %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
-  <%= link_to "Log Out", destroy_user_session_path,
-                              method: :delete,
-                              class: "button" %>
-<% end %>
