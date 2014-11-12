@@ -16,21 +16,29 @@
           </div>
         </div>
         <div class="campaign-info-container" id="campaign-money-container">
-          <h1 id="campaign-donation"><%= number_to_currency @total_donations %><span style="font-size:30px">USD</span></h1>
+          <h1 class="campaign-info-margin" id="campaign-donation"><%= number_to_currency @total_donations %><span style="font-size:30px">USD</span></h1>
           <p id="campaign-total">Raised out of <%= number_to_currency @campaign.goal %></p>
         </div>
         <div class="campaign-info-container" id="campaign-progress-container">
-          <div id="campaign-progress"></div>
+          <div class="campaign-info-margin" id="campaign-progress"></div>
         </div>
-        <div class="campaign-info-container" id="campaign-detail">
-          <div id="campaign-people"></div>
-          <div id="campaign-backers"></div>
+        <div class="campaign-info-container campaign-detail">
+          <div class="campaign-vectors"></div>
+          <div class="campaign-numbers">
+            <p class="campaign-numbers-font" id="campaign-numbers-font-yellow"><%= @donations.count %></p><p class="campaign-numbers-font">backers</p>
+          </div>
+          <div class="campaign-vectors" id="campaign-clock"></div>
+          <div class="campaign-numbers">
+              <p class="campaign-numbers-font" id="campaign-numbers-font-yellow">42<%= @campaign.duration %></p><p class="campaign-numbers-font">days left</p>
+          </div>
         </div>
-        <div id="campaign-info-button"></div>
+        <div id="campaign-info-button">
+          <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="wide-container padding">
+  <div class="wide-container">
     <h1>Campaign Overview</h1>
   </div>
   <div class="medium-container">

@@ -16,6 +16,14 @@ for the about.css.scss file custom styling*/
   height: 80px;
 }
 
+.campaign-numbers-font {
+  font: $p;
+  text-align: center;
+  font-size: 23px;
+  float: left;
+  margin-right: 5px;
+}
+
 #campaign-info-button {
   width: 300px;
   height: 100px;
@@ -73,6 +81,10 @@ for the about.css.scss file custom styling*/
   float: left;
 }
 
+.campaign-info-margin {
+  margin-top: 11px;
+}
+
 #campaign-progress-container {
   height: 120px;
 }
@@ -90,8 +102,8 @@ for the about.css.scss file custom styling*/
   background: $light-gray;
 }
 
-#campaign-detail {
-  width: 200px;
+.campaign-detail {
+  width: 190px;
   margin: auto;
 }
 
@@ -99,17 +111,39 @@ for the about.css.scss file custom styling*/
   font-size: 10px;
 }
 
-#campaign-people {
-  width: 75px;
-  height: 15px;
+.campaign-vectors {
+  width: 30px;
+  height: 30px;
   background: url(asset_path("campaign-people.png"));
   background-size: cover;
   float: left;
+  margin-top: 15px;
 }
 
-#campaign-backers {
-  width: 75px;
-  height: 15px;
+#campaign-clock {
+  background: url(asset_path("campaign-clock.png"));
+  background-size: cover;
+}
+
+.campaign-numbers {
+  height: 30ppx;
+  float: left;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+#campaign-donate-button {
+  height: 60px;
+  width: 300px;
+  padding-top: 18px;
+  background: $primary-color;
+  font: $h2;
+  font-size: 20px;
+
+}
+
+#campaign-numbers-font-yellow {
+  color: $primary-color;
 }
 
 #campaign-money-container {
