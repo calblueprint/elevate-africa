@@ -40,43 +40,47 @@ for the about.css.scss file custom styling*/
   background-color: #EEEEEE;
 }
 
-.campaigns-create-tab-selected {
+.campaigns-create-tab {
   display: inline-block;
   float: left;
-  width: 75%;
   height: 100%;
   border-right: 1px solid #CCCCCC;
+  width: 75%;
+
 
   vertical-align: middle;
   overflow: hidden;
 
   span {
+    float: left;
     display: inline-block;
     vertical-align: middle;
     padding-top: 15px;
   }
 
   .campaigns-create-tab-number {
+    float: left;
     width: 50px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
-.campaigns-create-tab {
-  display: inline-block;
-  float: left;
+#campaigns-create-tab-two {
   width: 12.5%;
-  height: 100%;
-  border-right: 1px solid #CCCCCC;
 }
 
-.campaigns-create-tab-last {
-  display: inline-block;
-  float: left;
+#campaigns-create-tab-three {
+  border-right: 0;
   width: 12.5%;
-  height: 100%;
 }
 
 .campaigns-create-body {
+  position: relative;
+  z-index: 1;
+
   display: block;
   text-align: center;
   margin: auto;
@@ -203,8 +207,8 @@ for the about.css.scss file custom styling*/
 .campaigns-create-example-button {
   width: 30%;
   height: 50px;
-  border-radius: 4px solid #CCCCCC;
-  border-width: 1px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
 
   display: inline-block;
   float: left;

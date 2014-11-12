@@ -1,15 +1,21 @@
 <div id="campaigns-create-background">
   <div class="small-container campaigns-create-padding">
     <div class="campaigns-create-header">
-      <div class="campaigns-create-tab-selected">
+      <div class="campaigns-create-tab" id="campaigns-create-tab-one">
         <span class="campaigns-create-tab-number">1.</span>
         <span>Hello there sir</span>
-        </div>
-      <div class="campaigns-create-tab"></div>
-      <div class="campaigns-create-tab-last"></div>
+      </div>
+      <div class="campaigns-create-tab" id="campaigns-create-tab-two">
+        <span class="campaigns-create-tab-number">2.</span>
+        <span>Hello there sir</span>
+      </div>
+      <div class="campaigns-create-tab" id="campaigns-create-tab-three">
+        <span class="campaigns-create-tab-number">3.</span>
+        <span>Hello there sir</span>
+      </div>
     </div>
     <div class="campaigns-create-body">
-      <h4 id="campaigns-create-title">Create Your Campaign</h4>
+      <h4 id="campaigns-create-title">Create a Campaign</h4>
       <%= render "campaign_form" %>
     </div>
     <div class="campaigns-create-picture-options-container">

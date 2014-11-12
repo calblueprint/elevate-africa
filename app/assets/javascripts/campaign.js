@@ -11,6 +11,37 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
+    var tab_open = 0;
+    var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
+
+    $("#campaigns-create-tab-one").click(function() {
+      if(tab_open > 0) {
+        $(tab_hash[tab_open]).animate({width: "12.5%"});
+        $(this).animate({width: "75%"});
+        tab_open = 0;
+        campaignsCreateFirst();
+      }
+    });
+
+    $("#campaigns-create-tab-two").click(function() {
+      if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
+        console.log("called");
+        $(tab_hash[tab_open]).animate({width: "12.5%"});
+        $(this).animate({width: "75%"});
+        tab_open = 1;
+        campaignsCreateSecond();
+      }
+    });
+
+    $("#campaigns-create-tab-three").click(function() {
+      if(tab_open < 2 && campaignsCheckValidityOne()) {
+        $(tab_hash[tab_open]).animate({width: "12.5%"});
+        $(this).animate({width: "75%"});
+        tab_open = 2;
+        campaignsCreateThird();
+      }
+    });
+
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
         $(this).find("input").focus();
@@ -85,11 +116,6 @@ var ready = function() {
       $("#campaign_duration").val(param);
     });
 
-    $(".campaigns-create-tab-selected").click(function() {
-      $(this).animate({width: "12.5%"});
-      $(".campaigns-create-tab").animate({width: "75%"})
-    });
-
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
     $(".campaigns-create-picture-options-container").hide();
@@ -111,14 +137,14 @@ function campaignsCheckValidityOne() {
   }
 
   field = $("#campaigns-create-field-goal")
-  var str = field.find("input");
+  str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");
     bool = false;
   }
 
   field = $("#campaigns-create-field-duration")
-  var str = field.find("input");
+  str = field.find("input");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");
     bool = false;
@@ -127,14 +153,23 @@ function campaignsCheckValidityOne() {
   return bool
 }
 
+function campaignsCreateFirst() {
+  $(".campaigns-create-second").hide();
+  $(".campaigns-create-third").hide();
+  $("#campaigns-create-title").text("Create a Campaign")
+  $(".campaigns-create-first").show();
+}
+
 function campaignsCreateSecond() {
   $(".campaigns-create-first").hide();
-  $("#campaigns-create-title").text("Write a Mission Statement")
+  $(".campaigns-create-third").hide();
+  $("#campaigns-create-title").text("Write a Mission")
   $(".campaigns-create-second").show();
 }
 
 function campaignsCreateThird() {
   $(".campaigns-create-second").hide();
+  $(".campaigns-create-first").hide();
   $("#campaigns-create-title").text("Choose a Photo")
   $(".campaigns-create-third").show();
 }
