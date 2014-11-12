@@ -150,6 +150,60 @@ for the about.css.scss file custom styling*/
     height: 110px;
 }
 
+/** TABBED-SECTION */
+.campaign-tabs {
+  width: 100%;
+  display:inline-block;
+}
+
+.campaign-tab-links:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.campaign-tab-links li {
+  margin: 0px 5px;
+  float: left;
+  list-style: none;
+}
+
+.campaign-tab-links a {
+  padding: 9px 15px;
+  display: inline-block;
+  border-radius: 3px 3px 0px 0px;
+  background: $primary-color;
+  font: $h2;
+  font-size: 15px;
+  color: #fff;
+  transition: all linear 0.15s;
+}
+
+.campaign-tab-links a:hover {
+  background: $secondary-color;
+  text-decoration: none;
+}
+
+li.active a li.active a:hover {
+  background: #fff;
+  color: #4c4c4c;
+}
+
+.campaign-tab-content {
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
+  background: #fff;
+}
+
+.campaign-tab {
+  display: none;
+}
+
+.campaign-tab.active {
+  display: block;
+}
+
 @media (max-width: 1000px) {
   /* fill in :-( */
 }
