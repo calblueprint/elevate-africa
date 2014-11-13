@@ -25,11 +25,7 @@
         <div class="campaign-info-container campaign-detail">
           <div class="campaign-vectors"></div>
           <div class="campaign-numbers">
-              <%= if @donations.count < 2 %>
-                <p class="campaign-numbers-font" id="campaign-numbers-font-yellow"><%= @donations.count %></p><p class="campaign-numbers-font">backer
-              <%= else %>
-                <p class="campaign-numbers-font" id="campaign-numbers-font-yellow"><%= @donations.count %></p><p class="campaign-numbers-font">backers
-              <%= end %>                
+              <p class="campaign-numbers-font" id="campaign-numbers-font-yellow"><%= @donations.count %></p><p class="campaign-numbers-font">backers           
             </p>
           </div>
           <div class="campaign-vectors" id="campaign-clock"></div>
