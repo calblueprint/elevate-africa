@@ -126,7 +126,7 @@ for the about.css.scss file custom styling*/
   margin-top: -535px;
 
   background-color: white;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .campaigns-create-picture-option {
@@ -139,6 +139,42 @@ for the about.css.scss file custom styling*/
   &:hover {
     cursor: pointer;
     opacity: 1;
+  }
+}
+
+
+.campaigns-create-missing-picture-container {
+  position: relative;
+  z-index: 3;
+
+  display: block;
+  text-align: center;
+  margin: auto;
+  width: 350px;
+  height: 175px;
+  margin-top: -360px;
+
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.campaigns-create-missing-button {
+  padding-top: 3.5%;
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  margin: 0 0;
+
+  font: bold 36px Lato, sans-serif;
+
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+    background: $secondary-color;
   }
 }
 

@@ -13,6 +13,7 @@ var ready = function() {
   $(document).ready(function() {
     var tab_open = 0;
     var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
+    var tab_two = false;
 
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
@@ -57,6 +58,11 @@ var ready = function() {
     });
 
     $("#campaigns-create-submit-one").on("click", function() {
+      if(!tab_two) {
+        console.log("help");
+        campaignsChangeDescription("one");
+        tab_two = true;
+      }
       $("#campaigns-create-tab-two").click();
     });
 
@@ -74,6 +80,11 @@ var ready = function() {
     });
 
     $("#campaigns-create-tab-two").click(function() {
+      if(!tab_two) {
+        console.log("help");
+        campaignsChangeDescription("one");
+        tab_two = true;
+      }
       if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
         campaignsCreateSecond();
@@ -114,10 +125,15 @@ var ready = function() {
       $("#campaign_duration").val(param);
     });
 
+    $(".new_campaign").submit(function(event) {
+      if($("#campaigns-create-upload").val() == "" && $(".campaigns-create-hidden-picture").val() == "") {
+        event.preventDefault();
+      }
+    });
+
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
     $(".campaigns-create-picture-options-container").hide();
-    campaignsChangeDescription("one");
   });
 }
 
@@ -156,20 +172,17 @@ function campaignsCheckValidityOne() {
     bool = false;
   }
 
-  return bool
+  return bool;
 }
 
 function campaignsCheckValidityTwo() {
-  var bool = true;
-
   var field = $("#campaigns-create-field-description")
   var str = field.find("textarea");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");
-    bool = false;
+    return false;
   }
-
-  return bool
+  return true;
 }
 
 function campaignsCreateFirst() {
@@ -210,7 +223,7 @@ function campaignsChangeDescription(which, stay) {
     $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
     $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
     $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
-    $("#campaign_description").val("\n\n\nDon't drop the rock.");
+    $("#campaign_description").val("");
   }
   else {
     $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
@@ -225,14 +238,9 @@ function campaignsUploadPicture() {
 }
 
 function campaignsChoosePicture(param) {
-  if(param == "one")
-    $("#campaigns-create-preview").attr("src", "/assets/create-pic-one.png");
-  else if(param == "two")
-    $("#campaigns-create-preview").attr("src", "/assets/create-pic-two.png");
-  else if(param == "three")
-    $("#campaigns-create-preview").attr("src", "/assets/create-pic-three.png");
-  else if(param == "four")
-    $("#campaigns-create-preview").attr("src", "/assets/create-pic-four.png");
+  var selected = $("#" + param);
+  $("#campaigns-create-hidden-picture").val(selected.data("url"));
+  $("#campaigns-create-preview").attr("src", "/assets/create-pic-" + param.split("-")[param.split("-").length-1] + ".png");
   $(".campaigns-create-picture-options-container").fadeOut();
 }
 

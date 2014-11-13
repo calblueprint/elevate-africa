@@ -13,12 +13,12 @@
   <div class="campaigns-create-first">
     <div class="campaigns-create-field" id="campaigns-create-field-name">
       <%= f.label :name %><br>
-      <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
+      <%= f.text_field :name, placeholder: "Campaign name here", autofocus: true %>
     </div>
 
     <div class="campaigns-create-field" id="campaigns-create-field-duration">
       <%= f.label :duration %><br>
-      <%= f.text_field :duration, placeholder: "duration in days here" %>
+      <%= f.text_field :duration, placeholder: "Duration in days here" %>
     </div>
 
     <div class="campaigns-create-field" id="campaigns-create-field-goal">
@@ -38,7 +38,7 @@
     </div>
 
     <div class="campaigns-create-field campaigns-create-text-area" id="campaigns-create-field-description">
-      <%= f.text_area :description %>
+      <%= f.text_area :description, placeholder: "Type in a description here..." %>
     </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
@@ -65,6 +65,8 @@
     </div>
 
     <%= f.hidden_field :team_id, value: current_user.id %>
+
+    <%= hidden_field_tag :picture_choose, "", id: "campaigns-create-hidden-picture" %>
 
     <%= f.submit "FINISH", class: "campaigns-create-button" %>
   </div>

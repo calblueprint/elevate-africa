@@ -19,10 +19,15 @@
       <%= render "campaign_form" %>
     </div>
     <div class="campaigns-create-picture-options-container">
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('one')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('two')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('three')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('four')" alt="image preview"/>
+      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-one')" alt="image preview" id="campaigns-create-picture-option-one" data-url="<%= asset_path("create-pic-one.png") %>"/>
+      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-two')" alt="image preview" id="campaigns-create-picture-option-two" data-url="<%= asset_path("create-pic-two.png") %>"/>
+      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-three')" alt="image preview" id="campaigns-create-picture-option-three" data-url="<%= asset_path("create-pic-three.png") %>"/>
+      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-four')" alt="image preview" id="campaigns-create-picture-option-four" data-url="<%= asset_path("create-pic-four.png") %>"/>
     </div>
+<!--     <div class="campaigns-create-missing-picture-container">
+      Are you sure you don't want to upload a photo?
+      <div class="campaigns-create-missing-button">Hello</div>
+      <div class="campaigns-create-missing-button">Hello</div>
+    </div> -->
   </div>
 </div>

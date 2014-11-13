@@ -21,7 +21,8 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
-
+    debugger
+    puts(params[:picture_choose])
     src = File.join(Rails.root, "/app/assets/images/create-pic-one.png")
     src_file = File.new(src)
     params[:campaign][:picture] = src_file
