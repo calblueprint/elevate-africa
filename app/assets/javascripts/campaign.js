@@ -121,12 +121,11 @@ var ready = function() {
     $("#campaign_duration").on("change", function () {
       var param = $("#campaign_duration").val();
       param = param.replace(/\D/g, '');
-      param = param + " day(s)"
       $("#campaign_duration").val(param);
     });
 
     $(".new_campaign").submit(function(event) {
-      if($("#campaigns-create-upload").val() == "" && $(".campaigns-create-hidden-picture").val() == "") {
+      if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
         event.preventDefault();
       }
     });
@@ -256,4 +255,6 @@ function campaignsChangePreview(param) {
     }
     read.readAsDataURL(param.files[0]);
   }
+
+  $("#campaigns-create-hidden-picture").val("");
 }

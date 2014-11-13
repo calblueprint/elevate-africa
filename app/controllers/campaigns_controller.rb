@@ -21,11 +21,12 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
-    debugger
-    puts(params[:picture_choose])
-    src = File.join(Rails.root, "/app/assets/images/create-pic-one.png")
-    src_file = File.new(src)
-    params[:campaign][:picture] = src_file
+
+    if params[:picture_choose] != ""
+      src = File.join(Rails.root, "/app/assets/images/" + params[:picture_choose])
+      src_file = File.new(src)
+      params[:campaign][:picture] = src_file
+    end
 
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
