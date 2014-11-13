@@ -24,7 +24,7 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-create-padding {
-  padding: 72px;
+  padding: 54px;
 }
 
 .campaigns-create-header {
@@ -114,6 +114,17 @@ for the about.css.scss file custom styling*/
   }
 }
 
+.campaigns-create-sub-header {
+  width: 100%;
+  font: lighter 20px Lato, sans-serif;
+  text-align: left;
+
+  hr {
+    size: 1px;
+    margin: 2% 0;
+  }
+}
+
 .campaigns-create-picture-options-container {
   position: relative;
   z-index: 2;
@@ -122,19 +133,20 @@ for the about.css.scss file custom styling*/
   text-align: center;
   margin: auto;
   width: 350px;
-  height: 350px;
+  height: 400px;
   margin-top: -535px;
+  padding: 2.5% 2.5% 0 2.5%;
 
+  border-radius: 4px;
   background-color: white;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .campaigns-create-picture-option {
-  width: 167.5px;
-  padding-top: 12.5px;
-  padding-left: 12.5px;
+  width: 48.75%;
+  margin-top: 2.5%;
   float: left;
-  opacity: 0.75;
+  opacity: 0.875;
 
   &:hover {
     cursor: pointer;
@@ -142,6 +154,9 @@ for the about.css.scss file custom styling*/
   }
 }
 
+.campaigns-create-picture-option-left {
+  margin-right: 2.5%;
+}
 
 .campaigns-create-missing-picture-container {
   position: relative;
@@ -151,30 +166,48 @@ for the about.css.scss file custom styling*/
   text-align: center;
   margin: auto;
   width: 350px;
-  height: 175px;
+  height: 150px;
   margin-top: -360px;
+  padding: 2.5% 2.5% 0 2.5%;
 
+  border-radius: 4px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+
+  font: lighter 20px Lato, sans-serif;
 }
 
 .campaigns-create-missing-button {
-  padding-top: 3.5%;
-  width: 150px;
+  margin-top: 2.5%;
+  width: 46.25%;
   height: 50px;
   display: inline-block;
-  margin: 0 0;
 
   font: bold 36px Lato, sans-serif;
-
-  background: $primary-color;
-  color: #fff;
-  border: none;
   border-radius: 4px;
 
   &:hover {
     cursor: pointer;
-    background: $secondary-color;
+  }
+}
+
+#campaigns-create-missing-button-upload {
+  background: $primary-color;
+  color: #fff;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+#campaigns-create-missing-button-random {
+  margin-right: 2.5%;
+  border: 1px solid #CCCCCC;
+  color: #CCCCCC;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
   }
 }
 
