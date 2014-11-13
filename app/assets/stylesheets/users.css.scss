@@ -51,15 +51,32 @@
   padding-top: 20px;
 }
 
-#user-dashboard-email {
+#user-dashboard-info {
   color: white;
   padding-top: 10px;
+  font-size: 25px;
+  text-align: left;
+  padding-left: 40px;
 }
+
+#user-dashboard-email {
+  @extend #user-dashboard-info;
+}
+
+#user-dashboard-description {
+  @extend #user-dashboard-info;
+}
+
 .user-icon-button {
   color: white;
-  &:hover {
+  &:hover:not(.fa-envelope-square .fa-male) {
     color: #EAEAEA;
   }
+}
+
+.icon {
+  width: 30px;
+  text-align: center;
 }
 
 #user-edit-buttons {

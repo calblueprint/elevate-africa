@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @campaign = @user.campaign unless @user.admin?
     @image = @user.picture_url
+    @title = @user.team? ? "Adventurer" : "Admin"
   end
 
   def edit

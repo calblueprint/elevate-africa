@@ -7,12 +7,18 @@
         <div style="background-image: url(<% @image %>)"id="user-dashboard-image default"></div>
       <% end %>
       <h2 id="user-dashboard-name"><%= @user.name %></h2>
-      <h2 id="user-dashboard-email">
+      <p id="user-dashboard-email">
         <span>
-          <i class="fa fa-envelope-square user-icon-button"></i>
+          <i class="fa fa-envelope user-icon-button icon"></i>
         </span>
-        <%= @user.name %>
-      </h2>
+        <%= @user.email %>
+      </p>
+      <p id="user-dashboard-description">
+        <span>
+          <i class="fa fa-square fa-male user-icon-button icon"></i>
+        </span>
+        <%= @title %>
+      </p>
       <h2 id="user-edit-buttons">
         <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
         <i>
