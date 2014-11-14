@@ -7,12 +7,12 @@
 <% else %>
   <div id="user-dashboard-some-buzz">
     <h2 class="headline">Recent Posts</h2>
-    <% user.buzzes.each do |buzz| %>
+    <% user.buzzes.limit(3).each do |buzz| %>
       <div class="user-dashboard-buzz-container">
         <% if buzz.picture? %>
           <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
         <% else %>
-          <div style="background-image: url('buzz.JPG')"></div>
+          <div class="buzz-image-default">
         <% end %>
           <div class="buzz-info-container">
             <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
