@@ -137,6 +137,15 @@ for the about.css.scss file custom styling*/
   }
 }
 
+.campaigns-create-sub-header-close {
+  width: 7.5%;
+  float: right;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 #campaigns-create-picture-options-container {
   position: relative;
   z-index: 4;

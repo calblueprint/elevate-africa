@@ -8,13 +8,13 @@ var ready_campaign = function() {
 
 $(document).on('page:load', ready_campaign);
 
-
 var ready = function() {
   $(document).ready(function() {
     var tab_open = 0;
     var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
     var tab_two = false;
 
+    // field select
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
         $(this).find("input").focus();
@@ -48,21 +48,54 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-selected");
     });
 
-    $("#campaign_description").on("change keyup paste", function() {
-      if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored"))
-        campaignsChangeDescription("partial");
+    // field change
+    $("#campaign_goal").on("change", function() {
+      var param = $("#campaign_goal").val().replace(/\D/g, '');
+      var count = 0;
+      for(i = param.length-1; i >= 0; i--) {
+        if(count < 3)
+          count++;
+        else {
+          count = 1;
+          param = param.substring(0,i+1) + "," + param.substring(i+1);
+        }
+      }
+      $("#campaign_goal").val(param);
     });
 
+    $("#campaign_duration").on("change", function () {
+      var param = $("#campaign_duration").val().replace(/\D/g, '');
+      $("#campaign_duration").val(param);
+    });
+
+    // description change
+    $("#campaigns-create-example-one").click(function() {
+      campaignsChangeDescription('one', 'two', 'custom')
+    });
+
+    $("#campaigns-create-example-two").click(function() {
+      campaignsChangeDescription('two', 'one', 'custom')
+    });
+
+    $("#campaigns-create-example-custom").click(function() {
+      campaignsChangeDescription('custom', 'one', 'two')
+    });
+
+    $("#campaign_description").on("change keyup paste", function() {
+      if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored")) {
+      $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
+      $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
+      $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
+      }
+    });
+
+    // picture upload
     $("#campaigns-create-upload").change(function() {
       campaignsChangePreview(this);
     });
 
+    // continue clicks
     $("#campaigns-create-submit-one").on("click", function() {
-      if(!tab_two) {
-        console.log("help");
-        campaignsChangeDescription("one");
-        tab_two = true;
-      }
       $("#campaigns-create-tab-two").click();
     });
 
@@ -70,6 +103,7 @@ var ready = function() {
       $("#campaigns-create-tab-three").click();
     });
 
+    // tab clicks
     $("#campaigns-create-tab-one").click(function() {
       if(tab_open > 0) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
@@ -81,8 +115,7 @@ var ready = function() {
 
     $("#campaigns-create-tab-two").click(function() {
       if(!tab_two) {
-        console.log("help");
-        campaignsChangeDescription("one");
+        campaignsChangeDescription("one", "two", "custom");
         tab_two = true;
       }
       if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
@@ -102,37 +135,16 @@ var ready = function() {
       }
     });
 
-    $("#campaign_goal").on("change", function () {
-      var param = $("#campaign_goal").val();
-      param = param.replace(/\D/g, '');
-      var count = 0;
-      for(i = param.length-1; i >= 0; i--) {
-        if(count < 3)
-          count++;
-        else {
-          count = 1;
-          console.log(param.substring(0,i+1));
-          param = param.substring(0,i+1) + "," + param.substring(i+1);
-        }
-      }
-      $("#campaign_goal").val(param);
-    });
-
-    $("#campaign_duration").on("change", function () {
-      var param = $("#campaign_duration").val();
-      param = param.replace(/\D/g, '');
-      $("#campaign_duration").val(param);
-    });
-
+    // form submit
     $(".new_campaign").submit(function(event) {
       if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
         event.preventDefault();
-        $("#campaigns-create-picture-options-container").hide();
         $("#campaigns-create-missing-picture-container").fadeIn();
         $("#campaigns-create-white-fade").fadeIn();
       }
     });
 
+    // missing picture buttons
     $("#campaigns-create-missing-button-upload").click(function() {
       campaignsUploadPicture();
       $(this).parent().fadeOut();
@@ -144,6 +156,18 @@ var ready = function() {
       $(this).parent().fadeOut();
     });
 
+    // pop up closes
+    $("#campaigns-create-sub-header-close-options").click(function() {
+      $("#campaigns-create-picture-options-container").fadeOut();
+      $("#campaigns-create-white-fade").fadeOut();
+    });
+
+    $("#campaigns-create-sub-header-close-missing").click(function() {
+      $("#campaigns-create-missing-picture-container").fadeOut();
+      $("#campaigns-create-white-fade").fadeOut();
+    });
+
+    // page load calls
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
     $("#campaigns-create-picture-options-container").hide();
@@ -221,31 +245,13 @@ function campaignsCreateThird() {
   $(".campaigns-create-third").show();
 }
 
-function campaignsChangeDescription(which, stay) {
-  if(which == "one") {
-    $("#campaigns-create-example-one").addClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-custom").removeClass("campaigns-create-example-colored");
-    $("#campaign_description").val("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-  }
-  else if(which == "two") {
-    $("#campaigns-create-example-two").addClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-custom").removeClass("campaigns-create-example-colored");
-    $("#campaign_description").val("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.");
-  }
-  else if(which == "custom") {
-    $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
-    $("#campaign_description").val("");
-  }
-  else {
-    $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
-    $("#campaigns-create-example-two").removeClass("campaigns-create-example-colored");
-  }
-  $("#campaigns-create-field-description").removeClass("campaigns-create-field-incorrect");
+function campaignsChangeDescription(a, b, c) {
+  var selected = $("#campaigns-create-example-" + a);
+  selected.addClass("campaigns-create-example-colored");
+  $("#campaigns-create-example-" + b).removeClass("campaigns-create-example-colored");
+  $("#campaigns-create-example-" + c).removeClass("campaigns-create-example-colored");
+
+  $("#campaign_description").val(selected.data("content"));
 }
 
 function campaignsUploadPicture() {
