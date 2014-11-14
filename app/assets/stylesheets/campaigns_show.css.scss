@@ -146,8 +146,13 @@ for the about.css.scss file custom styling*/
   font-size: 25px;
 }
 
-.campaign-show-footer-font {
+.campaign-show-footer-font a {
+  font-weight: 200;
   font-size: 15px;
+}
+
+.campaign-show-footer-font a:hover {
+  font-weight: 600;
 }
 #campaign-progress {
   width: 300px;
@@ -289,5 +294,4 @@ li.campaign-active a li.campaign-active a:hover {
 
 @media (max-width: 600px) {
   /* fill in :-( */
-
 }
