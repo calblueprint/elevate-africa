@@ -13,6 +13,7 @@ var ready = function() {
     var tab_open = 0;
     var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
     var tab_two = false;
+    var example_open = 0;
 
     // field select
     $(".campaigns-create-field").click(function() {
@@ -70,18 +71,31 @@ var ready = function() {
 
     // description change
     $("#campaigns-create-example-one").click(function() {
-      campaignsChangeDescription('one', 'two', 'custom')
+      if(example_open != 0)
+      {
+        example_open = 0;
+        campaignsChangeDescription('one', 'two', 'custom');
+        $(".campaigns-create-text-area").removeClass("campaigns-create-field-incorrect");
+      }
     });
 
     $("#campaigns-create-example-two").click(function() {
-      campaignsChangeDescription('two', 'one', 'custom')
+      if(example_open != 1) {
+        example_open = 1;
+        campaignsChangeDescription('two', 'one', 'custom');
+        $(".campaigns-create-text-area").removeClass("campaigns-create-field-incorrect");
+      }
     });
 
     $("#campaigns-create-example-custom").click(function() {
-      campaignsChangeDescription('custom', 'one', 'two')
+      if(example_open != 2) {
+        example_open = 2;
+        campaignsChangeDescription('custom', 'one', 'two');
+      }
     });
 
     $("#campaign_description").on("change keyup paste", function() {
+      example_open = 2;
       if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored")) {
       $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
       $("#campaigns-create-example-one").removeClass("campaigns-create-example-colored");
@@ -107,7 +121,7 @@ var ready = function() {
     $("#campaigns-create-tab-one").click(function() {
       if(tab_open > 0) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateFirst();
+        campaignsCreateTabContent('first', 'second', 'third', 'Create a Campaign');
         tab_open = 0;
         $(this).find(".campaigns-create-tab-number").text("1.");
       }
@@ -120,7 +134,7 @@ var ready = function() {
       }
       if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateSecond();
+        campaignsCreateTabContent('second', 'first', 'third', 'Write a Mission');
         tab_open = 1;
         $(this).find(".campaigns-create-tab-number").text("2.");
       }
@@ -129,7 +143,7 @@ var ready = function() {
     $("#campaigns-create-tab-three").click(function() {
       if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateThird();
+        campaignsCreateTabContent('third', 'first', 'second', 'Upload a Picture');
         tab_open = 2;
         $(this).find(".campaigns-create-tab-number").text("3.");
       }
@@ -147,13 +161,11 @@ var ready = function() {
     // missing picture buttons
     $("#campaigns-create-missing-button-upload").click(function() {
       campaignsUploadPicture();
-      $(this).parent().fadeOut();
     });
 
     $("#campaigns-create-missing-button-random").click(function() {
-      var options = ["one", "two", "three", "four"];
-      campaignsChoosePicture("campaigns-create-picture-option-" + options[Math.floor(Math.random() * 4)]);
-      $(this).parent().fadeOut();
+      campaignsChoosePicture(["one", "two", "three", "four"][Math.floor(Math.random() * 4)]);
+      $("#campaigns-create-missing-picture-container").fadeOut();
     });
 
     // pop up closes
@@ -189,33 +201,27 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
 
 function campaignsCheckValidityOne() {
   var bool = true;
-
-  var field = $("#campaigns-create-field-name")
-  var str = field.find("input");
-  if(str.length == 0 || $.trim(str.val()).length == 0) {
-    field.addClass("campaigns-create-field-incorrect");
+  if(!campaignsFieldValidity("name"))
     bool = false;
-  }
-
-  field = $("#campaigns-create-field-goal")
-  str = field.find("input");
-  if(str.length == 0 || $.trim(str.val()).length == 0) {
-    field.addClass("campaigns-create-field-incorrect");
+  if(!campaignsFieldValidity("goal"))
     bool = false;
-  }
-
-  field = $("#campaigns-create-field-duration")
-  str = field.find("input");
-  if(str.length == 0 || $.trim(str.val()).length == 0) {
-    field.addClass("campaigns-create-field-incorrect");
+  if(!campaignsFieldValidity("duration"))
     bool = false;
-  }
-
   return bool;
 }
 
+function campaignsFieldValidity(name) {
+  var field = $("#campaigns-create-field-" + name)
+  var str = field.find("input");
+  if($.trim(str.val()).length == 0) {
+    field.addClass("campaigns-create-field-incorrect");
+    return false;
+  }
+  return true
+}
+
 function campaignsCheckValidityTwo() {
-  var field = $("#campaigns-create-field-description")
+  var field = $(".campaigns-create-text-area")
   var str = field.find("textarea");
   if(str.length == 0 || $.trim(str.val()).length == 0) {
     field.addClass("campaigns-create-field-incorrect");
@@ -224,25 +230,11 @@ function campaignsCheckValidityTwo() {
   return true;
 }
 
-function campaignsCreateFirst() {
-  $(".campaigns-create-second").hide();
-  $(".campaigns-create-third").hide();
-  $("#campaigns-create-title").text("Create a Campaign")
-  $(".campaigns-create-first").show();
-}
-
-function campaignsCreateSecond() {
-  $(".campaigns-create-first").hide();
-  $(".campaigns-create-third").hide();
-  $("#campaigns-create-title").text("Write a Mission")
-  $(".campaigns-create-second").show();
-}
-
-function campaignsCreateThird() {
-  $(".campaigns-create-second").hide();
-  $(".campaigns-create-first").hide();
-  $("#campaigns-create-title").text("Choose a Photo")
-  $(".campaigns-create-third").show();
+function campaignsCreateTabContent(a, b, c, title) {
+  $(".campaigns-create-" + b).hide();
+  $(".campaigns-create-" + c).hide();
+  $("#campaigns-create-title").text(title)
+  $(".campaigns-create-" + a).show();
 }
 
 function campaignsChangeDescription(a, b, c) {
@@ -255,22 +247,20 @@ function campaignsChangeDescription(a, b, c) {
 }
 
 function campaignsUploadPicture() {
-  $("#campaigns-create-missing-picture-container").hide();
-  $("#campaigns-create-picture-options-container").hide();
+  $("#campaigns-create-missing-picture-container").fadeOut();
   $("#campaigns-create-white-fade").fadeOut();
   $("#campaigns-create-upload").click();
 }
 
 function campaignsChoosePicture(param) {
-  var selected = $("#" + param);
+  var selected = $("#campaigns-create-picture-option-" + param);
   $("#campaigns-create-hidden-picture").val(selected.data("url"));
-  $("#campaigns-create-preview").attr("src", "/assets/create-pic-" + param.split("-")[param.split("-").length-1] + ".png");
+  $("#campaigns-create-preview").attr("src", "/assets/create-pic-" + param + ".png");
   $("#campaigns-create-picture-options-container").fadeOut();
   $("#campaigns-create-white-fade").fadeOut();
 }
 
 function campaignsChooseOptions() {
-  $("#campaigns-create-missing-picture-container").hide();
   $("#campaigns-create-picture-options-container").fadeIn();
   $("#campaigns-create-white-fade").fadeIn();
 }
@@ -283,6 +273,5 @@ function campaignsChangePreview(param) {
     }
     read.readAsDataURL(param.files[0]);
   }
-
   $("#campaigns-create-hidden-picture").val("");
 }
