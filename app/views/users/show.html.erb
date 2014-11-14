@@ -19,6 +19,10 @@
         </span>
         <%= @title %>
       </p>
+      <div id="user-dashboard-badges-container">
+        <h2 id="user-dashboard-badges-title">Badges</h2>
+        <!-- Badges Here -->
+      </div>
       <h2 id="user-edit-buttons">
         <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
         <i>
@@ -29,6 +33,15 @@
       </h2>
     </div>
     <div id="user-dashboard-campaign-info">
+      <% if current_user == @user %>
+        <% if @user.admin? %>
+          <%= render 'admin_dashboard', user: @user %>
+        <% else %>
+          <%= render 'team_dashboard', user: @user, campaign: @campaign %>
+        <% end %>
+      <% else %>
+          <%= render 'no_dashboard' %>
+      <% end %>
     </div>
 <!--     <h1>User Dashboard</h1>
     <% if current_user && @user == current_user %>
