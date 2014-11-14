@@ -127,12 +127,28 @@ var ready = function() {
     $(".new_campaign").submit(function(event) {
       if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
         event.preventDefault();
+        $("#campaigns-create-picture-options-container").hide();
+        $("#campaigns-create-missing-picture-container").fadeIn();
+        $("#campaigns-create-white-fade").fadeIn();
       }
+    });
+
+    $("#campaigns-create-missing-button-upload").click(function() {
+      campaignsUploadPicture();
+      $(this).parent().fadeOut();
+    });
+
+    $("#campaigns-create-missing-button-random").click(function() {
+      var options = ["one", "two", "three", "four"];
+      campaignsChoosePicture("campaigns-create-picture-option-" + options[Math.floor(Math.random() * 4)]);
+      $(this).parent().fadeOut();
     });
 
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
-    $(".campaigns-create-picture-options-container").hide();
+    $("#campaigns-create-picture-options-container").hide();
+    $("#campaigns-create-missing-picture-container").hide();
+    $("#campaigns-create-white-fade").hide();
   });
 }
 
@@ -233,6 +249,9 @@ function campaignsChangeDescription(which, stay) {
 }
 
 function campaignsUploadPicture() {
+  $("#campaigns-create-missing-picture-container").hide();
+  $("#campaigns-create-picture-options-container").hide();
+  $("#campaigns-create-white-fade").fadeOut();
   $("#campaigns-create-upload").click();
 }
 
@@ -240,11 +259,14 @@ function campaignsChoosePicture(param) {
   var selected = $("#" + param);
   $("#campaigns-create-hidden-picture").val(selected.data("url"));
   $("#campaigns-create-preview").attr("src", "/assets/create-pic-" + param.split("-")[param.split("-").length-1] + ".png");
-  $(".campaigns-create-picture-options-container").fadeOut();
+  $("#campaigns-create-picture-options-container").fadeOut();
+  $("#campaigns-create-white-fade").fadeOut();
 }
 
 function campaignsChooseOptions() {
-  $(".campaigns-create-picture-options-container").fadeIn();
+  $("#campaigns-create-missing-picture-container").hide();
+  $("#campaigns-create-picture-options-container").fadeIn();
+  $("#campaigns-create-white-fade").fadeIn();
 }
 
 function campaignsChangePreview(param) {

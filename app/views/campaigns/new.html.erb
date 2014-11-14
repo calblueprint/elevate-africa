@@ -18,14 +18,14 @@
       <h4 id="campaigns-create-title">Create a Campaign</h4>
       <%= render "campaign_form" %>
     </div>
-    <div class="campaigns-create-picture-options-container">
+    <div id="campaigns-create-picture-options-container">
       <div class="campaigns-create-sub-header">Choose one of our photos<hr></div>
       <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-one')" alt="image preview" id="campaigns-create-picture-option-one" data-url="create-pic-one.png"/>
       <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-two')" alt="image preview" id="campaigns-create-picture-option-two" data-url="create-pic-two.png"/>
       <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-three')" alt="image preview" id="campaigns-create-picture-option-three" data-url="create-pic-three.png"/>
       <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('campaigns-create-picture-option-four')" alt="image preview" id="campaigns-create-picture-option-four" data-url="create-pic-four.png"/>
     </div>
-    <div class="campaigns-create-missing-picture-container">
+    <div id="campaigns-create-missing-picture-container">
       <div class="campaigns-create-sub-header">We need a photo!<hr></div>
       Want to upload your own?
       <div class="campaigns-create-missing-button" id="campaigns-create-missing-button-random">Random</div>
@@ -33,3 +33,5 @@
     </div>
   </div>
 </div>
+<div id="campaigns-create-white-fade"></div>
+
