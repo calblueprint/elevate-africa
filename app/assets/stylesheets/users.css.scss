@@ -69,7 +69,7 @@
 
 .user-icon-button {
   color: white;
-  &:hover:not(.fa-envelope-square .fa-male) {
+  &:hover:not(.fa-envelope):not(.fa-male) {
     color: #EAEAEA;
   }
 }
@@ -83,7 +83,10 @@
   height: 400px;
   width: 95%;
   margin: 20px auto;
-  background-color: blue;
+}
+
+#user-dashboard-badges-title {
+  color: white;
 }
 
 #user-edit-buttons {
@@ -101,4 +104,16 @@
   top: 0;
   width: 70%;
   height: 100%;
+}
+
+#user-dashboard-no-buzz .headline {
+  padding-top: 45%;
+}
+
+#user-dashboard-some-buzz .headline {
+  padding-top: 2px;
+}
+
+.user-dashboard-buzz-container {
+  width: 100%;
 }

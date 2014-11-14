@@ -26,9 +26,9 @@
       <h2 id="user-edit-buttons">
         <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
         <i>
-          <%= link_to "", user_path(@user), method: :delete,
-                    class: "fa fa-minus-square user-icon-button",
-                    data: { confirm: "Are you sure you want to this? Your campaign will be destroyed!" } %>
+          <%= link_to "", destroy_user_session_path, method: :delete,
+                    class: "fa fa-sign-out user-icon-button"
+          %>
         </i>
       </h2>
     </div>

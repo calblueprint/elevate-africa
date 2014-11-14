@@ -85,6 +85,11 @@
   background-position: center;
 }
 
+.buzz-image-default {
+  @extend .buzz-image;
+  background-image: url("buzz.JPG");
+}
+
 .buzz-info-container {
   width: 100%;
   height: 100%;

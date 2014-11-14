@@ -22,7 +22,7 @@
 #
 
 class Admin < User
-  has_many :posts
+  has_many :buzzes
 
   def admin?
     true
