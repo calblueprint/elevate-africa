@@ -7,15 +7,13 @@
 #   Mayor.create(name: "Emanuel", city: cities.first)
 
 def create_admin_with_buzzes
-  1.times do |n|
-    admin = Admin.create email: "admin#{n}@gmail.com",
-                         password: "password",
-                         name: "Admin #{n}"
-  end
-  5 times do |n|
+  admin = Admin.create! email: "admin0@gmail.com",
+                       password: "password",
+                       name: Faker::Name.name
+  5.times do |n|
     admin.buzzes.create headline: "This is a cool headline",
                         subhead: "This is a cool subhead",
-                        description: Faker::Lorem.paragraph(8),
+                        content: Faker::Lorem.paragraph(8),
                         box_size: Random.new.rand(1..3),
                         box_color: "#FFC48C"
   end
@@ -23,9 +21,9 @@ end
 
 def create_admin
   1.times do |n|
-    Admin.create email: "admin#{n}@gmail.com",
+    Admin.create email: "admin#{n+1}@gmail.com",
                  password: "password",
-                 name: "Admin #{n}"
+                 name: Faker::Name.name
   end
 end
 
@@ -46,4 +44,3 @@ end
 create_admin_with_buzzes
 create_admin
 create_team_and_campaign_with_donations
-create_buzzes
