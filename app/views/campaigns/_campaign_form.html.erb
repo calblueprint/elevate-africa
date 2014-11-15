@@ -27,7 +27,7 @@
       <%= f.text_field :goal, value: "1,234" %>
     </div>
 
-    <div class="campaigns-create-button" id="campaigns-create-submit-one">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>
   </div>
 
   <div class="campaigns-create-second">
@@ -41,7 +41,7 @@
       <%= f.text_area :description, placeholder: "Type in a description here..." %>
     </div>
 
-    <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-two">Continue</div>
   </div>
 
   <div class="campaigns-create-third">
@@ -51,11 +51,11 @@
 
     <div class="campaigns-create-picture-buttons-container">
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">
-        UPLOAD
+        Upload
         <p>your own photo</p>
       </a>
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChooseOptions()">
-        CHOOSE
+        Choose
         <p>one of ours</p>
       </a>
     </div>
@@ -68,6 +68,6 @@
 
     <%= hidden_field_tag :picture_choose, "", id: "campaigns-create-hidden-picture" %>
 
-    <%= f.submit "FINISH", class: "campaigns-create-button" %>
+    <%= f.submit "Finish", class: "campaigns-create-button" %>
   </div>
 <% end %>

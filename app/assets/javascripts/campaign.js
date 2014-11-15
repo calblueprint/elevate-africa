@@ -104,6 +104,10 @@ var ready = function() {
     });
 
     // picture upload
+    $("#campaigns-create-preview").click(function() {
+      campaignsUploadPicture();
+    });
+
     $("#campaigns-create-upload").change(function() {
       campaignsChangePreview(this);
     });
