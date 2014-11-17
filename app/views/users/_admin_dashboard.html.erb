@@ -1,0 +1,31 @@
+<% if user.buzzes.blank? %>
+  <div id="user-dashboard-no-buzz">
+    <h2 class="headline">
+      <%= user.name %> doesn't have any recent posts!
+    </h2>
+  </div>
+<% else %>
+  <div id="user-dashboard-some-buzz">
+    <h2 class="headline">Recent Posts</h2>
+    <% user.buzzes.limit(3).each do |buzz| %>
+      <div class="user-dashboard-buzz-container">
+        <% if buzz.picture? %>
+          <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
+        <% else %>
+          <div class="buzz-image-default">
+        <% end %>
+          <div class="buzz-info-container">
+            <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
+            <div class="buzz-info">
+              <h1>
+                <%= link_to truncate_headline(buzz), buzz_path(buzz), class:"buzz-headline" %>
+              </h1>
+              <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

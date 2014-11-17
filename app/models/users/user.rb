@@ -18,6 +18,7 @@
 #  last_sign_in_ip        :inet
 #  type                   :string(255)
 #  name                   :string(255)      default("")
+#  picture                :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -29,6 +30,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  mount_uploader :picture, PictureUploader
 
   def team?
     false
