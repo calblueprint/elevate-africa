@@ -11,20 +11,25 @@
   <% end %>
 
   <div class="campaigns-create-first">
-    <div class="campaigns-create-field" id="campaigns-create-field-name">
+    <div class="campaigns-create-field">
       <%= f.label :name %><br>
       <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
     </div>
 
-    <div class="campaigns-create-field" id="campaigns-create-field-duration">
+    <div class="campaigns-create-field">
       <%= f.label :duration %><br>
       <%= f.text_field :duration, placeholder: "duration in days here" %>
     </div>
 
-    <div class="campaigns-create-field" id="campaigns-create-field-goal">
+    <div class="campaigns-create-field">
       <%= f.label :goal %><br>
       <span id="campaigns-create-dollar-sign">$</span>
       <%= f.text_field :goal, value: "1,234" %>
+    </div>
+
+    <div class="campaigns-create-field campaigns-create-drop-down">
+      <%= f.label :type %><br>
+      <%= f.select :type, [["Adventure", 0], ["Birthday", 1], ["Wedding", 2]] %>
     </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>

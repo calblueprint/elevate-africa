@@ -27,41 +27,53 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-incorrect");
     });
 
-    $(".campaigns-create-field").not(".campaigns-create-text-area").focusout(function() {
-      var field = $(this).find("input");
+    $(".campaigns-create-field").not(".campaigns-create-drop-down").focusout(function() {
+      var field;
+      if($(this).hasClass("campaigns-create-text-area"))
+        field = $(this).find("textarea");
+      else
+        field = $(this).find("input");
+
       if($.trim(field.val()).length == 0) {
         field.val("");
         $(this).addClass("campaigns-create-field-incorrect");
       }
       else
         $(this).removeClass("campaigns-create-field-incorrect");
+
       $(this).removeClass("campaigns-create-field-selected");
     });
 
-    $(".campaigns-create-text-area").focusout(function() {
-      var area = $(this).find("textarea");
-      if($.trim(area.val()).length == 0) {
-        area.val("");
-        $(this).addClass("campaigns-create-field-incorrect");
-      }
-      else
-        $(this).removeClass("campaigns-create-field-incorrect");
-      $(this).removeClass("campaigns-create-field-selected");
-    });
+    // $(".campaigns-create-text-area").focusout(function() {
+    //   var area = $(this).find("textarea");
+    //   if($.trim(area.val()).length == 0) {
+    //     area.val("");
+    //     $(this).addClass("campaigns-create-field-incorrect");
+    //   }
+    //   else
+    //     $(this).removeClass("campaigns-create-field-incorrect");
+    //   $(this).removeClass("campaigns-create-field-selected");
+    // });
 
     // field change
     $("#campaign_goal").on("change", function() {
-      var param = $("#campaign_goal").val().replace(/\D/g, '');
-      var count = 0;
-      for(i = param.length-1; i >= 0; i--) {
-        if(count < 3)
-          count++;
-        else {
-          count = 1;
-          param = param.substring(0,i+1) + "," + param.substring(i+1);
-        }
+      var param = $("#campaign_goal").val();
+      if($("#campaign_goal").val() != $("#campaign_goal").val().replace(/\D,/g, '')) {
+        $("#campaign_goal").val("");
       }
-      $("#campaign_goal").val(param);
+      else {
+        var count = 0;
+        param = param.replace(/\D/g, '');
+        for(i = param.length-1; i >= 0; i--) {
+          if(count < 3)
+            count++;
+          else {
+            count = 1;
+            param = param.substring(0,i+1) + "," + param.substring(i+1);
+          }
+        }
+        $("#campaign_goal").val(param);
+      }
     });
 
     $("#campaign_duration").on("change", function () {
@@ -209,14 +221,14 @@ function campaignsCheckValidityOne() {
     bool = false;
   if(!campaignsFieldValidity("duration"))
     bool = false;
+  console.log(bool);
   return bool;
 }
 
 function campaignsFieldValidity(name) {
-  var field = $("#campaigns-create-field-" + name)
-  var str = field.find("input");
+  var str = $("#campaign_" + name)
   if($.trim(str.val()).length == 0) {
-    field.addClass("campaigns-create-field-incorrect");
+    str.parent().addClass("campaigns-create-field-incorrect");
     return false;
   }
   return true
