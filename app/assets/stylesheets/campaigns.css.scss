@@ -168,7 +168,7 @@ for the about.css.scss file custom styling*/
   margin: 1.25% 1.25%;
 
   float: left;
-  opacity: 0.8;
+  opacity: 0.875;
 
   &:hover {
     cursor: pointer;
@@ -189,7 +189,7 @@ for the about.css.scss file custom styling*/
   margin: auto;
   width: 350px;
   height: 150px;
-  margin-top: -400px;
+  margin-top: -450px;
   padding: 2.5% 2.5% 0 2.5%;
 
   border-radius: 4px;
@@ -204,9 +204,9 @@ for the about.css.scss file custom styling*/
   width: 46.25%;
   height: 50px;
   display: inline-block;
-  padding-top: 4%;
+  padding-top: 4.25%;
 
-  font: normal 20px Bitter;
+  font: normal 16px Bitter;
   border-radius: 4px;
 
   &:hover {
@@ -225,8 +225,8 @@ for the about.css.scss file custom styling*/
 
 #campaigns-create-missing-button-random {
   margin-right: 2.5%;
-  border: 1px solid #CCCCCC;
-  color: #CCCCCC;
+  border: 1px solid $light-gray;
+  color: $light-gray;
 
   &:hover {
     color: $primary-color;
@@ -235,7 +235,7 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-create-field {
-  border: 1px solid #CCCCCC;
+  border: 1px solid $light-gray;
   border-radius: 4px;
 
   padding: 10px 10px;
@@ -275,7 +275,7 @@ for the about.css.scss file custom styling*/
 
 .campaigns-create-text-area {
   margin-bottom: 18px;
-  padding: 0 0;
+  padding: 1px 1px;
 }
 
 .campaigns-create-field-selected {
@@ -315,7 +315,7 @@ for the about.css.scss file custom styling*/
 .campaigns-create-example-button {
   width: 30%;
   height: 50px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid $light-gray;
   border-radius: 4px;
 
   display: inline-block;
@@ -323,7 +323,7 @@ for the about.css.scss file custom styling*/
 
   padding-top: 4.0%;
   font: normal 14px Bitter;
-  color: #CCCCCC;
+  color: $light-gray;
 
   &:hover {
     color: $primary-color;
