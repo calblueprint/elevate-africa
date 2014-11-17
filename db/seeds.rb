@@ -21,13 +21,13 @@ end
 
 def create_admin
   1.times do |n|
-    Admin.create email: "admin#{n + 1}@gmail.com",
+    Admin.create! email: "admin#{n + 1}@gmail.com",
                  password: "password",
                  name: Faker::Name.name
   end
 end
 
-def create_team_and_campaign_with_donations
+def create_team_and_campaign
   10.times do |n|
     team = Team.create email: "team#{n}@gmail.com",
                        password: "password",
@@ -35,12 +35,18 @@ def create_team_and_campaign_with_donations
     team.campaign = Campaign.create name: Faker::Name.name,
                                     goal: 1000.00,
                                     description: Faker::Lorem.paragraph
-    team.campaign.donations.create name: Faker::Name.name,
-                                   amount: Random.rand(0..1000)
+  end
+end
 
+def create_donations
+  Team.all.each do |team|
+    team.campaign.donations.create! name: Faker::Name.name,
+                                    amount: Random.rand(0..1000),
+                                    email: Faker::Internet.email
   end
 end
 
 create_admin_with_buzzes
 create_admin
-create_team_and_campaign_with_donations
+create_team_and_campaign
+create_donations
