@@ -3,10 +3,9 @@
 # Table name: achievements
 #
 #  id         :integer          not null, primary key
-#  team_id    :integer
-#  badge      :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  name       :integer
 #
 
 class Achievement < ActiveRecord::Base
