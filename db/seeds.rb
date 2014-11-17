@@ -8,9 +8,9 @@
 
 def create_admin_with_buzzes
   admin = Admin.create! email: "admin0@gmail.com",
-                       password: "password",
-                       name: Faker::Name.name
-  5.times do |n|
+                        password: "password",
+                        name: Faker::Name.name
+  5.times do
     admin.buzzes.create headline: "This is a cool headline",
                         subhead: "This is a cool subhead",
                         content: Faker::Lorem.paragraph(8),
@@ -21,7 +21,7 @@ end
 
 def create_admin
   1.times do |n|
-    Admin.create email: "admin#{n+1}@gmail.com",
+    Admin.create email: "admin#{n + 1}@gmail.com",
                  password: "password",
                  name: Faker::Name.name
   end

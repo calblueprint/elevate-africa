@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = "You've successfully updated your profile!"
       redirect_to after_sign_in_path_for @user
     else
-      render 'edit'
+      render "edit"
     end
   end
 
