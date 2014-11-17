@@ -87,9 +87,9 @@
   <div id="campaign-show-footer">
     <h2 class="campaign-show-footer-font margin-bottom">
       <%= link_to "<< BACK TO ALL CAMPAIGNS | ", campaigns_path %>
-      <% #if current_user == @campaign.user %>
+      <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
-      <% #end %>
+      <% end %>
       <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign) %>
     </h2>
   </div>
