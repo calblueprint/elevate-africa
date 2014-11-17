@@ -16,45 +16,53 @@
       <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
     </div>
 
+    <div class="campaigns-create-field" id="campaigns-create-field-duration">
+      <%= f.label :duration %><br>
+      <%= f.text_field :duration, placeholder: "duration in days here" %>
+    </div>
+
     <div class="campaigns-create-field" id="campaigns-create-field-goal">
       <%= f.label :goal %><br>
       <span id="campaigns-create-dollar-sign">$</span>
       <%= f.text_field :goal, value: "1,234" %>
     </div>
 
-    <div class="campaigns-create-field" id="campaigns-create-field-duration">
-      <%= f.label :duration %><br>
-      <%= f.text_field :duration, placeholder: "duration in days here" %>
-    </div>
-    <div class="campaigns-create-button" id="campaigns-create-submit-one">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>
   </div>
 
   <div class="campaigns-create-second">
     <div class="campaigns-create-example-buttons-container">
-      <a class="campaigns-create-example-button" id="campaigns-create-example-one" onclick="campaignsChangeDescription('one')">Example 1</a>
-      <a class="campaigns-create-example-button" id="campaigns-create-example-two" onclick="campaignsChangeDescription('two')">Example 2</a>
-      <a class="campaigns-create-example-button" id="campaigns-create-example-custom" onclick="campaignsChangeDescription('custom')">Custom</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-one" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">Example 1</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-two" data-content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.">Example 2</a>
+      <a class="campaigns-create-example-button" id="campaigns-create-example-custom" data-content="">Custom</a>
     </div>
 
     <div class="campaigns-create-field campaigns-create-text-area">
-      <%= f.text_area :description %>
+      <%= f.text_area :description, placeholder: "campaign description here" %>
     </div>
 
-    <div class="campaigns-create-button" id="campaigns-create-submit-two">CONTINUE</div>
+    <div class="campaigns-create-button" id="campaigns-create-submit-two">Continue</div>
   </div>
 
   <div class="campaigns-create-third">
     <div class="campaigns-create-preview-container">
       <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview"/>
+
+      <div id="campaigns-create-picture-options-container">
+        <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('one')" alt="image preview" id="campaigns-create-picture-option-one" data-url="create-pic-one.png"/>
+        <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('two')" alt="image preview" id="campaigns-create-picture-option-two" data-url="create-pic-two.png"/>
+        <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('three')" alt="image preview" id="campaigns-create-picture-option-three" data-url="create-pic-three.png"/>
+        <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('four')" alt="image preview" id="campaigns-create-picture-option-four" data-url="create-pic-four.png"/>
+      </div>
     </div>
 
     <div class="campaigns-create-picture-buttons-container">
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-upload" onclick="campaignsUploadPicture()">
-        UPLOAD
+        Upload
         <p>your own photo</p>
       </a>
       <a class="campaigns-create-picture-button" id="campaigns-create-picture-choose" onclick="campaignsChooseOptions()">
-        CHOOSE
+        Choose
         <p>one of ours</p>
       </a>
     </div>
@@ -65,6 +73,8 @@
 
     <%= f.hidden_field :team_id, value: current_user.id %>
 
-    <%= f.submit "SUBMIT", class: "campaigns-create-button" %>
+    <%= hidden_field_tag :picture_choose, "", id: "campaigns-create-hidden-picture" %>
+
+    <%= f.submit "Finish", class: "campaigns-create-button" %>
   </div>
 <% end %>

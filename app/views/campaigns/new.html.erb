@@ -1,15 +1,33 @@
 <div id="campaigns-create-background">
   <div class="small-container campaigns-create-padding">
-    <div class="campaigns-create-header"></div>
+    <div class="campaigns-create-header">
+      <div class="campaigns-create-tab campaigns-create-tab-colored" id="campaigns-create-tab-one">
+        <span class="campaigns-create-tab-number">1.</span>
+        <span>Campaign Basics</span>
+      </div>
+      <div class="campaigns-create-tab" id="campaigns-create-tab-two">
+        <span class="campaigns-create-tab-number">2</span>
+        <span>Campaign Description</span>
+      </div>
+      <div class="campaigns-create-tab" id="campaigns-create-tab-three">
+        <span class="campaigns-create-tab-number">3</span>
+        <span>Campaign Photo</span>
+      </div>
+    </div>
     <div class="campaigns-create-body">
-      <h4 id="campaigns-create-title">Create Your Campaign</h4>
       <%= render "campaign_form" %>
     </div>
-    <div class="campaigns-create-picture-options-container">
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('one')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('two')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('three')" alt="image preview"/>
-      <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('four')" alt="image preview"/>
+    <div id="campaigns-create-missing-picture-container">
+      <div class="campaigns-create-sub-header">
+        We need a photo!
+        <img class="campaigns-create-sub-header-close" src="<%= asset_path("close_button.png") %>" id="campaigns-create-sub-header-close-missing"/>
+        <hr>
+      </div>
+      Want to upload your own?
+      <div class="campaigns-create-missing-button" id="campaigns-create-missing-button-random">Random</div>
+      <div class="campaigns-create-missing-button" id="campaigns-create-missing-button-upload">Upload</div>
     </div>
   </div>
 </div>
+<div id="campaigns-create-white-fade"></div>
+

@@ -23,6 +23,18 @@ for the about.css.scss file custom styling*/
   height: 1000px;
 }
 
+#campaigns-create-white-fade {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .campaigns-create-padding {
   padding: 72px;
 }
@@ -33,23 +45,73 @@ for the about.css.scss file custom styling*/
   margin: auto;
   width: 400px;
   height: 50px;
-  border: solid;
-  border-color: #CCCCCC;
-  border-width: 1px;
+  border: 1px solid $light-gray;
   border-bottom: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  background-color: #EEEEEE;
+  background-color: #F9F9F9;
+}
+
+.campaigns-create-tab {
+  position: relative;
+  z-index: 2;
+
+  display: inline-block;
+  float: left;
+  height: 100%;
+  border-right: 1px solid $light-gray;
+  width: 75%;
+
+  font: normal 14px Bitter;
+  color: #CCC;
+
+  vertical-align: middle;
+  overflow: hidden;
+
+  span {
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 16px;
+    height: 100%;
+
+    transition: 0.4s linear all;
+  }
+
+  .campaigns-create-tab-number {
+    float: left;
+    width: 50px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.campaigns-create-tab-colored {
+  color: $dark-gray;
+}
+
+#campaigns-create-tab-two {
+  width: 12.25%;
+}
+
+#campaigns-create-tab-three {
+  border-right: 0;
+  width: 12.25%;
 }
 
 .campaigns-create-body {
+  position: relative;
+  z-index: 1;
+
   display: block;
   text-align: center;
   margin: auto;
   width: 400px;
 
   border: solid;
-  border-color: #CCCCCC;
+  border-color: $light-gray;
   border-width: 1px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -57,35 +119,56 @@ for the about.css.scss file custom styling*/
   padding: 24px 18px;
 
   #campaigns-create-title {
+    position: relative;
+    color: black;
     font-size: 24px;
     margin-bottom: 24px;
   }
 }
 
-.campaigns-create-picture-options-container {
+.campaigns-create-sub-header {
+  width: 100%;
+  font: lighter 20px Lato, sans-serif;
+  text-align: left;
+
+  hr {
+    size: 1px;
+    margin: 2% 0;
+  }
+}
+
+.campaigns-create-sub-header-close {
+  width: 7.5%;
+  float: right;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#campaigns-create-picture-options-container {
   position: relative;
-  z-index: 1;
+  z-index: 4;
 
   display: block;
   text-align: center;
   margin: auto;
   width: 350px;
   height: 350px;
-  margin-top: -560px;
+  margin-top: -360px;
+  margin-bottom: 28px;
+  padding: 2.5% 2.5%;
 
-  // border: solid;
-  // border-color: #CCCCCC;
-  // border-width: 1px;
+  border-radius: 4px;
   background-color: white;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .campaigns-create-picture-option {
-  width: 167.5px;
-  padding-top: 12.5px;
-  padding-left: 12.5px;
+  width: 47.5%;
+  margin: 1.25% 1.25%;
+
   float: left;
-  opacity: 0.75;
+  opacity: 0.875;
 
   &:hover {
     cursor: pointer;
@@ -93,10 +176,66 @@ for the about.css.scss file custom styling*/
   }
 }
 
+.campaigns-create-picture-option-left {
+  // margin-right: 2.5%;
+}
+
+#campaigns-create-missing-picture-container {
+  position: relative;
+  z-index: 5;
+
+  display: block;
+  text-align: center;
+  margin: auto;
+  width: 350px;
+  height: 150px;
+  margin-top: -450px;
+  padding: 2.5% 2.5% 0 2.5%;
+
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0px 0px 7.5px 0px rgba(0, 0, 0, 0.75);
+
+  font: lighter 20px Lato, sans-serif;
+}
+
+.campaigns-create-missing-button {
+  margin-top: 2.5%;
+  width: 46.25%;
+  height: 50px;
+  display: inline-block;
+  padding-top: 4.25%;
+
+  font: normal 16px Bitter;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#campaigns-create-missing-button-upload {
+  background: $primary-color;
+  color: #fff;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+#campaigns-create-missing-button-random {
+  margin-right: 2.5%;
+  border: 1px solid $light-gray;
+  color: $light-gray;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
 .campaigns-create-field {
-  border: solid;
-  border-color: #CCCCCC;
-  border-width: 1px;
+  border: 1px solid $light-gray;
   border-radius: 4px;
 
   padding: 10px 10px;
@@ -124,6 +263,7 @@ for the about.css.scss file custom styling*/
   #campaigns-create-dollar-sign {
     position: absolute;
     padding-top: 1px;
+    color: $light-gray;
   }
 
   #campaign_description {
@@ -134,7 +274,8 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-create-text-area {
-  padding: 0 1px;
+  margin-bottom: 18px;
+  padding: 1px 1px;
 }
 
 .campaigns-create-field-selected {
@@ -146,18 +287,18 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-create-button {
-  padding-top: 3.5%;
-  border-radius: 4px;
+  padding-top: 4.5%;
   width: 100%;
-  height: 75px;
+  height: 65px;
   display: inline-block;
   margin: 0 0;
 
-  font: bold 36px Lato, sans-serif;
+  font: bold 24px Lato, sans-serif;
 
   background: $primary-color;
   color: #fff;
   border: none;
+  border-radius: 4px;
 
   &:hover {
     cursor: pointer;
@@ -168,39 +309,33 @@ for the about.css.scss file custom styling*/
 .campaigns-create-example-buttons-container {
   width: 100%;
   height: 50px;
-  margin: 18px 0;
+  margin: 0 0 18px 0;
 }
 
 .campaigns-create-example-button {
   width: 30%;
   height: 50px;
+  border: 1px solid $light-gray;
   border-radius: 4px;
-  border: solid;
-  border-color: #CCCCCC;
-  border-width: 1px;
 
   display: inline-block;
   float: left;
 
   padding-top: 4.0%;
   font: normal 14px Bitter;
-  color: #CCCCCC;
+  color: $light-gray;
 
   &:hover {
     color: $primary-color;
     border-color: $primary-color;
+    background-color: #FFFDF8;
     cursor: pointer;
   }
 }
 
 .campaigns-create-example-colored {
-  background-color: $primary-color;
+  color: $primary-color;
   border-color: $primary-color;
-  color: white;
-
-  &:hover {
-    color: white;
-  }
 }
 
 #campaigns-create-example-one, #campaigns-create-example-two {
@@ -216,10 +351,8 @@ for the about.css.scss file custom styling*/
 .campaigns-create-picture-button {
   width: 47.5%;
   height: 61.5px;
+  border: 1px solid $primary-color;
   border-radius: 4px;
-  border: solid;
-  border-color: #CCCCCC;
-  border-width: 1px;
 
   display: inline-block;
   float: left;
@@ -230,11 +363,12 @@ for the about.css.scss file custom styling*/
 
   &:hover {
     cursor: pointer;
-    border-color: $primary-color;
+    background-color: #FFFDF8;
   }
 
   p {
     font: normal 12px Bitter;
+    color: $dark-gray;
     padding: 0 0;
     margin: 0 0;
   }
@@ -247,11 +381,19 @@ for the about.css.scss file custom styling*/
 
 .campaigns-create-preview-container {
   width: 100%;
+  height: 362px;
   margin-bottom: 18px;
+  border: solid 1px $light-gray;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 #campaigns-create-preview {
-  width: 100%;
+  height: 362px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #campaigns-create-picture-upload {
