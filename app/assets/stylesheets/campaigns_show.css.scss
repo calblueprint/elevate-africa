@@ -72,6 +72,19 @@ for the about.css.scss file custom styling*/
   float: left;
 }
 
+// Warren Start
+
+#campaigns-adventure-background {
+  width: 666px;
+  height: 500px;
+  background: url(asset_path("adventure_background.png"));
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  float: left;
+}
+
+// Warren End
+
 #campaign-by-names {
   width: 200px;
   float: right;
