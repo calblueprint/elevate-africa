@@ -213,7 +213,6 @@ function campaignsCheckValidityOne() {
     bool = false;
   if(!campaignsFieldValidity("duration"))
     bool = false;
-  console.log(bool);
   return bool;
 }
 

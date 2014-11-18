@@ -11,6 +11,7 @@
 #  team_id     :integer
 #  picture     :string(255)
 #  duration    :integer
+#  type        :integer
 #
 
 class Campaign < ActiveRecord::Base
