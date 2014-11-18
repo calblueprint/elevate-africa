@@ -10,6 +10,18 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
+
+    // adventure
+    $("#campaigns-adventure-background").click(function() {
+      $(".campaigns-adventure-wheel").addClass("campaigns-adventure-wheel-rolling");
+      $(this).animate(
+        {"background-position-x": "-=300px"},
+        {duration: 2000, complete: function() {
+          $(".campaigns-adventure-wheel").removeClass("campaigns-adventure-wheel-rolling");
+      }
+      });
+    });
+
     var tab_open = 0;
     var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
     var tab_two = false;

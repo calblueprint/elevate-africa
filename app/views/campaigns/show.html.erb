@@ -9,9 +9,14 @@
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
       <% end %>
-      <div id="campaigns-adventure-background">
 
+      <div id="campaigns-adventure-background">
+        <div id="campaigns-adventure-car">
+          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("adventure_wheel.png") %>"/>
+          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("adventure_wheel.png") %>"/>
+        </div>
       </div>
+
       <div id="campaign-info">
         <div class="campaign-info-container">
           <div id="campaign-picture">
