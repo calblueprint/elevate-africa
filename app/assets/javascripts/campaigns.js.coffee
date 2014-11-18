@@ -1,5 +1,4 @@
 startCampaignIndex = ->
-  console.log 'hello'
   if $('#campaign-index').length > 0
     start_progress()
     # start_typed()
@@ -33,6 +32,5 @@ start_progress = ->
 #               showCursor: true,
 #             }
 #   $("#campaign-index-search").typed options
-
-$(document).on 'page:load', startCampaignIndex
 $(document).ready startCampaignIndex
+$(document).on 'page:load', startCampaignIndex

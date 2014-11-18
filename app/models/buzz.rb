@@ -38,7 +38,6 @@ class Buzz < ActiveRecord::Base
   validates :box_size, presence: true
   validates :box_color, presence: true
 
-
   mount_uploader :picture, PictureUploader
 
   # Formats date

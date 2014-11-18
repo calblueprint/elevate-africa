@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 20141117181315) do
 
   add_index "donations", ["campaign_id"], name: "index_donations_on_campaign_id", using: :btree
 
+  create_table "people", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "subject"
+    t.string   "email"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -93,6 +103,7 @@ ActiveRecord::Schema.define(version: 20141117181315) do
     t.inet     "last_sign_in_ip"
     t.string   "type"
     t.string   "name",                   default: ""
+    t.string   "picture"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -12,10 +12,9 @@ Rails.application.routes.draw do
   get "static_pages/contact_email", to: "static_pages#contact_email"
   post "contact", to: "static_pages#contact_email"
 
+  resources :users, only: [:edit, :update, :show]
   resources :buzzes
-
-  resources :teams, except: :index
-
+  resources :teams, except: [:index, :show]
   resources :campaigns do
     resources :donations
   end
