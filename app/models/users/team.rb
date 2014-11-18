@@ -24,6 +24,8 @@
 class Team < User
   has_one :campaign
 
+  has_and_belongs_to_many :achievements
+
   def team?
     true
   end
