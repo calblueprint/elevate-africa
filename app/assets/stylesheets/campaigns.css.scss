@@ -241,6 +241,10 @@ for the about.css.scss file custom styling*/
   padding: 10px 10px;
   margin-bottom: 24px;
 
+  &:hover {
+    cursor: text;
+  }
+
   label {
     font: normal 14px Bitter;
     float: left;
@@ -276,6 +280,20 @@ for the about.css.scss file custom styling*/
 .campaigns-create-text-area {
   margin-bottom: 18px;
   padding: 1px 1px;
+}
+
+.campaigns-create-drop-down {
+  &:hover {
+    cursor: pointer;
+  }
+
+  #campaign_type {
+    width: 102.5%;
+    margin-left: -7px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .campaigns-create-field-selected {

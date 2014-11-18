@@ -27,14 +27,15 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-incorrect");
     });
 
-    $(".campaigns-create-field").not(".campaigns-create-drop-down").focusout(function() {
-      var field;
+    $(".campaigns-create-field").focusout(function() {
+      var field = null;
       if($(this).hasClass("campaigns-create-text-area"))
         field = $(this).find("textarea");
+      else if($(this).hasClass("campaigns-create-drop-down")) {}
       else
         field = $(this).find("input");
 
-      if($.trim(field.val()).length == 0) {
+      if(field != null && $.trim(field.val()).length == 0) {
         field.val("");
         $(this).addClass("campaigns-create-field-incorrect");
       }
@@ -44,26 +45,15 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-selected");
     });
 
-    // $(".campaigns-create-text-area").focusout(function() {
-    //   var area = $(this).find("textarea");
-    //   if($.trim(area.val()).length == 0) {
-    //     area.val("");
-    //     $(this).addClass("campaigns-create-field-incorrect");
-    //   }
-    //   else
-    //     $(this).removeClass("campaigns-create-field-incorrect");
-    //   $(this).removeClass("campaigns-create-field-selected");
-    // });
-
     // field change
     $("#campaign_goal").on("change", function() {
       var param = $("#campaign_goal").val();
-      if($("#campaign_goal").val() != $("#campaign_goal").val().replace(/\D,/g, '')) {
+      if(param != param.replace(/[^\d,]/, '')) {
         $("#campaign_goal").val("");
       }
       else {
         var count = 0;
-        param = param.replace(/\D/g, '');
+        param = param.replace(/[^\d]/, '');
         for(i = param.length-1; i >= 0; i--) {
           if(count < 3)
             count++;
@@ -77,8 +67,10 @@ var ready = function() {
     });
 
     $("#campaign_duration").on("change", function () {
-      var param = $("#campaign_duration").val().replace(/\D/g, '');
-      $("#campaign_duration").val(param);
+      var param = $("#campaign_duration").val();
+      if(param != param.replace(/[^\d]/, '')) {
+        $("#campaign_duration").val("");
+      }
     });
 
     // description change
