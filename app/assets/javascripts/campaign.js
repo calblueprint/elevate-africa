@@ -11,15 +11,17 @@ $(document).on('page:load', ready_campaign);
 var ready = function() {
   $(document).ready(function() {
 
-    // adventure
+    // // adventure
     $("#campaigns-adventure-background").click(function() {
-      $(".campaigns-adventure-wheel").addClass("campaigns-adventure-wheel-rolling");
-      $(this).animate(
-        {"background-position-x": "-=300px"},
-        {duration: 2000, complete: function() {
+      $("#campaigns-adventure-team").addClass("campaigns-adventure-team-hide");
+      setTimeout(function() {
+        $(".campaigns-adventure-wheel").addClass("campaigns-adventure-wheel-rolling");
+        $("#campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
+        setTimeout(function() {
           $(".campaigns-adventure-wheel").removeClass("campaigns-adventure-wheel-rolling");
-      }
-      });
+          $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
+        }, 3000);
+      }, 1000);
     });
 
     var tab_open = 0;
