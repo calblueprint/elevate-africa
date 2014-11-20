@@ -10,16 +10,21 @@
         </div>
       <% end %>
 
-      <div id="campaigns-adventure-background">
-        <div id="campaigns-adventure-car">
-          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("adventure_wheel.png") %>"/>
-          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("adventure_wheel.png") %>"/>
-          <div id="campaigns-adventure-team">
-            <img id="campaigns-adventure-pointer" src="<%= asset_path("adventure_pointer.png") %>"/>
-            <img id="campaigns-adventure-team-picture" src="<%= asset_path("create-pic-one.png") %>"/>
+      <% if @campaign.adventure? %>
+        <p>Last donation amount: <%= @campaign.most_recent_donation.try(:amount) %>
+        <div id="campaigns-adventure-background">
+          <div id="campaigns-adventure-car">
+            <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("adventure_wheel.png") %>"/>
+            <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("adventure_wheel.png") %>"/>
+            <div id="campaigns-adventure-team">
+              <img id="campaigns-adventure-pointer" src="<%= asset_path("adventure_pointer.png") %>"/>
+              <img id="campaigns-adventure-team-picture" src="<%= asset_path("create-pic-one.png") %>"/>
+            </div>
           </div>
         </div>
-      </div>
+      <% else %>
+        <div id="campaign-adventure"></div>
+      <% end %>
 
       <div id="campaign-info">
         <div class="campaign-info-container">

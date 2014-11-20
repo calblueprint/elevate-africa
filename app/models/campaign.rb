@@ -52,4 +52,8 @@ class Campaign < ActiveRecord::Base
       c.team.name.downcase.include?(search)
     end
   end
+
+  def most_recent_donation
+    donations.order_by_most_recent.first
+  end
 end
