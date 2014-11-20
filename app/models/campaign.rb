@@ -16,6 +16,7 @@
 
 class Campaign < ActiveRecord::Base
   default_scope { order("created_at DESC") }
+  enum kind: [ :adventure, :birthday, :wedding, :celebration ]
 
   belongs_to :team
 
