@@ -29,7 +29,8 @@ for the about.css.scss file custom styling*/
   background-position: center;
 
   p {
-    padding-top: 200px;
+    width: 600px;
+    margin: auto;
     font: lighter 12px Lato;
     color: rgba(255, 255, 255, 0.75);
   }
@@ -45,15 +46,22 @@ for the about.css.scss file custom styling*/
 
 .footer-table {
   padding: 0px 0px;
-  margin: 0 12.5% 0 12.5%;
+  margin: 0 20% 0 20%;
 
-  ul {
-    list-style-type: none;
+  div {
+    margin-top: 2%;
+  }
+
+  a {
     padding: 0 0;
     opacity: 0.875;
 
     font: lighter 14px Lato;
     color: rgba(255, 255, 255, 0.875);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -63,19 +71,25 @@ for the about.css.scss file custom styling*/
   width: 33.33%;
 }
 
-.footer-extra {
-  width: 100%;
-  display: inline-block;
-  vertical-align: middle;
-
-  p {
-  	color: $light-gray;
-  	display: inline;
-  }
+#footer-africa-icon {
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
-#footer-blueprint {
-  height: 30px;
-  width: 30px;
-  vertical-align: middle;
-}
+// .footer-extra {
+//   width: 100%;
+//   display: inline-block;
+//   vertical-align: middle;
+
+//   p {
+//   	color: $light-gray;
+//   	display: inline;
+//   }
+// }
+
+// #footer-blueprint {
+//   height: 30px;
+//   width: 30px;
+//   vertical-align: middle;
+// }
