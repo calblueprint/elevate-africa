@@ -8,7 +8,7 @@
         <div id="campaign-complete-banner">
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
-      <% end %> 
+      <% end %>
       <div id="campaign-adventure"></div>
       <div id="campaign-info">
         <div class="campaign-info-container">
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign.id), class: "button", id: "campaign-donate-button" %>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
                 <% end %>
               </table>
             <% else %>
-              <div class="campaign-no-donations">No donations yet!</div>  
+              <div class="campaign-no-donations">No donations yet!</div>
             <% end %>
           </p>
         </div>
