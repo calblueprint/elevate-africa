@@ -7,9 +7,7 @@
     <%= link_to "CAMPAIGN", static_campaign_path, class: 'navbar-tab' %>
     <%= link_to "ABOUT", about_path, class: 'navbar-tab' %>
     <% if current_user %>
-      <%= link_to "SIGN OUT", destroy_user_session_path,
-                              method: :delete,
-                              class: "navbar-tab sign-in" %>
+      <%= link_to "DASHBOARD", user_path(current_user), class: "navbar-tab" %>
     <% else %>
       <%= link_to "SIGN IN", new_user_session_path,  class: "navbar-tab sign-in" %>
     <% end %>

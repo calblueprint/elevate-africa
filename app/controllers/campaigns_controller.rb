@@ -21,6 +21,13 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
+
+    if params[:picture_choose] != ""
+      src = File.join(Rails.root, "/app/assets/images/" + params[:picture_choose])
+      src_file = File.new(src)
+      params[:campaign][:picture] = src_file
+    end
+
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       redirect_to @campaign
@@ -54,8 +61,7 @@ class CampaignsController < ApplicationController
 
   private
   def campaign_params
-    params.require(:campaign).permit(:name, :goal, :description,
-                                     :duration, :picture, :team_id)
+    params.require(:campaign).permit(:name, :duration, :goal, :kind, :description, :picture, :team_id)
   end
 
   def authenticate_team

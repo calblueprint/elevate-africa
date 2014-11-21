@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if user.admin?
       root_path
     elsif user.team?
-      team_path user
+      user_path user
     end
   end
 end

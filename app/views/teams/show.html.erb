@@ -1,9 +1,0 @@
-<div class="medium-container padding">
-  <h1>User Dashboard</h1>
-  <%= link_to "Edit Your Profile!", edit_team_path(@team) %>
-  <% if @campaign.blank? %>
-    <%= link_to "Start a new campaign!", new_campaign_path, class: 'button' %>
-  <% else %>
-    <%= link_to "Check out your campaign!", campaign_path(@campaign), class: 'button' %>
-  <% end %>
-</div>

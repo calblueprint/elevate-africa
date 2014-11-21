@@ -8,8 +8,14 @@
         <div id="campaign-complete-banner">
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
-      <% end %> 
-      <div id="campaign-adventure"></div>
+      <% end %>
+
+      <% if @campaign.adventure? %>
+        <%= render "campaign_adventure" %>
+      <% else %>
+        <%= render "campaign_default" %>
+      <% end %>
+
       <div id="campaign-info">
         <div class="campaign-info-container">
           <div id="campaign-picture">
@@ -74,7 +80,7 @@
                 <% end %>
               </table>
             <% else %>
-              <div class="campaign-no-donations">No donations yet!</div>  
+              <div class="campaign-no-donations">No donations yet!</div>
             <% end %>
           </p>
         </div>
