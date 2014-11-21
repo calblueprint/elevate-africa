@@ -1,3 +1,19 @@
+var tab_open = 0;
+var tab_hash = {
+                 0: "#campaigns-create-tab-one",
+                 1: "#campaigns-create-tab-two",
+                 2: "#campaigns-create-tab-three",
+                 3: "#campaigns-create-tab-four"
+               };
+var show_hash = {
+                 0: ".campaigns-create-1",
+                 1: ".campaigns-create-2",
+                 2: ".campaigns-create-3",
+                 3: ".campaigns-create-4"
+               };
+var tab_two = false;
+var example_open = 0;
+
 var ready_campaign = function() {
   if ($("#campaign-banner").length > 0) {
       $(document).ready(function() {
@@ -10,16 +26,6 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
-    var tab_open = 0;
-    var tab_hash = {
-                     0: "#campaigns-create-tab-one",
-                     1: "#campaigns-create-tab-two",
-                     2: "#campaigns-create-tab-three",
-                     3: "#campaigns-create-tab-four"
-                   };
-    var tab_two = false;
-    var example_open = 0;
-
     // field select
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
@@ -128,7 +134,7 @@ var ready = function() {
     $("#campaigns-create-tab-one").click(function() {
       if(tab_open > 0) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateTabContent('first', 'second', 'third', 'Create a Campaign');
+        campaignsCreateTabContent(1, 'Create a Campaign');
         tab_open = 0;
         $(this).find(".campaigns-create-tab-number").text("1.");
       }
@@ -141,7 +147,7 @@ var ready = function() {
       }
       if(tab_open > 1 || tab_open < 1 && campaignsCheckValidityOne()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateTabContent('second', 'first', 'third', 'Write a Mission');
+        campaignsCreateTabContent(2, 'Write a Mission');
         tab_open = 1;
         $(this).find(".campaigns-create-tab-number").text("2.");
       }
@@ -150,7 +156,7 @@ var ready = function() {
     $("#campaigns-create-tab-three").click(function() {
       if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateTabContent('third', 'first', 'second', 'Upload a Picture');
+        campaignsCreateTabContent(3, 'Upload a Picture');
         tab_open = 2;
         $(this).find(".campaigns-create-tab-number").text("3.");
       }
@@ -159,9 +165,9 @@ var ready = function() {
     $("#campaigns-create-tab-four").click(function() {
       if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
-        campaignsCreateTabContent('third', 'first', 'second', 'Sign Up to Create Campaign!');
+        campaignsCreateTabContent(4, 'Sign Up to Create Campaign!');
         tab_open = 2;
-        $(this).find(".campaigns-create-tab-number").text("3.");
+        $(this).find(".campaigns-create-tab-number").text("4.");
       }
     });
 
@@ -180,7 +186,8 @@ var ready = function() {
     });
 
     $("#campaigns-create-missing-button-random").click(function() {
-      campaignsChoosePicture(["one", "two", "three", "four"][Math.floor(Math.random() * 4)]);
+      var randomNum = Math.floor(Math.random() * 4)
+      campaignsChoosePicture(["one", "two", "three", "four"][randomNum]);
       $("#campaigns-create-missing-picture-container").fadeOut();
     });
 
@@ -196,9 +203,9 @@ var ready = function() {
     });
 
     // page load calls
-    $(".campaigns-create-second").hide();
-    $(".campaigns-create-third").hide();
-    $(".campaigns-create-fourth").hide()
+    $(".campaigns-create-2").hide();
+    $(".campaigns-create-3").hide();
+    $(".campaigns-create-4").hide()
     $("#campaigns-create-picture-options-container").hide();
     $("#campaigns-create-missing-picture-container").hide();
     $("#campaigns-create-white-fade").hide();
@@ -212,22 +219,17 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
   tab_open.find(".campaigns-create-tab-number").text(num + 1);
   tab_open.removeClass("campaigns-create-tab-colored");
   tab_clicked.addClass("campaigns-create-tab-colored");
-  tab_clicked.animate({width: "70%"});
-  tab_open.animate({width: "10%"});
+  tab_clicked.animate({ width: "70%" });
+  tab_open.animate({ width: "10%" });
 }
 
 function campaignsCheckValidityOne() {
-  var bool = true;
-  if(!campaignsFieldValidity("name"))
-    bool = false;
-  if(!campaignsFieldValidity("goal"))
-    bool = false;
-  if(!campaignsFieldValidity("duration"))
-    bool = false;
-  return bool;
+  return isFieldValid("name") &&
+         isFieldValid("goal") &&
+         isFieldValid("duration")
 }
 
-function campaignsFieldValidity(name) {
+function isFieldValid(name) {
   var field = $("#campaigns-create-field-" + name)
   var str = field.find("input");
   if($.trim(str.val()).length == 0) {
@@ -247,9 +249,10 @@ function campaignsCheckValidityTwo() {
   return true;
 }
 
-function campaignsCreateTabContent(a, b, c, title) {
-  $(".campaigns-create-" + b).hide();
-  $(".campaigns-create-" + c).hide();
+function campaignsCreateTabContent(a, title) {
+  for (var key in show_hash) {
+    if (key != a - 1) $(show_hash[key]).hide();
+  }
   $("#campaigns-create-title").text(title)
   $(".campaigns-create-" + a).show();
 }
