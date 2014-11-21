@@ -6,9 +6,17 @@
 .about-potato { width: 100px; }
 for the about.css.scss file custom styling*/
 
+#campaign-padding {
+  padding: 35px 25px 35px 25px;
+}
+
 .campaign-info-wrapper {
   width: 1000px;
-  height: 600px;
+  height: 550px;
+}
+
+#campaign-last-donation {
+  display: none;
 }
 
 .campaign-info-container {
@@ -172,21 +180,24 @@ for the about.css.scss file custom styling*/
   font: $h1;
   color: $primary-color;
   text-align: center;
-  font-size: 45px;
+  font-size: 30px;
 }
 
 #campaign-info {
   width: 319px;
-  height: 600px;
+  height: 550px;
   float: left;
   margin-left: 15px;
+  // margin-left: 200px;
+  // position: fixed;
+  // left: 50%
 }
 
 #campaign-donation {
   font: $h1;
   color: $primary-color;
   text-align: center;
-  font-size: 75px;
+  font-size: 55px;
 }
 
 #campaign-picture {
@@ -235,9 +246,14 @@ for the about.css.scss file custom styling*/
   font-size: 15px;
 }
 
+#campaign-show-footer {
+  width: 1000px;
+}
+
 .campaign-show-footer-font a:hover {
   font-weight: 600;
 }
+
 #campaign-progress {
   width: 300px;
   height: 120px;
@@ -289,14 +305,15 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-money-container {
-    height: 110px;
+    height: 100px;
 }
 
 /** TABBED-SECTION */
 .campaign-tabs {
-  width: 1000px;
+  width: 600px;
   display: inline-block;
   margin: auto;
+  margin-right: 401px;
 }
 
 .campaign-tab-links:after {
@@ -304,7 +321,9 @@ for the about.css.scss file custom styling*/
   clear: both;
   content: '';
 }
-
+#campaign-overview-font {
+  margin-right: 401px;
+}
 .campaign-tab-links li {
   margin: 0px 5px;
   float: left;
@@ -378,8 +397,4 @@ li.campaign-active a li.campaign-active a:hover {
 
 @media (max-width: 600px) {
   /* fill in :-( */
-<<<<<<< HEAD
-=======
-
->>>>>>> 65bd95c25ceef953c03dc2ed1a0308ff7a6c70c0
 }
