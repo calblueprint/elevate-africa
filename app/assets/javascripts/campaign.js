@@ -11,7 +11,12 @@ $(document).on('page:load', ready_campaign);
 var ready = function() {
   $(document).ready(function() {
     var tab_open = 0;
-    var tab_hash = {0: "#campaigns-create-tab-one", 1: "#campaigns-create-tab-two", 2: "#campaigns-create-tab-three"};
+    var tab_hash = {
+                     0: "#campaigns-create-tab-one",
+                     1: "#campaigns-create-tab-two",
+                     2: "#campaigns-create-tab-three",
+                     3: "#campaigns-create-tab-four"
+                   };
     var tab_two = false;
     var example_open = 0;
 
@@ -151,6 +156,15 @@ var ready = function() {
       }
     });
 
+    $("#campaigns-create-tab-four").click(function() {
+      if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
+        campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
+        campaignsCreateTabContent('third', 'first', 'second', 'Sign Up to Create Campaign!');
+        tab_open = 2;
+        $(this).find(".campaigns-create-tab-number").text("3.");
+      }
+    });
+
     // form submit
     $(".new_campaign").submit(function(event) {
       if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
@@ -184,6 +198,7 @@ var ready = function() {
     // page load calls
     $(".campaigns-create-second").hide();
     $(".campaigns-create-third").hide();
+    $(".campaigns-create-fourth").hide()
     $("#campaigns-create-picture-options-container").hide();
     $("#campaigns-create-missing-picture-container").hide();
     $("#campaigns-create-white-fade").hide();
@@ -197,8 +212,8 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
   tab_open.find(".campaigns-create-tab-number").text(num + 1);
   tab_open.removeClass("campaigns-create-tab-colored");
   tab_clicked.addClass("campaigns-create-tab-colored");
-  tab_clicked.animate({width: "75%"});
-  tab_open.animate({width: "12.25%"});
+  tab_clicked.animate({width: "70%"});
+  tab_open.animate({width: "10%"});
 }
 
 function campaignsCheckValidityOne() {
