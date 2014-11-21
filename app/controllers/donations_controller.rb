@@ -12,15 +12,20 @@ class DonationsController < ApplicationController
                                          card: params[:stripeToken]
       Stripe::Charge.create customer: customer, amount: params[:donation][:amount],
                             description: "Elevate Africa Campaign Donation", currency: "usd"
-      flash[:success] = "Thanks for helping these adventurers out!"
-      redirect_to @campaign
+      if @camapign
+        flash[:success] = "Thanks for helping these adventurers out!"
+        redirect_to @campaign
+      else
+        flash[:success] = "Thanks for helping us out!"
+        redirect_to root_path
+      end
     else
       render "new"
     end
   rescue Stripe::CardError => e
     flash[:error] = e.message
     puts "CardError! #{e.message}"
-    redirect_to new_campaign_donation(@campaign)
+    redirect_to new_donation(campaign: @campaign.id)
   end
 
   def show
