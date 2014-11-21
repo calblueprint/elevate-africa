@@ -70,10 +70,10 @@ var ready = function() {
     });
 
     // field change
-    $("#campaign_goal").on("change", function() {
-      var param = $("#campaign_goal").val();
+    $("#campaign-goal").on("change", function() {
+      var param = $("#campaign-goal").val();
       if(param != param.replace(/[^\d,]/, '')) {
-        $("#campaign_goal").val("");
+        $("#campaign-goal").val("");
       }
       else {
         var count = 0;
@@ -86,14 +86,14 @@ var ready = function() {
             param = param.substring(0,i+1) + "," + param.substring(i+1);
           }
         }
-        $("#campaign_goal").val(param);
+        $("#campaign-goal").val(param);
       }
     });
 
-    $("#campaign_duration").on("change", function () {
-      var param = $("#campaign_duration").val();
+    $("#campaign-duration").on("change", function () {
+      var param = $("#campaign-duration").val();
       if(param != param.replace(/[^\d]/, '')) {
-        $("#campaign_duration").val("");
+        $("#campaign-duration").val("");
       }
     });
 
@@ -250,7 +250,7 @@ function campaignsCheckValidityOne() {
 
 function isFieldValid(name) {
   var field = $("#campaigns-create-field-" + name)
-  var str = $("#campaign_" + name)
+  var str = $("#campaign-" + name)
   if($.trim(str.val()).length == 0) {
     str.parent().addClass("campaigns-create-field-incorrect");
     return false;

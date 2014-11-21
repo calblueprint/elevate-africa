@@ -15,13 +15,15 @@
       <%= f.input :name, label: "Campaign Name",
                          placeholder: "campaign name here",
                          autofocus: true,
-                         input_html: { class: "campaign-form" } %>
+                         input_html: { class: "campaign-form",
+                                       id: "campaign-name" } %>
     </div>
 
     <div class="campaigns-create-field">
       <%= f.input :duration, label: "Campaign Duration",
                              placeholder: "duration in days here",
-                             input_html: { class: "campaign-form" } %>
+                             input_html: { class: "campaign-form",
+                                           id: "campaign-duration" } %>
     </div>
 
     <div class="campaigns-create-field">
@@ -29,7 +31,7 @@
       <span id="campaigns-create-dollar-sign" >$</span>
       <%= f.text_field :goal, value: "1,234",
                               class: "campaign-form",
-                              id: "campaign-money" %>
+                              id: "campaign-goal" %>
     </div>
 
     <div class="campaigns-create-field campaigns-create-drop-down">
