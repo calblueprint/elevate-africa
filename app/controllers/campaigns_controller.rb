@@ -22,6 +22,7 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
+    team_params = params[:campaign][:team]
 
     if params[:picture_choose] != ""
       src = File.join(Rails.root, "/app/assets/images/" + params[:picture_choose])
@@ -29,8 +30,9 @@ class CampaignsController < ApplicationController
       params[:campaign][:picture] = src_file
     end
 
-    @campaign = Campaign.new(campaign_params)
-    if @campaign.save
+    @team = Team.new team_params
+    @campaign = Campaign.new campaign_params
+    if @team.save && @campaign.save
       redirect_to @campaign
     else
       render "new"
@@ -38,7 +40,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
+    @campaign = Campaign.find params[:id]
     @donations = @campaign.donations
     @team = @campaign.team
     @total_donations = @campaign.get_total_donations
@@ -48,7 +50,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
-    if @campaign.update(campaign_params)
+    if @campaign.update campaign_params
       redirect_to @campaign
     else
       render "edit"
@@ -62,7 +64,8 @@ class CampaignsController < ApplicationController
 
   private
   def campaign_params
-    params.require(:campaign).permit(:name, :duration, :goal, :description, :picture, :team_id)
+    params.require(:campaign).permit :name, :duration, :goal,
+                                     :description, :picture, :team_id
   end
 
   def authenticate_team
