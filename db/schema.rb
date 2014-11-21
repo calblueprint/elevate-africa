@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141110182844) do
     t.integer  "team_id"
     t.string   "picture"
     t.integer  "duration"
+    t.integer  "kind",        default: 0
   end
 
   add_index "campaigns", ["team_id"], name: "index_campaigns_on_team_id", using: :btree

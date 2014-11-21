@@ -12,9 +12,12 @@
 #
 
 class Donation < ActiveRecord::Base
+  scope :order_by_most_recent, -> { order("created_at DESC") }
   belongs_to :campaign
 
   validates :name, presence: true
   validates :email, presence: true
   validates :amount, presence: true
+
+
 end

@@ -11,10 +11,12 @@
 #  team_id     :integer
 #  picture     :string(255)
 #  duration    :integer
+#  type        :integer
 #
 
 class Campaign < ActiveRecord::Base
   default_scope { order("created_at DESC") }
+  enum kind: [ :adventure, :birthday, :wedding, :celebration ]
 
   belongs_to :team
 
@@ -49,5 +51,9 @@ class Campaign < ActiveRecord::Base
       c.description.downcase.include?(search) ||
       c.team.name.downcase.include?(search)
     end
+  end
+
+  def most_recent_donation
+    donations.order_by_most_recent.first
   end
 end
