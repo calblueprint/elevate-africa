@@ -82,7 +82,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-
   def authenticate_owner
     @campaign = Campaign.find(params[:id])
     if !current_user.can_edit? @campaign
