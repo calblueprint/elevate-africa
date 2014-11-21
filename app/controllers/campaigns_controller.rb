@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  # before_filter :authenticate_team, except: [:index, :show]
+  before_filter :authenticate_can_make, except: [:index, :show, :edit, :update]
   before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -68,12 +68,13 @@ class CampaignsController < ApplicationController
                                      :description, :picture, :team_id
   end
 
-  def authenticate_team
-    if !current_user || !current_user.team?
-      flash[:error] = "You need to be logged into a team!"
-      redirect_to campaigns_path
-    end
-  end
+  # def authenticate_team
+  #   if !current_user || !current_user.team?
+  #     flash[:error] = "You need to be logged into a team!"
+  #     redirect_to campaigns_path
+  #   end
+  # end
+
 
   def authenticate_owner
     @campaign = Campaign.find(params[:id])

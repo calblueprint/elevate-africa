@@ -147,7 +147,7 @@ var ready = function() {
       $("#campaigns-create-tab-three").click();
     });
 
-        // form submit
+    // form submit
     $("#campaigns-create-submit-three").click(function(event) {
       if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
         event.preventDefault();
@@ -243,11 +243,9 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
 }
 
 function campaignsCheckValidityOne() {
-  if (isFieldValid("name") && isFieldValid("goal") && isFieldValid("duration")) {
-    bool = true;
-  } else {
-    bool = false;
-  }
+  return isFieldValid("name") &
+         isFieldValid("goal") &
+         isFieldValid("duration")
 }
 
 function isFieldValid(name) {
