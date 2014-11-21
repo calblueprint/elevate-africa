@@ -10,6 +10,11 @@
         </div>
       <% end %>
       <div id="campaign-adventure"></div>
+      <% if @campaign.adventure? %>
+        <%= render "campaign_adventure" %>
+      <% else %>
+        <%= render "campaign_default" %>
+      <% end %>
       <div id="campaign-info">
         <div class="campaign-info-container">
           <div id="campaign-picture">

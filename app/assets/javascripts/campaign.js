@@ -26,6 +26,19 @@ $(document).on('page:load', ready_campaign);
 
 var ready = function() {
   $(document).ready(function() {
+    // // adventure
+    $("#campaigns-adventure-background").click(function() {
+      $("#campaigns-adventure-team").addClass("campaigns-adventure-team-hide");
+      setTimeout(function() {
+        $(".campaigns-adventure-wheel").addClass("campaigns-adventure-wheel-rolling");
+        $("#campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
+        setTimeout(function() {
+          $(".campaigns-adventure-wheel").removeClass("campaigns-adventure-wheel-rolling");
+          $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
+        }, 3000);
+      }, 1000);
+    });
+
     // field select
     $(".campaigns-create-field").click(function() {
       if(!$(this).hasClass("campaigns-create-field-selected")) {
@@ -38,46 +51,50 @@ var ready = function() {
       $(this).removeClass("campaigns-create-field-incorrect");
     });
 
-    $(".campaigns-create-field").not(".campaigns-create-text-area").focusout(function() {
-      var field = $(this).find("input");
-      if($.trim(field.val()).length == 0) {
+    $(".campaigns-create-field").focusout(function() {
+      var field = null;
+      if($(this).hasClass("campaigns-create-text-area"))
+        field = $(this).find("textarea");
+      else if($(this).hasClass("campaigns-create-drop-down")) {}
+      else
+        field = $(this).find("input");
+
+      if(field != null && $.trim(field.val()).length == 0) {
         field.val("");
         $(this).addClass("campaigns-create-field-incorrect");
       }
       else
         $(this).removeClass("campaigns-create-field-incorrect");
-      $(this).removeClass("campaigns-create-field-selected");
-    });
 
-    $(".campaigns-create-text-area").focusout(function() {
-      var area = $(this).find("textarea");
-      if($.trim(area.val()).length == 0) {
-        area.val("");
-        $(this).addClass("campaigns-create-field-incorrect");
-      }
-      else
-        $(this).removeClass("campaigns-create-field-incorrect");
       $(this).removeClass("campaigns-create-field-selected");
     });
 
     // field change
     $("#campaign_goal").on("change", function() {
-      var param = $("#campaign_goal").val().replace(/\D/g, '');
-      var count = 0;
-      for(i = param.length-1; i >= 0; i--) {
-        if(count < 3)
-          count++;
-        else {
-          count = 1;
-          param = param.substring(0,i+1) + "," + param.substring(i+1);
-        }
+      var param = $("#campaign_goal").val();
+      if(param != param.replace(/[^\d,]/, '')) {
+        $("#campaign_goal").val("");
       }
-      $("#campaign_goal").val(param);
+      else {
+        var count = 0;
+        param = param.replace(/[^\d]/, '');
+        for(i = param.length-1; i >= 0; i--) {
+          if(count < 3)
+            count++;
+          else {
+            count = 1;
+            param = param.substring(0,i+1) + "," + param.substring(i+1);
+          }
+        }
+        $("#campaign_goal").val(param);
+      }
     });
 
     $("#campaign_duration").on("change", function () {
-      var param = $("#campaign_duration").val().replace(/\D/g, '');
-      $("#campaign_duration").val(param);
+      var param = $("#campaign_duration").val();
+      if(param != param.replace(/[^\d]/, '')) {
+        $("#campaign_duration").val("");
+      }
     });
 
     // description change
@@ -226,16 +243,18 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
 }
 
 function campaignsCheckValidityOne() {
-  return isFieldValid("name") &&
-         isFieldValid("goal") &&
-         isFieldValid("duration")
+  if (isFieldValid("name") && isFieldValid("goal") && isFieldValid("duration")) {
+    bool = true;
+  } else {
+    bool = false;
+  }
 }
 
 function isFieldValid(name) {
   var field = $("#campaigns-create-field-" + name)
-  var str = field.find("input");
+  var str = $("#campaign_" + name)
   if($.trim(str.val()).length == 0) {
-    field.addClass("campaigns-create-field-incorrect");
+    str.parent().addClass("campaigns-create-field-incorrect");
     return false;
   }
   return true

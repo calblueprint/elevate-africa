@@ -19,57 +19,77 @@ for the about.css.scss file custom styling*/
   z-index: -1;
   bottom: 0;
 
-  height: 300px;
-  background-color: #333333;
+  height: 350px;
+}
+
+.footer-top {
+  height: 350px;
+  background-color: $primary-color;
   background-size: cover;
   background-position: center;
 
-  padding: 2.5%;
-  // box-shadow: inset 0px 5px 10px 0px rgba(50, 50, 50, 0.75);
+  p {
+    width: 600px;
+    margin: auto;
+    font: lighter 12px Lato;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.footer-bottom {
+  height: 50px;
+  margin-top: -50px;
+  background-color: rgba(250, 152, 59, .5);
+  background-size: cover;
+  background-position: center;
 }
 
 .footer-table {
   padding: 0px 0px;
-  margin: 0 12.5% 0 12.5%;
+  margin: 0 20% 0 20%;
 
-  ul {
-    padding: 0 0;
-  	list-style-type: none;
-
-  	p {
-  	  color: $light-gray;
-  	}
+  div {
+    margin-top: 2%;
   }
 
-  hr {
-  	border-color: $light-gray;
+  a {
+    padding: 0 0;
+    opacity: 0.875;
+
+    font: lighter 14px Lato;
+    color: rgba(255, 255, 255, 0.875);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 .footer-col {
   display: block;
-  margin-top: 1.5%;
   float: left;
-//	margin-top: 1% 0 1% 1.6%;
-}
-
-.footer-third {
   width: 33.33%;
 }
 
-.footer-extra {
-  width: 100%;
-  display: inline-block;
-  vertical-align: middle;
-
-  p {
-  	color: $light-gray;
-  	display: inline;
-  }
+#footer-africa-icon {
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
-#footer-blueprint {
-  height: 30px;
-  width: 30px;
-  vertical-align: middle;
-}
+// .footer-extra {
+//   width: 100%;
+//   display: inline-block;
+//   vertical-align: middle;
+
+//   p {
+//   	color: $light-gray;
+//   	display: inline;
+//   }
+// }
+
+// #footer-blueprint {
+//   height: 30px;
+//   width: 30px;
+//   vertical-align: middle;
+// }

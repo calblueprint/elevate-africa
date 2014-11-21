@@ -10,21 +10,26 @@
     </div>
   <% end %>
 
-  <div class="campaigns-create-1">
-    <div class="campaigns-create-field" id="campaigns-create-field-name">
-      <%= f.label :name %><br>
+  <div class="campaigns-create-first">
+    <div class="campaigns-create-field">
+      <%= f.label :name, "Campaign Name" %><br>
       <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
     </div>
 
-    <div class="campaigns-create-field" id="campaigns-create-field-duration">
-      <%= f.label :duration %><br>
+    <div class="campaigns-create-field">
+      <%= f.label :duration, "Campaign Duration" %><br>
       <%= f.text_field :duration, placeholder: "duration in days here" %>
     </div>
 
-    <div class="campaigns-create-field" id="campaigns-create-field-goal">
-      <%= f.label :goal %><br>
+    <div class="campaigns-create-field">
+      <%= f.label :goal, "Campaign Goal" %><br>
       <span id="campaigns-create-dollar-sign">$</span>
       <%= f.text_field :goal, value: "1,234" %>
+    </div>
+
+    <div class="campaigns-create-field campaigns-create-drop-down">
+      <%= f.label :kind, "Campaign Type" %><br>
+      <%= f.select :kind, options_for_select(Campaign.kinds.collect { |s| [s[0].humanize, s[0]] }, selected: @campaign.kind) %>
     </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>
