@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
   box-sizing: border-box;
 }
 
+.padding-center {
+  padding-top: 225px;
+}
+
 /* removes annoying google highlight */
 *:focus {
   outline: 0;
@@ -31,15 +35,13 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
 /* the main header styling */
 h1 {
   font: $h1;
-  letter-spacing: 4px;
-  line-height: 84px;
-  color: $primary-color;
+  color: #fff;
 }
 
 /* the main subtitle styling */
 h2 {
   font: $h2;
-  color: $dark-gray;
+  color: $black;
 }
 
 /* the smaller header styling */
@@ -61,6 +63,7 @@ h4 {
 /* the main body styling */
 p {
   font: $p;
+  color: $dark-gray;
   line-height: 32px;
 }
 
@@ -140,6 +143,10 @@ textarea {
 /* use this to add padding to containers */
 .padding {
   padding: 100px 25px 100px 25px;
+}
+
+.padding-vertical {
+  padding: 100px 0 100px 0;
 }
 
 .margin {
