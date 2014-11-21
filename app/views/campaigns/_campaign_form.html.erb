@@ -1,4 +1,4 @@
-<%= form_for @campaign do |f| %>
+<%= simple_form_for @campaign do |f| %>
   <% if @campaign.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being edited: </h2>
@@ -12,24 +12,29 @@
 
   <div class="campaigns-create-1">
     <div class="campaigns-create-field">
-      <%= f.label :name, "Campaign Name" %><br>
-      <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
+      <%= f.input :name, label: "Campaign Name",
+                         placeholder: "campaign name here",
+                         autofocus: true,
+                         input_html: { class: "campaign-form" } %>
     </div>
 
     <div class="campaigns-create-field">
-      <%= f.label :duration, "Campaign Duration" %><br>
-      <%= f.text_field :duration, placeholder: "duration in days here" %>
+      <%= f.input :duration, label: "Campaign Duration",
+                             placeholder: "duration in days here",
+                             input_html: { class: "campaign-form" } %>
     </div>
 
     <div class="campaigns-create-field">
       <%= f.label :goal, "Campaign Goal" %><br>
-      <span id="campaigns-create-dollar-sign">$</span>
-      <%= f.text_field :goal, value: "1,234" %>
+      <span id="campaigns-create-dollar-sign" >$</span>
+      <%= f.text_field :goal, value: "1,234",
+                              class: "campaign-form",
+                              id: "campaign-money" %>
     </div>
 
     <div class="campaigns-create-field campaigns-create-drop-down">
-      <%= f.label :kind, "Campaign Type" %><br>
-      <%= f.select :kind, options_for_select(Campaign.kinds.collect { |s| [s[0].humanize, s[0]] }, selected: @campaign.kind) %>
+      <%= f.label :kind, "Campaign Type" %>
+      <%= f.select :kind, get_campaign_types %>
     </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>
@@ -37,14 +42,16 @@
 
   <div class="campaigns-create-2">
     <div class="campaigns-create-example-buttons-container">
-      <a class="campaigns-create-example-button" id="campaigns-create-example-one" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">Example 1</a>
+      <a class="campaigns-create-example-button"
+         id="campaigns-create-example-one"
+         data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">Example 1</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-two" data-content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.">Example 2</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-custom" data-content="">Custom</a>
     </div>
 
-    <div class="campaigns-create-field campaigns-create-text-area">
-      <%= f.text_area :description, placeholder: "campaign description here" %>
-    </div>
+      <div class="campaigns-create-field campaigns-create-text-area">
+        <%= f.text_area :description, placeholder: "campaign description here" %>
+      </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-two">Continue</div>
   </div>
@@ -101,6 +108,7 @@
     </div>
 
     <%= hidden_field_tag :picture_choose, "", id: "campaigns-create-hidden-picture" %>
+
     <% if !current_user %>
       <div class="campaigns-create-button" id="campaigns-create-submit-three">Almost There!</div>
     <% else %>
@@ -115,10 +123,18 @@
   <% if !current_user %>
     <div class="campaigns-create-4">
       <%= f.simple_fields_for @team do |t| %>
-        <%= t.input :name %>
-        <%= t.input :email %>
-        <%= t.input :password %>
-        <%= t.input :password_confirmation %>
+        <div class="campaigns-create-field">
+          <%= t.input :name, label: "Name" %>
+        </div>
+        <div class="campaigns-create-field">
+          <%= t.input :email %>
+        </div>
+        <div class="campaigns-create-field">
+          <%= t.input :password %>
+        </div>
+        <div class="campaigns-create-field">
+          <%= t.input :password_confirmation %>
+        </div>
       <% end %>
       <%= f.submit "Finish", class: "campaigns-create-button" %>
     </div>

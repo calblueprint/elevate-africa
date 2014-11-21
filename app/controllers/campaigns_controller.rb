@@ -50,6 +50,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
+    # TODO: Gotta fix this part
     if @campaign.update campaign_params
       redirect_to @campaign
     else
