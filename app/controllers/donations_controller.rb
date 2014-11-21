@@ -5,15 +5,14 @@ class DonationsController < ApplicationController
   end
 
   def create
-    1/0
     @campaign = Campaign.find_by id: donation_params[:campaign_id]
-    @donation = Donations.new donation_params
+    @donation = Donation.new donation_params
     if @donation.save
       customer = Stripe::Customer.create email: params[:stripeEmail],
                                          card: params[:stripeToken]
-      Stripe::Charge.create customer: customer, amount: params[:donation][:amount],
+      Stripe::Charge.create customer: customer, amount: donation_params[:amount].to_i * 100,
                             description: "Elevate Africa Campaign Donation", currency: "usd"
-      if @camapign
+      if @campaign
         flash[:success] = "Thanks for helping these adventurers out!"
         redirect_to @campaign
       else
@@ -37,6 +36,6 @@ class DonationsController < ApplicationController
 
   private
     def donation_params
-      params.require(:donation).permit(:name, :email, :amount)
+      params.require(:donation).permit(:name, :email, :amount, :campaign_id)
     end
 end
