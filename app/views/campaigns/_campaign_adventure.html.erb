@@ -22,7 +22,7 @@
       </div>
       
 
-      <div id="campaign-info">
+      <div class="campaign-info">
         <div class="campaign-info-container">
           <div id="campaign-picture">
             <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
@@ -33,8 +33,8 @@
           </div>
         </div>
         <div class="campaign-info-container" id="campaign-money-container">
-          <h1 class="campaign-info-margin" id="campaign-donation"><%= number_to_currency @total_donations %><span style="font-size:20px">USD</span></h1>
-          <p id="campaign-total">Raised out of <strong><%= number_to_currency @campaign.goal %></strong></p>
+          <h1 class="campaign-info-margin" id="campaign-donation"><%= "$#{@total_donations}" %><span style="font-size:20px">USD</span></h1>
+          <p id="campaign-total">Raised out of <strong><%= "$#{@campaign.goal}" %></strong></p>
         </div>
         <div class="campaign-info-container" id="campaign-progress-container">
           <div class="campaign-info-margin" id="campaign-progress"></div>
@@ -81,7 +81,7 @@
                 <% @donations.each do |donation| %>
                   <tr class="campaign-backers-row">
                     <td class="campaign-backer-name"><%= donation.name %></td>
-                    <td class="campaign-backer-amount"><%= number_to_currency donation.amount %><span style="font-size:20px;">USD</span></td>
+                    <td class="campaign-backer-amount"><%= "$#{donation.amount}" %><span style="font-size:20px;">USD</span></td>
                   </tr>
                 <% end %>
               </table>
