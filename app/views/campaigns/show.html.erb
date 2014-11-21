@@ -90,7 +90,7 @@
       <% #if current_user == @campaign.user %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% #end %>
-      <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign) %>
+      <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign) %>
     </h2>
   </div>
 
