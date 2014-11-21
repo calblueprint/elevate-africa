@@ -10,7 +10,8 @@ class DonationsController < ApplicationController
     if @donation.save
       customer = Stripe::Customer.create email: params[:stripeEmail],
                                          card: params[:stripeToken]
-      Stripe::Charge.create customer: customer, amount: donation_params[:amount].to_i * 100,
+      Stripe::Charge.create customer: customer,
+                            amount: donation_params[:amount].to_i * 100,
                             description: "Elevate Africa Campaign Donation", currency: "usd"
       if @campaign
         flash[:success] = "Thanks for helping these adventurers out!"
