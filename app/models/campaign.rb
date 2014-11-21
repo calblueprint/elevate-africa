@@ -22,9 +22,9 @@ class Campaign < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
-  validates :name, presence: true
-  validates :description, presence: true
-  # validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  # validates :name, presence: true
+  # validates :description, presence: true
+  # # validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   # Calulates the total amount of donations
   def get_total_donations

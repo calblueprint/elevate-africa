@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_team, except: [:index, :show]
+  # before_filter :authenticate_team, except: [:index, :show]
   before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -17,6 +17,7 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @team = @campaign.build_team
   end
 
   def create
