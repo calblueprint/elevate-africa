@@ -238,7 +238,7 @@ function campaignsChangeTab(num, tab_open, tab_clicked) {
   tab_open.find(".campaigns-create-tab-number").text(num + 1);
   tab_open.removeClass("campaigns-create-tab-colored");
   tab_clicked.addClass("campaigns-create-tab-colored");
-  tab_clicked.animate({ width: "70%" });
+  tab_clicked.animate({ width: "69.5%" });
   tab_open.animate({ width: "10%" });
 }
 

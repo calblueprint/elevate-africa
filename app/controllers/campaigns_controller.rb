@@ -75,6 +75,13 @@ class CampaignsController < ApplicationController
   #   end
   # end
 
+  def authenticate_can_make
+    if current_user
+      flash[:error] = "Whoops - doesn't look like you can make another campaign!"
+      redirect_to campaigns_path
+    end
+  end
+
 
   def authenticate_owner
     @campaign = Campaign.find(params[:id])
