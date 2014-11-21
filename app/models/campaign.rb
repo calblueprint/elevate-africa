@@ -16,7 +16,7 @@
 
 class Campaign < ActiveRecord::Base
   default_scope { order("created_at DESC") }
-  enum kind: [ :adventure, :birthday, :wedding, :celebration ]
+  enum kind: [:adventure, :birthday, :wedding, :celebration]
 
   belongs_to :team
 
@@ -55,6 +55,6 @@ class Campaign < ActiveRecord::Base
   end
 
   def most_recent_donation
-    donations.order_by_most_recent.first
+    donations.first
   end
 end

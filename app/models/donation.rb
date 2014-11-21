@@ -12,7 +12,8 @@
 #
 
 class Donation < ActiveRecord::Base
-  scope :order_by_most_recent, -> { order("created_at DESC") }
+  default_scope { order("created_at DESC") }
+
   belongs_to :campaign
 
   validates :name, presence: true
