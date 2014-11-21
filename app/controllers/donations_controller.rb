@@ -5,6 +5,7 @@ class DonationsController < ApplicationController
   end
 
   def create
+    1/0
     @campaign = Campaign.find_by id: donation_params[:campaign_id]
     @donation = Donations.new donation_params
     if @donation.save
