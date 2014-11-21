@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_team, except: [:index, :show]
+  before_filter :authenticate_can_make, except: [:index, :show, :edit, :update]
   before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -17,10 +17,12 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @team = @campaign.build_team
   end
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
+    team_params = params[:campaign][:team]
 
     if params[:picture_choose] != ""
       src = File.join(Rails.root, "/app/assets/images/" + params[:picture_choose])
@@ -28,8 +30,9 @@ class CampaignsController < ApplicationController
       params[:campaign][:picture] = src_file
     end
 
-    @campaign = Campaign.new(campaign_params)
-    if @campaign.save
+    @team = Team.new team_params
+    @campaign = Campaign.new campaign_params
+    if @team.save && @campaign.save
       redirect_to @campaign
     else
       render "new"
@@ -37,7 +40,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
+    @campaign = Campaign.find params[:id]
     @donations = @campaign.donations
     @team = @campaign.team
     @total_donations = @campaign.get_total_donations
@@ -47,7 +50,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
-    if @campaign.update(campaign_params)
+    if @campaign.update campaign_params
       redirect_to @campaign
     else
       render "edit"
@@ -61,12 +64,20 @@ class CampaignsController < ApplicationController
 
   private
   def campaign_params
-    params.require(:campaign).permit(:name, :duration, :goal, :kind, :description, :picture, :team_id)
+    params.require(:campaign).permit :name, :duration, :goal,
+                                     :description, :picture, :team_id
   end
 
-  def authenticate_team
-    if !current_user || !current_user.team?
-      flash[:error] = "You need to be logged into a team!"
+  # def authenticate_team
+  #   if !current_user || !current_user.team?
+  #     flash[:error] = "You need to be logged into a team!"
+  #     redirect_to campaigns_path
+  #   end
+  # end
+
+  def authenticate_can_make
+    if current_user
+      flash[:error] = "Whoops - doesn't look like you can make another campaign!"
       redirect_to campaigns_path
     end
   end

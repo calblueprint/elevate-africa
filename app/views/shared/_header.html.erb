@@ -1,7 +1,7 @@
 <div id="navbar-container" onmouseover="navReveal()" onmouseout="navHide()">
   <div class="hide-medium" id="navbar">
     <%= link_to "", root_path, id: 'navbar-home' %>
-    <a class="navbar-tab navbar-highlight" href="#"> DONATE </a>
+    <%= link_to "DONATE", new_donation_path, class:"navbar-tab navbar-highlight" %>
     <%= link_to "CONTACT", contact_path, class: 'navbar-tab' %>
     <%= link_to "BUZZ", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
     <%= link_to "CAMPAIGN", static_campaign_path, class: 'navbar-tab' %>

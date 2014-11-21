@@ -9,13 +9,12 @@
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
       <% end %>
-
+      <div id="campaign-adventure"></div>
       <% if @campaign.adventure? %>
         <%= render "campaign_adventure" %>
       <% else %>
         <%= render "campaign_default" %>
       <% end %>
-
       <div id="campaign-info">
         <div class="campaign-info-container">
           <div id="campaign-picture">
@@ -48,7 +47,7 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign.id), class: "button", id: "campaign-donate-button" %>
         </div>
       </div>
     </div>
@@ -96,7 +95,7 @@
       <% #if current_user == @campaign.user %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% #end %>
-      <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign) %>
+      <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign) %>
     </h2>
   </div>
 
