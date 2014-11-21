@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :buzzes
   resources :teams, except: [:new, :create, :index, :show]
   resources :campaigns
-  resources :donations
+  resources :donations, except: [:edit, :update, :destroy]
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get "products/:id/purchase" => "catalog#purchase", as: :purchase

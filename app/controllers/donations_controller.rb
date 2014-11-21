@@ -1,12 +1,6 @@
 class DonationsController < ApplicationController
-  def index
-    @campaign = Campaign.find(params[:campaign_id])
-    @donations = @campaign.donations
-  end
-
   def new
-    @campaign = Campaign.find(params[:campaign_id])
-    @donation = @campaign.donations.build
+    @donation = Donation.new
   end
 
   def create
