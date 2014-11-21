@@ -130,6 +130,17 @@ var ready = function() {
       $("#campaigns-create-tab-three").click();
     });
 
+        // form submit
+    $("#campaigns-create-submit-three").click(function(event) {
+      if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
+        event.preventDefault();
+        $("#campaigns-create-missing-picture-container").fadeIn();
+        $("#campaigns-create-white-fade").fadeIn();
+      } else {
+        $("#campaigns-create-tab-four").click();
+      }
+    });
+
     // tab clicks
     $("#campaigns-create-tab-one").click(function() {
       if(tab_open > 0) {
@@ -163,20 +174,11 @@ var ready = function() {
     });
 
     $("#campaigns-create-tab-four").click(function() {
-      if(tab_open < 2 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
+      if(tab_open < 3 && campaignsCheckValidityOne() && campaignsCheckValidityTwo()) {
         campaignsChangeTab(tab_open, $(tab_hash[tab_open]), $(this));
         campaignsCreateTabContent(4, 'Sign Up to Create Campaign!');
-        tab_open = 2;
+        tab_open = 3;
         $(this).find(".campaigns-create-tab-number").text("4.");
-      }
-    });
-
-    // form submit
-    $(".new_campaign").submit(function(event) {
-      if($("#campaigns-create-upload").val() == "" && $("#campaigns-create-hidden-picture").val() == "") {
-        event.preventDefault();
-        $("#campaigns-create-missing-picture-container").fadeIn();
-        $("#campaigns-create-white-fade").fadeIn();
       }
     });
 

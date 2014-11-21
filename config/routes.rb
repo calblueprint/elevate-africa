@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update, :show]
   resources :buzzes
-  resources :teams, except: [:index, :show]
+  resources :teams, except: [:new, :create, :index, :show]
   resources :campaigns do
     resources :donations
   end
