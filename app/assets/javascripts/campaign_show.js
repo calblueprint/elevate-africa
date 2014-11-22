@@ -20,7 +20,7 @@ $(document).ready(function() {
     e.preventDefault();
   })
   $(window).scroll(function() {
-    var campaignBottom = $("#campaign-show-footer").offset().top - 540;
+    var campaignBottom = $("#campaign-show-footer").offset().top - 476;
     if($(window).scrollTop() > 200 && $(window).scrollTop() <= campaignBottom) {
       $(".campaign-info").addClass("campaign-info-scroll");
     } else {
@@ -38,7 +38,7 @@ $(document).ready(function() {
     strokeWidth: 10
   })
 
-  campaignProgress.animate(1, {
+  campaignProgress.animate(.41, {
     duration: 800
   })
 });
