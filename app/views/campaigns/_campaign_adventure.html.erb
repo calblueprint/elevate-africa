@@ -100,6 +100,11 @@
           <p class="campaign-overview-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus sed lorem et commodo. Aenean non orci feugiat, euismod mauris nec, ultrices eros. Aenean luctus dui egestas augue ultrices, quis iaculis lorem dictum. Maecenas eleifend a nisl a aliquet. Phasellus vulputate orci a nisl dictum ultricies bibendum eget leo. Curabitur diam libero, tempor nec massa non, ultrices fringilla orci. Donec leo tellus, convallis et est pretium, consequat pellentesque justo. Donec erat elit, faucibus in iaculis eu, laoreet non arcu. Sed ut blandit sem. Etiam sit amet nunc porttitor, porttitor nulla et, iaculis leo. Maecenas mollis sem nisi, nec aliquam odio vehicula in. Aenean aliquam justo quis nulla euismod rutrum. Phasellus pulvinar dolor a sapien gravida, a pellentesque ipsum rhoncus. Pellentesque commodo blandit ante vitae tincidunt.</p>
         </div>
       </div>
+      <div id="campaign-comments">
+        <h1>HI COMMENT HERE</h1>
+        <%= render @campaign.comments %>
+        <%= render "comments/campaign_comment_form" %>
+      </div>
 
   <div id="campaign-show-footer">
     <h2 class="campaign-show-footer-font margin-bottom">
