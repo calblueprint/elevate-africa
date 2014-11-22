@@ -47,12 +47,15 @@
       <a class="campaigns-create-example-button"
          id="campaigns-create-example-one"
          data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">Example 1</a>
-      <a class="campaigns-create-example-button" id="campaigns-create-example-two" data-content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.">Example 2</a>
+      <a class="campaigns-create-example-button"
+         id="campaigns-create-example-two"
+         data-content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.">Example 2</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-custom" data-content="">Custom</a>
     </div>
 
       <div class="campaigns-create-field campaigns-create-text-area">
-        <%= f.text_area :description, placeholder: "campaign description here" %>
+        <%= f.text_area :description, placeholder: "campaign description here",
+                                      class: "campaign-form", id: "campaign-description" %>
       </div>
 
     <div class="campaigns-create-button" id="campaigns-create-submit-two">Continue</div>
@@ -126,16 +129,20 @@
     <div class="campaigns-create-4">
       <%= f.simple_fields_for @team do |t| %>
         <div class="campaigns-create-field">
-          <%= t.input :name, label: "Name" %>
+          <%= t.input :name, placeholder: "Ex: John Smith",
+                             input_html: { class: "campaign-form" }  %>
         </div>
         <div class="campaigns-create-field">
-          <%= t.input :email %>
+          <%= t.input :email, placeholder: "Ex: your_email@domain.com",
+                              input_html: { class: "campaign-form" } %>
         </div>
         <div class="campaigns-create-field">
-          <%= t.input :password %>
+          <%= t.input :password, placeholder: "Enter a 6+ letter password!",
+                                 input_html: { class: "campaign-form" } %>
         </div>
         <div class="campaigns-create-field">
-          <%= t.input :password_confirmation %>
+          <%= t.input :password_confirmation, placeholder: "Retype your password!",
+                                              input_html: { class: "campaign-form" } %>
         </div>
       <% end %>
       <%= f.submit "Finish", class: "campaigns-create-button" %>

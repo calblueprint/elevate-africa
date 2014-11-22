@@ -120,7 +120,7 @@ var ready = function() {
       }
     });
 
-    $("#campaign_description").on("change keyup paste", function() {
+    $("#campaign-description").on("change keyup paste", function() {
       example_open = 2;
       if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored")) {
       $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
@@ -282,7 +282,7 @@ function campaignsChangeDescription(a, b, c) {
   $("#campaigns-create-example-" + b).removeClass("campaigns-create-example-colored");
   $("#campaigns-create-example-" + c).removeClass("campaigns-create-example-colored");
 
-  $("#campaign_description").val(selected.data("content"));
+  $("#campaign-description").val(selected.data("content"));
   $(".campaigns-create-text-area").removeClass("campaigns-create-field-incorrect");
 }
 
