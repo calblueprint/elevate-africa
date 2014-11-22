@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <div class="campaigns-create-first">
+  <div class="campaigns-create-1">
     <div class="campaigns-create-field">
       <%= f.label :name, "Campaign Name" %><br>
       <%= f.text_field :name, placeholder: "campaign name here", autofocus: true %>
@@ -35,7 +35,7 @@
     <div class="campaigns-create-button" id="campaigns-create-submit-one">Continue</div>
   </div>
 
-  <div class="campaigns-create-second">
+  <div class="campaigns-create-2">
     <div class="campaigns-create-example-buttons-container">
       <a class="campaigns-create-example-button" id="campaigns-create-example-one" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">Example 1</a>
       <a class="campaigns-create-example-button" id="campaigns-create-example-two" data-content="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.">Example 2</a>
@@ -49,15 +49,39 @@
     <div class="campaigns-create-button" id="campaigns-create-submit-two">Continue</div>
   </div>
 
-  <div class="campaigns-create-third">
+  <div class="campaigns-create-3">
     <div class="campaigns-create-preview-container">
       <img id="campaigns-create-preview" src="<%= asset_path("image_placeholder.png") %>" alt="image preview"/>
 
       <div id="campaigns-create-picture-options-container">
-        <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-one.png") %>" onclick="campaignsChoosePicture('one')" alt="image preview" id="campaigns-create-picture-option-one" data-url="create-pic-one.png"/>
-        <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-two.png") %>" onclick="campaignsChoosePicture('two')" alt="image preview" id="campaigns-create-picture-option-two" data-url="create-pic-two.png"/>
-        <img class="campaigns-create-picture-option campaigns-create-picture-option-left" src="<%= asset_path("create-pic-three.png") %>" onclick="campaignsChoosePicture('three')" alt="image preview" id="campaigns-create-picture-option-three" data-url="create-pic-three.png"/>
-        <img class="campaigns-create-picture-option" src="<%= asset_path("create-pic-four.png") %>" onclick="campaignsChoosePicture('four')" alt="image preview" id="campaigns-create-picture-option-four" data-url="create-pic-four.png"/>
+        <img class="campaigns-create-picture-option campaigns-create-picture-option-left"
+             src="<%= asset_path("create-pic-one.png") %>"
+             onclick="campaignsChoosePicture('one')"
+             alt="image preview"
+             id="campaigns-create-picture-option-one"
+             data-url="create-pic-one.png"
+        />
+        <img class="campaigns-create-picture-option"
+             src="<%= asset_path("create-pic-two.png") %>"
+             onclick="campaignsChoosePicture('two')"
+             alt="image preview"
+             id="campaigns-create-picture-option-two"
+             data-url="create-pic-two.png"
+        />
+        <img class="campaigns-create-picture-option campaigns-create-picture-option-left"
+             src="<%= asset_path("create-pic-three.png") %>"
+             onclick="campaignsChoosePicture('three')"
+             alt="image preview"
+             id="campaigns-create-picture-option-three"
+             data-url="create-pic-three.png"
+        />
+        <img class="campaigns-create-picture-option"
+             src="<%= asset_path("create-pic-four.png") %>"
+             onclick="campaignsChoosePicture('four')"
+             alt="image preview"
+             id="campaigns-create-picture-option-four"
+             data-url="create-pic-four.png"
+        />
       </div>
     </div>
 
@@ -76,10 +100,28 @@
       <%= f.file_field :picture, id: "campaigns-create-upload" %>
     </div>
 
-    <%= f.hidden_field :team_id, value: current_user.id %>
-
     <%= hidden_field_tag :picture_choose, "", id: "campaigns-create-hidden-picture" %>
+    <% if !current_user %>
+      <div class="campaigns-create-button" id="campaigns-create-submit-three">Almost There!</div>
+    <% else %>
+      <% if current_user && current_user.team? %>
+        <%= f.hidden_field :team_id, value: current_user.id %>
+        <%= f.submit "Finish", class: "campaigns-create-button" %>
+      <% end %>
+    <% end %>
 
-    <%= f.submit "Finish", class: "campaigns-create-button" %>
   </div>
+
+  <% if !current_user %>
+    <div class="campaigns-create-4">
+      <%= f.simple_fields_for @team do |t| %>
+        <%= t.input :name %>
+        <%= t.input :email %>
+        <%= t.input :password %>
+        <%= t.input :password_confirmation %>
+      <% end %>
+      <%= f.submit "Finish", class: "campaigns-create-button" %>
+    </div>
+  <% end %>
+
 <% end %>

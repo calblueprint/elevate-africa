@@ -1,9 +1,7 @@
-<div id="campaigns-create-background">
-  <div class="small-container padding">
-    <div class="campaigns-create-header"></div>
-    <div class="campaigns-create-body">
-      <h4 id="campaigns-create-title">New Donation</h4>
-      <%= render "donation_form" %>
-    </div>
-  </div>
+<div class="medium-container padding">
+  <% if @campaign %>
+    <%= render "campaign_donation_form" %>
+  <% else %>
+    <%= render "general_donation_form" %>
+  <% end %>
 </div>

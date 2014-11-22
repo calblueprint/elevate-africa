@@ -60,7 +60,7 @@ for the about.css.scss file custom styling*/
   float: left;
   height: 100%;
   border-right: 1px solid $light-gray;
-  width: 75%;
+  width: 69.5%;
 
   font: normal 14px Bitter;
   color: #CCC;
@@ -75,12 +75,12 @@ for the about.css.scss file custom styling*/
     padding-top: 16px;
     height: 100%;
 
-    transition: 0.4s linear all;
+    transition: 0.1s linear all;
   }
 
   .campaigns-create-tab-number {
     float: left;
-    width: 50px;
+    width: 40px;
   }
 
   &:hover {
@@ -93,12 +93,16 @@ for the about.css.scss file custom styling*/
 }
 
 #campaigns-create-tab-two {
-  width: 12.25%;
+  width: 10%;
 }
 
 #campaigns-create-tab-three {
+  width: 10%;
+}
+
+#campaigns-create-tab-four {
   border-right: 0;
-  width: 12.25%;
+  width: 10%;
 }
 
 .campaigns-create-body {

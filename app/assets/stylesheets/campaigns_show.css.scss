@@ -227,7 +227,7 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-progress-container {
-  height: 120px;
+  height: 50px;
 }
 
 #campaign-total {
@@ -266,8 +266,14 @@ for the about.css.scss file custom styling*/
 
 #campaign-progress {
   width: 300px;
-  height: 120px;
-  background: $light-gray;
+  height: 50px;
+  // background: $light-gray;
+  padding-top: 20px;
+}
+
+#campaign-percentage-font {
+  font-size: 20px;
+  padding-right: 0px;
 }
 
 .campaign-detail {

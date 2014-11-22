@@ -36,8 +36,13 @@
           <h1 class="campaign-info-margin" id="campaign-donation"><%= "$#{@total_donations}" %><span style="font-size:20px">USD</span></h1>
           <p id="campaign-total">Raised out of <strong><%= "$#{@campaign.goal}" %></strong></p>
         </div>
-        <div class="campaign-info-container" id="campaign-progress-container">
-          <div class="campaign-info-margin" id="campaign-progress"></div>
+        <div class="campaign-info-container campaign-progress-bar-container" id="campaign-progress-container">
+          
+          <div class="campaign-info-margin" id="campaign-progress">
+            <div id="campaign-show-bar" class="campaign-index-bar"></div>
+            <h2 id="campaign-percentage-font" class="campaign-index-percentage"><%= number_to_percentage(@campaign.get_donation_percentage * 100, precision: 0) %>
+            </h2>
+          </div>
         </div>
         <div class="campaign-info-container campaign-detail">
           <div class="campaign-vectors"></div>
@@ -54,7 +59,7 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
         </div>
       </div>
     </div>
@@ -102,7 +107,7 @@
       <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% end %>
-      <%= link_to "DONATE NOW", new_campaign_donation_path(@campaign) %>
+      <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
     </h2>
   </div>
 

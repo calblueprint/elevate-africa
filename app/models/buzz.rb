@@ -52,7 +52,7 @@ class Buzz < ActiveRecord::Base
   def recommended_buzz
     related = Buzz.where(box_color: box_color).where.not id: id
     related.delete(self)
-    related.take(4)
+    related.take(3)
   end
 
   # def assign_color

@@ -19,9 +19,8 @@ $(document).ready(function() {
     $(this).parent("li").addClass("campaign-active").siblings().removeClass("campaign-active");
     e.preventDefault();
   })
-
   $(window).scroll(function() {
-    var campaignBottom = $("#campaign-show-footer").offset().top - 540
+    var campaignBottom = $("#campaign-show-footer").offset().top - 540;
     if($(window).scrollTop() > 200 && $(window).scrollTop() <= campaignBottom) {
       $(".campaign-info").addClass("campaign-info-scroll");
     } else {
@@ -32,5 +31,14 @@ $(document).ready(function() {
     } else {
       $(".campaign-info").removeClass("campaign-info-bottom");
     }
+  })
+
+  var campaignProgress = new ProgressBar.Line("#campaign-show-bar", {
+    color: "#F8991E",
+    strokeWidth: 10
+  })
+
+  campaignProgress.animate(66, {
+    duration: 800
   })
 });
