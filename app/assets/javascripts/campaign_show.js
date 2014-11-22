@@ -38,7 +38,7 @@ $(document).ready(function() {
     strokeWidth: 10
   })
 
-  campaignProgress.animate(66, {
+  campaignProgress.animate(1, {
     duration: 800
   })
 });
