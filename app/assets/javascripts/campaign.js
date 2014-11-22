@@ -12,6 +12,7 @@ var show_hash = {
                  3: ".campaigns-create-4"
                };
 var tab_two = false;
+var tab_four = false;
 var example_open = 0;
 
 var ready_campaign = function() {
