@@ -5,10 +5,16 @@ class CommentsController < ApplicationController
     redirect_to campaign_path(@campaign)
   end
 
+  def show
+    @campaign = Campaign.find(params[:campaign_id])
+    @comment = @campaign.comments.find(params[:id])
+    @timestamp = @comment.created_at.utc.strftime("%B %d, %Y %r") 
+  end
+
   def destroy
     @campaign = Campaign.find(params[:campaign_id])
     @comment = @campaign.comments.find(params[:id])
-    @comment.destroy 
+    @comment.destroy
     redirect_to campaign_path(@campaign)
   end
 

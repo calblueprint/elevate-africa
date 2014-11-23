@@ -15,6 +15,11 @@ for the about.css.scss file custom styling*/
   height: 550px;
 }
 
+#campaign-comment-title-font {
+  margin: auto;
+  padding-bottom: 20px;
+}
+
 #campaign-last-donation {
   display: none;
 }
@@ -32,6 +37,57 @@ for the about.css.scss file custom styling*/
   margin-right: 5px;
 }
 
+.campaign-comment-container {
+  width: 600px;
+  height: 150px;
+}
+#campaign-commenter-font {
+  float: left;
+  font-size: 20px;
+}
+#campaign-comment-delete a {
+  float: right;
+  margin-top: -16px;
+  font-weight: 400;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+#campaign-comment-delete a:hover {
+  font-style: italic;
+}
+
+#campaign-datetime-font {
+  font-style: italic;
+  font-size: 15px;
+  float: left;
+  padding-top: 5px;
+  padding-left: 8px;
+}
+
+#campaign-body-font {
+  float: left;
+  margin-top: -13px;
+  padding-top: 5px;
+  text-align: left;
+}
+
+
+
+#campaign-comment-body {
+  height: 150px;
+}
+
+#campaign-comment-button {
+  height: 60px;
+  width: 600px;
+  padding-top: 18px;
+  background: $primary-color;
+  font: $h2;
+  font-size: 20px;
+  margin-top: -10px;
+  width: 600px;
+}
 .campaign-backer-name {
   width: 50%;
   text-align: center;

@@ -1,15 +1,10 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Comment', [comment.campaign, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<div class="campaign-comment-container">
+  <h1 id="campaign-commenter-font"><%= comment.commenter %></h1>
+  <h2 id="campaign-datetime-font"><%= comment.created_at.utc.strftime("%B %d, %Y %r") %></h2></br></br>
+  <p id="campaign-body-font"> <%= comment.body %></p>
+  <h2 id="campaign-comment-delete">
+    <%= link_to 'Delete', [comment.campaign, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </h2>
+</div>
