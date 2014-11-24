@@ -39,13 +39,20 @@ for the about.css.scss file custom styling*/
 
 .campaign-comment-container {
   width: 600px;
-  height: 150px;
+  height: 125px;
   padding-top: 25px;
+  margin-bottom: 100px;
 }
+
 #campaign-commenter-font {
   float: left;
   font-size: 20px;
 }
+
+#campaign-commenter-input {
+  margin-bottom: 0px;
+}
+
 #campaign-comment-delete a {
   float: right;
   margin-top: -16px;
@@ -88,7 +95,7 @@ for the about.css.scss file custom styling*/
   background: $primary-color;
   font: $h2;
   font-size: 20px;
-  margin-top: -10px;
+  margin-top: -4px;
   width: 600px;
 }
 .campaign-backer-name {
