@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:campaign_id])
-    @comment = @campaign.comments.find(params[:id])
     @timestamp = @comment.created_at.utc.strftime("%B %d, %Y %r") 
   end
 

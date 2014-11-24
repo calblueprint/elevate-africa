@@ -40,6 +40,7 @@ for the about.css.scss file custom styling*/
 .campaign-comment-container {
   width: 600px;
   height: 150px;
+  padding-top: 25px;
 }
 #campaign-commenter-font {
   float: left;
@@ -70,6 +71,8 @@ for the about.css.scss file custom styling*/
   margin-top: -13px;
   padding-top: 5px;
   text-align: left;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
 
@@ -256,7 +259,7 @@ for the about.css.scss file custom styling*/
   margin-left: 181px;
   position: absolute;
   left: 50%;
-  bottom: 3px;
+  bottom: -35px;
 }
 
 #campaign-donation {
