@@ -102,8 +102,9 @@
       </div>
       <div id="campaign-comments">
         <h1 id="campaign-comment-title-font">Comments</h1>
+        <%= render "comments/campaign_comment_form", comment: @comment %>
         <%= render @campaign.comments %>
-        <%= render "comments/campaign_comment_form" %>
+        
       </div>
 
   <div id="campaign-show-footer">

@@ -1,10 +1,13 @@
 <div class="campaign-comment-container">
   <h1 id="campaign-commenter-font"><%= comment.commenter %></h1>
-  <h2 id="campaign-datetime-font"><%= comment.created_at.utc.strftime("%B %d, %Y %r") %></h2></br></br>
+  <h2 id="campaign-datetime-font"><%= comment.created_at.utc.strftime("%B %d, %Y") %></h2></br></br>
   <p id="campaign-body-font"> <%= comment.body %></p>
-  <h2 id="campaign-comment-delete">
-    <%= link_to 'Delete', [comment.campaign, comment],
-                 method: :delete,
-                 data: { confirm: 'Are you sure?' } %>
-  </h2>
+  <% if current_user == @campaign.team %>
+    <h2 id="campaign-comment-delete">
+      <%= link_to 'Delete Comment', [comment.campaign, comment],
+                   method: :delete,
+                   #add a flash notice here
+                   data: { confirm: 'Are you sure you would like to delete your comment?' } %>
+    </h2>
+  <% end %>
 </div>
