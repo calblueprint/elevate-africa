@@ -1,5 +1,7 @@
-<% if @campaign.adventure? %>
-  <%= render "campaign_adventure" %>
-<% else %>
-  <%= render "campaign_default" %>
-<% end %>
+<div id="campaigns-show">
+  <% if @campaign.adventure? %>
+    <%= render "campaign_adventure" %>
+  <% else %>
+    <%= render "campaign_default" %>
+  <% end %>
+</div>
