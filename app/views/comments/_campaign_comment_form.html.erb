@@ -1,0 +1,14 @@
+<%= simple_form_for comment, url: campaign_comments_path(@campaign) do |f| %>
+  <p>
+    <%= f.input :commenter, label: false, :placeholder => "Name", input_html: {id: "campaign-commenter-input"}%>
+  </p>
+  <p>
+    <%= f.input :body, label: false, placeholder: "Comment Here", input_html: {id: "campaign-comment-body"}, as: :text %>
+  </p>
+  <p>
+    <%= f.hidden_field :campaign_id, value: @campaign.id %>
+  </p>
+  <p>
+    <%= f.submit nil, value: "POST MY COMMENT", class: "button", id: "campaign-comment-button"%>
+  </p>
+<% end %>
