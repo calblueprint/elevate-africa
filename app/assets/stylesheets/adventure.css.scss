@@ -6,24 +6,38 @@
 .about-potato { width: 100px; }
 for the about.css.scss file custom styling*/
 
-#campaigns-adventure-background {
+.campaigns-adventure-background {
   width: 666px;
   height: 500px;
-  background: url(asset_path("egypt_background.png"));
   background-position: 0 0;
   float: left;
 }
 
-#campaigns-adventure-foreground {
+#ca-egypt-background {
+  background: url(asset_path("egypt_background.png"));
+}
+
+#ca-safari-background {
+  background: url(asset_path("safari_background.png"));
+}
+
+.campaigns-adventure-foreground {
   width: 666px;
   height: 500px;
-  background: url(asset_path("egypt_foreground.png"));
   background-position: 0 0;
   float: left;
 
   position: relative;
   z-index: 1;
   top: -500px;
+}
+
+#ca-egypt-foreground {
+  background: url(asset_path("egypt_foreground.png"));
+}
+
+#ca-safari-foreground {
+  background: url(asset_path("safari_foreground.png"));
 }
 
 #campaigns-adventure-team {
@@ -53,15 +67,25 @@ for the about.css.scss file custom styling*/
   top: 200px;
 }
 
-#campaigns-adventure-vehicle-body {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  top: 107px;
+.campaigns-adventure-vehicle-body {
+  width: 180px;
+  height: 180px;
 }
 
-.campaigns-adventure-swing {
+#ca-vehicle-boat {
+  position: relative;
+  top: 120px;
+}
+
+#ca-vehicle-jeep {
+  position: relative;
+  top: 105px;
+}
+
+.ca-animate-boat {
   -webkit-animation: boat .75s alternate infinite ease-in-out;
+  -moz-animation: boat .75s alternate infinite ease-in-out;
+  animation: boat .75s alternate infinite ease-in-out;
 }
 
 @-webkit-keyframes boat {
@@ -69,27 +93,52 @@ for the about.css.scss file custom styling*/
   100% { transform: rotate(-5deg); }
 }
 
-.campaigns-adventure-wheel {
-  width: 50px;
-  height: 50px;
+@-moz-keyframes boat {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-5deg); }
 }
 
-.campaigns-adventure-wheel-rolling {
-  -webkit-animation: spin 1.5s linear infinite;
-  -moz-animation: spin 1.5s linear infinite;
-  animation: spin 1.5s linear infinite;
+@keyframes boat {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+.campaigns-adventure-wheel {
+  width: 25px;
+  height: 25px;
 }
 
 #campaigns-adventure-wheel-left {
   position: relative;
-  top: 77px;
-  left: -26px;
+  top: 60px;
+  left: -154px;
 }
 
 #campaigns-adventure-wheel-right {
   position: relative;
-  top: 77px;
-  left: 28px;
+  top: 62px;
+  left: -104px;
+}
+
+.ca-animate-jeep {
+  -webkit-animation: jeep 1s linear infinite;
+  -moz-animation: jeep 1s linear infinite;
+  animation: jeep 1s linear infinite;
+}
+
+@-webkit-keyframes jeep {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-moz-keyframes jeep {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes jeep {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 1000px) {
