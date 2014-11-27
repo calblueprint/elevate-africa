@@ -28,8 +28,24 @@ var ready = function() {
 
         $(".campaigns-adventure-foreground").animate({"background-position-x": "-=400px"}, 3000);
         $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
-        setTimeout(function() {
 
+        setTimeout(function() {
+          if(temp == "egypt")
+            $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
+          else if(temp == "safari")
+            $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
+        }, 3000);
+
+        setTimeout(function() {
+          $("#campaigns-adventure-vehicle").animate({"left": "+=650px"}, 5000);
+
+          if(temp == "egypt")
+            $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
+          else if(temp == "safari")
+            $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
+        }, 3500);
+
+        setTimeout(function() {
           if(temp == "egypt")
             $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
           else if(temp == "safari")
@@ -37,7 +53,8 @@ var ready = function() {
 
           $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
           $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-hide");
-        }, 3000);
+        }, 10000);
+
         setTimeout(function() {
           $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-show");
         }, 4000);
