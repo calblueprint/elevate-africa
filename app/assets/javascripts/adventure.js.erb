@@ -1,32 +1,39 @@
 var ready = function() {
   $(document).ready(function() {
 
-    // safari
-    $(".campaigns-adventure-background").attr("id", "ca-safari-background");
-    $(".campaigns-adventure-foreground").attr("id", "ca-safari-foreground");
-    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
-    $(".campaigns-adventure-wheel").attr("src", "<%= asset_path("safari_jeep_wheel.png") %>");
+    // "egypt" or "safari"
+    var temp = "safari";
+
+    $(".campaigns-adventure-background").attr("id", "ca-" + temp + "-background");
+    $(".campaigns-adventure-foreground").attr("id", "ca-" + temp + "-foreground");
+
+    if(temp == "egypt") {
+      $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-boat");
+      $(".campaigns-adventure-wheel").remove();
+    }
+    else if(temp == "safari") {
+      $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
+      $(".campaigns-adventure-wheel").attr("src", "<%= asset_path("safari_jeep_wheel.png") %>");
+    }
 
     // adventure
     $(".campaigns-adventure-foreground").click(function() {
       $("#campaigns-adventure-team").addClass("campaigns-adventure-team-hide");
       setTimeout(function() {
 
-        // egypt
-        // $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
-
-        // safari
-        $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
+        if(temp == "egypt")
+          $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
+        else if(temp == "safari")
+          $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
 
         $(".campaigns-adventure-foreground").animate({"background-position-x": "-=400px"}, 3000);
         $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
         setTimeout(function() {
 
-          // egypt
-          // $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
-
-          // safari
-          $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
+          if(temp == "egypt")
+            $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
+          else if(temp == "safari")
+            $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
 
           $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
           $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-hide");

@@ -65,6 +65,7 @@ for the about.css.scss file custom styling*/
   height: 300px;
   position: relative;
   top: 200px;
+  left: 50px;
 }
 
 .campaigns-adventure-vehicle-body {
@@ -73,11 +74,13 @@ for the about.css.scss file custom styling*/
 }
 
 #ca-vehicle-boat {
+  background-image: url(asset_path("egypt_boat.png"));
   position: relative;
   top: 120px;
 }
 
 #ca-vehicle-jeep {
+  background-image: url(asset_path("safari_jeep.png"));
   position: relative;
   top: 98px;
 }
@@ -110,14 +113,14 @@ for the about.css.scss file custom styling*/
 
 #campaigns-adventure-wheel-left {
   position: relative;
-  top: 61px;
-  left: -154px;
+  top: 36px;
+  left: -93px;
 }
 
 #campaigns-adventure-wheel-right {
   position: relative;
-  top: 63px;
-  left: -104px;
+  top: 38px;
+  left: -44px;
 }
 
 .ca-animate-jeep {
