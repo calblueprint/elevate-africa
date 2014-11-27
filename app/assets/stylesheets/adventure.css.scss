@@ -6,6 +6,18 @@
 .about-potato { width: 100px; }
 for the about.css.scss file custom styling*/
 
+#campaigns-adventure-white {
+  width: 666px;
+  height: 500px;
+  float: left;
+
+  position: relative;
+  z-index: 2;
+  top: -1000px;
+
+  background-color: #FFF;
+}
+
 .campaigns-adventure-background {
   width: 666px;
   height: 500px;

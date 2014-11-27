@@ -2,20 +2,11 @@ var ready = function() {
   $(document).ready(function() {
 
     // which: "egypt" or "safari"
-    var which = "safari";
+    which = "egypt";
 
     // initial settings
-    $(".campaigns-adventure-background").attr("id", "ca-" + which + "-background");
-    $(".campaigns-adventure-foreground").attr("id", "ca-" + which + "-foreground");
-
-    if(which == "egypt") {
-      $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-boat");
-      $(".campaigns-adventure-wheel").remove();
-    }
-    else if(which == "safari") {
-      $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
-      $(".campaigns-adventure-wheel").attr("src", "<%= asset_path("safari_jeep_wheel.png") %>");
-    }
+    $("#campaigns-adventure-white").hide();
+    advChooseScene(which);
 
     // adventure controller
     $(".campaigns-adventure-foreground").click(function() {
@@ -31,14 +22,33 @@ var ready = function() {
         }, 3000);
 
         setTimeout(function() {
-          $("#campaigns-adventure-vehicle").animate({"left": "+=650px"}, 5000);
+          $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4500);
           advAnimateVehicle(which);
         }, 3500);
 
         setTimeout(function() {
           advUnanimateVehicle(which);
-          advShowTeam();
-        }, 10000);
+          $("#campaigns-adventure-white").fadeIn(1000, function() {
+            which = "safari";
+            advChooseScene(which);
+            $("#campaigns-adventure-white").fadeOut(1000);
+          });
+
+          setTimeout(function() {
+            $("#campaigns-adventure-vehicle").animate({"left": "-350px"}, 0);
+            $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000);
+
+            // this is a temp hack fix
+            which = "safari";
+
+            advAnimateVehicle(which);
+
+            setTimeout(function() {
+              advUnanimateVehicle(which);
+              advShowTeam();
+            }, 3500);
+          }, 1000);
+        }, 6500);
       }, 1000);
     });
   });
@@ -47,7 +57,22 @@ var ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
+function advChooseScene(which) {
+  $(".campaigns-adventure-background").attr("id", "ca-" + which + "-background");
+  $(".campaigns-adventure-foreground").attr("id", "ca-" + which + "-foreground");
+
+  if(which == "egypt") {
+    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-boat");
+    $(".campaigns-adventure-wheel").hide();
+  }
+  else if(which == "safari") {
+    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
+    $(".campaigns-adventure-wheel").show();
+  }
+}
+
 function advAnimateVehicle(which) {
+  console.log(which);
   if(which == "egypt")
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
   else if(which == "safari")
