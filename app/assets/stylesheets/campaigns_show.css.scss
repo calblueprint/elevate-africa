@@ -82,8 +82,6 @@ for the about.css.scss file custom styling*/
   word-wrap: break-word;
 }
 
-
-
 #campaign-comment-body {
   height: 150px;
 }
@@ -144,90 +142,6 @@ for the about.css.scss file custom styling*/
   background: #333333;
   float: left;
 }
-
-// Warren Start
-
-#campaigns-adventure-background {
-  width: 666px;
-  height: 500px;
-  background: url(asset_path("adventure_background.png"));
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  float: left;
-}
-
-#campaigns-adventure-car {
-  width: 200px;
-  height: 100px;
-  background: url(asset_path("adventure_car.png"));
-  position: relative;
-  top: 210px;
-  left: 50px;
-}
-
-.campaigns-adventure-wheel {
-  width: 50px;
-  height: 50px;
-}
-
-.campaigns-adventure-wheel-rolling {
-  -webkit-animation: spin 1.5s linear infinite;
-  -moz-animation: spin 1.5s linear infinite;
-  animation: spin 1.5s linear infinite;
-}
-
-#campaigns-adventure-wheel-left {
-  position: relative;
-  top: 77px;
-  left: -26px;
-}
-
-#campaigns-adventure-wheel-right {
-  position: relative;
-  top: 77px;
-  left: 28px;
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#campaigns-adventure-team {
-  height: 165px;
-  position: relative;
-  top: -225px;
-  left: -20px;
-  overflow: hidden;
-
-  transform-origin: 50% 100%;
-  transition: all 1s ease-in-out;
-}
-
-.campaigns-adventure-team-hide {
-  transform: scale(0);
-}
-
-.campaigns-adventure-team-show {
-  transform: scale(1);
-}
-
-#campaigns-adventure-pointer {
-  width: 125px;
-  position: relative;
-  z-index: 2;
-}
-
-#campaigns-adventure-team-picture {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  position: relative;
-  z-index: 1;
-  top: -152px;
-  left: -2px;
-}
-
-// Warren End
 
 #campaign-by-names {
   width: 200px;

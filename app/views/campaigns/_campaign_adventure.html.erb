@@ -10,17 +10,21 @@
         </div>
       <% end %>
       <p id="campaign-last-donation">Last donation amount: <%= @campaign.most_recent_donation.try(:amount) %>
-      <div id="campaigns-adventure-background">
-        <div id="campaigns-adventure-car">
-          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("adventure_wheel.png") %>"/>
-          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("adventure_wheel.png") %>"/>
-          <div id="campaigns-adventure-team">
-            <img id="campaigns-adventure-pointer" src="<%= asset_path("adventure_pointer.png") %>"/>
-            <img id="campaigns-adventure-team-picture" src="<%= asset_path("create-pic-one.png") %>"/>
-          </div>
+
+
+      <div class="campaigns-adventure-background">
+        <div id="campaigns-adventure-vehicle">
+          <div class="campaigns-adventure-vehicle-body"></div>
+          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
+          <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
+        </div>
+        <div id="campaigns-adventure-team">
+          <img src="<%= asset_path("adventure_team.png") %>"/>
         </div>
       </div>
-      
+      <div class="campaigns-adventure-foreground"></div>
+      <div id="campaigns-adventure-white"></div>
+
 
       <div class="campaign-info">
         <div class="campaign-info-container">
@@ -37,7 +41,7 @@
           <p id="campaign-total">Raised out of <strong><%= "$#{@campaign.goal}" %></strong></p>
         </div>
         <div class="campaign-info-container campaign-progress-bar-container" id="campaign-progress-container">
-          
+
           <div class="campaign-info-margin" id="campaign-progress">
             <div id="campaign-show-bar" class="campaign-index-bar"></div>
             <h2 id="campaign-percentage-font" class="campaign-index-percentage"><%= number_to_percentage(@campaign.get_donation_percentage * 100, precision: 0) %>
@@ -104,7 +108,7 @@
         <h1 id="campaign-comment-title-font">Comments</h1>
         <%= render "comments/campaign_comment_form", comment: @comment %>
         <%= render @campaign.comments %>
-        
+
       </div>
 
   <div id="campaign-show-footer">
