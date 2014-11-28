@@ -13,6 +13,7 @@ for the about.css.scss file custom styling*/
 .campaign-info-wrapper {
   width: 1000px;
   height: 550px;
+  overflow: hidden;
 }
 
 #campaign-comment-title-font {
@@ -166,6 +167,9 @@ for the about.css.scss file custom styling*/
   width: 319px;
   height: 550px;
   float: left;
+  position: relative;
+  z-index: 4;
+  top: -500px;
   margin-left: 15px;
 }
 
@@ -173,6 +177,7 @@ for the about.css.scss file custom styling*/
   margin-left: 181px;
   position: fixed;
   left: 50%;
+  top: auto;
   margin-top: -200px;
 }
 
@@ -180,6 +185,7 @@ for the about.css.scss file custom styling*/
   margin-left: 181px;
   position: absolute;
   left: 50%;
+  top: auto;
   bottom: -35px;
 }
 
