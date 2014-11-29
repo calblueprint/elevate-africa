@@ -6,6 +6,9 @@ var ready = function() {
 
     // initial settings
     $("#campaigns-adventure-white").hide();
+    if($(".campaign-info").css("top") == "-500px")
+      console.log("hello");
+
     advChooseScene(which);
 
     // adventure controller
@@ -28,10 +31,13 @@ var ready = function() {
 
         setTimeout(function() {
           advUnanimateVehicle(which);
+          $(".campaign-info").addClass("campaign-info-white");
           $("#campaigns-adventure-white").fadeIn(1000, function() {
             which = "safari";
             advChooseScene(which);
-            $("#campaigns-adventure-white").fadeOut(1000);
+            $("#campaigns-adventure-white").fadeOut(1000, function() {
+              $(".campaign-info").removeClass("campaign-info-white");
+            });
           });
 
           setTimeout(function() {

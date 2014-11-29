@@ -22,6 +22,7 @@ $(document).ready(function() {
     })
     $(window).scroll(function() {
       var campaignBottom = $("#campaign-show-footer").offset().top - 435;
+      console.log($(".campaign-info").css("margin-top"));
       if($(window).scrollTop() > 200 && $(window).scrollTop() <= campaignBottom) {
         $(".campaign-info").addClass("campaign-info-scroll");
       } else {
