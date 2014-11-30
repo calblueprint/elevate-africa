@@ -43,7 +43,9 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find params[:id]
     @donations = @campaign.donations
     @team = @campaign.team
+    @comment = Comment.new
     @total_donations = @campaign.get_total_donations
+    gon.push percent: @campaign.get_donation_percentage
   end
 
   def edit

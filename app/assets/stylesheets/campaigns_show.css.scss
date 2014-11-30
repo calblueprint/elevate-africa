@@ -6,9 +6,23 @@
 .about-potato { width: 100px; }
 for the about.css.scss file custom styling*/
 
+#campaign-padding {
+  padding: 35px 25px 35px 25px;
+}
+
 .campaign-info-wrapper {
   width: 1000px;
-  height: 600px;
+  height: 550px;
+  overflow: hidden;
+}
+
+#campaign-comment-title-font {
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+#campaign-last-donation {
+  display: none;
 }
 
 .campaign-info-container {
@@ -24,14 +38,72 @@ for the about.css.scss file custom styling*/
   margin-right: 5px;
 }
 
+.campaign-comment-container {
+  width: 600px;
+  height: 125px;
+  padding-top: 25px;
+  margin-bottom: 100px;
+}
+
+#campaign-commenter-font {
+  float: left;
+  font-size: 20px;
+}
+
+#campaign-commenter-input {
+  margin-bottom: 0px;
+}
+
+#campaign-comment-delete a {
+  float: right;
+  margin-top: -16px;
+  font-weight: 400;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+#campaign-comment-delete a:hover {
+  font-style: italic;
+}
+
+#campaign-datetime-font {
+  font-style: italic;
+  font-size: 15px;
+  float: left;
+  padding-top: 5px;
+  padding-left: 8px;
+}
+
+#campaign-body-font {
+  float: left;
+  margin-top: -13px;
+  padding-top: 5px;
+  text-align: left;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+#campaign-comment-body {
+  height: 150px;
+}
+
+#campaign-comment-button {
+  height: 60px;
+  width: 600px;
+  padding-top: 18px;
+  background: $primary-color;
+  font: $h2;
+  font-size: 20px;
+  margin-top: -4px;
+  width: 600px;
+}
 .campaign-backer-name {
   width: 50%;
   text-align: center;
   font: $h2;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 400;
   color: $black;
-
 }
 
 .campaign-no-donations {
@@ -51,7 +123,7 @@ for the about.css.scss file custom styling*/
   width: 50%;
   text-align: center;
   font: $h1;
-  font-size: 40px;
+  font-size: 30px;
   color: $primary-color;
 }
 
@@ -72,90 +144,6 @@ for the about.css.scss file custom styling*/
   float: left;
 }
 
-// Warren Start
-
-#campaigns-adventure-background {
-  width: 666px;
-  height: 500px;
-  background: url(asset_path("adventure_background.png"));
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  float: left;
-}
-
-#campaigns-adventure-car {
-  width: 200px;
-  height: 100px;
-  background: url(asset_path("adventure_car.png"));
-  position: relative;
-  top: 210px;
-  left: 50px;
-}
-
-.campaigns-adventure-wheel {
-  width: 50px;
-  height: 50px;
-}
-
-.campaigns-adventure-wheel-rolling {
-  -webkit-animation: spin 1.5s linear infinite;
-  -moz-animation: spin 1.5s linear infinite;
-  animation: spin 1.5s linear infinite;
-}
-
-#campaigns-adventure-wheel-left {
-  position: relative;
-  top: 77px;
-  left: -26px;
-}
-
-#campaigns-adventure-wheel-right {
-  position: relative;
-  top: 77px;
-  left: 28px;
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-#campaigns-adventure-team {
-  height: 165px;
-  position: relative;
-  top: -225px;
-  left: -20px;
-  overflow: hidden;
-
-  transform-origin: 50% 100%;
-  transition: all 1s ease-in-out;
-}
-
-.campaigns-adventure-team-hide {
-  transform: scale(0);
-}
-
-.campaigns-adventure-team-show {
-  transform: scale(1);
-}
-
-#campaigns-adventure-pointer {
-  width: 125px;
-  position: relative;
-  z-index: 2;
-}
-
-#campaigns-adventure-team-picture {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  position: relative;
-  z-index: 1;
-  top: -152px;
-  left: -2px;
-}
-
-// Warren End
-
 #campaign-by-names {
   width: 200px;
   float: right;
@@ -172,21 +160,40 @@ for the about.css.scss file custom styling*/
   font: $h1;
   color: $primary-color;
   text-align: center;
-  font-size: 45px;
+  font-size: 30px;
 }
 
-#campaign-info {
+.campaign-info {
   width: 319px;
-  height: 600px;
+  height: 550px;
   float: left;
+  position: relative;
+  z-index: 4;
+  top: -500px;
   margin-left: 15px;
+}
+
+.campaign-info-scroll {
+  margin-left: 181px;
+  position: fixed;
+  left: 50%;
+  top: auto;
+  margin-top: -200px;
+}
+
+.campaign-info-bottom {
+  margin-left: 181px;
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: -35px;
 }
 
 #campaign-donation {
   font: $h1;
   color: $primary-color;
   text-align: center;
-  font-size: 75px;
+  font-size: 55px;
 }
 
 #campaign-picture {
@@ -206,7 +213,7 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-progress-container {
-  height: 120px;
+  height: 50px;
 }
 
 #campaign-total {
@@ -230,13 +237,29 @@ for the about.css.scss file custom styling*/
   font-size: 25px;
 }
 
-.campaign-show-footer-font {
+.campaign-show-footer-font a {
+  font-weight: 200;
   font-size: 15px;
 }
+
+#campaign-show-footer {
+  width: 1000px;
+}
+
+.campaign-show-footer-font a:hover {
+  font-weight: 600;
+}
+
 #campaign-progress {
   width: 300px;
-  height: 120px;
-  background: $light-gray;
+  height: 50px;
+  // background: $light-gray;
+  padding-top: 20px;
+}
+
+#campaign-percentage-font {
+  font-size: 20px;
+  padding-right: 0px;
 }
 
 .campaign-detail {
@@ -284,14 +307,15 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-money-container {
-    height: 110px;
+    height: 100px;
 }
 
 /** TABBED-SECTION */
 .campaign-tabs {
-  width: 1000px;
+  width: 600px;
   display: inline-block;
   margin: auto;
+  margin-right: 401px;
 }
 
 .campaign-tab-links:after {
@@ -299,7 +323,9 @@ for the about.css.scss file custom styling*/
   clear: both;
   content: '';
 }
-
+#campaign-overview-font {
+  margin-right: 401px;
+}
 .campaign-tab-links li {
   margin: 0px 5px;
   float: left;
@@ -373,5 +399,4 @@ li.campaign-active a li.campaign-active a:hover {
 
 @media (max-width: 600px) {
   /* fill in :-( */
-
 }

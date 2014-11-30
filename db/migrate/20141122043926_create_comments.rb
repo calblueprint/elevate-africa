@@ -1,11 +1,9 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.text :content
-      t.integer :campaign_id
-      t.string :first_name
-      t.string :last_name
-      t.string :email
+      t.string :commenter
+      t.text :body
+      t.references :campaign, index: true
 
       t.timestamps
     end

@@ -4,6 +4,8 @@ startCampaignIndex = ->
     # start_typed()
     # start_slider()
 
+
+
 # start_slider = ->
 #   $('.bxslider').bxSlider({
 #     auto: true
@@ -34,3 +36,4 @@ start_progress = ->
 #   $("#campaign-index-search").typed options
 $(document).ready startCampaignIndex
 $(document).on 'page:load', startCampaignIndex
+

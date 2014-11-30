@@ -1,0 +1,102 @@
+var ready = function() {
+  $(document).ready(function() {
+
+    // which: "egypt" or "safari"
+    which = "egypt";
+
+    // initial settings
+    $("#campaigns-adventure-white").hide();
+    advChooseScene(which);
+
+    // adventure controller
+    $(".campaigns-adventure-foreground").click(function() {
+      advHideTeam();
+
+      setTimeout(function() {
+        advAnimateVehicle(which);
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=400px"}, 3000);
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
+
+        setTimeout(function() {
+          advUnanimateVehicle(which);
+        }, 3000);
+
+        setTimeout(function() {
+          $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4500);
+          advAnimateVehicle(which);
+        }, 3500);
+
+        setTimeout(function() {
+          advUnanimateVehicle(which);
+          $("#campaigns-adventure-white").fadeIn(1000, function() {
+            which = "safari";
+            advChooseScene(which);
+            $("#campaigns-adventure-white").fadeOut(1000);
+          });
+
+          setTimeout(function() {
+            $("#campaigns-adventure-vehicle").animate({"left": "-350px"}, 0);
+            $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000);
+
+            // this is a temp hack fix
+            which = "safari";
+
+            advAnimateVehicle(which);
+
+            setTimeout(function() {
+              advUnanimateVehicle(which);
+              advShowTeam();
+            }, 3500);
+          }, 1000);
+        }, 6500);
+      }, 1000);
+    });
+  });
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function advChooseScene(which) {
+  $(".campaigns-adventure-background").attr("id", "ca-" + which + "-background");
+  $(".campaigns-adventure-foreground").attr("id", "ca-" + which + "-foreground");
+
+  if(which == "egypt") {
+    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-boat");
+    $(".campaigns-adventure-wheel").hide();
+  }
+  else if(which == "safari") {
+    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
+    $(".campaigns-adventure-wheel").show();
+  }
+}
+
+function advAnimateVehicle(which) {
+  console.log(which);
+  if(which == "egypt")
+    $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
+  else if(which == "safari")
+    $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
+}
+
+function advUnanimateVehicle(which) {
+  if(which == "egypt")
+    $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
+  else if(which == "safari")
+    $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
+}
+
+function advHideTeam() {
+  // css 1 second duration
+  $("#campaigns-adventure-team").addClass("campaigns-adventure-team-hide");
+}
+
+function advShowTeam() {
+  // css 1 second duration
+  $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
+  $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-hide");
+
+  setTimeout(function() {
+    $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-show");
+  }, 1000);
+}
