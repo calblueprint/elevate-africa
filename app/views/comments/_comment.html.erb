@@ -1,4 +1,7 @@
 <div class="campaign-comment-container">
+  <% if comment.commenter.length() == 0 %>
+    <% comment.commenter = "Anonymous" %>
+  <% end %>
   <h1 id="campaign-commenter-font"><%= comment.commenter %></h1>
   <h2 id="campaign-datetime-font"><%= comment.created_at.utc.strftime("%B %d, %Y") %></h2></br></br>
   <p id="campaign-body-font"> <%= comment.body %></p>

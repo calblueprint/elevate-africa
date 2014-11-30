@@ -9,6 +9,10 @@
     <%= f.hidden_field :campaign_id, value: @campaign.id %>
   </p>
   <p>
-    <%= f.submit nil, value: "POST MY COMMENT", class: "button", id: "campaign-comment-button"%>
+    <% if !comment.body.nil? %>
+      <%= f.submit nil, value: "POST MY COMMENT", class: "button", id: "campaign-comment-button"%>
+    <% else %>
+      <%= f.submit nil, value: "POST MY COMMENT", class: "button", id: "campaign-comment-button", action: "error_comment" %>
+    <% end %>
   </p>
 <% end %>

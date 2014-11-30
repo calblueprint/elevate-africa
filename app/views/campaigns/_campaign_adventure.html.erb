@@ -59,7 +59,11 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
+            <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <% else %>
+            <div id="campaign-finished"><h2 id="campaign-finished-font">CAMPAIGN CLOSED</h2></div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -113,7 +117,9 @@
       <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% end %>
-      <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
+      <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
+        <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
+      <% end %>
     </h2>
   </div>
 
