@@ -1,0 +1,37 @@
+@import "variables.css.scss";
+
+#general-donation-container {
+  width: 100%;
+  height: 800px;
+  background-color: #FFF3E7
+}
+
+#general-donation-content-container {
+  width: 40%;
+  float: right;
+}
+
+#general-donation-form {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 200px;
+  padding: 20px;
+}
+
+#general-donation-title {
+  text-align: center;
+  font-size: 50px;
+}
+
+#general-donation-subtitle {
+  text-align: center;
+}
+
+#general-donation-name {
+  border: 5px solid #FFF3E7;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}

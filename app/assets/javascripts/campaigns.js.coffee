@@ -4,8 +4,6 @@ startCampaignIndex = ->
     # start_typed()
     # start_slider()
 
-
-
 # start_slider = ->
 #   $('.bxslider').bxSlider({
 #     auto: true

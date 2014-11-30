@@ -1,1 +1,24 @@
-<h1>Helo</h1>
+<div id="general-donation-container">
+  <div id="general-donation-rita-container"></div>
+  <div id="general-donation-content-container">
+    <div id="general-donation-form">
+      <h1 id="general-donation-title">Donation</h1>
+      <h4 id="general-donation-subtitle">Crowdfund a Business</h4>
+      <%= simple_form_for @donation do |f| %>
+        <p>
+          <%= f.input :name, label: false,
+                             placeholder: "Name (optional)",
+                             input_html: { id: "general-donation-name"} %>
+        </p>
+
+        <div class="field">
+          <%= f.hidden_field :amount, label: false, id: "donate-amount" %>
+        </div>
+
+        <div>
+          <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
