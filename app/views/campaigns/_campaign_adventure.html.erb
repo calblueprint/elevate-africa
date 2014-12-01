@@ -9,7 +9,9 @@
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
       <% end %>
-      <p id="campaign-last-donation">Last donation amount: <%= @campaign.most_recent_donation.try(:amount) %>
+      <p id="campaign-last-donation" data-last-donation="<%= @campaign.most_recent_donation.try(:amount) %>">Last donation amount: <%= @campaign.most_recent_donation.try(:amount) %></p>
+      <p id="campaign-total-donations" data-total-donations="<%= @campaign.get_total_donations %>">Total donation amount: <%= @campaign.get_total_donations %></p>
+      <p id="campaign-donation-goal" data-donation-goal="<%= @campaign.goal %>">Goal: <%= @campaign.goal %></p>
 
 
       <div class="campaigns-adventure-background">

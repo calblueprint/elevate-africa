@@ -1,13 +1,19 @@
 var ready = function() {
   $(document).ready(function() {
 
+    var last_donation = $("#campaign-last-donation").data("last-donation");
+    var total_donations = $("#campaign-total-donations").data("total-donations");
+    var donation_goal = $("#campaign-donation-goal").data("donation-goal");
+
+    console.log(last_donation);
+    console.log(total_donations);
+    console.log(donation_goal);
+
     // which: "egypt" or "safari"
     which = "egypt";
 
     // initial settings
     $("#campaigns-adventure-white").hide();
-    if($(".campaign-info").css("top") == "-500px")
-      console.log("hello");
 
     advChooseScene(which);
 
@@ -18,43 +24,42 @@ var ready = function() {
       setTimeout(function() {
         advAnimateVehicle(which);
         $(".campaigns-adventure-foreground").animate({"background-position-x": "-=400px"}, 3000);
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000);
-
-        setTimeout(function() {
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000, function() {
           advUnanimateVehicle(which);
-        }, 3000);
+          advShowTeam();
+        });
 
-        setTimeout(function() {
-          $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4500);
-          advAnimateVehicle(which);
-        }, 3500);
+        // setTimeout(function() {
+        //   $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4500);
+        //   advAnimateVehicle(which);
+        // }, 3500);
 
-        setTimeout(function() {
-          advUnanimateVehicle(which);
-          $(".campaign-info").addClass("campaign-info-white");
-          $("#campaigns-adventure-white").fadeIn(1000, function() {
-            which = "safari";
-            advChooseScene(which);
-            $("#campaigns-adventure-white").fadeOut(1000, function() {
-              $(".campaign-info").removeClass("campaign-info-white");
-            });
-          });
+        // setTimeout(function() {
+        //   advUnanimateVehicle(which);
+        //   $(".campaign-info").addClass("campaign-info-white");
+        //   $("#campaigns-adventure-white").fadeIn(1000, function() {
+        //     which = "safari";
+        //     advChooseScene(which);
+        //     $("#campaigns-adventure-white").fadeOut(1000, function() {
+        //       $(".campaign-info").removeClass("campaign-info-white");
+        //     });
+        //   });
 
-          setTimeout(function() {
-            $("#campaigns-adventure-vehicle").animate({"left": "-350px"}, 0);
-            $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000);
+        //   setTimeout(function() {
+        //     $("#campaigns-adventure-vehicle").animate({"left": "-350px"}, 0);
+        //     $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000);
 
-            // this is a temp hack fix
-            which = "safari";
+        //     // this is a temp hack fix
+        //     which = "safari";
 
-            advAnimateVehicle(which);
+        //     advAnimateVehicle(which);
 
-            setTimeout(function() {
-              advUnanimateVehicle(which);
-              advShowTeam();
-            }, 3500);
-          }, 1000);
-        }, 6500);
+        //     setTimeout(function() {
+        //       advUnanimateVehicle(which);
+        //       advShowTeam();
+        //     }, 3500);
+        //   }, 1000);
+        // }, 6500);
       }, 1000);
     });
   });
