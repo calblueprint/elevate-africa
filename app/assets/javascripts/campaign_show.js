@@ -20,9 +20,9 @@ $(document).ready(function() {
       $(this).parent("li").addClass("campaign-active").siblings().removeClass("campaign-active");
       e.preventDefault();
     })
+
     $(window).scroll(function() {
       var campaignBottom = $("#campaign-show-footer").offset().top - 435;
-      console.log($(".campaign-info").css("margin-top"));
       if($(window).scrollTop() > 200 && $(window).scrollTop() <= campaignBottom) {
         $(".campaign-info").addClass("campaign-info-scroll");
       } else {

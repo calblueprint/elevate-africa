@@ -1,13 +1,14 @@
+
 var ready = function() {
   $(document).ready(function() {
 
-    var last_donation = $("#campaign-last-donation").data("last-donation");
-    var total_donations = $("#campaign-total-donations").data("total-donations");
-    var donation_goal = $("#campaign-donation-goal").data("donation-goal");
+    var last_donation = $("#campaign-last-donation").data("last");
+    var total_donations = $("#campaign-total-donations").data("total");
+    var donation_goal = $("#campaign-donation-goal").data("goal");
 
-    console.log(last_donation);
-    console.log(total_donations);
-    console.log(donation_goal);
+    // set background and foreground to shifted position
+    $(".campaigns-adventure-foreground").css({"background-position-x": "-" + total_donations - last_donation + "px"});
+    $(".campaigns-adventure-background").css({"background-position-x": "-" + total_donations - last_donation + "px"});
 
     // which: "egypt" or "safari"
     which = "egypt";
@@ -17,14 +18,16 @@ var ready = function() {
 
     advChooseScene(which);
 
+    advMainAction(which, last_donation);
+
     // adventure controller
     $(".campaigns-adventure-foreground").click(function() {
       advHideTeam();
 
       setTimeout(function() {
         advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=400px"}, 3000);
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=400px"}, 3000, function() {
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=300px"}, 3000);
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=300px"}, 3000, function() {
           advUnanimateVehicle(which);
           advShowTeam();
         });
@@ -68,6 +71,20 @@ var ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
+function advMainAction(which, last_donation) {
+  setTimeout(function() {
+    advHideTeam();
+    setTimeout(function() {
+      advAnimateVehicle(which);
+      $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10);
+      $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10, function() {
+        advUnanimateVehicle(which);
+        advShowTeam();
+      });
+    }, 1000);
+  }, 1000);
+}
+
 function advChooseScene(which) {
   $(".campaigns-adventure-background").attr("id", "ca-" + which + "-background");
   $(".campaigns-adventure-foreground").attr("id", "ca-" + which + "-foreground");
@@ -83,7 +100,6 @@ function advChooseScene(which) {
 }
 
 function advAnimateVehicle(which) {
-  console.log(which);
   if(which == "egypt")
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
   else if(which == "safari")
