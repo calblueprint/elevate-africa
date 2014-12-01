@@ -18,52 +18,11 @@ var ready = function() {
 
     advChooseScene(which);
 
-    advMainAction(which, last_donation);
+    advPrimaryAction(which, last_donation);
 
     // adventure controller
     $(".campaigns-adventure-foreground").click(function() {
-      advHideTeam();
-
-      setTimeout(function() {
-        advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=300px"}, 3000);
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=300px"}, 3000, function() {
-          advUnanimateVehicle(which);
-          advShowTeam();
-        });
-
-        // setTimeout(function() {
-        //   $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4500);
-        //   advAnimateVehicle(which);
-        // }, 3500);
-
-        // setTimeout(function() {
-        //   advUnanimateVehicle(which);
-        //   $(".campaign-info").addClass("campaign-info-white");
-        //   $("#campaigns-adventure-white").fadeIn(1000, function() {
-        //     which = "safari";
-        //     advChooseScene(which);
-        //     $("#campaigns-adventure-white").fadeOut(1000, function() {
-        //       $(".campaign-info").removeClass("campaign-info-white");
-        //     });
-        //   });
-
-        //   setTimeout(function() {
-        //     $("#campaigns-adventure-vehicle").animate({"left": "-350px"}, 0);
-        //     $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000);
-
-        //     // this is a temp hack fix
-        //     which = "safari";
-
-        //     advAnimateVehicle(which);
-
-        //     setTimeout(function() {
-        //       advUnanimateVehicle(which);
-        //       advShowTeam();
-        //     }, 3500);
-        //   }, 1000);
-        // }, 6500);
-      }, 1000);
+      advSecondaryAction(which);
     });
   });
 }
@@ -71,7 +30,7 @@ var ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-function advMainAction(which, last_donation) {
+function advPrimaryAction(which, last_donation) {
   setTimeout(function() {
     advHideTeam();
     setTimeout(function() {
@@ -83,6 +42,32 @@ function advMainAction(which, last_donation) {
       });
     }, 1000);
   }, 1000);
+}
+
+function advSecondaryAction(which) {
+  advAnimateVehicle(which);
+  $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4000);
+
+  setTimeout(function() {
+    advUnanimateVehicle(which);
+    $(".campaign-info").addClass("campaign-info-white");
+    $("#campaigns-adventure-white").fadeIn(1000, function() {
+      which = "safari";
+      advChooseScene(which);
+      $("#campaigns-adventure-white").fadeOut(1000, function() {
+        $(".campaign-info").removeClass("campaign-info-white");
+
+        $("#campaigns-adventure-vehicle").css({"left": "-350px"});
+
+        which = "safari";
+        advAnimateVehicle(which);
+        $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000, function() {
+          advUnanimateVehicle(which);
+          advShowTeam();
+        });
+      });
+    });
+  }, 3000);
 }
 
 function advChooseScene(which) {
