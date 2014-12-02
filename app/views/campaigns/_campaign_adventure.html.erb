@@ -20,9 +20,10 @@
           <img style="display:none" src="<%= asset_path("adventure_team.png") %>"/>
           <span id="campaigns-adventure-prompt-container">
             <span id="campaigns-adventure-prompt-rectangle">
-              <div id="campaign-picture">
+              <div id="campaigns-adventure-prompt-picture">
                 <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
               </div>
+              <div id="campaigns-adventure-prompt-text">Bob's donation of $315 got us here!</div>
             </span>
             <span id="campaigns-adventure-prompt-triangle"></span>
           </span>

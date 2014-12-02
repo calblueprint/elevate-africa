@@ -58,7 +58,7 @@ for the about.css.scss file custom styling*/
   position: relative;
   top: -55px;
   left: 50px;
-  overflow: hidden;
+  // overflow: hidden;
 
   transform-origin: 50% 100%;
   transition: all 1s ease-in-out;
@@ -76,14 +76,15 @@ for the about.css.scss file custom styling*/
   position: relative;
   z-index: 2;
   display: inline-block;
-  width: 12em;
+  // width: 12em;
+  width: 18em;
   height: 8em;
 }
 
 #campaigns-adventure-prompt-rectangle {
   position: absolute;
   display: inline-block;
-  width: 12em;
+  // width: 12em;
   height: 6em;
   border-radius: 0.5em;
   background-color: #F18FC2;
@@ -99,8 +100,30 @@ for the about.css.scss file custom styling*/
   line-height: 0;
   border: 1em solid transparent;
   border-top: 1em solid #F18FC2;
-  left: 5em;
+  // left: 5em;
+  left: 2em;
   top: 5.9em;
+}
+
+#campaigns-adventure-prompt-picture {
+  margin: .5em .5em;
+  display: inline-block;
+  float: left;
+  width: 5em;
+  height: 5em;
+  border-radius: 2.5em;
+  -webkit-border-radius: 2.5em;
+  -moz-border-radius: 2.5em;
+  background: url(asset_path("member_one.png"));
+  background-size: cover;
+}
+
+#campaigns-adventure-prompt-text {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  padding: .5em 0;
+  font: lighter 20px Lato, sans-serif;
 }
 
 #campaigns-adventure-vehicle {
