@@ -53,10 +53,10 @@ for the about.css.scss file custom styling*/
 }
 
 #campaigns-adventure-team {
-  width: 200px;
-  height: 200px;
+  width: 196px;
+  height: 128px;
   position: relative;
-  top: -125px;
+  top: -55px;
   left: 50px;
   overflow: hidden;
 
@@ -70,6 +70,37 @@ for the about.css.scss file custom styling*/
 
 .campaigns-adventure-team-show {
   transform: scale(1);
+}
+
+#campaigns-adventure-prompt-container {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 12em;
+  height: 8em;
+}
+
+#campaigns-adventure-prompt-rectangle {
+  position: absolute;
+  display: inline-block;
+  width: 12em;
+  height: 6em;
+  border-radius: 0.5em;
+  background-color: #F18FC2;
+  left: 0em;
+  top: 0em
+}
+
+#campaigns-adventure-prompt-triangle {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 1em solid transparent;
+  border-top: 1em solid #F18FC2;
+  left: 5em;
+  top: 5.9em;
 }
 
 #campaigns-adventure-vehicle {

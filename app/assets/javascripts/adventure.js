@@ -41,7 +41,7 @@ function advPrimaryAction(which, last_donation) {
         advShowTeam();
       });
     }, 1000);
-  }, 1000);
+  }, 2500);
 }
 
 function advSecondaryAction(which) {
