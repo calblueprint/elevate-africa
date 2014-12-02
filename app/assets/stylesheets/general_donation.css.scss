@@ -35,3 +35,34 @@
   -webkit-border-radius: 7px;
   border-radius: 7px;
 }
+
+#general-donation-amount-container {
+  margin: 0 auto;
+  height: 10%;
+  width: 80%;
+}
+
+#general-donation-font {
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+#general-donation-dollar-sign {
+  @extend #general-donation-font;
+  width: 8%;
+  float: left;
+  font-size: 40px;
+  padding-top: 10px;
+}
+
+#donate-amount {
+  @extend #general-donation-font;
+  width: 92%;
+  height: 10%;
+  float: right;
+  margin: 0 auto;
+  border: none;
+  font-size: 75px;
+}
+

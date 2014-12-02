@@ -11,8 +11,12 @@
                              input_html: { id: "general-donation-name"} %>
         </p>
 
-        <div class="field">
-          <%= f.hidden_field :amount, label: false, id: "donate-amount" %>
+
+        <div id="general-donation-amount-container">
+          <span id="general-donation-dollar-sign">$</span>
+          <%= f.input :amount, label: false,
+                               input_html: { id: "donate-amount"},
+                               value: 25, as: :string %>
         </div>
 
         <div>
