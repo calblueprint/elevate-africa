@@ -6,6 +6,21 @@
   background-color: #FFF3E7
 }
 
+#general-donation-image-container {
+  width: 60%;
+  float: left;
+}
+
+#general-donation-rita-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+#general-donation-image {
+  width: 100%;
+}
+
 #general-donation-content-container {
   width: 40%;
   float: right;
@@ -84,6 +99,8 @@
 
 #general-donation-slider {
   width: 90%;
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-top: -10px;
+  margin-bottom: 40px;
 }
 

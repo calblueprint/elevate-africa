@@ -5,17 +5,40 @@ donation = ->
 
     # Creates slider - see http://refreshless.com/nouislider/
     slider = $("#general-donation-slider")
+    dollar_input = $("#donate-amount")
     slider_options = {
                        start: 0,
                        step: 1,
                        connect: "lower",
                        range: {
                                 'min': 5,
-                                'max': 10000
+                                'max': 2500
                               }
                      }
     slider.noUiSlider slider_options
-    slider.Link('lower').to($("#donate-amount"))
+
+    change_numbers = [5, 250, 500, 1000, 1500, 2000, 2500]
+
+    # adds tick marks
+    pip_options = {
+                    mode: 'values',
+                    values: change_numbers,
+                    density: 100
+                  }
+
+    slider.noUiSlider_pips pip_options
+
+    functions = {
+                  slide: ->
+                    value = parseInt(slider.val())
+                    dollar_input.val(value)
+                }
+
+    slider.on functions
+
+    dollar_input.keyup (e)->
+      value = dollar_input.val()
+      slider.val(value)
 
     # Prevents users from typing anthing but numbers
     $("#donate-amount").keypress (e)->
