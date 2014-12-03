@@ -6,6 +6,8 @@ donation = ->
     # Creates slider - see http://refreshless.com/nouislider/
     slider = $("#general-donation-slider")
     dollar_input = $("#donate-amount")
+    image_tag = $("#general-donation-image")
+
     slider_options = {
                        start: 0,
                        step: 1,
@@ -32,13 +34,26 @@ donation = ->
                   slide: ->
                     value = parseInt(slider.val())
                     dollar_input.val(value)
+                    change_picture value
                 }
 
     slider.on functions
 
     dollar_input.keyup (e)->
-      value = dollar_input.val()
+      value = parseInt(dollar_input.val())
       slider.val(value)
+      change_picture value
+
+    # Changes picture based on value of slider
+    change_picture = (value) ->
+      for num in [0...change_numbers.length]
+        number = change_numbers[num]
+        if value < number
+          image_tag.attr { src: "donation#{num}.svg" }
+          break
+        else if value >= change_numbers[change_numbers.length - 1]
+          image_tag.attr { src: "donation7.svg" }
+
 
     # Prevents users from typing anthing but numbers
     $("#donate-amount").keypress (e)->
