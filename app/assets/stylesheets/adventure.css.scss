@@ -56,11 +56,10 @@ for the about.css.scss file custom styling*/
   width: 196px;
   height: 128px;
   position: relative;
-  top: -55px;
+  top: -50px;
   left: 50px;
-  // overflow: hidden;
 
-  transform-origin: 50% 100%;
+  transform-origin: 50% 85%;
   transition: all 1s ease-in-out;
 }
 
@@ -72,19 +71,23 @@ for the about.css.scss file custom styling*/
   transform: scale(1);
 }
 
-#campaigns-adventure-prompt-container {
+.campaigns-adventure-prompt-container {
   position: relative;
   z-index: 2;
   display: inline-block;
-  // width: 12em;
-  width: 18em;
+  width: 6em;
   height: 8em;
 }
 
-#campaigns-adventure-prompt-rectangle {
+.campaigns-adventure-prompt-container-big {
+  width: 16em;
+  left: -2em;
+}
+
+.campaigns-adventure-prompt-rectangle {
   position: absolute;
   display: inline-block;
-  // width: 12em;
+  width: 6em;
   height: 6em;
   border-radius: 0.5em;
   background-color: #F18FC2;
@@ -92,7 +95,11 @@ for the about.css.scss file custom styling*/
   top: 0em
 }
 
-#campaigns-adventure-prompt-triangle {
+.campaigns-adventure-prompt-rectangle-big {
+  width: 16em;
+}
+
+.campaigns-adventure-prompt-triangle {
   position: absolute;
   display: inline-block;
   width: 0;
@@ -100,9 +107,12 @@ for the about.css.scss file custom styling*/
   line-height: 0;
   border: 1em solid transparent;
   border-top: 1em solid #F18FC2;
-  // left: 5em;
   left: 2em;
   top: 5.9em;
+}
+
+.campaigns-adventure-prompt-triangle-big {
+  left: 7em;
 }
 
 #campaigns-adventure-prompt-picture {
@@ -123,7 +133,8 @@ for the about.css.scss file custom styling*/
   float: left;
   width: 150px;
   padding: .5em 0;
-  font: lighter 20px Lato, sans-serif;
+  font: lighter 18px Lato, sans-serif;
+  color: $dark-gray;
 }
 
 #campaigns-adventure-vehicle {

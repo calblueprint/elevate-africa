@@ -15,6 +15,7 @@ var ready = function() {
 
     // initial settings
     $("#campaigns-adventure-white").hide();
+    $("#campaigns-adventure-prompt-text").hide();
 
     advChooseScene(which);
 
@@ -105,6 +106,11 @@ function advHideTeam() {
 
 function advShowTeam() {
   // css 1 second duration
+  $("#campaigns-adventure-prompt-text").show();
+  $(".campaigns-adventure-prompt-container").addClass("campaigns-adventure-prompt-container-big");
+  $(".campaigns-adventure-prompt-rectangle").addClass("campaigns-adventure-prompt-rectangle-big");
+  $(".campaigns-adventure-prompt-triangle").addClass("campaigns-adventure-prompt-triangle-big");
+
   $("#campaigns-adventure-team").addClass("campaigns-adventure-team-show");
   $("#campaigns-adventure-team").removeClass("campaigns-adventure-team-hide");
 
