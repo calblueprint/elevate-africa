@@ -38,8 +38,9 @@
 
 #general-donation-amount-container {
   margin: 0 auto;
-  height: 10%;
-  width: 80%;
+  width: 90%;
+  height: 121px;
+  position: relative;
 }
 
 #general-donation-font {
@@ -58,11 +59,31 @@
 
 #donate-amount {
   @extend #general-donation-font;
-  width: 92%;
+  width: 90%;
   height: 10%;
-  float: right;
   margin: 0 auto;
   border: none;
   font-size: 75px;
+  float: left;
+}
+
+.donation_amount {
+  width: 90%;
+}
+
+#general-donation-usd {
+  @extend #general-donation-font;
+  width: 10%;
+  height: 10%;
+  color: $dark-gray;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 35px;
+}
+
+#general-donation-slider {
+  width: 90%;
+  margin: 20px auto;
 }
 

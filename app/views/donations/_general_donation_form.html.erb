@@ -2,7 +2,7 @@
   <div id="general-donation-rita-container"></div>
   <div id="general-donation-content-container">
     <div id="general-donation-form">
-      <h1 id="general-donation-title">Donation</h1>
+      <h1 id="general-donation-title">Donate!</h1>
       <h4 id="general-donation-subtitle">Crowdfund a Business</h4>
       <%= simple_form_for @donation do |f| %>
         <p>
@@ -13,11 +13,15 @@
 
 
         <div id="general-donation-amount-container">
-          <span id="general-donation-dollar-sign">$</span>
+          <div id="general-donation-dollar-sign">$</div>
           <%= f.input :amount, label: false,
-                               input_html: { id: "donate-amount"},
-                               value: 25, as: :string %>
+                               input_html: { id: "donate-amount",
+                                             value: 5},
+                               as: :string %>
+          <div id="general-donation-usd">USD</div>
         </div>
+
+        <div id="general-donation-slider"></div>
 
         <div>
           <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
