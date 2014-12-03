@@ -17,6 +17,7 @@ donation = ->
                                 'max': 2500
                               }
                      }
+
     slider.noUiSlider slider_options
 
     change_numbers = [5, 250, 500, 1000, 1500, 2000, 2500]
@@ -49,10 +50,10 @@ donation = ->
       for num in [0...change_numbers.length]
         number = change_numbers[num]
         if value < number
-          image_tag.attr { src: "donation#{num}.svg" }
+          image_tag.attr { src: "/assets/donation#{num}.svg" }
           break
         else if value >= change_numbers[change_numbers.length - 1]
-          image_tag.attr { src: "donation7.svg" }
+          image_tag.attr {  src: "donation8.svg" }
 
 
     # Prevents users from typing anthing but numbers
