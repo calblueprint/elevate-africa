@@ -3,24 +3,30 @@ var scene_hash = {
                     1: "safari"
                  };
 
+var last_donation;
+var total_donations;
+var donation_goal;
+var penultimate_total;
+var pen_percent;
+var total_percent;
+
 var ready = function() {
   $(document).ready(function() {
 
-    var last_donation = $("#campaign-last-donation").data("last");
-    var total_donations = $("#campaign-total-donations").data("total");
-    var donation_goal = $("#campaign-donation-goal").data("goal");
-    var penultimate_total = total_donations - last_donation;
+    last_donation = $("#campaign-last-donation").data("last");
+    total_donations = $("#campaign-total-donations").data("total");
+    donation_goal = $("#campaign-donation-goal").data("goal");
+
+    penultimate_total = total_donations - last_donation;
+    pen_percent = penultimate_total/donation_goal;
+    total_percent = total_donations/donation_goal;
 
     // set background and foreground to shifted position
     $(".campaigns-adventure-foreground").css({"background-position-x": "-" + penultimate_total + "px"});
     $(".campaigns-adventure-background").css({"background-position-x": "-" + penultimate_total + "px"});
 
     // which: "egypt" or "safari"
-    var pen_percent = penultimate_total/donation_goal;
-    if(pen_percent < 1/6)
-      which = scene_hash[0];
-    else if(pen_percent < 1/3)
-      which = scene_hash[1];
+    which = scene_hash[Math.floor(pen_percent * 6)];
     console.log(which);
 
     // initial settings
@@ -41,23 +47,35 @@ var ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-function advPrimaryAction(which, last_donation) {
+function advPrimaryAction(which) {
   setTimeout(function() {
     advHideTeam();
     setTimeout(function() {
-      advAnimateVehicle(which);
-      $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10);
-      $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10, function() {
-        advUnanimateVehicle(which);
-        advShowTeam();
-      });
+      if(total_percent > 1/6) {
+        advAnimateVehicle(which);
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + 800 + "px"}, 800*10);
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + 800 + "px"}, 800*10, function() {
+          advUnanimateVehicle(which);
+          setTimeout(function() {
+            advSecondaryAction(which);
+          }, 500);
+        });
+      }
+      else {
+        advAnimateVehicle(which);
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10);
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10, function() {
+          advUnanimateVehicle(which);
+          advShowTeam();
+        });
+      }
     }, 1000);
   }, 2500);
 }
 
 function advSecondaryAction(which) {
   advAnimateVehicle(which);
-  $("#campaigns-adventure-vehicle").animate({"left": "+=600px"}, 4000);
+  $("#campaigns-adventure-vehicle").animate({"left": "+=700px"}, 4500);
 
   setTimeout(function() {
     advUnanimateVehicle(which);
@@ -67,8 +85,10 @@ function advSecondaryAction(which) {
       advChooseScene(which);
       $("#campaigns-adventure-white").fadeOut(1000, function() {
         $(".campaign-info").removeClass("campaign-info-white");
+      });
 
-        $("#campaigns-adventure-vehicle").css({"left": "-350px"});
+      setTimeout(function() {
+        $("#campaigns-adventure-vehicle").css({"left": "-250px"});
 
         which = "safari";
         advAnimateVehicle(which);
@@ -76,9 +96,9 @@ function advSecondaryAction(which) {
           advUnanimateVehicle(which);
           advShowTeam();
         });
-      });
+      }, 1500);
     });
-  }, 3000);
+  }, 3500);
 }
 
 function advChooseScene(which) {
