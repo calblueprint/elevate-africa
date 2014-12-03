@@ -1,3 +1,7 @@
+var scene_hash = {
+                    0: "egypt",
+                    1: "safari"
+                 };
 
 var ready = function() {
   $(document).ready(function() {
@@ -5,13 +9,19 @@ var ready = function() {
     var last_donation = $("#campaign-last-donation").data("last");
     var total_donations = $("#campaign-total-donations").data("total");
     var donation_goal = $("#campaign-donation-goal").data("goal");
+    var penultimate_total = total_donations - last_donation;
 
     // set background and foreground to shifted position
-    $(".campaigns-adventure-foreground").css({"background-position-x": "-" + total_donations - last_donation + "px"});
-    $(".campaigns-adventure-background").css({"background-position-x": "-" + total_donations - last_donation + "px"});
+    $(".campaigns-adventure-foreground").css({"background-position-x": "-" + penultimate_total + "px"});
+    $(".campaigns-adventure-background").css({"background-position-x": "-" + penultimate_total + "px"});
 
     // which: "egypt" or "safari"
-    which = "egypt";
+    var pen_percent = penultimate_total/donation_goal;
+    if(pen_percent < 1/6)
+      which = scene_hash[0];
+    else if(pen_percent < 1/3)
+      which = scene_hash[1];
+    console.log(which);
 
     // initial settings
     $("#campaigns-adventure-white").hide();

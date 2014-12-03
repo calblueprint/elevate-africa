@@ -23,7 +23,7 @@
               <div id="campaigns-adventure-prompt-picture">
                 <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
               </div>
-              <div id="campaigns-adventure-prompt-text">Bob's recent donation of $315 brought us here!</div>
+              <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
             </span>
             <span class="campaigns-adventure-prompt-triangle"></span>
           </span>
