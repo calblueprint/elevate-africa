@@ -22,6 +22,8 @@ var ready = function() {
     total_donations = $("#campaign-total-donations").data("total");
     donation_goal = $("#campaign-donation-goal").data("goal");
 
+    last_donation = 175;
+
     penultimate_total = total_donations - last_donation;
     pen_percent = penultimate_total/donation_goal;
     total_percent = total_donations/donation_goal;
@@ -56,14 +58,12 @@ function advPrimaryAction(which) {
   setTimeout(function() {
     advHideTeam();
     setTimeout(function() {
-      if(total_percent > 1/6) {
+      if(Math.floor(pen_percent * 6) != Math.floor(total_percent * 6)) {
         advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift*7.5, "linear");
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift*7.5, "linear", function() {
-          advUnanimateVehicle(which);
-          setTimeout(function() {
-            advSecondaryAction(which);
-          }, 500);
+        var current_position = $(".campaigns-adventure-foreground").css("background-position-x");
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (current_position-max_shift)*7.5, "linear");
+        $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (current_position-max_shift)*max_shift*7.5, "linear", function() {
+          advSecondaryAction(which);
         });
       }
       else {
@@ -79,8 +79,9 @@ function advPrimaryAction(which) {
 }
 
 function advSecondaryAction(which) {
-  advAnimateVehicle(which);
-  $("#campaigns-adventure-vehicle").animate({"left": "+=700px"}, 5000, "linear");
+  var current_left = $("#campaigns-adventure-vehicle").css("left");
+  var current_position = current_left.substring(0, current_left.length-2);
+  $("#campaigns-adventure-vehicle").animate({"left": "700px"}, (700-current_position)*7.5, "linear");
 
   setTimeout(function() {
     advUnanimateVehicle(which);
