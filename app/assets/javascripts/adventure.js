@@ -5,7 +5,9 @@ var max_shift = 657;
 
 var scene_hash = {
                     0: "egypt",
-                    1: "safari"
+                    1: "safari",
+                    2: "timbuktu",
+                    3: "victoria"
                  };
 
 var last_donation;
@@ -21,8 +23,6 @@ var ready = function() {
     last_donation = $("#campaign-last-donation").data("last");
     total_donations = $("#campaign-total-donations").data("total");
     donation_goal = $("#campaign-donation-goal").data("goal");
-
-    last_donation = 175;
 
     penultimate_total = total_donations - last_donation;
     pen_percent = penultimate_total/donation_goal;
