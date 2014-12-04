@@ -28,10 +28,12 @@ for the about.css.scss file custom styling*/
 
 #ca-egypt-background {
   background: url(asset_path("egypt_background.png"));
+  background-repeat: no-repeat;
 }
 
 #ca-safari-background {
   background: url(asset_path("safari_background.png"));
+  background-repeat: no-repeat;
 }
 
 .campaigns-adventure-foreground {
@@ -56,8 +58,7 @@ for the about.css.scss file custom styling*/
   width: 196px;
   height: 128px;
   position: relative;
-  top: -50px;
-  left: 50px;
+  top: -125px;
 
   transform-origin: 50% 90%;
   transition: all 1s ease-in-out;

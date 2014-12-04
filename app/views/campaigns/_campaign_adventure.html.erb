@@ -15,18 +15,19 @@
           <div class="campaigns-adventure-vehicle-body"></div>
           <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
           <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
-        </div>
-        <div id="campaigns-adventure-team">
-          <img style="display:none" src="<%= asset_path("adventure_team.png") %>"/>
-          <span class="campaigns-adventure-prompt-container">
-            <span class="campaigns-adventure-prompt-rectangle">
-              <div id="campaigns-adventure-prompt-picture">
-                <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
-              </div>
-              <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
+
+          <div id="campaigns-adventure-team">
+            <img style="display:none" src="<%= asset_path("adventure_team.png") %>"/>
+            <span class="campaigns-adventure-prompt-container">
+              <span class="campaigns-adventure-prompt-rectangle">
+                <div id="campaigns-adventure-prompt-picture">
+                  <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
+                </div>
+                <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
+              </span>
+              <span class="campaigns-adventure-prompt-triangle"></span>
             </span>
-            <span class="campaigns-adventure-prompt-triangle"></span>
-          </span>
+          </div>
         </div>
       </div>
       <div class="campaigns-adventure-foreground"></div>

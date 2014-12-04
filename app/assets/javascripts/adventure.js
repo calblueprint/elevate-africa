@@ -1,3 +1,8 @@
+// THIS VARIABLE MUST BE UPDATED
+// WHEN THE BACKGROUND IMAGES ARE CHANGED
+var background_width = 1314;
+var max_shift = 657;
+
 var scene_hash = {
                     0: "egypt",
                     1: "safari"
@@ -22,8 +27,13 @@ var ready = function() {
     total_percent = total_donations/donation_goal;
 
     // set background and foreground to shifted position
-    $(".campaigns-adventure-foreground").css({"background-position-x": "-" + penultimate_total + "px"});
-    $(".campaigns-adventure-background").css({"background-position-x": "-" + penultimate_total + "px"});
+    var background_offset = pen_percent % (1/6) * 6 * background_width;
+    if(background_offset > max_shift) {
+      $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * 5/7 + "px"});
+      background_offset = max_shift;
+    }
+    $(".campaigns-adventure-foreground").css({"background-position-x": "-" + Math.floor(background_offset) + "px"});
+    $(".campaigns-adventure-background").css({"background-position-x": "-" + Math.floor(background_offset) + "px"});
 
     // which: "egypt" or "safari"
     which = scene_hash[Math.floor(pen_percent * 6)];
@@ -35,12 +45,7 @@ var ready = function() {
 
     advChooseScene(which);
 
-    advPrimaryAction(which, last_donation);
-
-    // adventure controller
-    $(".campaigns-adventure-foreground").click(function() {
-      advSecondaryAction(which);
-    });
+    advPrimaryAction(which);
   });
 }
 
@@ -53,8 +58,8 @@ function advPrimaryAction(which) {
     setTimeout(function() {
       if(total_percent > 1/6) {
         advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + 800 + "px"}, 800*10);
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + 800 + "px"}, 800*10, function() {
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift*7.5, "linear");
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift*7.5, "linear", function() {
           advUnanimateVehicle(which);
           setTimeout(function() {
             advSecondaryAction(which);
@@ -63,8 +68,8 @@ function advPrimaryAction(which) {
       }
       else {
         advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10);
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*10, function() {
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*7.5, "linear");
+        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*7.5, "linear", function() {
           advUnanimateVehicle(which);
           advShowTeam();
         });
@@ -75,14 +80,18 @@ function advPrimaryAction(which) {
 
 function advSecondaryAction(which) {
   advAnimateVehicle(which);
-  $("#campaigns-adventure-vehicle").animate({"left": "+=700px"}, 4500);
+  $("#campaigns-adventure-vehicle").animate({"left": "+=700px"}, 5000, "linear");
 
   setTimeout(function() {
     advUnanimateVehicle(which);
     $(".campaign-info").addClass("campaign-info-white");
     $("#campaigns-adventure-white").fadeIn(1000, function() {
       which = "safari";
+
       advChooseScene(which);
+      $(".campaigns-adventure-foreground").css({"background-position-x": "0px"});
+      $(".campaigns-adventure-background").css({"background-position-x": "0px"});
+
       $("#campaigns-adventure-white").fadeOut(1000, function() {
         $(".campaign-info").removeClass("campaign-info-white");
       });
@@ -92,7 +101,7 @@ function advSecondaryAction(which) {
 
         which = "safari";
         advAnimateVehicle(which);
-        $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 3000, function() {
+        $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 2250, "linear", function() {
           advUnanimateVehicle(which);
           advShowTeam();
         });
@@ -102,6 +111,7 @@ function advSecondaryAction(which) {
 }
 
 function advChooseScene(which) {
+
   $(".campaigns-adventure-background").attr("id", "ca-" + which + "-background");
   $(".campaigns-adventure-foreground").attr("id", "ca-" + which + "-foreground");
 
