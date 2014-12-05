@@ -24,6 +24,9 @@ var ready = function() {
     total_donations = $("#campaign-total-donations").data("total");
     donation_goal = $("#campaign-donation-goal").data("goal");
 
+    last_donation = 50;
+    total_donations = 210;
+
     penultimate_total = total_donations - last_donation;
     pen_percent = penultimate_total/donation_goal;
     total_percent = total_donations/donation_goal;
@@ -58,21 +61,40 @@ function advPrimaryAction(which) {
   setTimeout(function() {
     advHideTeam();
     setTimeout(function() {
-      if(Math.floor(pen_percent * 6) != Math.floor(total_percent * 6)) {
+      if(Math.floor(pen_percent*6) != Math.floor(total_percent*6)) {
         advAnimateVehicle(which);
-        var current_position = $(".campaigns-adventure-foreground").css("background-position-x");
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (current_position-max_shift)*7.5, "linear");
-        $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (current_position-max_shift)*max_shift*7.5, "linear", function() {
+        var current_x = $(".campaigns-adventure-foreground").css("background-position-x");
+        var current_position = (-1)*parseInt(current_x.substring(0, current_x.length-2));
+        console.log(current_position);
+        $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift-current_position)*7.5, "linear");
+        $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift-current_position)*7.5, "linear", function() {
           advSecondaryAction(which);
         });
       }
       else {
+        // this needs to be fixed!
         advAnimateVehicle(which);
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*7.5, "linear");
-        $(".campaigns-adventure-background").animate({"background-position-x": "-=" + last_donation + "px"}, last_donation*7.5, "linear", function() {
-          advUnanimateVehicle(which);
-          advShowTeam();
-        });
+        var temp_movement = (total_percent-pen_percent)*background_width*6;
+        var current_x = $(".campaigns-adventure-foreground").css("background-position-x");
+        var current_background = (-1)*parseInt(current_x.substring(0, current_x.length-2));
+        if(current_background+temp_movement > max_shift) {
+          $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift-current_background)*7.5, "linear");
+          $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift-current_background)*7.5, "linear", function() {
+            temp_movement -= max_shift-current_background;
+            temp_movement *= 5/7;
+            $("#campaigns-adventure-vehicle").animate({"left": "+=" + temp_movement}, temp_movement*7.5, "linear", function() {
+              advUnanimateVehicle(which);
+              advShowTeam();
+            });
+          });
+        }
+        else {
+          $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + temp_movement + "px"}, temp_movement*7.5, "linear");
+          $(".campaigns-adventure-background").animate({"background-position-x": "-=" + temp_movement + "px"}, temp_movement*7.5, "linear", function() {
+            advUnanimateVehicle(which);
+            advShowTeam();
+          });
+        }
       }
     }, 1000);
   }, 2500);
@@ -84,9 +106,9 @@ function advSecondaryAction(which) {
   $("#campaigns-adventure-vehicle").animate({"left": "700px"}, (700-current_position)*7.5, "linear");
 
   setTimeout(function() {
-    advUnanimateVehicle(which);
     $(".campaign-info").addClass("campaign-info-white");
     $("#campaigns-adventure-white").fadeIn(1000, function() {
+      advUnanimateVehicle(which);
       which = "safari";
 
       advChooseScene(which);
