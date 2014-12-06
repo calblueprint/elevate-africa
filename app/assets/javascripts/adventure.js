@@ -27,9 +27,6 @@ var ready = function() {
     total_donations = $("#campaign-total-donations").data("total");
     donation_goal = $("#campaign-donation-goal").data("goal");
 
-    last_donation = 600;
-    total_donations = 670;
-
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
 
@@ -39,7 +36,6 @@ var ready = function() {
       $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
       background_offset = max_shift;
     }
-    console.log(background_offset);
     advGroundPosition(Math.floor(background_offset));
 
     // scene counter
