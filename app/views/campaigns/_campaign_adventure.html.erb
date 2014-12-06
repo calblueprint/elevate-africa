@@ -76,7 +76,7 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign), class: "button", id: "campaign-donate-button" %>
         </div>
       </div>
     </div>
@@ -130,7 +130,7 @@
       <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% end %>
-      <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
+      <%= link_to "DONATE NOW", new_donation_path(:id => @campaign) %>
     </h2>
   </div>
 

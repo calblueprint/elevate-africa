@@ -36,6 +36,7 @@ var ready = function() {
       $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
       background_offset = max_shift;
     }
+    console.log(background_offset);
     advGroundPosition(Math.floor(background_offset));
 
     // scene counter

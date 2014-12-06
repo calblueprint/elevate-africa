@@ -31,4 +31,8 @@ module ApplicationHelper
   def has_campaign?(user)
     user && user.team? && !user.campaign.blank?
   end
+
+  def get_campaign_types
+    Campaign.kinds.map { |s| [s[0].humanize, s[0]] }
+  end
 end

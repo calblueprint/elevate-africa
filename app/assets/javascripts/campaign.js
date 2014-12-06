@@ -12,6 +12,7 @@ var show_hash = {
                  3: ".campaigns-create-4"
                };
 var tab_two = false;
+var tab_four = false;
 var example_open = 0;
 
 var ready_campaign = function() {
@@ -70,10 +71,10 @@ var ready = function() {
     });
 
     // field change
-    $("#campaign_goal").on("change", function() {
-      var param = $("#campaign_goal").val();
+    $("#campaign-goal").on("change", function() {
+      var param = $("#campaign-goal").val();
       if(param != param.replace(/[^\d,]/, '')) {
-        $("#campaign_goal").val("");
+        $("#campaign-goal").val("");
       }
       else {
         var count = 0;
@@ -86,14 +87,14 @@ var ready = function() {
             param = param.substring(0,i+1) + "," + param.substring(i+1);
           }
         }
-        $("#campaign_goal").val(param);
+        $("#campaign-goal").val(param);
       }
     });
 
-    $("#campaign_duration").on("change", function () {
-      var param = $("#campaign_duration").val();
+    $("#campaign-duration").on("change", function () {
+      var param = $("#campaign-duration").val();
       if(param != param.replace(/[^\d]/, '')) {
-        $("#campaign_duration").val("");
+        $("#campaign-duration").val("");
       }
     });
 
@@ -120,7 +121,7 @@ var ready = function() {
       }
     });
 
-    $("#campaign_description").on("change keyup paste", function() {
+    $("#campaign-description").on("change keyup paste", function() {
       example_open = 2;
       if(!$("#campaigns-create-example-custom").hasClass("campaigns-create-example-colored")) {
       $("#campaigns-create-example-custom").addClass("campaigns-create-example-colored");
@@ -250,7 +251,7 @@ function campaignsCheckValidityOne() {
 
 function isFieldValid(name) {
   var field = $("#campaigns-create-field-" + name)
-  var str = $("#campaign_" + name)
+  var str = $("#campaign-" + name)
   if($.trim(str.val()).length == 0) {
     str.parent().addClass("campaigns-create-field-incorrect");
     return false;
@@ -282,7 +283,7 @@ function campaignsChangeDescription(a, b, c) {
   $("#campaigns-create-example-" + b).removeClass("campaigns-create-example-colored");
   $("#campaigns-create-example-" + c).removeClass("campaigns-create-example-colored");
 
-  $("#campaign_description").val(selected.data("content"));
+  $("#campaign-description").val(selected.data("content"));
   $(".campaigns-create-text-area").removeClass("campaigns-create-field-incorrect");
 }
 
