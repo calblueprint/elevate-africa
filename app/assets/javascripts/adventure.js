@@ -27,15 +27,19 @@ var ready = function() {
     total_donations = $("#campaign-total-donations").data("total");
     donation_goal = $("#campaign-donation-goal").data("goal");
 
+    last_donation = 600;
+    total_donations = 670;
+
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
 
     // set background and foreground to shifted position
     var background_offset = penultimate_percent % (1 / 6) * 6 * background_width;
     if(background_offset > max_shift) {
-      $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 7) + "px"});
+      $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
       background_offset = max_shift;
     }
+    console.log(background_offset);
     advGroundPosition(Math.floor(background_offset));
 
     // scene counter
@@ -65,8 +69,8 @@ function advPrimaryAction() {
         var ground_x = (-1) * parseInt(temp_x.substring(0, temp_x.length - 2));
         $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear");
         $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear", function() {
-          var temp_movement = (total_percent - penultimate_percent) * background_width * 6;
-          advSecondaryAction(temp_movement - (max_shift - ground_x));
+          var temp_movement = ((total_percent - penultimate_percent) * background_width * 6);
+          advSecondaryAction(temp_movement - (2 * max_shift - ground_x));
         });
       }
       else {
@@ -77,7 +81,7 @@ function advPrimaryAction() {
           $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - current_background) * 7.5, "linear");
           $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - current_background) * 7.5, "linear", function() {
             temp_movement -= max_shift-current_background;
-            temp_movement *= 5/7;
+            temp_movement *= 5 / 8;
             $("#campaigns-adventure-vehicle").animate({"left": "+=" + temp_movement}, temp_movement*7.5, "linear", function() {
               advShowTeam();
             });
@@ -120,10 +124,25 @@ function advSecondaryAction(amount) {
         $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 300 * 7.5, "linear", function() {
           // currently does not account for possibility
           // that vehicle can move all the way to end again
-          $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + amount + "px"}, amount * 7.5, "linear");
-          $(".campaigns-adventure-background").animate({"background-position-x": "-=" + amount + "px"}, amount * 7.5, "linear", function() {
-            advShowTeam();
-          });
+          if(amount > max_shift) {
+            $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift * 7.5, "linear");
+            $(".campaigns-adventure-background").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift * 7.5, "linear", function() {
+              if(amount > 2 * max_shift)
+                advSecondaryAction(amount - 2 * max_shift);
+              else {
+                var temp_movement = (amount - max_shift) * (5 / 8);
+                $("#campaigns-adventure-vehicle").animate({"left": "+=" + temp_movement}, temp_movement * 7.5, "linear", function() {
+                  advShowTeam();
+                });
+              }
+            });
+          }
+          else {
+            $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + amount + "px"}, amount * 7.5, "linear");
+            $(".campaigns-adventure-background").animate({"background-position-x": "-=" + amount + "px"}, amount * 7.5, "linear", function() {
+              advShowTeam();
+            });
+          }
         });
       }, 1250);
     });
@@ -145,8 +164,8 @@ function advChooseScene() {
 }
 
 function advGroundPosition(position) {
-  $(".campaigns-adventure-foreground").css({"background-position-x": position + "px"});
-  $(".campaigns-adventure-background").css({"background-position-x": position + "px"});
+  $(".campaigns-adventure-foreground").css({"background-position-x": "-" + position + "px"});
+  $(".campaigns-adventure-background").css({"background-position-x": "-" + position + "px"});
 }
 
 function advAnimateVehicle() {
