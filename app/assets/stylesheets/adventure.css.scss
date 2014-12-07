@@ -86,12 +86,11 @@ for the about.css.scss file custom styling*/
   background-repeat: no-repeat;
 }
 
-#campaigns-adventure-team {
+.campaigns-adventure-team {
   width: 196px;
   height: 128px;
   position: relative;
   z-index: 2;
-  top: 55px;
 
   transform-origin: 50% 90%;
   transition: all 1s ease-in-out;
@@ -103,6 +102,19 @@ for the about.css.scss file custom styling*/
 
 .campaigns-adventure-team-show {
   transform: scale(1);
+}
+
+#campaigns-adventure-team-boat {
+  top: 55px;
+}
+
+#campaigns-adventure-team-jeep {
+  top: 20px;
+}
+
+#campaigns-adventure-team-balloon {
+  top: -80px;
+  left: -45px;
 }
 
 .campaigns-adventure-prompt-container {
@@ -273,17 +285,17 @@ for the about.css.scss file custom styling*/
 
 @-webkit-keyframes balloon {
   0%   { transform: translate(0, 0); }
-  100% { transform: translate(0, -10px); }
+  100% { transform: translate(0, -8px); }
 }
 
 @-moz-keyframes balloon {
   0%   { transform: translate(0, 0); }
-  100% { transform: translate(0, -10px); }
+  100% { transform: translate(0, -8px); }
 }
 
 @keyframes balloon {
   0%   { transform: translate(0, 0); }
-  100% { transform: translate(0, -10px); }
+  100% { transform: translate(0, -8px); }
 }
 
 #campaigns-adventure-shadow {
@@ -300,17 +312,17 @@ for the about.css.scss file custom styling*/
 
 @-webkit-keyframes shadow {
   0%   { transform: scale(1, 1); }
-  100% { transform: scale(.8, .8); }
+  100% { transform: scale(.85, .85); }
 }
 
 @-moz-keyframes shadow {
   0%   { transform: scale(1, 1); }
-  100% { transform: scale(.8, .8); }
+  100% { transform: scale(.85, .85); }
 }
 
 @keyframes shadow {
   0%   { transform: scale(1, 1); }
-  100% { transform: scale(.8, .8); }
+  100% { transform: scale(.85, .85); }
 }
 
 @media (max-width: 1000px) {
