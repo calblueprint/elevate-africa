@@ -45,7 +45,10 @@ class CampaignsController < ApplicationController
     @team = @campaign.team
     @comment = Comment.new
     @total_donations = @campaign.get_total_donations
-    gon.push percent: @campaign.get_donation_percentage
+    gon.push percent: @campaign.get_donation_percentage,
+             last_donation: @campaign.most_recent_donation.try(:amount),
+             total_donations: @campaign.get_total_donations,
+             donation_goal: @campaign.goal
   end
 
   def edit

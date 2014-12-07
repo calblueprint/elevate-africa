@@ -46,6 +46,11 @@ for the about.css.scss file custom styling*/
   background-repeat: no-repeat;
 }
 
+#ca-morroco-background {
+  background: url(asset_path("morroco_background.png"));
+  background-repeat: no-repeat;
+}
+
 .campaigns-adventure-foreground {
   width: 666px;
   height: 500px;
@@ -73,6 +78,11 @@ for the about.css.scss file custom styling*/
 
 #ca-victoria-foreground {
   background: url(asset_path("victoria_foreground.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-morroco-foreground {
+  background: url(asset_path("morroco_foreground.png"));
   background-repeat: no-repeat;
 }
 
@@ -170,20 +180,30 @@ for the about.css.scss file custom styling*/
 }
 
 .campaigns-adventure-vehicle-body {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
 }
 
 #ca-vehicle-boat {
   background-image: url(asset_path("egypt_boat.png"));
+  background-repeat: no-repeat;
   position: relative;
   top: -8px;
 }
 
 #ca-vehicle-jeep {
   background-image: url(asset_path("safari_jeep.png"));
+  background-repeat: no-repeat;
   position: relative;
   top: -30px;
+}
+
+#ca-vehicle-balloon {
+  background-image: url(asset_path("air_balloon.png"));
+  background-repeat: no-repeat;
+  position: relative;
+  top: -95px;
+  left: -40px;
 }
 
 .ca-animate-boat {
@@ -214,13 +234,13 @@ for the about.css.scss file custom styling*/
 
 #campaigns-adventure-wheel-left {
   position: relative;
-  top: -92px;
+  top: -112px;
   left: -93px;
 }
 
 #campaigns-adventure-wheel-right {
   position: relative;
-  top: -90px;
+  top: -110px;
   left: -44px;
 }
 
@@ -243,6 +263,54 @@ for the about.css.scss file custom styling*/
 @keyframes jeep {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.ca-animate-balloon {
+  -webkit-animation: balloon 2.5s alternate infinite ease-in-out;
+  -moz-animation: balloon 2.5s alternate infinite ease-in-out;
+  animation: balloon 2.5s alternate infinite ease-in-out;
+}
+
+@-webkit-keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -10px); }
+}
+
+@-moz-keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -10px); }
+}
+
+@keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -10px); }
+}
+
+#campaigns-adventure-shadow {
+  position: relative;
+  top: -105px;
+  left: -100px;
+}
+
+.ca-animate-shadow {
+  -webkit-animation: shadow 2.5s alternate infinite ease-in-out;
+  -moz-animation: shadow 2.5s alternate infinite ease-in-out;
+  animation: shadow 2.5s alternate infinite ease-in-out;
+}
+
+@-webkit-keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.8, .8); }
+}
+
+@-moz-keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.8, .8); }
+}
+
+@keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.8, .8); }
 }
 
 @media (max-width: 1000px) {

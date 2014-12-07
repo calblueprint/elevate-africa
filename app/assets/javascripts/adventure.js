@@ -7,7 +7,8 @@ var scene_hash = {
                     0: "egypt",
                     1: "safari",
                     2: "timbuktu",
-                    3: "victoria"
+                    3: "victoria",
+                    4: "morroco"
                  };
 
 var scene_index;
@@ -23,9 +24,9 @@ var total_percent;
 var ready = function() {
   $(document).ready(function() {
 
-    last_donation = $("#campaign-last-donation").data("last");
-    total_donations = $("#campaign-total-donations").data("total");
-    donation_goal = $("#campaign-donation-goal").data("goal");
+    last_donation = gon.last_donation;
+    total_donations = gon.total_donations;
+    donation_goal = gon.donation_goal;
 
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
@@ -47,8 +48,9 @@ var ready = function() {
     $("#campaigns-adventure-white").hide();
     $("#campaigns-adventure-prompt-text").hide();
 
+    scene_string = "morroco";
     advChooseScene();
-    advPrimaryAction();
+    // advPrimaryAction();
   });
 }
 
@@ -119,8 +121,6 @@ function advSecondaryAction(amount) {
 
         advAnimateVehicle();
         $("#campaigns-adventure-vehicle").animate({"left": "50px"}, 300 * 7.5, "linear", function() {
-          // currently does not account for possibility
-          // that vehicle can move all the way to end again
           if(amount > max_shift) {
             $(".campaigns-adventure-foreground").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift * 7.5, "linear");
             $(".campaigns-adventure-background").animate({"background-position-x": "-=" + max_shift + "px"}, max_shift * 7.5, "linear", function() {
@@ -158,6 +158,10 @@ function advChooseScene() {
     $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-jeep");
     $(".campaigns-adventure-wheel").show();
   }
+  else if(scene_string == "morroco") {
+    $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-balloon");
+    $(".campaigns-adventure-wheel").hide();
+  }
 }
 
 function advGroundPosition(position) {
@@ -170,6 +174,8 @@ function advAnimateVehicle() {
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
+  else if(scene_string == "morroco")
+    $(".campaigns-adventure-vehicle-body").addClass("ca-animate-balloon");
 }
 
 function advUnanimateVehicle() {
@@ -177,6 +183,8 @@ function advUnanimateVehicle() {
     $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
+  else if(scene_string == "morroco")
+    $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-balloon");
 }
 
 function advHideTeam() {
