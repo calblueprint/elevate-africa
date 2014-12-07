@@ -1,7 +1,7 @@
-<div class="medium-container padding">
-  <% if :id %>
-    <%= render "campaign_donation_form" %>
-  <% else %>
-    <%= render "general_donation_form" %>
-  <% end %>
-</div>
+<% if @campaign %>
+  <%= render "campaign_donation_form" %>
+<% else %>
+  <%= render "general_donation_form" %>
+<% end %>
+
+<%= render 'stripe' %>

@@ -1,17 +1,19 @@
-<h4 id="campaigns-create-title">New Donation</h4>
-<%= simple_form_for @donation do |f| %>
-  <p>
-    <%= f.input :name %>
-  </p>
+<div id="campaign-donation-container">
+  <div id="campaign-donation-content-container">
+    <h4 id="campaigns-create-title">New Donation</h4>
+    <%= simple_form_for @donation do |f| %>
+      <p>
+        <%= f.input :name %>
+      </p>
 
-  <div class="field">
-    <%= f.input :amount, input_html: { id: "donate-amount" } %>
+      <div class="field">
+        <%= f.input :amount, input_html: { id: "donate-amount" } %>
+      </div>
+      <!-- MAKE SURE TO VALIDATE THIS SOME MORE WHOEVER IS WORKING ON THIS PAGE -->
+      <%= f.hidden_field :campaign_id, value: @campaign.id %>
+      <div>
+        <%= f.submit "Donate!", id: "donate-create-button" %>
+      </div>
+    <% end %>
   </div>
-  <!-- MAKE SURE TO VALIDATE THIS SOME MORE WHOEVER IS WORKING ON THIS PAGE -->
-  <%= f.hidden_field :campaign_id, :value => @id %>
-  <div>
-    <%= f.submit "Donate!", id: "donate-create-button" %>
-  </div>
-<% end %>
-
-<%= render 'stripe' %>
+</div>
