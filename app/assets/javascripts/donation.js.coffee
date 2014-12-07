@@ -1,12 +1,13 @@
 # Run only if donation actually exists
 
+
 donation = ->
   if $("#general-donation-container").length > 0
 
     # Creates slider - see http://refreshless.com/nouislider/
     slider = $("#general-donation-slider")
     dollar_input = $("#donate-amount")
-    image_tag = $("#general-donation-image")
+    image = $("#general-donation-image-container")
 
     slider_options = {
                        start: 0,
@@ -20,12 +21,12 @@ donation = ->
 
     slider.noUiSlider slider_options
 
-    change_numbers = [5, 250, 500, 1000, 1500, 2000, 2500]
+    numbers = [5, 250, 500, 1000, 1500, 2000, 2500]
 
     # adds tick marks
     pip_options = {
                     mode: 'values',
-                    values: change_numbers,
+                    values: numbers,
                     density: 100
                   }
 
@@ -45,15 +46,18 @@ donation = ->
       slider.val(value)
       change_picture value
 
+    change_numbers = [250, 750, 1500, 2500]
     # Changes picture based on value of slider
     change_picture = (value) ->
       for num in [0...change_numbers.length]
         number = change_numbers[num]
         if value < number
-          image_tag.attr { src: "/assets/donation#{num}.svg" }
+          image.css "background-image", "url(/assets/donations#{num + 1}.svg)"
           break
         else if value >= change_numbers[change_numbers.length - 1]
-          image_tag.attr {  src: "donation8.svg" }
+          console.log "#{change_numbers[change_numbers.length]}"
+          image.css "background-image", "url(/assets/donations4.svg)"
+          break
 
 
     # Prevents users from typing anthing but numbers
