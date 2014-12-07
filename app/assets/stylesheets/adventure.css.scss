@@ -124,7 +124,7 @@ for the about.css.scss file custom styling*/
   height: 8em;
 }
 
-.campaigns-adventure-prompt-container-big {
+#cap-container-big {
   width: 16em;
   left: -2em;
 }
@@ -140,8 +140,18 @@ for the about.css.scss file custom styling*/
   top: 0em
 }
 
-.campaigns-adventure-prompt-rectangle-big {
+#cap-rectangle-big {
   width: 16em;
+}
+
+#cap-rectangle-left {
+  width: 16em;
+  left: 2.5em;
+}
+
+#cap-rectangle-right {
+  width: 16em;
+  right: 2.5em;
 }
 
 .campaigns-adventure-prompt-triangle {
@@ -156,7 +166,7 @@ for the about.css.scss file custom styling*/
   top: 5.9em;
 }
 
-.campaigns-adventure-prompt-triangle-big {
+#cap-triangle-big {
   left: 7em;
 }
 

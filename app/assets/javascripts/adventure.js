@@ -28,8 +28,8 @@ var ready = function() {
     total_donations = gon.total_donations;
     donation_goal = gon.donation_goal;
 
-    last_donation = 600;
-    total_donations = 850;
+    last_donation = 50;
+    total_donations = 700;
 
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
@@ -68,15 +68,21 @@ function advPrimaryAction() {
       if(Math.floor(penultimate_percent * 6) != Math.floor(total_percent * 6)) {
         var temp_x = $(".campaigns-adventure-foreground").css("background-position-x");
         var ground_x = (-1) * parseInt(temp_x.substring(0, temp_x.length - 2));
-        $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear");
-        $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear", function() {
+        if(ground_x < max_shift) {
+          $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear");
+          $(".campaigns-adventure-background").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - ground_x) * 7.5, "linear", function() {
+            var temp_movement = ((total_percent - penultimate_percent) * background_width * 6);
+            advSecondaryAction(temp_movement - (2 * max_shift - ground_x));
+          });
+        }
+        else {
           var temp_movement = ((total_percent - penultimate_percent) * background_width * 6);
-          advSecondaryAction(temp_movement - (2 * max_shift - ground_x));
-        });
+          advSecondaryAction(temp_movement);
+        }
       }
       else {
         var current_x = $(".campaigns-adventure-foreground").css("background-position-x");
-        var current_background = (-1)*parseInt(current_x.substring(0, current_x.length-2));
+        var current_background = (-1)*parseInt(current_x.substring(0, current_x.length - 2));
         var temp_movement = (total_percent - penultimate_percent) * background_width * 6;
         if(current_background + temp_movement > max_shift) {
           $(".campaigns-adventure-foreground").animate({"background-position-x": "-" + max_shift + "px"}, (max_shift - current_background) * 7.5, "linear");
@@ -209,11 +215,21 @@ function advShowTeam() {
   // css 1 second duration
   advUnanimateVehicle();
 
-  $("#campaigns-adventure-prompt-text").show();
-  $(".campaigns-adventure-prompt-container").addClass("campaigns-adventure-prompt-container-big");
-  $(".campaigns-adventure-prompt-rectangle").addClass("campaigns-adventure-prompt-rectangle-big");
-  $(".campaigns-adventure-prompt-triangle").addClass("campaigns-adventure-prompt-triangle-big");
 
+  $(".campaigns-adventure-prompt-container").attr("id", "cap-container-big");
+  $(".campaigns-adventure-prompt-triangle").attr("id", "cap-triangle-big");
+
+  var vehicle_left = $("#campaigns-adventure-vehicle").css("left");
+  vehicle_left = vehicle_left.substring(0, vehicle_left.length - 2);
+
+  if(vehicle_left <= 50)
+    $(".campaigns-adventure-prompt-rectangle").attr("id", "cap-rectangle-left");
+  else if(vehicle_left >= 475)
+    $(".campaigns-adventure-prompt-rectangle").attr("id", "cap-rectangle-right");
+  else
+    $(".campaigns-adventure-prompt-rectangle").attr("id", "cap-rectangle-big");
+
+  $("#campaigns-adventure-prompt-text").show();
   $(".campaigns-adventure-team").addClass("campaigns-adventure-team-show");
   $(".campaigns-adventure-team").removeClass("campaigns-adventure-team-hide");
 
