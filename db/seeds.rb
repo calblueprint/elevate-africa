@@ -10,7 +10,7 @@ def create_admin_with_buzzes
   admin = Admin.create! email: "admin0@gmail.com",
                         password: "password",
                         name: Faker::Name.name
-  5.times do
+  25.times do
     admin.buzzes.create headline: "This is a cool headline",
                         subhead: "This is a cool subhead",
                         content: Faker::Lorem.paragraph(8),

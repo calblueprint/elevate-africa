@@ -7,23 +7,15 @@
 <% else %>
   <div id="user-dashboard-some-buzz">
     <h2 class="headline">Recent Posts</h2>
-    <% user.buzzes.limit(3).each do |buzz| %>
+    <% user.buzzes.limit(5).each do |buzz| %>
       <div class="user-dashboard-buzz-container">
         <% if buzz.picture? %>
-          <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
+          <div style="background-image: url(<%= buzz.picture_url %>)" class="user-dashboard-buzz-image"></div>
         <% else %>
-          <div class="buzz-image-default">
+          <div style="background-image: url(<%= asset_path("buzz.JPG") %>)" class="user-dashboard-buzz-image"></div>
         <% end %>
-          <div class="buzz-info-container">
-            <div style="background-color: <%= buzz.box_color %>" class="buzz-background"></div>
-            <div class="buzz-info">
-              <h1>
-                <%= link_to truncate_headline(buzz), buzz_path(buzz), class:"buzz-headline" %>
-              </h1>
-              <p><%= link_to "Read More", buzz_path(buzz), class: "buzz-show" %></p>
-            </div>
-          </div>
-        </div>
+
+        <h1 class="user-dashboard-buzz-headline"><%= buzz.headline %></h1>
       </div>
     <% end %>
   </div>

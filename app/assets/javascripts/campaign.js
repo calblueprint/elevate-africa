@@ -15,16 +15,6 @@ var tab_two = false;
 var tab_four = false;
 var example_open = 0;
 
-var ready_campaign = function() {
-  if ($("#campaign-banner").length > 0) {
-      $(document).ready(function() {
-          window.sr = new scrollReveal();
-      });
-  }
-}
-
-$(document).on('page:load', ready_campaign);
-
 var ready = function() {
   $(document).ready(function() {
     // // adventure
