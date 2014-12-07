@@ -2,24 +2,22 @@
 
 
 donation = ->
-  if $("#general-donation-container").length > 0
+  if $("#general-donation-container").length > 0 or $('#campaign-donation-container').length > 0
 
-    # Creates slider - see http://refreshless.com/nouislider/
-    slider = $("#general-donation-slider")
-    dollar_input = $("#donate-amount")
-    image = $("#general-donation-image-container")
+    # Prevents users from typing anthing but numbers
+    $("#donate-amount").keypress (e)->
+      if e.which != 8 and e.which != 0 and (e.which < 48 or e.which > 57)
+        return false
 
     slider_options = {
-                       start: 0,
-                       step: 1,
-                       connect: "lower",
-                       range: {
-                                'min': 5,
-                                'max': 2500
-                              }
+                      start: 0,
+                      step: 1,
+                      connect: "lower",
+                      range: {
+                              'min': 5,
+                              'max': 2500
+                             }
                      }
-
-    slider.noUiSlider slider_options
 
     numbers = [5, 250, 500, 1000, 1500, 2000, 2500]
 
@@ -30,40 +28,63 @@ donation = ->
                     density: 100
                   }
 
-    slider.noUiSlider_pips pip_options
+    if $("#general-donation-container").length > 0
+      # Creates slider - see http://refreshless.com/nouislider/
+      slider = $("#general-donation-slider")
+      dollar_input = $("#donate-amount")
+      image = $("#general-donation-image-container")
 
-    functions = {
-                  slide: ->
-                    value = parseInt(slider.val())
-                    dollar_input.val(value)
-                    change_picture value
-                }
+      slider.noUiSlider slider_options
+      slider.noUiSlider_pips pip_options
 
-    slider.on functions
+      functions = {
+                    slide: ->
+                      value = parseInt(slider.val())
+                      dollar_input.val(value)
+                      change_picture value
+                  }
 
-    dollar_input.keyup (e)->
-      value = parseInt(dollar_input.val())
-      slider.val(value)
-      change_picture value
+      slider.on functions
 
-    change_numbers = [250, 750, 1500, 2500]
-    # Changes picture based on value of slider
-    change_picture = (value) ->
-      for num in [0...change_numbers.length]
-        number = change_numbers[num]
-        if value < number
-          image.css "background-image", "url(/assets/donations#{num + 1}.svg)"
-          break
-        else if value >= change_numbers[change_numbers.length - 1]
-          console.log "#{change_numbers[change_numbers.length]}"
-          image.css "background-image", "url(/assets/donations4.svg)"
-          break
+      dollar_input.keyup (e)->
+        value = parseInt(dollar_input.val())
+        slider.val(value)
+        change_picture value
+
+      change_numbers = [250, 750, 1500, 2500]
+      # Changes picture based on value of slider
+      change_picture = (value) ->
+        for num in [0...change_numbers.length]
+          number = change_numbers[num]
+          if value < number
+            image.css "background-image", "url(/assets/donations#{num + 1}.svg)"
+            break
+          else if value >= change_numbers[change_numbers.length - 1]
+            console.log "#{change_numbers[change_numbers.length]}"
+            image.css "background-image", "url(/assets/donations4.svg)"
+            break
+    else
+      # Creates slider - see http://refreshless.com/nouislider/
+      slider = $("#campaign-donation-slider")
+      dollar_input = $("#donate-amount")
+
+      slider.noUiSlider slider_options
+      slider.noUiSlider_pips pip_options
+
+      functions = {
+                    slide: ->
+                      value = parseInt(slider.val())
+                      dollar_input.val(value)
+                  }
+
+      slider.on functions
+
+      dollar_input.keyup (e)->
+        value = parseInt(dollar_input.val())
+        slider.val(value)
 
 
-    # Prevents users from typing anthing but numbers
-    $("#donate-amount").keypress (e)->
-      if e.which != 8 and e.which != 0 and (e.which < 48 or e.which > 57)
-        return false
+
 
 $(document).ready donation
 $(document).on 'page:load', donation
