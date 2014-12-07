@@ -2,8 +2,8 @@
   <div id="campaign-donation-image-container"></div>
   <div id="campaign-donation-content-container">
     <div id="campaign-donation-form">
-      <h1 id="campaign-donation-title">Donate!</h1>
-      <h4 id="campaign-donation-subtitle">Crowdfund a Business</h4>
+      <h1 id="campaign-donation-title">Donate</h1>
+      <h4 id="campaign-donation-subtitle">Join the adventure!</h4>
       <%= simple_form_for @donation do |f| %>
         <p>
           <%= f.input :name, label: false,
@@ -24,7 +24,7 @@
         <div id="campaign-donation-slider"></div>
 
         <div>
-          <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
+          <%= f.submit "Help these adventurers!", id: "donate-create-button", class: "button" %>
         </div>
       <% end %>
     </div>
