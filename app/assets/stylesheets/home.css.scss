@@ -1,11 +1,14 @@
 @import "variables.css.scss";
 
 #home-banner {
-  /* background: url(asset_path("elephants.jpg")); */
-  background: $secondary-color;
+  background: url(asset_path("home-banner.png"));
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 440px;
+}
+
+.padding-center {
+  padding-top: 140px;
 }
 
 #home-arrow {
@@ -37,6 +40,36 @@
   margin-bottom: 25px;
 }
 
+.bg1 {
+  background: url(asset_path("bg1.png"));
+  background-size: cover;
+}
+
+.bg2 {
+  background: url(asset_path("bg2.png"));
+  background-size: cover;
+}
+
+.bg3 {
+  background: url(asset_path("bg3.png"));
+  background-size: cover;
+}
+
+.bg4 {
+  background: url(asset_path("bg4.png"));
+  background-size: cover;
+}
+
+.bg5 {
+  background: url(asset_path("bg5.png"));
+  background-size: cover;
+}
+
+.bg6 {
+  background: url(asset_path("bg6.png"));
+  background-size: cover;
+}
+
 .home-image {
   float: left;
   box-sizing: border-box;
@@ -51,15 +84,27 @@
 }
 
 .home-text {
-  float: left;
+  float: right;
+  margin: 50px;
   text-align: left;
   box-sizing: border-box;
   height: 400px;
   width: 600px;
   padding: 75px 0 0 50px;
+  vertical-align: text-bottom;
+}
+
+.home-text h2 {
+  font-size: 36px;
+}
+
+.home-text p {
+  color: $black;
 }
 
 .home-left {
+  float: left;
+  margin-left: 75px;
   padding: 75px 40px 0 0;
 }
 
