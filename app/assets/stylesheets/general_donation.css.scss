@@ -3,27 +3,28 @@
 #general-donation-container {
   width: 100%;
   height: 800px;
-  background-color: #FFF3E7
+  background: blue;
+  background-image: url(asset_path("background.svg"));
+  background-size: cover;
+  background-position: center;
+
 }
 
 #general-donation-image-container {
-  width: 60%;
-  float: left;
-}
-
-#general-donation-rita-container {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 150px;
-}
-
-#general-donation-image {
   width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(asset_path("donations1.svg"));
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 #general-donation-content-container {
-  width: 40%;
+  width: 50%;
   float: right;
+  position: relative;
+  z-index: 2;
 }
 
 #general-donation-form {
@@ -70,6 +71,7 @@
   float: left;
   font-size: 40px;
   padding-top: 10px;
+  padding-left: 10px;
 }
 
 #donate-amount {
@@ -77,7 +79,12 @@
   width: 90%;
   height: 10%;
   margin: 0 auto;
-  border: none;
+  padding: 0px;
+  padding-left: 10px;
+  border: 5px solid #FFF3E7;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
   font-size: 75px;
   float: left;
 }
