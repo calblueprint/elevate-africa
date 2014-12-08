@@ -133,11 +133,13 @@ textarea {
   font: $h2;
   font-size: 25px;
   font-weight: 700;
-  background: $secondary-color;
+  background: $primary-color;
   margin-top: 15px;
   color: #fff;
   border: none;
+  border-radius: 6px;
   &:hover {
+    background: $secondary-color;
     cursor: pointer;
   }
   // -moz-border-radius:4px;

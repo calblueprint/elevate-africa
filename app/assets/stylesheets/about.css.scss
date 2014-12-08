@@ -14,6 +14,19 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
+#process {
+  margin-top: 50px;
+  background: url(asset_path("background.png"));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 100px;
+}
+
+.about-process-container h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
 #about-banner {
   background: linear-gradient(
       rgba(0, 0, 0, 0.05),
@@ -28,13 +41,7 @@ for the about.css.scss file custom styling*/
 }
 
 .about-button {
-  box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.5);
-  border-radius: 4px;
   margin: 0 25px;
-
-  &:hover {
-    background: $tertiary-color;
-  }
 }
 
 .about-section {
@@ -172,12 +179,15 @@ for the about.css.scss file custom styling*/
 }
 
 .about-member-name {
-  font: 200 32px Lato;
-  color: $dark-gray;
+  font: $h2;
+  font-size: 32px;
+  color: $black;
 }
 
 .about-member-title {
-  font: 200 20px Lato;
+  font: $h2;
+  font-size: 18px;
+  margin-bottom: 6px;
   color: $dark-gray;
 }
 
@@ -185,4 +195,8 @@ for the about.css.scss file custom styling*/
   font: 14px Bitter, sans-serif;
   line-height: 1.75;
   color: $dark-gray;
+}
+
+#about-story-img {
+  margin-bottom: 30px;
 }
