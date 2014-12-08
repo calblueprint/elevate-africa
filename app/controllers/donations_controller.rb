@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def new
-    @campaign = Campaign.find params[:campaign_id]
+    @campaign = Campaign.find_by id: params[:campaign_id]
     @donation = Donation.new
   end
 
