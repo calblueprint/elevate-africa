@@ -24,7 +24,16 @@
         <!-- Badges Here -->
       </div>
       <h2 id="user-edit-buttons">
-        <i><%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %></i>
+        <% if @user.admin? %>
+          <i>
+            <%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %>
+          </i>
+        <% else %>
+          <i>
+            <%= link_to "", edit_team_path(@user), class: "fa fa-pencil-square user-icon-button" %>
+          </i>
+        <% end %>
+
         <i>
           <%= link_to "", destroy_user_session_path, method: :delete,
                     class: "fa fa-sign-out user-icon-button"

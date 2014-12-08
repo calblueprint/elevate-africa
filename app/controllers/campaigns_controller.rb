@@ -30,8 +30,10 @@ class CampaignsController < ApplicationController
       params[:campaign][:picture] = src_file
     end
 
+    1/0
     @team = Team.new team_params
     @campaign = Campaign.new campaign_params
+
     if @team.save && @campaign.save
       redirect_to @campaign
     else
@@ -72,6 +74,10 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit :name, :duration, :goal,
                                      :description, :picture, :team_id
+  end
+
+  def team_params
+    params.require(:team).permit :name, :email, :password, :password_confirmation
   end
 
   # def authenticate_team
