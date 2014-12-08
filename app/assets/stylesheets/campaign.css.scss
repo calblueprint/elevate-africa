@@ -8,7 +8,7 @@ for the about.css.scss file custom styling*/
 
 
 #campaign-banner {
-  background: url(asset_path("campaign-banner.jpg"));
+  background: url(asset_path("safari_background.png"));
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -23,9 +23,18 @@ for the about.css.scss file custom styling*/
   margin-top: -49px;
 }
 
+.campaign-icon .button {
+  margin: auto;
+}
+
 #campaign-title {
   color: #ffffff;
   margin-top: 43px;
+}
+
+.campaign-smaller {
+  font-size: 36px;
+  margin-bottom: 32px;
 }
 
 #campaign-buttons {
@@ -44,10 +53,10 @@ for the about.css.scss file custom styling*/
 }
 
 .campaign-icon {
+  text-align: center;
   float: left;
   width: 275px;
-  height: 273px;
-  top: -60px;
+  height: 350px;
   position: relative;
 }
 
@@ -57,12 +66,13 @@ for the about.css.scss file custom styling*/
   width: 175px;
   background-size: cover;
   margin-left: 50px;
+  position: relative;
 }
 
-#campaign-wedding:hover, #campaign-sports:hover, #campaign-birthday:hover, #campaign-question:hover {
+/*#campaign-wedding:hover, #campaign-sports:hover, #campaign-birthday:hover, #campaign-question:hover {
   -webkit-animation: campaign-icons-hover 0.1s;
   -webkit-animation-fill-mode: forwards;
-}
+}*/
 
 
 #campaign-question {
@@ -81,7 +91,8 @@ for the about.css.scss file custom styling*/
 
 #campaign-icon-wrapper {
   margin: auto;
-  width: 1100px;
+  width: 825px;
+  text-align: center;
 }
 .campaign-wrapper {
   background: #fff;
@@ -90,6 +101,8 @@ for the about.css.scss file custom styling*/
 .campaign-icon-font {
   font: $h1;
   color: $black;
+  display: block;
+  margin: auto;
   font-size: 35px;
   text-align: center;
   padding-top: 10px;

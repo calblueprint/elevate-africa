@@ -1,20 +1,18 @@
 <div class="campaign-wrapper">
   <div class="wide-container" id="campaign-banner">
-    <div class="padding" id="campaign-banner-overlay">
-      <div class="medium-container campaign-padding padding">
-        <h1 id="campaign-title">Embark on your African Adventure</h1>
-        <div id="campaign-buttons">
-          <%= link_to "Start Your Campaign", new_campaign_path, class: "campaign-signin button" %>
-          <%= link_to "Check out Campaigns", campaigns_path, class: "campaign-index button" %>
-        </div>
+    <div class="medium-container campaign-padding padding-center">
+      <h1 id="campaign-title">Embark on your African Adventure</h1>
+      <div id="campaign-buttons">
+        <%= link_to "Start Your Campaign", new_campaign_path, class: "campaign-signin button" %>
+        <%= link_to "Check out Campaigns", campaigns_path, class: "campaign-index button" %>
       </div>
     </div>
   </div>
 
-  <div class="wide-container border-top padding">
+  <div class="wide-container padding">
     <div class "medium-container padding">
       <h1>More Campaigns</h1>
-      <h2>Share your special day with us!</h2>
+      <h2 class="campaign-smaller">Share your special day with us!</h2>
     </div>
     <div class="small-container">
       <p>Lorem ipsum dolor sit amet, ea vel propriae lucilius erroribus. Ex his nulla posidonium, nostro luptatum constituto at his. Mundi dignissim abhorreant pri no, ei vis admodum explicari.</p>
@@ -24,20 +22,23 @@
     <div id="campaign-icon-wrapper">
       <div class="campaign-icon">
         <div id="campaign-wedding" class="icon-small"></div>
-        <p class="campaign-icon-font">Wedding</p>
+        <br>
+        <%= link_to "Wedding", new_campaign_path, class: "button" %>
       </div>
       <div class="campaign-icon">
         <div id="campaign-sports"></div>
-        <p class="campaign-icon-font">Sports</p>
+        <br>
+        <%= link_to "Sports", new_campaign_path, class: "button" %>
       </div>
       <div class="campaign-icon">
         <div id="campaign-birthday"></div>
-        <p class="campaign-icon-font">Birthday</p>
+        <br>
+        <%= link_to "Birthday", new_campaign_path, class: "button" %>
       </div>
-      <div class="campaign-icon">
-        <div id="campaign-question"></div>
-        <p class="campaign-icon-font">Create Your Own!</p>
-      </div>
+    </div>
+    <div class="medium-container padding">
+      <br>
+      <%= link_to "Create Your Own", new_campaign_path, class: "button" %>
     </div>
   </div>
 </div>

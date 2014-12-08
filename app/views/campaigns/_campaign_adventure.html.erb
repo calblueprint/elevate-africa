@@ -9,20 +9,29 @@
           <h2 class="campaign-complete-banner-font"><%= @campaign.name %> has been fully funded!</h2>
         </div>
       <% end %>
-      <p id="campaign-last-donation">Last donation amount: <%= @campaign.most_recent_donation.try(:amount) %>
-
 
       <div class="campaigns-adventure-background">
         <div id="campaigns-adventure-vehicle">
+          <div class="campaigns-adventure-team">
+            <span class="campaigns-adventure-prompt-container">
+              <span class="campaigns-adventure-prompt-rectangle">
+                <div id="campaigns-adventure-prompt-picture">
+                  <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
+                </div>
+                <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
+              </span>
+              <span class="campaigns-adventure-prompt-triangle"></span>
+            </span>
+          </div>
+
           <div class="campaigns-adventure-vehicle-body"></div>
           <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-left" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
           <img class="campaigns-adventure-wheel" id="campaigns-adventure-wheel-right" src="<%= asset_path("safari_jeep_wheel.png") %>"/>
-        </div>
-        <div id="campaigns-adventure-team">
-          <img src="<%= asset_path("adventure_team.png") %>"/>
+          <img id="campaigns-adventure-shadow" src="<%= asset_path("balloon_shadow.png") %>"/>
         </div>
       </div>
       <div class="campaigns-adventure-foreground"></div>
+      <div id="campaigns-adventure-white"></div>
 
 
       <div class="campaign-info">
@@ -66,7 +75,6 @@
         </div>
       </div>
     </div>
-    <div id="campaigns-adventure-white"></div>
   </div>
   <div class="wide-container">
     <h1 id="campaign-overview-font">Campaign Overview</h1>

@@ -18,30 +18,32 @@ for the about.css.scss file custom styling*/
   position: fixed;
   z-index: -1;
   bottom: 0;
-
-  height: 350px;
+  height: 550px;
+  overflow: hidden;
 }
 
 .footer-top {
-  height: 350px;
-  background-color: $primary-color;
+  margin-top: -15px;
+  height: 100px;
+  background-color: $black;
   background-size: cover;
   background-position: center;
 
   p {
     width: 600px;
     margin: auto;
-    font: lighter 12px Lato;
-    color: rgba(255, 255, 255, 0.75);
+    font: lighter 10px Bitter;
+    line-height: 2;
+    color: #fff;
+    opacity: 0.5;
   }
 }
 
 .footer-bottom {
-  height: 50px;
-  margin-top: -50px;
-  background-color: rgba(250, 152, 59, .5);
-  background-size: cover;
-  background-position: center;
+  height: 520px;
+  padding-top: 200px;
+  background-color: $black;
+  width: 100%;
 }
 
 .footer-table {
@@ -54,10 +56,12 @@ for the about.css.scss file custom styling*/
 
   a {
     padding: 0 0;
-    opacity: 0.875;
+    opacity: 0.5;
+    display: block;
+    margin: 5px;
 
-    font: lighter 14px Lato;
-    color: rgba(255, 255, 255, 0.875);
+    font: lighter 14px Bitter;
+    color: #fff;
 
     &:hover {
       opacity: 1;
@@ -66,15 +70,23 @@ for the about.css.scss file custom styling*/
 }
 
 .footer-col {
-  display: block;
-  float: left;
-  width: 33.33%;
+  position:relative;
+  top: -10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20%;
+}
+
+.footer-col h2 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 #footer-africa-icon {
   width: 150px;
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
 
 // .footer-extra {

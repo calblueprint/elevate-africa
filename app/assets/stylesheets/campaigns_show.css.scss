@@ -22,7 +22,7 @@ for the about.css.scss file custom styling*/
 }
 
 #campaign-last-donation {
-  display: none;
+  // display: none;
 }
 
 .campaign-info-container {
@@ -171,6 +171,10 @@ for the about.css.scss file custom styling*/
   z-index: 4;
   top: -500px;
   margin-left: 15px;
+}
+
+.campaign-info-white {
+  top: -1000px;
 }
 
 .campaign-info-scroll {

@@ -7,12 +7,12 @@
 for the about.css.scss file custom styling*/
 
 #campaigns-adventure-white {
-  /*width: 666px;
-  height: 500px;*/
+  width: 666px;
+  height: 500px;
   float: left;
 
   position: relative;
-  z-index: 2;
+  z-index: 4;
   top: -1000px;
 
   background-color: #FFF;
@@ -28,10 +28,27 @@ for the about.css.scss file custom styling*/
 
 #ca-egypt-background {
   background: url(asset_path("egypt_background.png"));
+  background-repeat: no-repeat;
 }
 
 #ca-safari-background {
   background: url(asset_path("safari_background.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-timbuktu-background {
+  background: url(asset_path("timbuktu_background.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-victoria-background {
+  background: url(asset_path("victoria_background.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-morroco-background {
+  background: url(asset_path("morroco_background.png"));
+  background-repeat: no-repeat;
 }
 
 .campaigns-adventure-foreground {
@@ -40,27 +57,42 @@ for the about.css.scss file custom styling*/
   background-position: 0 0;
   float: left;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   top: -500px;
 }
 
 #ca-egypt-foreground {
   background: url(asset_path("egypt_foreground.png"));
+  background-repeat: no-repeat;
 }
 
 #ca-safari-foreground {
   background: url(asset_path("safari_foreground.png"));
+  background-repeat: no-repeat;
 }
 
-#campaigns-adventure-team {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  top: -125px;
-  left: 50px;
-  overflow: hidden;
+#ca-timbuktu-foreground {
+  background: url(asset_path("timbuktu_foreground.png"));
+  background-repeat: no-repeat;
+}
 
-  transform-origin: 50% 100%;
+#ca-victoria-foreground {
+  background: url(asset_path("victoria_foreground.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-morroco-foreground {
+  background: url(asset_path("morroco_foreground.png"));
+  background-repeat: no-repeat;
+}
+
+.campaigns-adventure-team {
+  width: 196px;
+  height: 128px;
+  position: relative;
+  z-index: 2;
+
+  transform-origin: 50% 90%;
   transition: all 1s ease-in-out;
 }
 
@@ -72,29 +104,128 @@ for the about.css.scss file custom styling*/
   transform: scale(1);
 }
 
+#campaigns-adventure-team-boat {
+  top: 55px;
+}
+
+#campaigns-adventure-team-jeep {
+  top: 20px;
+}
+
+#campaigns-adventure-team-balloon {
+  top: -80px;
+  left: -45px;
+}
+
+.campaigns-adventure-prompt-container {
+  position: relative;
+  display: inline-block;
+  width: 6em;
+  height: 8em;
+}
+
+#cap-container-big {
+  width: 16em;
+  left: -2em;
+}
+
+.campaigns-adventure-prompt-rectangle {
+  position: absolute;
+  display: inline-block;
+  width: 6em;
+  height: 6em;
+  border-radius: 0.5em;
+  background-color: #F18FC2;
+  left: 0em;
+  top: 0em
+}
+
+#cap-rectangle-big {
+  width: 16em;
+}
+
+#cap-rectangle-left {
+  width: 16em;
+  left: 2.5em;
+}
+
+#cap-rectangle-right {
+  width: 16em;
+  right: 2.5em;
+}
+
+.campaigns-adventure-prompt-triangle {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 1em solid transparent;
+  border-top: 1em solid #F18FC2;
+  left: 2em;
+  top: 5.9em;
+}
+
+#cap-triangle-big {
+  left: 7em;
+}
+
+#campaigns-adventure-prompt-picture {
+  margin: .5em .5em;
+  display: inline-block;
+  float: left;
+  width: 5em;
+  height: 5em;
+  border-radius: 2.5em;
+  -webkit-border-radius: 2.5em;
+  -moz-border-radius: 2.5em;
+  background: url(asset_path("member_one.png"));
+  background-size: cover;
+}
+
+#campaigns-adventure-prompt-text {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  padding: .5em 0;
+  font: lighter 18px Lato, sans-serif;
+  color: #F8E6EF;
+}
+
 #campaigns-adventure-vehicle {
   width: 300px;
   height: 300px;
   position: relative;
+  z-index: 1;
   top: 200px;
   left: 50px;
 }
 
 .campaigns-adventure-vehicle-body {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
 }
 
 #ca-vehicle-boat {
   background-image: url(asset_path("egypt_boat.png"));
+  background-repeat: no-repeat;
   position: relative;
-  top: 120px;
+  top: -8px;
 }
 
 #ca-vehicle-jeep {
   background-image: url(asset_path("safari_jeep.png"));
+  background-repeat: no-repeat;
   position: relative;
-  top: 98px;
+  top: -30px;
+}
+
+#ca-vehicle-balloon {
+  background-image: url(asset_path("air_balloon.png"));
+  background-repeat: no-repeat;
+  position: relative;
+  top: -95px;
+  left: -40px;
 }
 
 .ca-animate-boat {
@@ -125,13 +256,13 @@ for the about.css.scss file custom styling*/
 
 #campaigns-adventure-wheel-left {
   position: relative;
-  top: 36px;
+  top: -112px;
   left: -93px;
 }
 
 #campaigns-adventure-wheel-right {
   position: relative;
-  top: 38px;
+  top: -110px;
   left: -44px;
 }
 
@@ -154,6 +285,54 @@ for the about.css.scss file custom styling*/
 @keyframes jeep {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.ca-animate-balloon {
+  -webkit-animation: balloon 2.5s alternate infinite ease-in-out;
+  -moz-animation: balloon 2.5s alternate infinite ease-in-out;
+  animation: balloon 2.5s alternate infinite ease-in-out;
+}
+
+@-webkit-keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -8px); }
+}
+
+@-moz-keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -8px); }
+}
+
+@keyframes balloon {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(0, -8px); }
+}
+
+#campaigns-adventure-shadow {
+  position: relative;
+  top: -105px;
+  left: -100px;
+}
+
+.ca-animate-shadow {
+  -webkit-animation: shadow 2.5s alternate infinite ease-in-out;
+  -moz-animation: shadow 2.5s alternate infinite ease-in-out;
+  animation: shadow 2.5s alternate infinite ease-in-out;
+}
+
+@-webkit-keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.85, .85); }
+}
+
+@-moz-keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.85, .85); }
+}
+
+@keyframes shadow {
+  0%   { transform: scale(1, 1); }
+  100% { transform: scale(.85, .85); }
 }
 
 @media (max-width: 1000px) {
