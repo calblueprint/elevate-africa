@@ -128,13 +128,9 @@
       <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% end %>
-<<<<<<< HEAD
       <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
         <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
       <% end %>
-=======
-      <%= link_to "DONATE NOW", new_donation_path(:id => @campaign) %>
->>>>>>> 4a7f2dca1299315e6543f414502d11999906231a
     </h2>
   </div>
 
