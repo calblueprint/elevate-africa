@@ -49,7 +49,6 @@
           <p id="campaign-total">Raised out of <strong><%= "$#{@campaign.goal}" %></strong></p>
         </div>
         <div class="campaign-info-container campaign-progress-bar-container" id="campaign-progress-container">
-
           <div class="campaign-info-margin" id="campaign-progress">
             <div id="campaign-show-bar" class="campaign-index-bar"></div>
             <h2 id="campaign-percentage-font" class="campaign-index-percentage"><%= number_to_percentage(@campaign.get_donation_percentage * 100, precision: 0) %>
@@ -71,7 +70,11 @@
           </div>
         </div>
         <div id="campaign-info-button">
-          <%= link_to "DONATE NOW", new_donation_path(campaign: @campaign), class: "button", id: "campaign-donate-button" %>
+          <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
+            <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+          <% else %>
+            <div id="campaign-finished"><h2 id="campaign-finished-font">CAMPAIGN CLOSED</h2></div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -125,7 +128,13 @@
       <% if current_user == @campaign.team %>
         <%= link_to "EDIT MY CAMPAIGN | ", edit_campaign_path(@campaign) %>
       <% end %>
+<<<<<<< HEAD
+      <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
+        <%= link_to "DONATE NOW", new_donation_path(@campaign) %>
+      <% end %>
+=======
       <%= link_to "DONATE NOW", new_donation_path(:id => @campaign) %>
+>>>>>>> 4a7f2dca1299315e6543f414502d11999906231a
     </h2>
   </div>
 

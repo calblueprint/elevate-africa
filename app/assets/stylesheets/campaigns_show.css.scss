@@ -30,6 +30,21 @@ for the about.css.scss file custom styling*/
   height: 80px;
 }
 
+#campaign-finished {
+  margin-top: 32px;
+  height: 60px;
+  width: 300px;
+  background: $light-gray;
+  padding-top: 18px;
+  padding: 20px 35px;
+
+}
+
+#campaign-finished-font {
+  font-size: 20px;
+  color: #fff;
+}
+
 .campaign-numbers-font {
   font: $p;
   text-align: center;
@@ -260,6 +275,14 @@ for the about.css.scss file custom styling*/
   // background: $light-gray;
   padding-top: 20px;
 }
+
+#campaign-adventure-progress {
+
+}
+
+// .campaign-adventure-info {
+//   height: 700px;
+// }
 
 #campaign-percentage-font {
   font-size: 20px;

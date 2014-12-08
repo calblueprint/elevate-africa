@@ -17,6 +17,10 @@ class CommentsController < ApplicationController
     redirect_to campaign_path(@campaign)
   end
 
+  def error_comment
+    flash[:error] = "Your comment is empty!"
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
