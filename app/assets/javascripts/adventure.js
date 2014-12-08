@@ -23,31 +23,34 @@ var total_percent;
 
 var ready = function() {
   $(document).ready(function() {
-    last_donation = gon.last_donation;
-    total_donations = gon.total_donations;
-    donation_goal = gon.donation_goal;
+    if($(".campaigns-adventure-show").length > 0) {
+      last_donation = gon.last_donation;
+      total_donations = gon.total_donations;
+      donation_goal = gon.donation_goal;
 
-    penultimate_percent = (total_donations - last_donation)/donation_goal;
-    total_percent = total_donations/donation_goal;
+      penultimate_percent = (total_donations - last_donation)/donation_goal;
+      total_percent = total_donations/donation_goal;
 
-    // set background and foreground to shifted position
-    var background_offset = penultimate_percent % (1 / 6) * 6 * background_width;
-    if(background_offset > max_shift) {
-      $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
-      background_offset = max_shift;
+      // set background and foreground to shifted position
+      var background_offset = penultimate_percent % (1 / 6) * 6 * background_width;
+      if(background_offset > max_shift) {
+        $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
+        background_offset = max_shift;
+      }
+      advGroundPosition(Math.floor(background_offset));
+
+      // scene counter
+      scene_index = Math.floor(penultimate_percent * 6);
+      scene_string = scene_hash[scene_index];
+>>>>>>> 0d89f7d8a8fe258aa03bcfdbac843e11ee8a6fcc
+
+      // initial settings
+      $("#campaigns-adventure-white").hide();
+      $("#campaigns-adventure-prompt-text").hide();
+
+      advChooseScene();
+      advPrimaryAction();
     }
-    advGroundPosition(Math.floor(background_offset));
-
-    // scene counter
-    scene_index = Math.floor(penultimate_percent * 6);
-    scene_string = scene_hash[scene_index];
-
-    // initial settings
-    $("#campaigns-adventure-white").hide();
-    $("#campaigns-adventure-prompt-text").hide();
-
-    advChooseScene();
-    advPrimaryAction();
   });
 }
 
