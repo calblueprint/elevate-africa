@@ -2,15 +2,7 @@ class CommentsController < ApplicationController
   def create
     @campaign = Campaign.find(params[:campaign_id])
     @comment = @campaign.comments.create(comment_params)
-    if @comment.save
-      respond_to do |format|
-        format.html do
-          flash[:success] = "Comment posted."
-          redirect_to @campaign
-        end
-        campaign_format.js
-      end
-    end
+    redirect_to campaign_path(@campaign)
   end
 
   def show
@@ -22,13 +14,7 @@ class CommentsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @comment = @campaign.comments.find(params[:id])
     @comment.destroy
-    respond_to do |format|
-      format.html do
-        flash[:success] = "Comment deleted."
-        redirect_to @campaign
-      end
-      campaign_format.js
-    end
+    redirect_to campaign_path(@campaign)
   end
 
   def error_comment
