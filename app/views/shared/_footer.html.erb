@@ -1,17 +1,28 @@
 <div class="wide-container footer-wrapper">
-  <div class="wide-container footer-wrapper">
-  <div class="footer-top">
-    <img id="footer-africa-icon" src="<%= asset_path("footer_africa.png") %>"/>
-    <p>All rights reserved by Elevate Africa, a nonprofit helping end the cycle of poverty in Africa.</p>
-    <p>Website designed and created by team of students from Cal Blueprint.</p>
-    <img src="<%= asset_path("footer_fancy.png") %>"/>
-  </div>
   <div class="footer-bottom">
+    <img id="footer-africa-icon" src="<%= asset_path("footer_africa.png") %>"/>
     <div class="footer-table">
-      <div class="footer-col"><a href="#">Elevate Africa</a></div>
-      <div class="footer-col"><a href="#">Campaign Help</a></div>
-      <div class="footer-col"><a href="#">Terms of Use</a></div>
+      <div class="footer-col">
+        <h2> Get Involved </h2>
+        <%= link_to "Donate", new_donation_path %>
+        <%= link_to "Contact", contact_path %>
+        <%= link_to "Campaign", static_campaign_path %>
+      </div>
+      <div class="footer-col">
+        <h2> Learn More </h2>
+        <%= link_to "About", about_path %>
+        <%= link_to "Buzz", buzzes_path, 'data-no-turbolink' => true %>
+      </div>
+      <div class="footer-col">
+        <h2> Miscellaneous </h2>
+        <%= link_to "Users", new_user_session_path %>
+        <%= link_to "Start", new_campaign_path %>
+      </div>
     </div>
+  </div>
+  <div class="footer-top">
+    <p>All rights reserved by Elevate Africa. Website created by Cal Blueprint.</p>
+    <!--<img src="<%= asset_path("footer_fancy.png") %>"/>-->
   </div>
 </div>
 <!--   <div class="footer-table">

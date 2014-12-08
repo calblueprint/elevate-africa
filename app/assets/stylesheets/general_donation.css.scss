@@ -1,0 +1,112 @@
+@import "variables.css.scss";
+
+#general-donation-container {
+  width: 100%;
+  height: 800px;
+  background: #fff;
+  background-image: url(asset_path("background.svg"));
+  background-size: cover;
+  background-position: center;
+
+}
+
+#general-donation-image-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(asset_path("donations1.svg"));
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+#general-donation-content-container {
+  width: 50%;
+  float: right;
+  position: relative;
+  z-index: 2;
+}
+
+#general-donation-form {
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding: 20px;
+}
+
+#general-donation-title {
+  text-align: center;
+  font-size: 50px;
+}
+
+#general-donation-subtitle {
+  text-align: center;
+}
+
+#general-donation-name {
+  border: 5px solid #FFF3E7;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+
+#general-donation-amount-container {
+  margin: 0 auto;
+  width: 90%;
+  height: 121px;
+  position: relative;
+}
+
+#general-donation-font {
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+#general-donation-dollar-sign {
+  @extend #general-donation-font;
+  width: 8%;
+  float: left;
+  font-size: 40px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+#donate-amount {
+  @extend #general-donation-font;
+  width: 90%;
+  height: 10%;
+  margin: 0 auto;
+  padding: 0px;
+  padding-left: 10px;
+  border: 5px solid #FFF3E7;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  font-size: 75px;
+  float: left;
+}
+
+.donation_amount {
+  width: 90%;
+}
+
+#general-donation-usd {
+  @extend #general-donation-font;
+  width: 10%;
+  height: 10%;
+  color: $dark-gray;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 35px;
+}
+
+#general-donation-slider {
+  width: 90%;
+  margin: 0px auto;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+

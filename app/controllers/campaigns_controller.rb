@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_can_make, except: [:index, :show, :edit, :update]
+  before_filter :authenticate_can_make, only: [:new, :create]
   before_action :authenticate_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -45,13 +45,17 @@ class CampaignsController < ApplicationController
     @team = @campaign.team
     @comment = Comment.new
     @total_donations = @campaign.get_total_donations
-    gon.push percent: @campaign.get_donation_percentage
+    gon.push percent: @campaign.get_donation_percentage,
+             last_donation: @campaign.most_recent_donation.try(:amount),
+             total_donations: @campaign.get_total_donations,
+             donation_goal: @campaign.goal
   end
 
   def edit
   end
 
   def update
+    # TODO: Gotta fix this part
     if @campaign.update campaign_params
       redirect_to @campaign
     else
@@ -86,7 +90,7 @@ class CampaignsController < ApplicationController
 
   def authenticate_owner
     @campaign = Campaign.find(params[:id])
-    if !current_user.can_edit? @campaign
+    if !current_user || !current_user.can_edit?(@campaign)
       flash[:error] = "You can't edit this team!"
       redirect_to campaigns_path
     end

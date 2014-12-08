@@ -2,9 +2,9 @@
 
 #navbar {
   width: 100%;
-  height: 69px;
+  height: 62px;
   background: #fff;
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 0px rgba(0,0,0,0.1);
 }
 
 #navbar-container {
@@ -21,8 +21,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
   z-index: 69;
   background: url(asset_path("menu.svg"));
   background-size: cover;
@@ -30,16 +30,16 @@
 
 .navbar-spacer {
   width: 100%;
-  height: 69px;
+  height: 62px;
 }
 
 #navbar-home {
   position: fixed;
   left: 0;
   top: 0;
-  width: 182px;
-  height: 130px;
-  background: url(asset_path("logo-horizontal.svg"));
+  width: 160px;
+  height: 114px;
+  background: url(asset_path("logo-horizontal.png"));
   background-size: cover;
 }
 
@@ -47,22 +47,22 @@
   float: right;
   display: block;
   margin: 10px;
-  padding: 15px 20px 15px 20px;
+  padding: 12px 15px;
   font: $h2;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   color: $light-gray;
 }
 
 .navbar-tab:hover {
-  color: $dark-gray;
+  color: $black;
 }
 
 .navbar-highlight {
   background: $primary-color;
-  padding: 15px 26px 15px 26px;
+  margin: 0;
+  padding: 22px 27px 21px;
   color: #fff;
-  border-radius: 6px;
 }
 
 .navbar-highlight:hover {
@@ -80,7 +80,7 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
   background: #fff;
-  border-left: 1px solid $light-gray;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #navbar-outside {
@@ -94,8 +94,14 @@
 }
 
 @media (max-width: 1000px) {
+  #navbar-home {
+    position: initial;
+    float: left;
+    margin: 15px;
+  }
+
   .navbar-spacer {
-    height: 40px;
+    height: 0px;
   }
 
   .navbar-tab {
@@ -112,7 +118,7 @@
   .navbar-highlight {
     width: 160px;
     padding: 20px;
-    margin: 30px 20px 10px 20px;
+    margin: 10px 20px;
     color: #fff;
   }
 

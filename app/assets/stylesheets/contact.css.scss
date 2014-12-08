@@ -15,12 +15,13 @@
 .contact-text {
   color: $black;
   font: $p;
-  margin-top: 15px;
+  border-radius: 4px;
+  margin-top: 5px;
   margin-left: 100px;
 }
 
 .contact-name {
-  width: 275px;
+  width: 272px;
   height: 30px;
   float: left;
 }
@@ -29,6 +30,10 @@
   width: 560px;
   height: 30px;
   float: left;
+}
+
+.contact-margin-right {
+  margin-right: 11px !important;
 }
 
 .contact-address-font {

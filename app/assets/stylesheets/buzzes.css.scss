@@ -5,6 +5,10 @@
   Buzz Index Page
 */
 
+.buzz-boxy {
+  cursor: pointer;
+}
+
 #buzz-banner {
   background: url(asset_path("buzz.JPG"));
   background-size: cover;
@@ -45,6 +49,7 @@
   height: 100%;
   overflow: auto;
   padding-bottom: 120px;
+  margin-top: -50px;
 }
 
 #buzz-headline-container {
@@ -189,12 +194,13 @@
 .buzz-headline {
   color: white;
   vertical-align: center;
-  font-size: 75px;
+  font-size: 48px;
+  font-weight: 700;
   line-height: 0px;
 }
 
 .buzz-show {
-  color: black;
+  color: #fff;
 }
 
 .buzz-show:hover {
@@ -234,6 +240,7 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 500px;
+  background-color: #eee;
 }
 
 #buzz-wrapper {
@@ -246,7 +253,8 @@
   margin-top: 50px;
   text-align: center;
   // font-size: 100px;
-  line-height: 90px;
+  font-size: 60px;
+  line-height: 80px;
 }
 
 #buzz-show-subhead {
@@ -304,7 +312,7 @@
 }
 
 #buzz-show-content-container-outer {
-  padding: 25px 25px 50px 25px;
+  padding: 50px 25px;
   width: 60%;
   height: auto;
   margin: auto;
@@ -364,11 +372,12 @@
 /* Buzz Recommended */
 
 .buzz-show-recommended {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   height: auto;
   overflow: auto;
   padding-bottom: 20px;
+  margin-top: 100px;
 }
 
 .buzz-show-recommended-title {

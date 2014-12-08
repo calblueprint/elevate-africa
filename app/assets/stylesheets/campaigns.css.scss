@@ -255,7 +255,7 @@ for the about.css.scss file custom styling*/
     padding: 0 0 2px 0;
   }
 
-  #campaign_name, #campaign_goal, #campaign_kind, #campaign_description, #campaign_duration, #campaigns-create-dollar-sign {
+  .campaign-form, #campaign_kind, #campaigns-create-dollar-sign {
     padding: 0 0;
     margin: 0 0;
     border: none;
@@ -264,7 +264,7 @@ for the about.css.scss file custom styling*/
     color: $dark-gray;
   }
 
-  #campaign_goal {
+  .campaign-form#campaign-goal {
     padding-left: 11px;
   }
 
@@ -274,7 +274,7 @@ for the about.css.scss file custom styling*/
     color: $light-gray;
   }
 
-  #campaign_description {
+  #campaign-description {
     height: 250px;
     padding: 10px 10px;
     vertical-align: top;

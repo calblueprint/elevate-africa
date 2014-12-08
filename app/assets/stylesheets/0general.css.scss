@@ -23,8 +23,16 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
   box-sizing: border-box;
 }
 
-.padding-center {
-  padding-top: 225px;
+.black {
+  color: $black;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+.white {
+  color: #fff;
 }
 
 /* removes annoying google highlight */
@@ -91,6 +99,7 @@ textarea {
 /* use this for banners and screen-wide content */
 .wide-container {
   width: 100%;
+  overflow: auto;
 }
 
 .medium-container {
@@ -124,11 +133,13 @@ textarea {
   font: $h2;
   font-size: 25px;
   font-weight: 700;
-  background: $secondary-color;
+  background: $primary-color;
   margin-top: 15px;
   color: #fff;
   border: none;
+  border-radius: 6px;
   &:hover {
+    background: $secondary-color;
     cursor: pointer;
   }
   // -moz-border-radius:4px;
@@ -183,14 +194,22 @@ textarea {
 }
 
 @media (max-width: 600px) {
+  h1, h2, h3, p {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   h1 {
-    font-size: 84px;
-    line-height: 72px;
+    font-size: 40px;
   }
 
   h2 {
     font-size: 36px;
     line-height: 42px;
+  }
+
+  .padding-center {
+    padding-top: 180px;
   }
 
   .small-container {

@@ -1,4 +1,4 @@
-<div data-sr class="buzz-box-<%= buzz.box_size %>">
+<div class="buzz-boxy buzz-box-<%= buzz.box_size %>" onclick="window.location.href = '<%= buzz_path(buzz) %>'">
   <% if buzz.picture? %>
     <div style="background-image: url(<%= buzz.picture_url %>)" class="buzz-image">
   <% else %>

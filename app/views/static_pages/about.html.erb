@@ -1,21 +1,20 @@
 <div class="about-page">
   <div class="wide-container about-padding">
-      <h1> Who are we? </h1>
-      <h2> Blueprinters </h2>
+      <h1 class="black"> About Us </h1>
   </div>
-  <div class="wide-container" id="about-banner">
+  <div class="wide-container">
     <a class="button about-button" onclick="smoothScroll('process')"> Our Process </a>
     <a class="button about-button" onclick="smoothScroll('team')"> Our Team </a>
     <a class="button about-button" onclick="smoothScroll('story')"> Our Story </a>
   </div>
 
   <div class="about-section about-padding" id="process">
-    <h1> OUR PROCESS </h1>
+    <h1> Our Process </h1>
     <div class="about-process-container">
       <div class="about-process-circle">
         <div class="about-process-figures">
-          <img class="about-process-figure-left" src="<%= asset_path("daughter.png") %>">
-          <img class="about-process-figure-right" src="<%= asset_path("daughter.png") %>">
+          <!--<img class="about-process-figure-left" src="<%= asset_path("daughter.png") %>">
+          <img class="about-process-figure-right" src="<%= asset_path("daughter.png") %>">-->
         </div>
 
         <img class="about-process-icon" id="icon-one" src="<%= asset_path("p_inspiration.png") %>">
@@ -49,8 +48,8 @@
   </div>
 
   <div class="about-section-team about-padding" id="team">
-    <h1> OUR TEAM </h1>
-    <h4> DEDICATED TO GOOD </h4>
+    <h1> Our Team </h1>
+    <h4> Dedicated to good </h4>
     <div class="about-team-container">
       <div class="about-member-container">
         <img src="<%= asset_path("member_one.png") %>" alt="Kevin">
@@ -92,6 +91,7 @@
       <h1> OUR STORY </h1>
       <h4> DOING GREAT THINGS </h4>
     <div class="small-container about-padding">
+        <img id="about-story-img" src="<%= asset_path("elevate_africa_logo.png") %>"/>
     	  <p>
           This is the story of Elevate Africa. It is one of majesticness unknown to all of mankind, waiting to be discovered by some Cal students.
           Although you might think that this picture isn't correct, it is in fact truly Kevin. There's no mistake here. Accept it. This is the story of Elevate Africa. It is one of majesticness unknown to all of mankind, waiting to be discovered by some Cal students. Although you might think that this picture isn't correct, it is in fact truly Kevin. There's no mistake here. Blueprint is a racially diverse club.
