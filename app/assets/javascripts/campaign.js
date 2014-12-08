@@ -15,11 +15,6 @@ var tab_two = false;
 var tab_four = false;
 var example_open = 0;
 
-var ready_campaign = function() {
-}
-
-$(document).on('page:load', ready_campaign);
-
 var ready = function() {
   $(document).ready(function() {
     // // adventure

@@ -10,12 +10,13 @@ def create_admin_with_buzzes
   admin = Admin.create! email: "admin0@gmail.com",
                         password: "password",
                         name: Faker::Name.name
-  5.times do
+  25.times do
     admin.buzzes.create headline: "This is a cool headline",
                         subhead: "This is a cool subhead",
-                        content: Faker::Lorem.paragraph(8),
+                        content: Faker::Lorem.paragraphs(5).join("\n\r\n"),
                         box_size: Random.new.rand(1..3),
-                        box_color: "#FFC48C"
+                        box_color: "#FFC48C",
+                        picture: File.open("./app/assets/images/buzz.JPG")
   end
 end
 

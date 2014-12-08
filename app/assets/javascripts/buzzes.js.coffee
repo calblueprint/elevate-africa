@@ -39,8 +39,6 @@ ready = ->
                                   scrollbars=yes,height=600,width=600')
       return false;
   else if $('#buzz-index').length
-    window.sr = new scrollReveal();
-
     $('#buzz-button').click (e) ->
       e.preventDefault()
       smoothScroll('buzz-index-container')
@@ -56,18 +54,19 @@ ready = ->
     #     console.log "wat"
     #   return
     # , 100
-    $("#buzz-box-container").infinitescroll
-      loading: {
-        finishedMsg: "",
-        msgText: "",
-        selector: null,
-        speed: 'fast',
-        start: undefined
-      }
-      navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
-      nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
-      itemSelector: "#buzz-box-container" # selector for all items you'll retrieve
-      animated: true
+    $("#buzz-load-more").click (e) ->
+      $("#buzz-box-container").infinitescroll
+        loading: {
+          finishedMsg: "",
+          msgText: "",
+          selector: null,
+          speed: 'fast',
+          start: undefined
+        }
+        navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
+        nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
+        itemSelector: "#buzz-box-container" # selector for all items you'll retrieve
+        animated: true
 $(document).ready ready
 $(document).on 'page:load', ready
 

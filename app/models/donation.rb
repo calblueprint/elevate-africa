@@ -16,7 +16,7 @@ class Donation < ActiveRecord::Base
 
   belongs_to :campaign
 
-  validates :name, presence: true
+  # validates :name, presence: true
   validates :email, presence: true
   validates :amount, presence: true
 
