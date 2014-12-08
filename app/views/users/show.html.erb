@@ -26,17 +26,15 @@
       <h2 id="user-edit-buttons">
         <% if @user.admin? %>
           <i>
-            <%= link_to "", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %>
+            <%= link_to "Edit User", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %>
           </i>
         <% else %>
-          <i>
-            <%= link_to "", edit_team_path(@user), class: "fa fa-pencil-square user-icon-button" %>
-          </i>
+          <%= link_to "Edit Team" , edit_team_path(@user), class: "edit-user-button button" %>
         <% end %>
 
         <i>
-          <%= link_to "", destroy_user_session_path, method: :delete,
-                    class: "fa fa-sign-out user-icon-button button"
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete,
+                    class: "sign-out-button button"
           %>
         </i>
       </h2>
