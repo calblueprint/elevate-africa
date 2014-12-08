@@ -28,9 +28,6 @@ var ready = function() {
     total_donations = gon.total_donations;
     donation_goal = gon.donation_goal;
 
-    last_donation = 50;
-    total_donations = 700;
-
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
 
@@ -40,7 +37,6 @@ var ready = function() {
       $("#campaigns-adventure-vehicle").css({"left": (background_offset - max_shift) * (5 / 8) + "px"});
       background_offset = max_shift;
     }
-    console.log(background_offset);
     advGroundPosition(Math.floor(background_offset));
 
     // scene counter
