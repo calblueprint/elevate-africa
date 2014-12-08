@@ -42,7 +42,6 @@ var ready = function() {
       // scene counter
       scene_index = Math.floor(penultimate_percent * 6);
       scene_string = scene_hash[scene_index];
->>>>>>> 0d89f7d8a8fe258aa03bcfdbac843e11ee8a6fcc
 
       // initial settings
       $("#campaigns-adventure-white").hide();
