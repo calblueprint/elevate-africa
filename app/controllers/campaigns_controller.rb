@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
 
   def create
     params[:campaign][:goal] = params[:campaign][:goal].gsub(/\D/,"")
-    team_params = params[:campaign][:team]
+    params[:team] = params[:campaign][:team]
 
     if params[:picture_choose] != ""
       src = File.join(Rails.root, "/app/assets/images/" + params[:picture_choose])
@@ -30,11 +30,11 @@ class CampaignsController < ApplicationController
       params[:campaign][:picture] = src_file
     end
 
-    1/0
     @team = Team.new team_params
     @campaign = Campaign.new campaign_params
 
     if @team.save && @campaign.save
+      1/0
       redirect_to @campaign
     else
       render "new"
