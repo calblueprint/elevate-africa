@@ -23,7 +23,6 @@ var total_percent;
 
 var ready = function() {
   $(document).ready(function() {
-
     last_donation = gon.last_donation;
     total_donations = gon.total_donations;
     donation_goal = gon.donation_goal;
