@@ -23,6 +23,8 @@
 
         <div id="campaign-donation-slider"></div>
 
+        <%= f.hidden_field :campaign_id, value: campaign.id %>
+
         <div>
           <%= f.submit "Help these adventurers!", id: "donate-create-button", class: "button" %>
         </div>

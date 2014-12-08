@@ -1,5 +1,5 @@
 <% if @campaign %>
-  <%= render "campaign_donation_form" %>
+  <%= render "campaign_donation_form", campaign: @campaign %>
 <% else %>
   <%= render "general_donation_form" %>
 <% end %>

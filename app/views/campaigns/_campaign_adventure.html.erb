@@ -71,7 +71,7 @@
         </div>
         <div id="campaign-info-button">
           <% if (@total_donations < @campaign.goal) or (@campaign.duration > 0) %>
-            <%= link_to "DONATE NOW", new_donation_path(@campaign), class: "button", id: "campaign-donate-button" %>
+            <%= link_to "DONATE NOW", new_donation_path(campaign_id: @campaign), class: "button", id: "campaign-donate-button" %>
           <% else %>
             <div id="campaign-finished"><h2 id="campaign-finished-font">CAMPAIGN CLOSED</h2></div>
           <% end %>
