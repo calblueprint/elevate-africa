@@ -23,13 +23,13 @@ var total_percent;
 
 var ready = function() {
   $(document).ready(function() {
-
     last_donation = gon.last_donation;
     total_donations = gon.total_donations;
     donation_goal = gon.donation_goal;
 
     last_donation = 50;
     total_donations = 700;
+    donation_goal = 4000;
 
     penultimate_percent = (total_donations - last_donation)/donation_goal;
     total_percent = total_donations/donation_goal;
