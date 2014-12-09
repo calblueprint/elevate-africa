@@ -23,21 +23,21 @@
         <!-- <h2 id="user-dashboard-badges-title">Badges</h2> -->
         <!-- Badges Here -->
       </div>
-      <h2 id="user-edit-buttons">
+      <h1 id="user-edit-buttons">
         <% if @user.admin? %>
-          <i>
-            <%= link_to "Edit User", edit_user_path(@user), class: "fa fa-pencil-square user-icon-button" %>
-          </i>
+          <span class="button-container">
+            <%= link_to "Edit User", edit_user_path(@user), class: "edit-user-button button" %>
+          </span>
         <% else %>
-          <%= link_to "Edit Team" , edit_team_path(@user), class: "edit-user-button button" %>
+          <span class="button-container"><%= link_to "Edit Team" , edit_team_path(@user), class: "edit-user-button button" %></span>
         <% end %>
 
-        <i>
+        <span class="button-container">
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete,
                     class: "sign-out-button button"
           %>
-        </i>
-      </h2>
+        </span>
+      </h1>
     </div>
     <div id="user-dashboard-campaign-info">
       <% if current_user == @user %>

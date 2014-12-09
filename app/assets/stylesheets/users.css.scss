@@ -81,6 +81,7 @@
   height: 400px;
   width: 95%;
   margin: 20px auto;
+  text-align: center;
 }
 
 #user-dashboard-badges-title {
@@ -93,6 +94,23 @@
   text-align: center;
   width: 100%;
   padding-bottom: 20px;
+}
+
+.button-container {
+  width: 150px;
+  height: 75px;
+  margin: 0 auto;
+}
+
+
+.edit-user-button {
+  font-size: 20px;
+  padding: 10px 15px
+}
+
+.sign-out-button {
+  font-size: 20px;
+  padding: 10px 15px
 }
 
 #user-dashboard-campaign-info {

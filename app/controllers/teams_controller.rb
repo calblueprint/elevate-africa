@@ -57,4 +57,5 @@ class TeamsController < ApplicationController
       flash[:error] = "You don't have permission to do that action!"
       redirect_to root_path
     end
+  end
 end
