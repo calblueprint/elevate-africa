@@ -26,6 +26,7 @@ var ready = function() {
   $(document).ready(function() {
     if($(".campaigns-adventure-show").length > 0) {
       last_donation = gon.last_donation;
+
       total_donations = gon.total_donations;
       donation_goal = gon.donation_goal;
 
@@ -49,7 +50,9 @@ var ready = function() {
       $("#campaigns-adventure-prompt-text").hide();
 
       advChooseScene();
-      advPrimaryAction();
+
+      if(total_donations > 0)
+        advPrimaryAction();
     }
   });
 }
