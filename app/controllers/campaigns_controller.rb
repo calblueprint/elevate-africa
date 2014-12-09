@@ -34,7 +34,6 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new campaign_params
 
     if @team.save && @campaign.save
-      1/0
       redirect_to @campaign
     else
       render "new"
