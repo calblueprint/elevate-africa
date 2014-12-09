@@ -5,10 +5,11 @@ var max_shift = 657;
 
 var scene_hash = {
                     0: "egypt",
-                    1: "safari",
+                    1: "victoria",
                     2: "timbuktu",
-                    3: "victoria",
-                    4: "morroco"
+                    3: "safari",
+                    4: "morroco",
+                    5: "mountain"
                  };
 
 var scene_index;
@@ -167,7 +168,7 @@ function advChooseScene() {
     $("#campaigns-adventure-shadow").hide();
     $(".campaigns-adventure-team").attr("id", "campaigns-adventure-team-jeep");
   }
-  else if(scene_string == "morroco") {
+  else if(scene_string == "morroco" || scene_string == "mountain") {
     $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-balloon");
     $(".campaigns-adventure-wheel").hide();
     $("#campaigns-adventure-shadow").show();
@@ -185,7 +186,7 @@ function advAnimateVehicle() {
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
-  else if(scene_string == "morroco")
+  else if(scene_string == "morroco" || scene_string == "mountain")
   {
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-balloon");
     $("#campaigns-adventure-shadow").addClass("ca-animate-shadow");
@@ -197,7 +198,7 @@ function advUnanimateVehicle() {
     $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
-  else if(scene_string == "morroco")
+  else if(scene_string == "morroco" || scene_string == "mountain")
   {
     $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-balloon");
     $("#campaigns-adventure-shadow").removeClass("ca-animate-shadow");

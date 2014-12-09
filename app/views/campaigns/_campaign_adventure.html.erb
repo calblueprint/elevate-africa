@@ -18,7 +18,11 @@
                 <div id="campaigns-adventure-prompt-picture">
                   <%= image_tag(@campaign.picture_url) unless @campaign.picture_url.nil? %>
                 </div>
-                <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
+                <% if @total_donations >= @campaign.goal %>
+                  <div id="campaigns-adventure-prompt-text">We completed our campaign with that donation!</div>
+                <% else %>
+                  <div id="campaigns-adventure-prompt-text">Bob's recent donation of $<%= @campaign.most_recent_donation.try(:amount) %> brought us here!</div>
+                <% end %>
               </span>
               <span class="campaigns-adventure-prompt-triangle"></span>
             </span>
