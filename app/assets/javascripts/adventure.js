@@ -8,7 +8,8 @@ var scene_hash = {
                     1: "safari",
                     2: "timbuktu",
                     3: "victoria",
-                    4: "morroco"
+                    4: "morroco",
+                    5: "mountain"
                  };
 
 var scene_index;
@@ -42,7 +43,6 @@ var ready = function() {
       // scene counter
       scene_index = Math.floor(penultimate_percent * 6);
       scene_string = scene_hash[scene_index];
->>>>>>> 0d89f7d8a8fe258aa03bcfdbac843e11ee8a6fcc
 
       // initial settings
       $("#campaigns-adventure-white").hide();
@@ -168,7 +168,7 @@ function advChooseScene() {
     $("#campaigns-adventure-shadow").hide();
     $(".campaigns-adventure-team").attr("id", "campaigns-adventure-team-jeep");
   }
-  else if(scene_string == "morroco") {
+  else if(scene_string == "morroco" || scene_string == "mountain") {
     $(".campaigns-adventure-vehicle-body").attr("id", "ca-vehicle-balloon");
     $(".campaigns-adventure-wheel").hide();
     $("#campaigns-adventure-shadow").show();
@@ -186,7 +186,7 @@ function advAnimateVehicle() {
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").addClass("ca-animate-jeep");
-  else if(scene_string == "morroco")
+  else if(scene_string == "morroco" || scene_string == "mountain")
   {
     $(".campaigns-adventure-vehicle-body").addClass("ca-animate-balloon");
     $("#campaigns-adventure-shadow").addClass("ca-animate-shadow");
@@ -198,7 +198,7 @@ function advUnanimateVehicle() {
     $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-boat");
   else if(scene_string == "safari" || scene_string == "timbuktu")
     $(".campaigns-adventure-wheel").removeClass("ca-animate-jeep");
-  else if(scene_string == "morroco")
+  else if(scene_string == "morroco" || scene_string == "mountain")
   {
     $(".campaigns-adventure-vehicle-body").removeClass("ca-animate-balloon");
     $("#campaigns-adventure-shadow").removeClass("ca-animate-shadow");

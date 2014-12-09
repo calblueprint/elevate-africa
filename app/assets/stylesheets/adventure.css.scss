@@ -51,6 +51,11 @@ for the about.css.scss file custom styling*/
   background-repeat: no-repeat;
 }
 
+#ca-mountain-background {
+  background: url(asset_path("mountain_background.png"));
+  background-repeat: no-repeat;
+}
+
 .campaigns-adventure-foreground {
   width: 666px;
   height: 500px;
@@ -83,6 +88,11 @@ for the about.css.scss file custom styling*/
 
 #ca-morroco-foreground {
   background: url(asset_path("morroco_foreground.png"));
+  background-repeat: no-repeat;
+}
+
+#ca-mountain-foreground {
+  background: url(asset_path("mountain_foreground.png"));
   background-repeat: no-repeat;
 }
 
