@@ -5,9 +5,9 @@ var max_shift = 657;
 
 var scene_hash = {
                     0: "egypt",
-                    1: "safari",
+                    1: "victoria",
                     2: "timbuktu",
-                    3: "victoria",
+                    3: "safari",
                     4: "morroco",
                     5: "mountain"
                  };
@@ -28,6 +28,9 @@ var ready = function() {
       last_donation = gon.last_donation;
       total_donations = gon.total_donations;
       donation_goal = gon.donation_goal;
+
+      last_donation = 1000;
+      total_donations = 1000;
 
       penultimate_percent = (total_donations - last_donation)/donation_goal;
       total_percent = total_donations/donation_goal;
