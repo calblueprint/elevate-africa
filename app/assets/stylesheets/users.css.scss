@@ -78,21 +78,48 @@
 }
 
 #user-dashboard-badges-container {
-  height: 400px;
+  height: 250px;
   width: 95%;
   margin: 20px auto;
+  text-align: center;
 }
 
 #user-dashboard-badges-title {
   color: white;
 }
 
-#user-edit-buttons {
+.user-edit-buttons {
   position: absolute;
   bottom: 0;
   text-align: center;
   width: 100%;
   padding-bottom: 20px;
+}
+
+.button-container {
+  width: 150px;
+  height: 75px;
+  margin: 0 auto;
+}
+
+.campaign-button-container {
+  margin-top: 10px;
+}
+
+.campaign-edit-button {
+  font-size: 25px;
+  padding: 10px 15px
+}
+
+
+.edit-user-button {
+  font-size: 20px;
+  padding: 10px 15px
+}
+
+.sign-out-button {
+  font-size: 20px;
+  padding: 10px 15px
 }
 
 #user-dashboard-campaign-info {

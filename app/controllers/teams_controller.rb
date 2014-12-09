@@ -1,4 +1,6 @@
+
 class TeamsController < ApplicationController
+  before_action :validate_team, only: [:edit, :update, :destroy]
   def new
     if current_user
       flash[:info] = "You've already signed in!"
@@ -34,6 +36,12 @@ class TeamsController < ApplicationController
   end
 
   def destroy
+    team = Team.find_by id: params[:id]
+    if team
+      team.destroy
+      flash[:success] = "You've deleted your campaign!"
+      redirect_to root_path
+    end
   end
 
   private
@@ -41,5 +49,13 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+
+  def validate_team
+    @team = Team.find_by id: params[:id]
+    if current_user.nil? || current_user != @team
+      flash[:error] = "You don't have permission to do that action!"
+      redirect_to root_path
+    end
   end
 end
