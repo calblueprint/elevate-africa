@@ -1,0 +1,23 @@
+<div id="general-donation-modal-donate-container" class="modal">
+  <div class="general-donation-modal-form-container">
+    <%= simple_form_for @donation do |f| %>
+        <%= f.input :amount, label: false,
+                             input_html: { id: "general-donation-amount",
+                                           class: "donate-amount" },
+                             as: :string %>
+        <%= f.input :name, label: false,
+                           placeholder: "Name (optional)",
+                           input_html: { id: "general-donation-name"} %>
+        <% if @campaign %>
+          <%= f.hidden_field :campaign_id, value: @campaign.id %>
+        <% end %>
+      <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="general-donation-modal-info-container" class="modal">
+  <div class="general-donation-modal-form-container">
+    <h1>RANDOM TEXT</h1>
+  </div>
+</div>

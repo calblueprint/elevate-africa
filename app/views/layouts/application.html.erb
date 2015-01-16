@@ -21,5 +21,10 @@
     </div>
     <%= render 'shared/flash', flash: flash %>
     <%= render 'shared/footer' %>
+
+    <% if @donate %>
+      <%= render 'shared/donate_modal', campaign: @campaign %>
+    <% end %>
+
   </body>
 </html>

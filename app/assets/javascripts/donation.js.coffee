@@ -2,10 +2,9 @@
 
 
 donation = ->
-  if $("#general-donation-container").length > 0 or $('#campaign-donation-container').length > 0
-
+  if $("#general-donation-container").length > 0
     # Prevents users from typing anthing but numbers
-    $("#donate-amount").keypress (e)->
+    $(".donate-amount").keypress (e)->
       if e.which != 8 and e.which != 0 and (e.which < 48 or e.which > 57)
         return false
 
@@ -35,7 +34,7 @@ donation = ->
 
     # Creates slider - see http://refreshless.com/nouislider/
     slider = $("#general-donation-slider")
-    dollar_input = $("#donate-amount")
+    dollar_input = $(".donate-amount")
     image = $("#general-donation-image-container")
 
     slider.noUiSlider slider_options
@@ -52,6 +51,7 @@ donation = ->
 
     dollar_input.keyup (e)->
       value = parseInt(dollar_input.val())
+      dollar_input.val(value)
       slider.val(value)
       change_picture value
 
@@ -68,9 +68,25 @@ donation = ->
           image.css "background-image", "url(/assets/donations4.svg)"
           break
 
+    # Opens up modal for stripe
+    $("#donate-modal-button").click (e) ->
+      e.preventDefault
+      # console.log("hello")
+      $("#general-donation-modal-donate-container").fadeToggle()
 
+    $("#donate-info-button").click (e) ->
+      $("#general-donation-modal-info-container").fadeToggle()
 
+    $("general-donation-modal-form-container").click (e) ->
+      e.stopPropagation()
 
+    $("#general-donation-modal-donate-container").click (e) ->
+      e.preventDefault()
+      $("#general-donation-modal-donate-container").fadeToggle()
+
+    $("#general-donation-modal-info-container").click (e) ->
+      e.preventDefault()
+      $("#general-donation-modal-info-container").fadeToggle()
 
 $(document).ready donation
 $(document).on 'page:load', donation
