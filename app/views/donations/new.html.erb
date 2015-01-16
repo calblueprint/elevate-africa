@@ -23,20 +23,33 @@
         </div>
       </div>
 
-      <div id="general-donation-donate-info"></div>
+      <div id="general-donation-donate-info">
+        <div class="general-donation-position">
+          <div id="general-donation-donate-description">
+            <p>
+              Help aspiring entrepreneurs take
+              the first step to overcoming poverty with a multi-week business training program that teaches them how to start and manage a business, evaluate opportunities and risks, create product differentiation, manage profits, and invest savings.
+            </p>
+          </div>
+          <div id="general-donation-donate-image" style="background-image: url(<%= asset_path("buzz.JPG") %>)">
+          </div>
+        </div>
+      </div>
 
       <div id="general-donation-donate-container">
-        <h4 id="general-donation-subtitle">I WILL GIVE</h4>
-        <div id="general-donation-amount-container">
-          <div id="general-donation-dollar-sign">$</div>
-          <%= text_field_tag :amount, "5", id: "donate-amount-text", class: "donate-amount"%>
+        <div class="general-donation-position">
+          <h4 id="general-donation-subtitle">I WILL GIVE</h4>
+          <div id="general-donation-amount-container">
+            <div id="general-donation-dollar-sign">$</div>
+            <%= text_field_tag :amount, "5", id: "donate-amount-text", class: "donate-amount"%>
+          </div>
+          <div id="donate-button-container">
+            <%= link_to "Donate!", "#stripe", id: "donate-modal-button", class: "button" %>
+          </div>
+          <h1 id="donate-info-container">
+            <%= link_to "Check?", "#check-info", id: "donate-info-button" %>
+          </h1>
         </div>
-        <div id="donate-button-container">
-          <%= link_to "Donate!", "#stripe", id: "donate-modal-button", class: "button" %>
-        </div>
-        <h1 id="donate-info-container">
-          <%= link_to "Check?", "#check-info", id: "donate-info-button" %>
-        </h1>
       </div>
       <div id="general-donation-slider"></div>
     </div>
