@@ -84,9 +84,9 @@ donation = ->
           setText num, value
           break
         else if value >= change_numbers[change_numbers.length - 1]
-          console.log "#{change_numbers[change_numbers.length]}"
           image.css "background-image", "url(/assets/donations4.svg)"
           setRange $("#range-4").attr("id")
+          setText num, value
           break
 
     ranges = $(".general-donation-range-container")
@@ -108,13 +108,15 @@ donation = ->
 
     textBox = $("#general-donation-donate-description")
     wowAlotBox = $("#general-donation-donate-extra")
+
     setText = (num, value) ->
+      console.log value
       if value > 6000
         wowAlotBox.show()
         textBox.hide()
       else
         wowAlotBox.hide()
-        textBox.val(TEXT[num])
+        textBox.text(TEXT[num])
         textBox.show()
 
 
