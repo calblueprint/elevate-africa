@@ -3,7 +3,8 @@
     <%= simple_form_for @donation do |f| %>
         <%= f.input :amount, label: false,
                              input_html: { id: "general-donation-amount",
-                                           class: "donate-amount" },
+                                           class: "donate-amount",
+                                           value: "10" },
                              as: :string %>
         <%= f.input :name, label: false,
                            placeholder: "Name (optional)",
