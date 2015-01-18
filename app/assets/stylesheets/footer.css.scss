@@ -106,3 +106,37 @@ for the about.css.scss file custom styling*/
 //   width: 30px;
 //   vertical-align: middle;
 // }
+
+@media (max-width: 600px) {
+  .footer-col h2 {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-table {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .footer-col {
+    position:relative;
+    margin: 0;
+    top: -10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 30%;
+  }
+
+  .footer-top {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-top p {
+    width: 100%;
+    font-size: 9px;
+  }
+}

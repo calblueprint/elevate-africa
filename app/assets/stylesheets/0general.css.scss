@@ -7,6 +7,10 @@ body {
   color: $black;
 }
 
+html {
+  background-color: #fff;
+}
+
 /* Resets the shitty beginning settings for various text tags and makes $black the main color */
 h1, h2, h3, h4, h5, h6, p, a, input, button {
   margin: 0;
