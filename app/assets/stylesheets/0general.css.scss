@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6, p, a, input, button {
 /* the main header styling */
 h1 {
   font: $h1;
-  color: $primary-color;
+  color: $secondary-color;
 }
 
 /* the main subtitle styling */
@@ -71,7 +71,7 @@ h4 {
 /* the main body styling */
 p {
   font: $p;
-  color: $dark-gray;
+  color: $black;
   line-height: 32px;
 }
 

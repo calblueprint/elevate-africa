@@ -32,7 +32,7 @@ for the about.css.scss file custom styling*/
   p {
     width: 600px;
     margin: auto;
-    font: lighter 10px Bitter;
+    font: lighter 12px Lato;
     line-height: 2;
     color: #fff;
     opacity: 0.5;
@@ -60,7 +60,7 @@ for the about.css.scss file custom styling*/
     display: block;
     margin: 5px;
 
-    font: lighter 14px Bitter;
+    font: 400 14px Lato;
     color: #fff;
 
     &:hover {
@@ -84,9 +84,10 @@ for the about.css.scss file custom styling*/
 }
 
 #footer-africa-icon {
-  width: 150px;
-  margin-top: 20px;
-  margin-bottom: 0;
+  width: 125px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  opacity: 0.5;
 }
 
 // .footer-extra {
