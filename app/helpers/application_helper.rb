@@ -35,6 +35,4 @@ module ApplicationHelper
   def get_campaign_types
     Campaign.kinds.map { |s| [s[0].humanize, s[0]] }
   end
-
-
 end
