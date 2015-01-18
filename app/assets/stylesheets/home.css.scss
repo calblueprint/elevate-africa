@@ -246,7 +246,36 @@
   }
 }
 
+@media (max-width: 1200px) {
+  #bg1-img {
+    width: 500px;
+    left: 50px;
+  }
+
+  #thoughts-img {
+    width: 250px;
+    left: 200px;
+  }
+
+  #bg5-img {
+    left: 150px;
+    width: 340px;
+  }
+}
+
 @media (max-width: 1100px) {
+  .home-text {
+    width: 500px;
+  }
+
+  .bg1, .bg2, .bg3, .bg4, .bg5 {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 950px) {
   #bg1-img, #thoughts-img, #bg2-img, #popup-img, #bg3-img, #sun-img, #bg4-img, #rise-img, #bg5-img, #student-img {
     display: none;
   }
