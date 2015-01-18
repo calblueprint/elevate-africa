@@ -1,14 +1,15 @@
 @import "variables.css.scss";
 
 #home-banner {
-  background: url(asset_path("home-banner.png"));
-  background-size: cover;
-  background-position: center;
-  height: 440px;
+  height: 690px;
+}
+
+#home-blurb {
+  padding: 50px 200px;
 }
 
 .padding-center {
-  padding-top: 140px;
+  padding-top: 120px;
 }
 
 #home-arrow {
@@ -43,31 +44,110 @@
 .bg1 {
   background: url(asset_path("bg1.png"));
   background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+#bg1-img {
+  width: 600px;
+  position: absolute;
+  left: 100px;
+  bottom: 0;
+}
+
+#thoughts-img {
+  width: 300px;
+  position: absolute;
+  left: 300px;
+  bottom: 200px;
 }
 
 .bg2 {
   background: url(asset_path("bg2.png"));
   background-size: cover;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+#bg2-img {
+  width: 600px;
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+  z-index: 3;
+}
+
+#popup-img {
+  width: 200px;
+  position: absolute;
+  right: 400px;
+  bottom: 150px;
+  z-index: 2;
 }
 
 .bg3 {
   background: url(asset_path("bg3.png"));
   background-size: cover;
+  position: relative;
+  z-index: 3;
+}
+
+#bg3-img {
+  width: 600px;
+  position: absolute;
+  left: 50px;
+  bottom: 0;
+}
+
+#sun-img {
+  width: 200px;
+  position: absolute;
+  left: 400px;
+  top: 50px;
 }
 
 .bg4 {
   background: url(asset_path("bg4.png"));
   background-size: cover;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+
+#bg4-img {
+  width: 400px;
+  position: absolute;
+  right: 250px;
+  bottom: 0px;
+}
+
+#rise-img {
+  right: 50px;
+  width: 500px;
+  position: absolute;
+  top: 25px;;
 }
 
 .bg5 {
   background: url(asset_path("bg5.png"));
   background-size: cover;
+  position: relative;
+  z-index: 5;
 }
 
-.bg6 {
-  background: url(asset_path("bg6.png"));
-  background-size: cover;
+#bg5-img {
+  width: 450px;
+  position: absolute;
+  left: 220px;
+  bottom: 0px;
+}
+
+#student-img {
+  left: 0px;
+  width: 550px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .home-image {
@@ -95,6 +175,7 @@
 }
 
 .home-text h2 {
+  font-weight: 700;
   font-size: 36px;
 }
 
@@ -108,8 +189,131 @@
   padding: 75px 40px 0 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
+  #bg1-img {
+    width: 500px;
+  }
+
+  #thoughts-img {
+    width: 250px;
+    left: 250px;
+  }
+
+  #bg2-img {
+    width: 500px;
+    right: 0px;
+  }
+
+  #popup-img {
+    width: 150px;
+    right: 270px;
+    bottom: 130px;
+  }
+
+  #bg3-img {
+    width: 500px;
+  }
+
+  #sun-img {
+    width: 150px;
+    left: 300px;
+    top: 100px;
+  }
+
+  #bg4-img {
+    width: 350px;
+    right: 150px;
+  }
+
+  #rise-img {
+    width: 400px;
+    top: 100px;
+    right: 0px;
+  }
+
+  #bg5-img {
+    width: 340px;
+    position: absolute;
+    left: 200px;
+    bottom: 0px;
+  }
+
+  #student-img {
+    left: 0px;
+    width: 400px;
+    position: absolute;
+    bottom: 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #bg1-img {
+    width: 500px;
+    left: 50px;
+  }
+
+  #thoughts-img {
+    width: 250px;
+    left: 200px;
+  }
+
+  #bg5-img {
+    left: 150px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-text {
+    width: 500px;
+  }
+
+  .bg1, .bg2, .bg3, .bg4, .bg5 {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 950px) {
+  #bg1-img, #thoughts-img, #bg2-img, #popup-img, #bg3-img, #sun-img, #bg4-img, #rise-img, #bg5-img, #student-img {
+    display: none;
+  }
+
+  .home-text {
+    float: none;
+    margin: auto;
+    text-align: center;
+  }
+
+  .home-left {
+    float: none;
+  }
 }
 
 @media (max-width: 600px) {
+  #home-banner {
+    height: auto;
+  }
+
+  .bg1, .bg2, .bg3, .bg4, .bg5 {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+
+  .padding-center {
+    padding-top: 80px;
+  }
+
+  .home-text {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+
+  #home-blurb {
+    padding: 25px 30px 50px 30px;
+  }
 }

@@ -3,20 +3,22 @@
     <img id="footer-africa-icon" src="<%= asset_path("footer_africa.png") %>"/>
     <div class="footer-table">
       <div class="footer-col">
+        <h2> Learn More </h2>
+        <%= link_to "About", about_path %>
+        <%= link_to "Finacials" %>
+        <%= link_to "FAQs" %>
+      </div>
+      <div class="footer-col">
         <h2> Get Involved </h2>
         <%= link_to "Donate", new_donation_path %>
         <%= link_to "Contact", contact_path %>
         <%= link_to "Campaign", static_campaign_path %>
       </div>
       <div class="footer-col">
-        <h2> Learn More </h2>
-        <%= link_to "About", about_path %>
-        <%= link_to "Buzz", buzzes_path, 'data-no-turbolink' => true %>
-      </div>
-      <div class="footer-col">
-        <h2> Miscellaneous </h2>
-        <%= link_to "Users", new_user_session_path %>
-        <%= link_to "Start", new_campaign_path %>
+        <h2> Stay Connected </h2>
+        <%= link_to "Blog", buzzes_path, 'data-no-turbolink' => true %>
+        <%= link_to "Facebook" %>
+        <%= link_to "Twitter" %>
       </div>
     </div>
   </div>

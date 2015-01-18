@@ -2,9 +2,9 @@
   <div class="hide-medium" id="navbar">
     <%= link_to "", root_path, id: 'navbar-home' %>
     <%= link_to "Donate", new_donation_path, class:"navbar-tab navbar-highlight" %>
+    <%= link_to "Campaign", static_campaign_path, class: 'navbar-tab' %>
     <%= link_to "Contact", contact_path, class: 'navbar-tab' %>
     <%= link_to "Buzz", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
-    <%= link_to "Campaign", static_campaign_path, class: 'navbar-tab' %>
     <%= link_to "About", about_path, class: 'navbar-tab' %>
     <% if current_user %>
       <%= link_to "Dashboard", user_path(current_user), class: "navbar-tab" %>
@@ -18,14 +18,14 @@
 <div class="show-medium" id="navbar-outside" onclick="navHideMobile()"></div>
 <div class="show-medium" id="navbar-menu">
   <%= link_to "", root_path, id: 'navbar-home' %>
-  <%= link_to "DONATE", new_donation_path, class:"navbar-tab navbar-highlight" %>
-  <%= link_to "ABOUT", about_path, class: 'navbar-tab' %>
-  <%= link_to "CAMPAIGN", static_campaign_path, class: 'navbar-tab' %>
-  <%= link_to "BUZZ", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
-  <%= link_to "CONTACT", contact_path, class: 'navbar-tab' %>
+  <%= link_to "Donate", new_donation_path, class:"navbar-tab navbar-highlight" %>
+  <%= link_to "Campaign", static_campaign_path, class: 'navbar-tab' %>
+  <%= link_to "About", about_path, class: 'navbar-tab' %>
+  <%= link_to "Buzz", buzzes_path, 'data-no-turbolink' => true, class: 'navbar-tab' %>
+  <%= link_to "Contact", contact_path, class: 'navbar-tab' %>
   <% if current_user %>
-      <%= link_to "DASHBOARD", user_path(current_user), class: "navbar-tab" %>
+      <%= link_to "Dashboard", user_path(current_user), class: "navbar-tab" %>
     <% else %>
-      <%= link_to "SIGN IN", new_user_session_path,  class: "navbar-tab sign-in" %>
+      <%= link_to "Sign In", new_user_session_path,  class: "navbar-tab sign-in" %>
     <% end %>
 </div>

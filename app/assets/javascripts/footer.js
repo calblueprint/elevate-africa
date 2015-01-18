@@ -1,4 +1,4 @@
-var ready = function() {
+/*ar ready = function() {
   $(document).ready(function() {
     var elem = $("#footer-blueprint");
     elem.on("mouseenter", function() {
@@ -26,4 +26,4 @@ var ready = function() {
 }
 
 $(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).on('page:load', ready);*/
