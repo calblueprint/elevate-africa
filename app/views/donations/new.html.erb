@@ -1,51 +1,51 @@
-<div id="general-donation-container">
-  <div id="general-donation-image-container"></div>
-  <div id="general-donation-content-container">
-    <h1 id="general-donation-headline">Help Break the Cycle of Poverty!</h1>
-    <div id="general-donation-form">
+<div id="donation-container">
+  <div id="donation-image-container"></div>
+  <div id="donation-content-container">
+    <h1 id="donation-headline">Help Break the Cycle of Poverty!</h1>
+    <div id="donation-form">
 
-      <div id="general-donation-donate-range">
-        <div class="general-donation-range-container" id="range-4" data-amt="1000">
-          <h2 class="general-donation-range-head">Major Impact</h2>
-          <h2 class="general-donation-range-range">$1000+</h2>
+      <div id="donation-donate-range">
+        <div class="donation-range-container" id="range-4" data-amt="1000">
+          <h2 class="donation-range-head">Major Impact</h2>
+          <h2 class="donation-range-range">$1000+</h2>
         </div>
-        <div class="general-donation-range-container" id="range-3" data-amt="500">
-          <h2 class="general-donation-range-head">Fund a Business</h2>
-          <h2 class="general-donation-range-range">$500 - $1000</h2>
+        <div class="donation-range-container" id="range-3" data-amt="500">
+          <h2 class="donation-range-head">Fund a Business</h2>
+          <h2 class="donation-range-range">$500 - $1000</h2>
         </div>
-        <div class="general-donation-range-container" id="range-2" data-amt="250">
-          <h2 class="general-donation-range-head">Technology</h2>
-          <h2 class="general-donation-range-range">$250 - $500</h2>
+        <div class="donation-range-container" id="range-2" data-amt="250">
+          <h2 class="donation-range-head">Technology</h2>
+          <h2 class="donation-range-range">$250 - $500</h2>
         </div>
-        <div class="general-donation-range-container" id="range-1" data-amt="10">
-          <h2 class="general-donation-range-head">Training</h2>
-          <h2 class="general-donation-range-range">$10 - $250</h2>
+        <div class="donation-range-container" id="range-1" data-amt="10">
+          <h2 class="donation-range-head">Training</h2>
+          <h2 class="donation-range-range">$10 - $250</h2>
         </div>
       </div>
 
-      <div id="general-donation-donate-info">
-        <div class="general-donation-position">
-          <div class="general-donation-text">
-            <p id="general-donation-donate-description">
+      <div id="donation-donate-info">
+        <div class="donation-position">
+          <div class="donation-text">
+            <p id="donation-donate-description">
               Help aspiring entrepreneurs take
               the first step to overcoming poverty with a multi-week business training program that teaches them how to start and manage a business, evaluate opportunities and risks, create product differentiation, manage profits, and invest savings.
             </p>
           </div>
-          <div id="general-donation-donate-extra" class="general-donation-text">
-            <h1 id="general-donation-wow">WOW!</h1>
-            <h2 id="general-donation-amazing">YOU ARE AMAZING</h2>
-            <p id="general-donation-generous">Your generosity will make a huge difference. Thanks SO much!</p>
+          <div id="donation-donate-extra" class="donation-text">
+            <h1 id="donation-wow">WOW!</h1>
+            <h2 id="donation-amazing">YOU ARE AMAZING</h2>
+            <p id="donation-generous">Your generosity will make a huge difference. Thanks SO much!</p>
           </div>
-          <div id="general-donation-donate-image" style="background-image: url(<%= asset_path("buzz.JPG") %>)">
+          <div id="donation-donate-image" style="background-image: url(<%= asset_path("buzz.JPG") %>)">
           </div>
         </div>
       </div>
 
-      <div id="general-donation-donate-container">
-        <div class="general-donation-position">
-          <h4 id="general-donation-subtitle">I WILL GIVE</h4>
-          <div id="general-donation-amount-container">
-            <div id="general-donation-dollar-sign">$</div>
+      <div id="donation-donate-container">
+        <div class="donation-position">
+          <h4 id="donation-subtitle">I WILL GIVE</h4>
+          <div id="donation-amount-container">
+            <div id="donation-dollar-sign">$</div>
             <%= text_field_tag :amount, "10", id: "donate-amount-text", class: "donate-amount"%>
           </div>
           <div id="donate-button-container">
@@ -56,7 +56,7 @@
           </h1>
         </div>
       </div>
-      <div id="general-donation-slider"></div>
+      <div id="donation-slider"></div>
     </div>
   </div>
 </div>

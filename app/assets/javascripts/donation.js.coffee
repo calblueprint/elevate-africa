@@ -15,15 +15,7 @@ TEXT = ["Help aspiring entrepreneurs take the first step to overcoming poverty
           communities by providing healthcare, clean water, education and jobs."]
 
 donation = ->
-  if $("#general-donation-container").length > 0
-    primary_color = "#FFC953"
-    $("#range-1").css({"background-color": primary_color})
-
-    # Prevents users from typing anthing but numbers
-    $(".donate-amount").keypress (e)->
-      if e.which != 8 and e.which != 0 and (e.which < 48 or e.which > 57)
-        return false
-
+  if $("#donation-container").length > 0
     slider_options = {
                       start: 0,
                       step: 1,
@@ -49,12 +41,20 @@ donation = ->
                   }
 
     # Creates slider - see http://refreshless.com/nouislider/
-    slider = $("#general-donation-slider")
+    slider = $("#donation-slider")
     dollar_input = $(".donate-amount")
-    image = $("#general-donation-image-container")
+    image = $("#donation-image-container")
 
     slider.noUiSlider slider_options
     slider.noUiSlider_pips pip_options
+
+    primary_color = "#FFC953"
+    $("#range-1").css({"background-color": primary_color})
+
+    # Prevents users from typing anthing but numbers
+    $(".donate-amount").keypress (e)->
+      if e.which != 8 and e.which != 0 and (e.which < 48 or e.which > 57)
+        return false
 
     functions = {
                   slide: ->
@@ -67,15 +67,15 @@ donation = ->
     # Changing inputs
 
     dollar_input.keyup (e)->
-      value = parseInt(dollar_input.val())
+      value = parseInt($(this).val())
       if value >= 0
+        slider.val(value)
         change_elements value
 
     change_numbers = [250, 500, 1000, 5000]
     # Changes picture based on value of slider
     change_elements = (value) ->
       dollar_input.val(value)
-      slider.val(value)
       for num in [0...change_numbers.length]
         number = change_numbers[num]
         if value < number
@@ -89,15 +89,14 @@ donation = ->
           setText num, value
           break
 
-    ranges = $(".general-donation-range-container")
+    ranges = $(".donation-range-container")
 
     # If you click on a range box
     ranges.click (e) ->
-      id = $(this).attr "id"
       amount = $(this).data "amt"
       console.log(amount)
       change_elements amount
-      setRange id
+      slider.val(amount)
 
     setRange = (id) ->
       for element in ranges
@@ -106,8 +105,8 @@ donation = ->
         else
           $(element).css({ "background-color": "white" })
 
-    textBox = $("#general-donation-donate-description")
-    wowAlotBox = $("#general-donation-donate-extra")
+    textBox = $("#donation-donate-description")
+    wowAlotBox = $("#donation-donate-extra")
 
     setText = (num, value) ->
       console.log value
@@ -124,25 +123,25 @@ donation = ->
     $("#donate-modal-button").click (e) ->
       e.preventDefault
       if parseInt(dollar_input.val()) > 0
-        $("#general-donation-modal-donate-container").fadeToggle()
+        $("#donation-modal-donate-container").fadeToggle()
       else
         toastr.error("You entered an invalid amount!")
 
     # Opens the check donation info box
     $("#donate-info-button").click (e) ->
-      $("#general-donation-modal-info-container").fadeToggle()
+      $("#donation-modal-info-container").fadeToggle()
 
     # Stops clicking inside form to trigger modal hiding
-    $(".general-donation-modal-form-container").click (e) ->
+    $(".donation-modal-form-container").click (e) ->
       e.stopPropagation()
 
-    $("#general-donation-modal-donate-container").click (e) ->
+    $("#donation-modal-donate-container").click (e) ->
       e.preventDefault()
-      $("#general-donation-modal-donate-container").fadeToggle()
+      $("#donation-modal-donate-container").fadeToggle()
 
-    $("#general-donation-modal-info-container").click (e) ->
+    $("#donation-modal-info-container").click (e) ->
       e.preventDefault()
-      $("#general-donation-modal-info-container").fadeToggle()
+      $("#donation-modal-info-container").fadeToggle()
 
 
 

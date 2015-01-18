@@ -1,6 +1,6 @@
 @import "variables.css.scss";
 
-#general-donation-container {
+#donation-container {
   width: 100%;
   height: 1000px;
   background-image: url(asset_path("background.svg"));
@@ -8,7 +8,7 @@
   background-position: center;
 }
 
-#general-donation-image-container {
+#donation-image-container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -18,7 +18,7 @@
   z-index: 0;
 }
 
-#general-donation-content-container {
+#donation-content-container {
   width: 100%;
   height: 100%;
   float: right;
@@ -26,12 +26,12 @@
   z-index: 2;
 }
 
-#general-donation-headline {
+#donation-headline {
   text-align: center;
   margin-top: 5%;
 }
 
-#general-donation-form {
+#donation-form {
   background-color: white;
   width: 90%;
   // height: 60%;
@@ -43,13 +43,13 @@
   padding-bottom: 100px;
 }
 
-#general-donation-donate-range {
+#donation-donate-range {
   float: left;
   width: 20%;
   height: 500px;
 }
 
-.general-donation-range-container {
+.donation-range-container {
   width: 100%;
   height: 125px;
   padding: 5px 10px;
@@ -58,16 +58,16 @@
   cursor: pointer;
 }
 
-.general-donation-range-container:hover {
+.donation-range-container:hover {
   background-color: $primary-color;
 }
 
-.general-donation-range-head {
+.donation-range-head {
   margin-top: 3%;
   font-size: 30px;
 }
 
-.general-donation-range-range {
+.donation-range-range {
   font-size: 20px;
 }
 
@@ -79,57 +79,57 @@
   padding-top: 8%
 }
 
-#general-donation-donate-info {
+#donation-donate-info {
   float: left;
   width: 50%;
   height: 500px;
   position: relative;
 }
 
-.general-donation-text {
+.donation-text {
   float:left;
   width: 50%;
   padding: 20px;
 }
 
-#general-donation-donate-container {
+#donation-donate-container {
   float:left;
   width: 30%;
   height: 500px;
   position: relative;
 }
 
-.general-donation-position {
+.donation-position {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-#general-donation-donate-description {
+#donation-donate-description {
   line-height: 20px;
 }
 
-#general-donation-donate-extra {
+#donation-donate-extra {
   display: none;
   clear: both;
   padding-bottom: 50px;
 }
 
-#general-donation-wow {
+#donation-wow {
   font-size: 75px;
   text-align: center;
 }
 
-#general-donation-amazing {
+#donation-amazing {
   font-size: 40px;
   text-align: center;
 }
 
-#general-donation-generous {
+#donation-generous {
   text-align: center;
 }
 
-#general-donation-donate-image {
+#donation-donate-image {
   float:left;
   width: 50%;
   height: 50%;
@@ -138,20 +138,12 @@
 }
 
 
-
-#general-donation-subtitle {
+#donation-subtitle {
   text-align: center;
   font-size: 60px;
 }
 
-#general-donation-name {
-  border: 5px solid #FFF3E7;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-}
-
-#general-donation-amount-container {
+#donation-amount-container {
   margin: 10px auto;
   width: 90%;
   height: 130px;
@@ -162,15 +154,15 @@
   border-radius: 7px;
 }
 
-#general-donation-font {
+#donation-font {
   font-family: Lato, sans-serif;
   font-weight: 700;
   color: $primary-color;
 }
 
-#general-donation-dollar-sign {
-  @extend #general-donation-font;
-  width: 8%;
+#donation-dollar-sign {
+  @extend #donation-font;
+  width: 10%;
   float: left;
   font-size: 40px;
   padding-top: 10px;
@@ -178,21 +170,17 @@
 }
 
 #donate-amount-text {
-  @extend #general-donation-font;
-  width: 90%;
+  @extend #donation-font;
+  width: 89%;
   margin: 0 auto;
   padding: 0px;
-  padding-left: 10px;
   font-size: 100px;
   float: left;
   border-style: none;
 }
 
-.donation_amount {
-  width: 90%;
-}
 
-#general-donation-slider {
+#donation-slider {
   width: 80%;
   margin: 0px auto;
   bottom: 0;
@@ -220,39 +208,5 @@
 
 #donate-info-button:hover {
   text-decoration: underline;
-}
-
-#general-donation-modal-container {
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  background: rgba(0,0,0,0.8);
-  z-index: 50000;
-}
-
-.general-donation-modal-form-container {
-  width: 50%;
-  min-height: 50%;
-  max-height: 65%;
-  position: relative;
-  top: 25%;
-  margin: 0 auto;
-  padding: 20px;
-  background: $white;
-  z-index: 50001;
-  overflow: auto;
-}
-
-#general-donation-modal-donate-container {
-  @extend #general-donation-modal-container
-}
-
-#general-donation-modal-info-container {
-  @extend #general-donation-modal-container
 }
 
