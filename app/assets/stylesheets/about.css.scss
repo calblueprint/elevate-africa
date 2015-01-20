@@ -19,7 +19,7 @@ for the about.css.scss file custom styling*/
   background: url(asset_path("background.png"));
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 0 100px;
+  background-position: 0 450px;
 }
 
 .about-process-container h2 {
@@ -64,9 +64,10 @@ for the about.css.scss file custom styling*/
 }
 
 .about-process-container {
+  width: 1200px;
   margin: auto;
-  text-align: center;
   padding-top: 36px;
+  position: relative;
 }
 
 .about-process-circle {
@@ -74,7 +75,8 @@ for the about.css.scss file custom styling*/
   width: 30em;
   height: 30em;
   padding: 1.4em;
-  margin: 1.75em auto 0;
+  top: 0;
+  left: 5em;
 
   .about-process-icon {
     display: block;
@@ -140,11 +142,10 @@ for the about.css.scss file custom styling*/
 }
 
 .about-process-square {
-  width: 100%;
-  top: -350px;
-  margin: auto;
   position: relative;
   z-index: -1;
+  left: -17.5em;
+  top: -350px;
 }
 
 .about-process-text {
