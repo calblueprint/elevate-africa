@@ -1,7 +1,12 @@
 @import "variables.css.scss";
 
 #home-banner {
-  height: 690px;
+  height: 100%;
+  min-height: 690px;
+}
+
+#footer-banner {
+  height: 700px;
 }
 
 #home-blurb {
@@ -49,105 +54,88 @@
 }
 
 #bg1-img {
-  width: 600px;
-  position: absolute;
-  left: 100px;
+  width: 200px;
+  z-index: 10;
+  left: 75px;
+}
+
+.bg1-begin {
+  position: absolute !important;
+  top: 790px;
+}
+
+.bg1-default {
+  position: fixed;
   bottom: 0;
 }
 
+.bg1-edit {
+  position: absolute !important;
+  bottom: 700px !important;
+}
+
 #thoughts-img {
-  width: 300px;
+  width: 450px;
   position: absolute;
-  left: 300px;
+  left: 250px;
   bottom: 200px;
 }
 
 .bg2 {
-  background: url(asset_path("bg2.png"));
+  background: url(asset_path("bg3.png"));
   background-size: cover;
   overflow: hidden;
   position: relative;
-  z-index: 2;
 }
 
 #bg2-img {
   width: 600px;
   position: absolute;
-  right: 50px;
+  left: 50px;
   bottom: 0;
-  z-index: 3;
-}
-
-#popup-img {
-  width: 200px;
-  position: absolute;
-  right: 400px;
-  bottom: 150px;
-  z-index: 2;
+  z-index: 11;
 }
 
 .bg3 {
-  background: url(asset_path("bg3.png"));
+  background: url(asset_path("bg2.png"));
   background-size: cover;
   position: relative;
-  z-index: 3;
 }
 
 #bg3-img {
-  width: 600px;
+  width: 650px;
   position: absolute;
   left: 50px;
   bottom: 0;
 }
 
-#sun-img {
-  width: 200px;
-  position: absolute;
-  left: 400px;
-  top: 50px;
-}
-
 .bg4 {
-  background: url(asset_path("bg4.png"));
+  background: url(asset_path("bg3.png"));
   background-size: cover;
   overflow: hidden;
   position: relative;
-  z-index: 4;
-}
-
-#bg4-img {
-  width: 400px;
-  position: absolute;
-  right: 250px;
-  bottom: 0px;
 }
 
 #rise-img {
-  right: 50px;
-  width: 500px;
+  left: 25px;
+  width: 700px;
   position: absolute;
-  top: 25px;;
+  bottom: 0;
+  z-index: 11;
 }
 
 .bg5 {
   background: url(asset_path("bg5.png"));
   background-size: cover;
   position: relative;
-  z-index: 5;
-}
-
-#bg5-img {
-  width: 450px;
-  position: absolute;
-  left: 220px;
-  bottom: 0px;
 }
 
 #student-img {
-  left: 0px;
+  left: 150px;
   width: 550px;
   position: absolute;
   bottom: 0px;
+  z-index: 11
 }
 
 .home-image {
@@ -189,19 +177,22 @@
   padding: 75px 40px 0 0;
 }
 
+#footer-banner .about-button {
+  margin-bottom: 15px;
+}
+
 @media (max-width: 1300px) {
   #bg1-img {
-    width: 500px;
+    width: 150px;
   }
 
   #thoughts-img {
     width: 250px;
-    left: 250px;
+    left: 200px;
   }
 
   #bg2-img {
-    width: 500px;
-    right: 0px;
+    width: 400px;
   }
 
   #popup-img {
@@ -211,7 +202,7 @@
   }
 
   #bg3-img {
-    width: 500px;
+    width: 420px;
   }
 
   #sun-img {
@@ -226,9 +217,8 @@
   }
 
   #rise-img {
-    width: 400px;
-    top: 100px;
-    right: 0px;
+    width: 500px;
+    bottom: 0;
   }
 
   #bg5-img {
@@ -244,11 +234,9 @@
     position: absolute;
     bottom: 0px;
   }
-}
 
-@media (max-width: 1200px) {
   #bg1-img {
-    width: 500px;
+    width: 150px;
     left: 50px;
   }
 
@@ -257,9 +245,9 @@
     left: 200px;
   }
 
-  #bg5-img {
-    left: 150px;
-    width: 340px;
+  #student-img {
+    left: 100px;
+    width: 400px;
   }
 }
 
@@ -267,17 +255,21 @@
   .home-text {
     width: 500px;
   }
+}
 
-  .bg1, .bg2, .bg3, .bg4, .bg5 {
-    height: auto;
-    padding-top: 15px;
-    padding-bottom: 50px;
+@media (max-width: 1000px) {
+  .home-text {
+    width: 450px;
   }
 }
 
 @media (max-width: 950px) {
   #bg1-img, #thoughts-img, #bg2-img, #popup-img, #bg3-img, #sun-img, #bg4-img, #rise-img, #bg5-img, #student-img {
     display: none;
+  }
+
+  .home-text {
+    width: 600px;
   }
 
   .home-text {
@@ -289,10 +281,15 @@
   .home-left {
     float: none;
   }
+
+  #home-banner, #footer-banner {
+    height: auto;
+    padding-bottom: 30px;
+  }
 }
 
 @media (max-width: 600px) {
-  #home-banner {
+  #home-banner, #footer-banner {
     height: auto;
   }
 
