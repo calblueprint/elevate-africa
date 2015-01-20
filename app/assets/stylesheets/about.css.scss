@@ -122,30 +122,24 @@ for the about.css.scss file custom styling*/
 #arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
 .about-process-figures {
-  width: 100%;
-  height: 100%;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 5em;
   display: inline-block;
   vertical-align: middle;
 }
 
-.about-process-figure-left {
-  position: absolute;
-  left: -75.0%;
-  vertical-align: middle;
-}
-
-.about-process-figure-right {
-  position: absolute;
-  left: 125.0%;
-  transform: scaleX(-1);
+.about-process-figure {
   vertical-align: middle;
 }
 
 .about-process-square {
-  position: relative;
+  width: 300px;
+  position: absolute;
   z-index: -1;
-  left: -17.5em;
-  top: -350px;
+  top: 10em;
+  left: 10.5em;
 }
 
 .about-process-text {
