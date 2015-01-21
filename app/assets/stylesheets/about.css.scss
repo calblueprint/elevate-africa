@@ -56,7 +56,6 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: -228px;
 }
 
 .about-padding {
@@ -64,7 +63,7 @@ for the about.css.scss file custom styling*/
 }
 
 .about-process-container {
-  width: 1200px;
+  width: 1000px;
   margin: auto;
   padding-top: 36px;
   position: relative;
@@ -121,11 +120,12 @@ for the about.css.scss file custom styling*/
 #arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
 #arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
-.about-process-figures {
+.about-process-figure-container {
   width: 500px;
   height: 500px;
   position: absolute;
   top: 5em;
+  right: 0;
   display: inline-block;
   vertical-align: middle;
 }
@@ -147,6 +147,12 @@ for the about.css.scss file custom styling*/
   height: 300px;
   margin: auto;
   opacity: 1;
+}
+
+.about-process-text-paragraph {
+  font: 400 20px Lato, sans-serif;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .about-team-container {
