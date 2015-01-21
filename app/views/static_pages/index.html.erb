@@ -4,8 +4,10 @@
     <h1> BREAK THE CYCLE OF POVERTY </h1>
     <p id="home-blurb"> Elevate Africa helps people in the poorest regions of the world break the cycle of poverty once and for all by starting innovative, game-changing businesses.  We invest in the dreams of aspiring entrepreneurs using a unique blend of training, mentoring, technology and seed capital. Some say it’s crazy to think this concept can work in mud hut villages in Africa. They tell us the problems are too big. And that the people of Africa aren’t up for the challenge. We believe they couldn't be more wrong. </p>
   </div>
+  <img id="home-a-arrow" src="<%= asset_path("arrow.png") %>">
 </div>
 <!--<div id="home-arrow"></div>-->
+<img id="bg1-img" src="<%= asset_path("rita1.png") %>" class="bg1-begin bg1-default animation">
 <div class="wide-container bg1">
   <div class="home-text">
     <br><br><br>
@@ -13,18 +15,16 @@
     <br>
     <p> It all starts when someone in Africa has the courage to follow a dream. A dream of starting a business that breaks the cycle of poverty and generates lasting economic independence. </p>
   </div>
-  <img id="bg1-img" src="<%= asset_path("rita1.png") %>" data-sr="enter left move 100px over 1s">
-  <img id="thoughts-img" src="<%= asset_path("thoughts.png") %>" data-sr="wait 0.5s enter bottom move 50px over 1s">
+  <img id="thoughts-img" src="<%= asset_path("thoughts.png") %>" data-sr="enter top move 50px over 1s">
 </div>
 <div class="wide-container bg2">
-  <div class="home-text home-left">
+  <div class="home-text">
     <br><br>
     <h2> A fresh new approach </h2>
     <br>
     <p> At Elevate Africa, we help startups get their dreams off the ground. Our unique startup accelerator model surrounds entrepreneurs with a combination of business training, mentoring, microfinance and technology to help their businesses succeed. </p>
   </div>
-  <img id="bg2-img" src="<%= asset_path("rita2.png") %>" data-sr="enter right move 100px over 1s">
-  <img id="popup-img" src="<%= asset_path("rita-popup.png") %>" data-sr="wait 0.5s enter bottom move 50px over 1s">
+  <img id="bg3-img" src="<%= asset_path("rita3.png") %>" data-sr="enter bottom move 100px over 1s">
 </div>
 <div class="wide-container bg3">
   <div class="home-text">
@@ -33,18 +33,16 @@
     <br>
     <p> We like to invest in innovative businesses that make a difference for families and communities on multiple levels. Our entrepreneurs do everything from making soap that protects against malaria, to building solar ovens that save money and help protect the environment at the same time. </p>
   </div>
-  <img id="bg3-img" src="<%= asset_path("rita3.png") %>" data-sr="wait 0.5s enter left move 100px over 1s">
-  <img id="sun-img" src="<%= asset_path("sun.png") %>" data-sr="enter right move 50px over 1s">
+  <img id="bg2-img" src="<%= asset_path("rita2.png") %>" data-sr="enter left move 100px over 1s">
 </div>
 <div class="wide-container bg4">
-  <div class="home-text home-left">
+  <div class="home-text">
     <br>
     <h2> Grow, expand, and create new jobs </h2>
     <br>
     <p> When an Elevate Africa entrepreneur pays back her loan, that same money goes back into the loan pool to help the next group of entrepreneurs. Or to fund the expansion of her growing business with a new loan. It’s an amazing multiplier effect that means even a small donation can impact 10s, 100s, or even 1000s of people over time. </p>
   </div>
   <img id="rise-img" src="<%= asset_path("rise.png") %>" data-sr="enter right move 50px over 1s">
-  <img id="bg4-img" src="<%= asset_path("rita4.png") %>" data-sr="wait 0.5s enter bottom move 100px over 1s">
 </div>
 <div class="wide-container bg5">
   <div class="home-text">
@@ -53,10 +51,37 @@
     <br>
     <p> Proceeds from these businesses help put food on the table, buy medicine for the baby, and give kids the gift of education. Since nearly 80 percent of our entrepreneurs are women, we’re also helping to change a few minds along the way. </p>
   </div>
-  <img id="bg5-img" src="<%= asset_path("rita5.png") %>" data-sr="enter right move 50px over 1s">
-  <img id="student-img" src="<%= asset_path("students.png") %>" data-sr="wait 0.5s enter left move 100px over 1s">
+  <img id="student-img" src="<%= asset_path("students.png") %>" data-sr="enter left move 50px over 1s">
+</div>
+<div class="wide-container" id="footer-banner">
+  <div class="medium-container padding-center">
+    <h1> JOIN THE ADVENTURE </h1>
+    <p id="home-blurb"> We think we’re onto something pretty big here at Elevate Africa. We see it every day in the eyes of talented entrepreneurs across Africa who have the vision, optimism and courage to create a better life for themselves. People who are just crazy enough to share our dream of a world where innovation and self-reliance really do triumph over poverty. We invite you to join our adventure today. </p>
+  </div>
+  <a class="button about-button" href="<%= about_path %>"> Learn More </a>
+  <a class="button about-button" onclick="<%= new_donation_path %>"> Donate</a>
 </div>
 <script src="<%= asset_path("scrollReveal.min.js") %>"></script>
 <script>
   window.sr = new scrollReveal();
+  $(window).scroll(function() {
+    var startScroll = $(".bg1").offset().top - 260;
+    var truck = $(".bg4").offset().top + 400 - $(window).height();
+    var topScroll = $(".bg5").offset().top + 500 - $(window).height();
+    if ($(window).scrollTop() > topScroll) {
+      $("#bg1-img").addClass("bg1-edit");
+      $("#bg1-img").removeClass("bg1-begin");
+    } else if ($(window).scrollTop() < startScroll) {
+      $("#bg1-img").addClass("bg1-begin");
+      $("#bg1-img").removeClass("bg1-edit");
+    } else {
+      $("#bg1-img").removeClass("bg1-edit");
+      $("#bg1-img").removeClass("bg1-begin");
+    }
+    if ($(window).scrollTop() > truck && $(window).scrollTop() < truck + 500) {
+      $("#bg1-img").addClass("flip");
+    } else {
+      $("#bg1-img").removeClass("flip");
+    }
+  })
 </script>
