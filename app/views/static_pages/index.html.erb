@@ -4,9 +4,10 @@
     <h1> BREAK THE CYCLE OF POVERTY </h1>
     <p id="home-blurb"> Elevate Africa helps people in the poorest regions of the world break the cycle of poverty once and for all by starting innovative, game-changing businesses.  We invest in the dreams of aspiring entrepreneurs using a unique blend of training, mentoring, technology and seed capital. Some say it’s crazy to think this concept can work in mud hut villages in Africa. They tell us the problems are too big. And that the people of Africa aren’t up for the challenge. We believe they couldn't be more wrong. </p>
   </div>
+  <img id="home-a-arrow" src="<%= asset_path("arrow.png") %>">
 </div>
 <!--<div id="home-arrow"></div>-->
-<img id="bg1-img" src="<%= asset_path("rita1.png") %>" class="bg1-begin bg1-default">
+<img id="bg1-img" src="<%= asset_path("rita1.png") %>" class="bg1-begin bg1-default animation">
 <div class="wide-container bg1">
   <div class="home-text">
     <br><br><br>
@@ -65,7 +66,8 @@
   window.sr = new scrollReveal();
   $(window).scroll(function() {
     var startScroll = $(".bg1").offset().top - 260;
-    var topScroll = $(".bg5").offset().top - 290;
+    var truck = $(".bg4").offset().top + 400 - $(window).height();
+    var topScroll = $(".bg5").offset().top + 500 - $(window).height();
     if ($(window).scrollTop() > topScroll) {
       $("#bg1-img").addClass("bg1-edit");
       $("#bg1-img").removeClass("bg1-begin");
@@ -75,6 +77,11 @@
     } else {
       $("#bg1-img").removeClass("bg1-edit");
       $("#bg1-img").removeClass("bg1-begin");
+    }
+    if ($(window).scrollTop() > truck && $(window).scrollTop() < truck + 500) {
+      $("#bg1-img").addClass("flip");
+    } else {
+      $("#bg1-img").removeClass("flip");
     }
   })
 </script>
