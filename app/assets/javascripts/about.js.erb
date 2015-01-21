@@ -54,6 +54,8 @@ function initialSettings(first_icon, content, opacity) {
   changeCenterText(first_icon, content);
 }
 
+// A little bit of tweaking to this function will
+// change the paragraph content on icon hover!
 function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
@@ -68,6 +70,8 @@ function changeCenterText(selected, content) {
   else { title.text("Re-investing"); }
 }
 
+// Change the image paths in the conditional block
+// to change the image content on icon hover!
 function changeProcessImage(selected) {
   var figure = $(".about-process-figure");
 
