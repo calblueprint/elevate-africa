@@ -11,7 +11,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -22,5 +22,10 @@
     </div>
     <%= render 'shared/flash', flash: flash %>
     <%= render 'shared/footer' %>
+
+    <% if @donate %>
+      <%= render 'shared/donate_modal', campaign: @campaign %>
+    <% end %>
+
   </body>
 </html>

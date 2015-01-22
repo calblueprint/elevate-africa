@@ -1,0 +1,40 @@
+<div id="donation-modal-donate-container" class="modal">
+  <div class="donation-modal-form-container">
+    <%= simple_form_for @donation do |f| %>
+      <%= f.input :name, label: false,
+                         placeholder: "Name (optional)",
+                         input_html: { id: "donation-name"} %>
+      <%= f.input :amount, label: false,
+                           placeholder: "Amount (USD)",
+                           input_html: { id: "donation-amount",
+                                         class: "donate-amount",
+                                         value: "10" },
+                           as: :string, id: "test" %>
+      <% if @campaign %>
+        <%= f.hidden_field :campaign_id, value: @campaign.id %>
+      <% end %>
+      <%= text_field_tag :card_number, nil,
+                                       placeholder: "Card Number (16 digits)",
+                                       id: "donation-number" %>
+      <%= text_field_tag :card_code, nil,
+                                     placeholder: "Security Code (CVV)",
+                                     id: "donation-code" %>
+      <p><%= label_tag :card_month, "Card Expiration Date", id: "donation-expiration" %></p>
+      <div id="donation-month">
+        <%= select_tag :card_month, options_for_select((1..12).map {|m| [Date::MONTHNAMES[m], m]}), id: "card-month" %>
+      </div>
+      <div id="donation-year">
+        <%= select_tag :card_year, options_for_select((Time.zone.now.year)..(Time.zone.now.year + 15)), id: "card-year" %>
+      </div>
+
+
+      <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="donation-modal-info-container" class="modal">
+  <div class="donation-modal-form-container">
+    <h1>RANDOM TEXT</h1>
+  </div>
+</div>

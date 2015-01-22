@@ -1,0 +1,124 @@
+@import "variables.css.scss";
+
+/* Modal Container */
+#donation-modal-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  z-index: 50000;
+}
+
+.donation-modal-form-container {
+  width: 30%;
+  min-height: 50%;
+  max-height: 62%;
+  position: relative;
+  top: 25%;
+  margin: 0 auto;
+  padding: 20px;
+  background: $white;
+  z-index: 50001;
+  overflow: auto;
+}
+
+#donation-modal-donate-container {
+  @extend #donation-modal-container;
+}
+
+#donation-modal-info-container {
+  @extend #donation-modal-container;
+}
+
+/* Donation Modal */
+#donate-modal-row {
+  width: 100%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid $black;
+}
+
+#donation-name {
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  float: left;
+  width: 100%;
+  height: 50%;
+  margin-right: 1%;
+  margin: 0px;
+}
+
+#donation-amount {
+  width: 100%;
+  height: 50%;
+  float: left;
+  border-width: 0px 1px 1px 1px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+  margin: 0px;
+}
+
+#donation-number {
+  margin: 15px 0px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+#donation-code {
+  margin: 0px 0px 15px 0px;
+  border-width: 0px 1px 1px 1px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+#card-month {
+  border-width: 0px;
+  cursor: pointer;
+  margin: 0px;
+}
+
+#card-year {
+  border-width: 0px;
+  cursor: pointer;
+  margin: 0px;
+}
+
+#donation-month {
+  padding: 10px;
+  border: 1px solid $light-gray;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+#donation-year {
+  padding: 10px;
+  border: 1px solid $light-gray;
+  border-width: 0px 1px 1px 1px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+#donation-expiration {
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+

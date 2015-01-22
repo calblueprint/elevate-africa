@@ -2,11 +2,13 @@ class DonationsController < ApplicationController
   def new
     @campaign = Campaign.find_by id: params[:campaign_id]
     @donation = Donation.new
+    @donate = true
   end
 
   def create
     @campaign = Campaign.find_by id: donation_params[:campaign_id]
     @donation = Donation.new donation_params
+    @donate = true
     if @donation.save
       customer = Stripe::Customer.create email: params[:stripeEmail],
                                          card: params[:stripeToken]
