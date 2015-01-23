@@ -2,9 +2,9 @@ function navReveal() {
   $("#navbar-container").css("top","0");
 }
 function navHide() {
-  if ($(this).scrollTop() > 120) {
+  /*if ($(this).scrollTop() > 120) {
     $("#navbar-container").css("top","-69px");
-  }
+  }*/
 }
 function navRevealMobile() {
   $("#navbar-menu").css("right","0");
@@ -16,7 +16,7 @@ function navHideMobile() {
 }
 $(window).scroll(function() {
   if ($(this).scrollTop() > 120) {
-    $("#navbar-container").css("top","-69px");
+    /*$("#navbar-container").css("top","-69px");*/
   } else {
     $("#navbar-container").css("top","0");
   }
