@@ -10,7 +10,7 @@
                                          class: "donate-amount",
                                          value: "10" },
                            as: :string, id: "test" %>
-      <%= f.input :email, placeholder: "Email", id: "donation-email" %>
+      <%= f.input :email, label: false, placeholder: "Email", input_html: { id: "donation-email" } %>
       <% if @campaign %>
         <%= f.hidden_field :campaign_id, value: @campaign.id %>
       <% end %>
