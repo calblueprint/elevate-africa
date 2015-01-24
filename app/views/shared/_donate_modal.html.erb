@@ -10,6 +10,7 @@
                                          class: "donate-amount",
                                          value: "10" },
                            as: :string, id: "test" %>
+      <%= f.input :email, placeholder: "Email", id: "donation-email" %>
       <% if @campaign %>
         <%= f.hidden_field :campaign_id, value: @campaign.id %>
       <% end %>
@@ -27,7 +28,7 @@
         <%= select_tag :card_year, options_for_select((Time.zone.now.year)..(Time.zone.now.year + 15)), id: "card-year" %>
       </div>
 
-
+      <%= hidden_field_tag :stripeToken, nil, id: "donate-stripe-token" %>
       <%= f.submit "Donate!", id: "donate-create-button", class: "button" %>
     <% end %>
   </div>

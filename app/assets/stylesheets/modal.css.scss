@@ -24,7 +24,8 @@
   padding: 20px;
   background: $white;
   z-index: 50001;
-  overflow: auto;
+  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #donation-modal-donate-container {
@@ -112,6 +113,10 @@
 
 #donation-expiration {
   margin-left: 5px;
+}
+
+.freeze-background {
+  overflow: hidden;
 }
 
 
