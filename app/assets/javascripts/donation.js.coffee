@@ -12,7 +12,8 @@ TEXT = ["Help aspiring entrepreneurs take the first step to overcoming poverty
          "Your donation of $500 - $1000 will fund a new loan for an entrepreneur
           who has graduated from our training program and had their business plan
           approved. A single business can change the lives of entire families and
-          communities by providing healthcare, clean water, education and jobs."]
+          communities by providing healthcare, clean water, education and jobs.", 
+         "Lorem ipsum dolor sit amet, posuere diam amet imperdiet sociis non nisl, lacus odio rutrum vel, sapien senectus arcu nonummy, ultricies pellentesque vel gravida varius suscipit enim. Lorem ipsum dolor sit amet, posuere diam amet imperdiet sociis non nisl, lacus odio rutrum vel, sapien senectus arcu nonummy."]
 
 donation = ->
   if $("#donation-container").length > 0
@@ -79,12 +80,12 @@ donation = ->
       for num in [0...change_numbers.length]
         number = change_numbers[num]
         if value < number
-          image.css "background-image", "url(/assets/donations#{num + 1}.svg)"
+          # image.css "background-image", "url(/assets/donations#{num + 1}.svg)"
           setRange $("#range-#{num + 1}").attr("id")
           setText num, value
           break
         else if value >= change_numbers[change_numbers.length - 1]
-          image.css "background-image", "url(/assets/donations4.svg)"
+          # image.css "background-image", "url(/assets/donations4.svg)"
           setRange $("#range-4").attr("id")
           setText num, value
           break
@@ -103,7 +104,7 @@ donation = ->
         if $(element).attr("id") == id
           $(element).css({ "background-color": primary_color })
         else
-          $(element).css({ "background-color": "white" })
+          $(element).css({ "background-color": "#EEE" })
 
     textBox = $("#donation-donate-description")
     wowAlotBox = $("#donation-donate-extra")

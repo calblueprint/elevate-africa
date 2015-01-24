@@ -1,25 +1,33 @@
 <div id="donation-container">
   <div id="donation-image-container"></div>
   <div id="donation-content-container">
-    <h1 id="donation-headline">Help Break the Cycle of Poverty!</h1>
+    <h1 id="donation-headline">HELP BREAK THE CYCLE OF POVERTY!</h1>
     <div id="donation-form">
 
       <div id="donation-donate-range">
         <div class="donation-range-container" id="range-4" data-amt="1000">
           <h2 class="donation-range-head">Major Impact</h2>
           <h2 class="donation-range-range">$1000+</h2>
+          <div class="donation-square"></div>
+          <div class="donation-square-2"></div>
         </div>
         <div class="donation-range-container" id="range-3" data-amt="500">
           <h2 class="donation-range-head">Fund a Business</h2>
           <h2 class="donation-range-range">$500 - $1000</h2>
+          <div class="donation-square"></div>
+          <div class="donation-square-2"></div>
         </div>
         <div class="donation-range-container" id="range-2" data-amt="250">
           <h2 class="donation-range-head">Technology</h2>
           <h2 class="donation-range-range">$250 - $500</h2>
+          <div class="donation-square"></div>
+          <div class="donation-square-2"></div>
         </div>
         <div class="donation-range-container" id="range-1" data-amt="10">
           <h2 class="donation-range-head">Training</h2>
           <h2 class="donation-range-range">$10 - $250</h2>
+          <div class="donation-square"></div>
+          <div class="donation-square-2"></div>
         </div>
       </div>
 
@@ -51,8 +59,9 @@
           <div id="donate-button-container">
             <%= link_to "Donate!", "#stripe", id: "donate-modal-button", class: "button" %>
           </div>
+          <br>
           <h1 id="donate-info-container">
-            <%= link_to "Check?", "#check-info", id: "donate-info-button" %>
+            <%= link_to "Donate by check?", "#check-info", id: "donate-info-button" %>
           </h1>
         </div>
       </div>
