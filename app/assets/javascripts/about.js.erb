@@ -6,6 +6,7 @@ var ready = function() {
       var opacity = 0.75;
       var circle = $(".about-process-circle");
       var content = $(".about-process-text");
+      var figure = $(".about-process-figure-container");
 
       var first_icon = $("#icon-one");
       initialSettings(first_icon, content, opacity);
@@ -21,6 +22,10 @@ var ready = function() {
           content.animate({opacity: 0}, function() {
             changeCenterText(selected, content);
             content.animate({opacity: 1});
+          });
+          figure.animate({opacity: 0}, function() {
+            changeProcessImage(selected);
+            figure.animate({opacity: 1});
           });
           selected.animate({width: "7.5em", height: "7.5em", margin: "-3.75em", opacity: 1});
           previous.animate({width: "7em", height: "7em", margin: "-3.5em", opacity: opacity});
@@ -49,6 +54,8 @@ function initialSettings(first_icon, content, opacity) {
   changeCenterText(first_icon, content);
 }
 
+// A little bit of tweaking to this function will
+// change the paragraph content on icon hover!
 function changeCenterText(selected, content) {
   var title = content.find(".about-process-text-title");
   var paragraph = content.find(".about-process-text-paragraph");
@@ -61,6 +68,21 @@ function changeCenterText(selected, content) {
   else if(selected.attr("id") == "icon-six") { title.text("Technology"); }
   else if(selected.attr("id") == "icon-seven") { title.text("Impact"); }
   else { title.text("Re-investing"); }
+}
+
+// Change the image paths in the conditional block
+// to change the image content on icon hover!
+function changeProcessImage(selected) {
+  var figure = $(".about-process-figure");
+
+  if(selected.attr("id") == "icon-one") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-two") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-three") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-four") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-five") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-six") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else if(selected.attr("id") == "icon-seven") { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
+  else { figure.attr("src", "<%= asset_path("daughter.png") %>"); }
 }
 
 function fadeOthers(selected, opacity) {

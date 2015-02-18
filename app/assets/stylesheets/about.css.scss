@@ -14,14 +14,6 @@ for the about.css.scss file custom styling*/
   /* Adaptations for small-sized screens */
 }
 
-#process {
-  margin-top: 50px;
-  background: url(asset_path("background.png"));
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0 100px;
-}
-
 .about-process-container h2 {
   font-size: 36px;
   margin-bottom: 15px;
@@ -56,7 +48,6 @@ for the about.css.scss file custom styling*/
   display: block;
   text-align: center;
   margin: auto;
-  margin-top: -228px;
 }
 
 .about-padding {
@@ -64,10 +55,10 @@ for the about.css.scss file custom styling*/
 }
 
 .about-process-container {
-  width: 100%;
+  width: 1000px;
   margin: auto;
-  text-align: center;
   padding-top: 36px;
+  position: relative;
 }
 
 .about-process-circle {
@@ -75,7 +66,8 @@ for the about.css.scss file custom styling*/
   width: 30em;
   height: 30em;
   padding: 1.4em;
-  margin: 1.75em auto 0;
+  top: 0;
+  left: 5em;
 
   .about-process-icon {
     display: block;
@@ -120,32 +112,26 @@ for the about.css.scss file custom styling*/
 #arrow-seven { transform: rotate(270deg) translate(15em) rotate(90deg); }
 #arrow-eight { transform: rotate(315deg) translate(15em) rotate(90deg); }
 
-.about-process-figures {
-  width: 100%;
-  height: 100%;
+.about-process-figure-container {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 5em;
+  right: 0;
   display: inline-block;
   vertical-align: middle;
 }
 
-.about-process-figure-left {
-  position: absolute;
-  left: -75.0%;
-  vertical-align: middle;
-}
-
-.about-process-figure-right {
-  position: absolute;
-  left: 125.0%;
-  transform: scaleX(-1);
+.about-process-figure {
   vertical-align: middle;
 }
 
 .about-process-square {
-  width: 100%;
-  top: -350px;
-  margin: auto;
-  position: relative;
+  width: 300px;
+  position: absolute;
   z-index: -1;
+  top: 10em;
+  left: 10.5em;
 }
 
 .about-process-text {
@@ -153,6 +139,12 @@ for the about.css.scss file custom styling*/
   height: 300px;
   margin: auto;
   opacity: 1;
+}
+
+.about-process-text-paragraph {
+  font: 400 20px Lato, sans-serif;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .about-team-container {
