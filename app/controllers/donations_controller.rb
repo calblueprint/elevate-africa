@@ -10,7 +10,7 @@ class DonationsController < ApplicationController
     @donation = Donation.new donation_params
     @donate = true
     if @donation.save
-      customer = Stripe::Customer.create email: params[:stripeEmail],
+      customer = Stripe::Customer.create email: donation_params[:email],
                                          card: params[:stripeToken]
       Stripe::Charge.create customer: customer,
                             amount: donation_params[:amount].to_i * 100,

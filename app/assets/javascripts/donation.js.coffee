@@ -125,12 +125,14 @@ donation = ->
       e.preventDefault
       if parseInt(dollar_input.val()) > 0
         $("#donation-modal-donate-container").fadeToggle()
+        hideBackground()
       else
         toastr.error("You entered an invalid amount!")
 
     # Opens the check donation info box
     $("#donate-info-button").click (e) ->
       $("#donation-modal-info-container").fadeToggle()
+      hideBackground()
 
     # Stops clicking inside form to trigger modal hiding
     $(".donation-modal-form-container").click (e) ->
@@ -139,12 +141,46 @@ donation = ->
     $("#donation-modal-donate-container").click (e) ->
       e.preventDefault()
       $("#donation-modal-donate-container").fadeToggle()
+      showBackground()
 
     $("#donation-modal-info-container").click (e) ->
       e.preventDefault()
       $("#donation-modal-info-container").fadeToggle()
+      showBackground()
+
+    hideBackground = ->
+      $('body').addClass "freeze-background"
+
+    showBackground = ->
+      $('body').removeClass "freeze-background"
+
+  # Sets up donation
+  Stripe.setPublishableKey $('meta[name="stripe-key"]').attr('content')
+
+  $("#new_donation").submit (e) ->
+    e.preventDefault()
+    $('input[type=submit]').attr('disabled', true)
+    console.log "hello"
+    processCard()
 
 
+  processCard = ->
+    card =
+      number: $("#donation-number").val()
+      cvc: $("#donation-code").val()
+      expMonth: $("#card-month").val()
+      expYear: $("#card-year").val()
+    Stripe.createToken(card, stripeResponse)
+
+  stripeResponse = (status, response) ->
+    if status == 200
+      console.log response.id
+      $("#donate-stripe-token").val(response.id)
+      $("#new_donation")[0].submit()
+    else
+      console.log response.error.message
+      $('#stripe_error').text(response.error.message)
+      $('input[type=submit]').attr('disabled', true)
 
 $(document).ready donation
 $(document).on 'page:load', donation
